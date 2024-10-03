@@ -6,28 +6,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <?php
-    $cim ="";
-    if (isset($_GET["o"])){
-        switch ($_GET["o"]) {
-                case 'register':
-                    $cim ="Regisztráció - LiftZone";
-                    break;
-                case 'login':
-                    $cim ="Bejelentkezés - LiftZone";
-                    break;
-                case 'jegyvasarlas':
-                    $cim ="Jegyvásárlás - LiftZone";
-                    break;
-                case 'arak':
-                    $cim ="Árak - LiftZone";
-                    break;
-                default:
-                    $cim ="404 Error";
-                    break;
-            }
+        $cim ="";
+
+    $directory = 'oldalak/';
+    $files = scandir($directory);
+
+    $validPages = [];
+    foreach ($files as $file) {
+        if (pathinfo($file, PATHINFO_EXTENSION) == 'php') {
+            $pageName = basename($file, '.php');
+            $validPages[$pageName] = $directory . $file;
+        }
+    }
+
+    if (isset($_GET['o'])) {
+        $requestedPage = $_GET['o'];
+
+        if (array_key_exists($requestedPage, $validPages)) {
+            $cim ="$requestedPage - LiftZone";
         } else {
-            $cim ="LiftZone";
-        }?>
+            $cim ="404 Error";
+        }
+    } else {
+        $cim ="LiftZone";
+    }
+        
+        ?>
     <title><?=$cim?></title>
 </head>
 <body>
@@ -35,12 +39,13 @@
     <?php include('actions/naplozas.php'); naplo(); ?>
     <nav class="navbar navbar-dark  bg-dark p-3">
         <div class="container-fluid">
-            <a class="navbar-brand text-warning fs-2" href="./">FitZone</a>
+            <a class="navbar-brand text-warning fs-2" href="./">LiftZone</a>
             <a class="text-end" href="">1214 Budapest, Kossuth L. u. 117.</a>
             <a class="text-end" href="">6:00 - 23:00</a>
             <form class="d-flex">
                 <?php if (!isset($_SESSION["loggedin"])) {
-                    echo '<a class="btn btn-warning m-2" href="./?o=login">Bejelentkezés</a><a class="btn btn-warning m-2" href="./?o=register">Regisztráció </a>';
+                    echo '<a class="btn btn-warning m-2" href="./?o=loginform">Bejelentkezés</a>
+                    <a class="btn btn-warning m-2" href="./?o=registerform">Regisztráció </a>';
                 } else{
                     include("actions/getuserinfo.php");
                     $a = '
@@ -52,41 +57,30 @@
         </div>
     </nav>
         <div class="content">
-            <?php
-            if (isset($_GET["o"])) {
-                if ($_GET["o"] == "register") {
-                    require("oldalak/registerform.php");
-                } elseif ($_GET["o"] == "login"){
-                    require("oldalak/loginform.php");
-                } elseif ($_GET["o"] == "jegyvasarlas"){
-                    require("oldalak/jegyvasarlasform.php");
-                } elseif ($_GET["o"] == "arak"){
-                    require("oldalak/arak.php");
-                } elseif ($_GET["o"] == "fiok"){
-                    require("oldalak/fiok.php");
+        <?php
+            $directory = 'oldalak/';
+            $files = scandir($directory);
+
+            $validPages = [];
+            foreach ($files as $file) {
+                if (pathinfo($file, PATHINFO_EXTENSION) == 'php') {
+                    $pageName = basename($file, '.php');
+                    $validPages[$pageName] = $directory . $file;
                 }
-                else{
-                    echo "<br><h1>404</h1>";
-                }
-            } else{
-                require("oldalak/main.php");
             }
 
-        //ez alapjan majd dinamikusan
-        //     <?php
-        //     $directory = 'megoldasok/';
-        //     $files = scandir($directory);
-        //     foreach ($files as $file) {
-        //         if ($file != '.' && $file != '..' && pathinfo($file, PATHINFO_EXTENSION) == 'php') {
-        //             $fileNumber = preg_replace('/\D/', '', $file);
-        //             echo '<tr>';
-        //             echo '<td><a href="' . $directory.$file . '"> ' . $fileNumber . ' </a></td>' . PHP_EOL;
-        //             echo '<td><a title="Forráskód" href="?src=' . $fileNumber . '">-></a></td>' . PHP_EOL;
-        //             echo '<td><a target="_" title="Megnyitás az infojegyzet weboldalán" href="https://infojegyzet.hu/' . $fileNumber . '">-></a></td>' . PHP_EOL;
-        //             echo '</tr>';
-        //         }
-        //     }
-        // 
+            if (isset($_GET['o'])) {
+                $requestedPage = $_GET['o'];
+
+                if (array_key_exists($requestedPage, $validPages)) {
+                    require($validPages[$requestedPage]);
+                } else {
+                    echo "<br><h1>404 - Nincs ilyen oldal!</h1>";
+                }
+            } else {
+                require("oldalak/main.php");
+            }
+            
 
             print_r($_SESSION);
             ?>

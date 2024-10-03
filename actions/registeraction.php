@@ -26,9 +26,10 @@ if (isset($row)) {
     $ip = $_SERVER['REMOTE_ADDR'];
     session_start();
     $sessionid = session_id();
+    $uuid = uniqid('', true);
     //sql insert statement osszerakása
-    $sql = "INSERT INTO user (uID, uFelhasznalonev, uemail, uPassword, uSzuletesidatum, uRegisztracio, uIP, uSession, uStatus, uKomment)
-    VALUES ('', '$username', '$email', '$password', '$date', '$curdate', '$ip', '$sessionid', 'a', '.')";
+    $sql = "INSERT INTO user (uID, uUID, uFelhasznalonev, uemail, uPassword, uSzuletesidatum, uRegisztracio, uIP, uSession, uStatus, uKomment)
+    VALUES ('', '$uuid', '$username', '$email', '$password', '$date', '$curdate', '$ip', '$sessionid', 'a', '.')";
     //sql meghivása
     sqlsave($sql);
     echo "<script>window.top.postMessage({loginSuccess: true}, '*');</script>";

@@ -68,3 +68,9 @@ h1 {
         text-align: right;
     }
 }
+
+.fiok {
+    width: 100%;
+    padding-right: 40rem;
+    border-radius: 0;
+}
