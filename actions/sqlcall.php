@@ -1,21 +1,23 @@
 <?php
-function sqlcall($sql) {
-    $db = mysqli_connect("localhost","root","","regisztraciofitness");
+function db_connect() {
+    $db = new mysqli("localhost", "root", "", "regisztraciofitness");
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+    }
     $db->query("SET CHARACTER SET utf8");
-    $tablazat = $db->query($sql);
+    return $db;
+}
+
+function sqlcall($sql) {
+    $db = db_connect();
+    $result = $db->query($sql);
     $db->close();
-    return $tablazat;
+    return $result;
 }
 
 function sqlsave($sql) {
-    $db = mysqli_connect("localhost","root","","regisztraciofitness");
-    if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
-    }
-    $db->query("SET CHARACTER SET utf8");
-    if ($db->query($sql) === TRUE) {
-        echo "";
-    } else {
+    $db = db_connect();
+    if ($db->query($sql) !== TRUE) {
         echo "Error: " . $sql . "<br>" . $db->error;
     }
     $db->close();
