@@ -64,22 +64,27 @@
             } else{
                 $o = "";
             }
-            if (!isset($_SESSION["uid"])) {
+
+            if (isset($_SESSION["uid"])) {
                 if ($o == "arak") {
                     require("oldalak/arak.php");
                 }
                 else if ($o == "") {
                     require("oldalak/main.php");
                 }
-                else{
-                    require("oldalak/404.php");
-                }
-            } else{
-                if ($o == "fiok") {
+                else if ($o == "fiok") {
                     require("oldalak/fiok.php");
                 }
                 else if ($o == "jegyvasarlas") {
                     require("oldalak/jegyvasarlas.php");
+                }
+                else{
+                    require("oldalak/404.php");
+                }
+            }
+            else{
+                if ($o == "arak") {
+                    require("oldalak/arak.php");
                 }
                 else if ($o == "loginform") {
                     require("oldalak/loginform.php");
