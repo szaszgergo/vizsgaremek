@@ -32,7 +32,7 @@ if (isset($row)) {
     VALUES ('', '$uuid', '$username', '$email', '$password', '$date', '$curdate', '$ip', '$sessionid', 'a', '.')";
     //sql meghivása
     sqlsave($sql);
-    echo "<script>window.top.postMessage({loginSuccess: true}, '*');</script>";
+    echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";
 }
 
 

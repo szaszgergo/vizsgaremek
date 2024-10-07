@@ -59,27 +59,40 @@
     </nav>
         <div class="content">
         <?php
-            $directory = 'oldalak/';
-            $files = scandir($directory);
-
-            $validPages = [];
-            foreach ($files as $file) {
-                if (pathinfo($file, PATHINFO_EXTENSION) == 'php') {
-                    $pageName = basename($file, '.php');
-                    $validPages[$pageName] = $directory . $file;
-                }
-            }
-
             if (isset($_GET['o'])) {
-                $requestedPage = $_GET['o'];
-
-                if (array_key_exists($requestedPage, $validPages)) {
-                    require($validPages[$requestedPage]);
-                } else {
-                    echo "<br><h1>404 - Nincs ilyen oldal!</h1>";
+                $o = $_GET['o'];
+            } else{
+                $o = "";
+            }
+            if (!isset($_SESSION["uid"])) {
+                if ($o == "arak") {
+                    require("oldalak/arak.php");
                 }
-            } else {
-                require("oldalak/main.php");
+                else if ($o == "") {
+                    require("oldalak/main.php");
+                }
+                else{
+                    require("oldalak/404.php");
+                }
+            } else{
+                if ($o == "fiok") {
+                    require("oldalak/fiok.php");
+                }
+                else if ($o == "jegyvasarlas") {
+                    require("oldalak/jegyvasarlas.php");
+                }
+                else if ($o == "loginform") {
+                    require("oldalak/loginform.php");
+                }
+                else if ($o == "registerform") {
+                    require("oldalak/registerform.php");
+                }
+                else if ($o == "") {
+                    require("oldalak/main.php");
+                }
+                else{
+                    require("oldalak/404.php");
+                }
             }
             
 
@@ -99,7 +112,12 @@
             }
             if (event.data.loginSuccess) {
                 document.getElementById('error-message').style.display = 'none';
-                window.location.href = "./";
+                window.location.href = "./?o=fiok";
+            }
+            if (event.data.regSuccess) {
+                document.getElementById('error-message').style.display = 'none';
+                window.location.href = "./?o=loginform";
+                alert('Sikeres regisztráció, lépj be!');
             }
         });
     </script>
