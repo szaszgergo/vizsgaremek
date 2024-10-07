@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2024 at 12:33 PM
+-- Generation Time: Oct 07, 2024 at 01:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -46,6 +46,16 @@ CREATE TABLE `jegyek` (
   `jStatus` tinyint(1) NOT NULL,
   `jLejarat` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- Dumping data for table `jegyek`
+--
+
+INSERT INTO `jegyek` (`jID`, `juID`, `jtID`, `jStatus`, `jLejarat`) VALUES
+(2, 4, 5, 0, '2029-10-07 13:41:37'),
+(3, 4, 5, 0, '2029-10-07 13:41:53'),
+(4, 4, 5, 0, '2029-10-07 13:42:16'),
+(5, 4, 5, 1, '2029-10-07 13:42:29');
 
 -- --------------------------------------------------------
 
@@ -123,7 +133,12 @@ INSERT INTO `login` (`lID`, `lDatum`, `lIP`, `lSession`, `luID`) VALUES
 (39, '2024-10-07 12:09:29', '::1', 'tnjlu8pq', 4),
 (40, '2024-10-07 12:14:43', '::1', 'tnjlu8pq', 4),
 (41, '2024-10-07 12:18:26', '::1', 'tnjlu8pq', 19),
-(42, '2024-10-07 12:20:37', '::1', 'tnjlu8pq', 4);
+(42, '2024-10-07 12:20:37', '::1', 'tnjlu8pq', 4),
+(43, '2024-10-07 12:41:45', '::1', 'tnjlu8pq', 4),
+(44, '2024-10-07 01:09:59', '::1', 'tnjlu8pq', 4),
+(45, '2024-10-07 01:15:15', '::1', 'tnjlu8pq', 4),
+(46, '2024-10-07 01:16:35', '::1', 'tnjlu8pq', 4),
+(47, '2024-10-07 01:41:45', '::1', 'tnjlu8pq', 4);
 
 -- --------------------------------------------------------
 
@@ -1000,7 +1015,87 @@ INSERT INTO `naplo` (`nID`, `nDatum`, `nIP`, `nSession`, `nuID`, `nURL`) VALUES
 (852, '2024-10-07 12:32:47', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
 (853, '2024-10-07 12:32:48', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
 (854, '2024-10-07 12:32:49', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
-(855, '2024-10-07 12:33:12', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform');
+(855, '2024-10-07 12:33:12', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(856, '2024-10-07 12:36:55', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(857, '2024-10-07 12:36:56', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(858, '2024-10-07 12:37:12', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(859, '2024-10-07 12:37:13', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(860, '2024-10-07 12:37:14', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(861, '2024-10-07 12:37:15', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(862, '2024-10-07 12:37:26', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(863, '2024-10-07 12:37:27', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=arak'),
+(864, '2024-10-07 12:37:28', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(865, '2024-10-07 12:37:29', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(866, '2024-10-07 12:37:30', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(867, '2024-10-07 12:37:31', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(868, '2024-10-07 12:37:32', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(869, '2024-10-07 12:37:50', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(870, '2024-10-07 12:38:00', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(871, '2024-10-07 12:38:21', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(872, '2024-10-07 12:38:22', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(873, '2024-10-07 12:38:22', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(874, '2024-10-07 12:38:24', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(875, '2024-10-07 12:38:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(876, '2024-10-07 12:38:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(877, '2024-10-07 12:38:26', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(878, '2024-10-07 12:38:26', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(879, '2024-10-07 12:38:26', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(880, '2024-10-07 12:38:27', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(881, '2024-10-07 12:38:28', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(882, '2024-10-07 12:38:28', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(883, '2024-10-07 12:38:30', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=arak'),
+(884, '2024-10-07 12:38:30', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(885, '2024-10-07 12:38:31', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=arak'),
+(886, '2024-10-07 12:38:32', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(887, '2024-10-07 12:38:52', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(888, '2024-10-07 12:39:13', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(889, '2024-10-07 12:39:14', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(890, '2024-10-07 12:39:41', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(891, '2024-10-07 12:39:50', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(892, '2024-10-07 12:39:52', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(893, '2024-10-07 12:39:53', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(894, '2024-10-07 12:40:30', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(895, '2024-10-07 12:40:35', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(896, '2024-10-07 12:40:36', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(897, '2024-10-07 12:40:37', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(898, '2024-10-07 12:41:22', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(899, '2024-10-07 12:41:23', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(900, '2024-10-07 12:41:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=arak'),
+(901, '2024-10-07 12:41:36', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=arak'),
+(902, '2024-10-07 12:41:39', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(903, '2024-10-07 12:41:41', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(904, '2024-10-07 12:41:41', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(905, '2024-10-07 12:41:42', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(906, '2024-10-07 12:41:45', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(907, '2024-10-07 12:42:00', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(908, '2024-10-07 12:42:20', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(909, '2024-10-07 12:42:20', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(910, '2024-10-07 12:42:21', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(911, '2024-10-07 12:42:22', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(912, '2024-10-07 12:42:23', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(913, '2024-10-07 12:43:10', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(914, '2024-10-07 12:43:12', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(915, '2024-10-07 12:43:13', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(916, '2024-10-07 01:01:53', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(917, '2024-10-07 01:09:54', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(918, '2024-10-07 01:09:55', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(919, '2024-10-07 01:10:00', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(920, '2024-10-07 01:12:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(921, '2024-10-07 01:12:27', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(922, '2024-10-07 01:12:44', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(923, '2024-10-07 01:15:15', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(924, '2024-10-07 01:15:19', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(925, '2024-10-07 01:16:30', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=arak'),
+(926, '2024-10-07 01:16:32', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(927, '2024-10-07 01:16:33', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(928, '2024-10-07 01:16:36', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(929, '2024-10-07 01:18:16', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(930, '2024-10-07 01:18:38', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=arak'),
+(931, '2024-10-07 01:31:52', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(932, '2024-10-07 01:41:41', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(933, '2024-10-07 01:41:42', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(934, '2024-10-07 01:41:45', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(935, '2024-10-07 01:41:46', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/');
 
 -- --------------------------------------------------------
 
@@ -1012,9 +1107,32 @@ CREATE TABLE `tipusok` (
   `tpID` int(11) NOT NULL,
   `tpNev` varchar(100) NOT NULL,
   `tpAr` int(11) NOT NULL,
-  `tpHossz` int(11) NOT NULL DEFAULT 60,
-  `tpAlkalmak` int(11) NOT NULL
+  `tpHossz` int(11) DEFAULT 60,
+  `tpAlkalmak` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- Dumping data for table `tipusok`
+--
+
+INSERT INTO `tipusok` (`tpID`, `tpNev`, `tpAr`, `tpHossz`, `tpAlkalmak`) VALUES
+(1, 'Havi bérlet', 19900, 30, NULL),
+(2, 'Napijegy', 2990, 1, 1),
+(3, 'Három hónapos bérlet', 49900, 90, NULL),
+(4, 'Hat hónapos bérlet', 99900, 180, NULL),
+(5, 'Éves bérlet', 199900, 365, NULL),
+(6, 'Egy hetes bérlet', 12900, 7, NULL),
+(7, 'Tíz alkalmas bérlet', 17900, NULL, 10),
+(8, 'Délelőtti bérlet', 16900, 30, NULL),
+(9, 'Hétvégi bérlet', 12900, 30, NULL),
+(10, 'Diák/Nyugdíjas Havi bérlet', 17900, 30, NULL),
+(11, 'Diák/Nyugdíjas Napijegy', 2490, 1, 1),
+(12, 'Diák/Nyugdíjas Három hónapos bérlet', 45900, 90, NULL),
+(13, 'Diák/Nyugdíjas Hat hónapos bérlet', 89900, 180, NULL),
+(14, 'Diák/Nyugdíjas Éves bérlet', 176900, 365, NULL),
+(15, 'Diák/Nyugdíjas Egy hetes bérlet', 11900, 7, NULL),
+(16, 'Diák/Nyugdíjas Tíz alkalmas bérlet', 15900, NULL, 10),
+(17, 'Diák/Nyugdíjas Délelőtti bérlet', 15900, 30, NULL);
 
 -- --------------------------------------------------------
 
@@ -1068,7 +1186,6 @@ INSERT INTO `user` (`uID`, `uUID`, `uFelhasznalonev`, `uemail`, `uPassword`, `uS
 (8, '66', 'UnfriedFry', 'letmefewrfinmfk@freemail.hu', '$2y$10$vhb7M4DXSrzvkuYXRvpPcuOmQVvvml2Lba6cQtMRwvnvitQZMffJO', '4322-02-01', '2024-10-03 12:30:20', '::1', 'tku3atd8', 'a', '.'),
 (9, '66', 'Ódor Olivér', 'letmeifwfwefewmfk@freemail.hu', '$2y$10$J9l9y.3R9iQzUpo8m/8RPe3Zychm2ZNfKqP.6wJZpqmaXA57VVvIa', '0212-02-02', '2024-10-03 12:32:19', '::1', 'tku3atd8', 'a', '.'),
 (10, '66fe73279a19e3.98463190', 'Szász Gergő', 'hafewfwegaja5131@jthoven.com', '$2y$10$2VUjiNM.59iVGH1ivXnsRuBir6XyC/w9xnSH//F4WL1sJgcVw1Bh.', '0223-02-02', '2024-10-03 12:34:15', '::1', 'tku3atd8', 'a', '.'),
-(11, '6703b2e49fb074.85835579', '', '', '$2y$10$t93kcx3zbo5Nq4NdANcxgeWGsuC9klQUcP4UQEem4UhiiXfZRjsDe', '0000-00-00', '2024-10-07 12:07:32', '::1', 'tnjlu8pq', 'a', '.'),
 (12, '6703b36e24b959.20967218', 'a', 'a@a.com', '$2y$10$nX5GIby5c0NjI5BzRZI1I.ApejOR9dTmz20rJNoGAPAEIH8qppfrG', '0000-00-00', '2024-10-07 12:09:50', '::1', 'tnjlu8pq', 'a', '.'),
 (13, '6703b3bf1e1f58.55982756', 'b', 'b@b.com', '$2y$10$BDwVBxcoC/AxmKwPY89wa.oRTPY2ulDJpuBiatz9uQ3Yp24MkEqxG', '0324-03-02', '2024-10-07 12:11:11', '::1', 'tnjlu8pq', 'a', '.'),
 (14, '6703b3e3a05e48.19282392', 'c', 'c@c.com', '$2y$10$GvVs1sADBkPEgnWmmdJ2WucoQEIb8Y9xX7UJl44Fd8Y7i47VU8Cri', '0002-03-04', '2024-10-07 12:11:47', '::1', 'tnjlu8pq', 'a', '.'),
@@ -1101,6 +1218,12 @@ ALTER TABLE `naplo`
   ADD PRIMARY KEY (`nID`);
 
 --
+-- Indexes for table `tipusok`
+--
+ALTER TABLE `tipusok`
+  ADD PRIMARY KEY (`tpID`);
+
+--
 -- Indexes for table `tranzakciok`
 --
 ALTER TABLE `tranzakciok`
@@ -1120,19 +1243,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `jegyek`
 --
 ALTER TABLE `jegyek`
-  MODIFY `jID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `jID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `lID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `lID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `naplo`
 --
 ALTER TABLE `naplo`
-  MODIFY `nID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=856;
+  MODIFY `nID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=936;
+
+--
+-- AUTO_INCREMENT for table `tipusok`
+--
+ALTER TABLE `tipusok`
+  MODIFY `tpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tranzakciok`
