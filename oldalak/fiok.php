@@ -4,7 +4,7 @@ $jegy = getUserJegyek();
 if (isset($jegy)) {
     $jtid = $jegy[2];
     $tipusadatok = getJegyTipusAdatok($jtid);
-    $szoveg = "<img src='https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $adatok[1]?>&size=4000x4000&margin=5;' alt='<?php echo $adatok[1]?>' title='JEGY'  />
+    $szoveg = "<img src='https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $adatok[1]?>&size=4000x4000&margin=10;' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  />
     <h3>$tipusadatok[1]</h3>
     <h3>$jegy[4]</h3>
     <h3>Használatok száma: $jegy[5]</h3>";

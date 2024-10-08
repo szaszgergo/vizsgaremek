@@ -69,15 +69,18 @@ h1 {
     }
 }
 
-.fiok{
-    width: 100%;
-    border-radius: 10pt;
-}
-.jegy{
-    text-align: center;
-    border-radius: 10pt;
-    padding: 0.5rem;
-}
+
 .fiokrow{
+    width: 90%;
+    margin: 0 auto;
     margin-top: 1rem;
+    & .fiok{
+        width: 100%;
+        border-radius: 10pt;
+    }
+    & .jegy{
+        text-align: center;
+        border-radius: 10pt;
+        padding: 0.5rem;
+    }
 }

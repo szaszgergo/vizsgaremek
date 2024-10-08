@@ -11,8 +11,6 @@ $jegy = $adatok->fetch_row();
 $hossz = $jegy[3];
 $alkalmak = $jegy[4];
 
-
-
 $sql = "INSERT INTO `jegyek`(`jID`, `juID`, `jtID`, `jStatus`, `jLejarat`, `jAlkalmak`) 
 VALUES ('', '$uid', '$jtid', 1, CURRENT_TIMESTAMP + INTERVAL $hossz DAY, $alkalmak);";
 sqlsave($sql);
