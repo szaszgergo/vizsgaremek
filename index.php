@@ -49,6 +49,7 @@
                     <a class="btn btn-warning m-2" href="./?o=registerform">Regisztráció </a>';
                 } else{
                     include("actions/getuserinfo.php");
+                    include("actions/getjegytipusadatok.php");
                     $a = '
                     <span class="navbar-text"><a href="./?o=fiok" class=text-end">'.getUserInfo()[2].'<i class="fa fa-user-circle-o" style="font-size:36px"></i></a></span>
                     <a href="actions/logout.php" class="btn btn-danger">Kijelentkezés</a>';
@@ -75,8 +76,8 @@
                 else if ($o == "fiok") {
                     require("oldalak/fiok.php");
                 }
-                else if ($o == "jegyvasarlas") {
-                    require("oldalak/jegyvasarlas.php");
+                else if ($o == "jegyvasarlasform") {
+                    require("oldalak/jegyvasarlasform.php");
                 }
                 else{
                     require("oldalak/404.php");
