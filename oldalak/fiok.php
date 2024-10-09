@@ -1,10 +1,15 @@
+<style>
+    #jelszomodositas{
+        text-decoration: underline;
+    }
+</style>
 <?php
 $adatok = getUserInfo();
 $jegy = getUserJegyek();
 if (isset($jegy)) {
     $jtid = $jegy[2];
     $tipusadatok = getJegyTipusAdatok($jtid);
-    $szoveg = "<img src='https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $adatok[1]?>&size=4000x4000&margin=10;' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  />
+    $szoveg = "<img src='https://api.qrserver.com/v1/create-qr-code/?data=$adatok[1]&size=4000x4000&margin=10;' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  />
     <h3>$tipusadatok[1]</h3>
     <h3>$jegy[4]</h3>
     <h3>Használatok száma: $jegy[5]</h3>";
@@ -29,6 +34,11 @@ if (isset($jegy)) {
                 <label for="InputDate" class="form-label">Születési dátum</label>
                 <input value="<?php echo $adatok[5]?>" type="date" class="form-control form-control-dark" id="InputDate" name="date" >
             </div>
+            <div class="mb-3">
+                <!--jelszomodositas.php  -->
+              <p>Ha a jelszódat akarod módosítani akkor azt <a id="jelszomodositas" href="?o=jelszomodositas">itt</a> lehet.</p>
+            </div>
+
             <button type="submit" class="btn btn-warning w-100">Adatok mentése</button>
         </form>
     </div>

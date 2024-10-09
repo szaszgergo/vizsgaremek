@@ -79,6 +79,9 @@
                 else if ($o == "jegyvasarlasform") {
                     require("oldalak/jegyvasarlasform.php");
                 }
+                else if ($o == "jelszomodositas") {
+                    require("oldalak/jelszomodositas.php");
+                }
                 else{
                     require("oldalak/404.php");
                 }
