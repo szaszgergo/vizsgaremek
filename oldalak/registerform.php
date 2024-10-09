@@ -9,9 +9,10 @@
         <label for="InputEmail" class="form-label">Email cím</label>
         <input type="email" class="form-control form-control-dark" id="InputEmail" name="email" maxlength="256" required>
     </div>
-    <div class="mb-3">
+    <div class="mb-3" id="password-container">
         <label for="InputPassword" class="form-label">Jelszó</label>
         <input type="password" class="form-control form-control-dark" id="InputPassword" name="password" maxlength="64" required>
+        <img style="margin-top:5px;" src="images/hidden.png" id="eyeIcon" class="eye-icon" alt="Show/Hide Password">
         <div id="passHelp" class="form-text text-warning">64 hossz, specialis karakterek</div>
     </div>
     <div class="mb-3">
