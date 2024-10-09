@@ -1,8 +1,3 @@
-<style>
-    #jelszomodositas{
-        text-decoration: underline;
-    }
-</style>
 <?php
 $adatok = getUserInfo();
 $jegy = getUserJegyek();
