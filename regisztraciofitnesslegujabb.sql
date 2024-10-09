@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2024 at 01:43 PM
+-- Generation Time: Oct 09, 2024 at 01:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,18 +44,25 @@ CREATE TABLE `jegyek` (
   `juID` int(11) NOT NULL,
   `jtID` int(11) NOT NULL,
   `jStatus` tinyint(1) NOT NULL,
-  `jLejarat` datetime NOT NULL
+  `jLejarat` datetime NOT NULL,
+  `jAlkalmak` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Dumping data for table `jegyek`
 --
 
-INSERT INTO `jegyek` (`jID`, `juID`, `jtID`, `jStatus`, `jLejarat`) VALUES
-(2, 4, 5, 0, '2029-10-07 13:41:37'),
-(3, 4, 5, 0, '2029-10-07 13:41:53'),
-(4, 4, 5, 0, '2029-10-07 13:42:16'),
-(5, 4, 5, 1, '2029-10-07 13:42:29');
+INSERT INTO `jegyek` (`jID`, `juID`, `jtID`, `jStatus`, `jLejarat`, `jAlkalmak`) VALUES
+(2, 4, 5, 0, '2029-10-07 13:41:37', NULL),
+(3, 4, 5, 0, '2029-10-07 13:41:53', NULL),
+(4, 4, 5, 0, '2029-10-07 13:42:16', NULL),
+(5, 4, 5, 1, '2025-10-07 13:42:29', NULL),
+(6, 17, 2, 0, '2024-10-08 14:50:14', NULL),
+(7, 14, 5, 1, '2025-10-07 14:51:08', NULL),
+(8, 16, 10, 1, '2024-11-07 13:50:07', NULL),
+(9, 12, 7, 1, '2024-12-07 13:51:24', 10),
+(10, 13, 7, 1, '2024-12-07 13:55:34', 10),
+(11, 15, 7, 1, '2024-12-07 15:47:25', 10);
 
 -- --------------------------------------------------------
 
@@ -138,7 +145,29 @@ INSERT INTO `login` (`lID`, `lDatum`, `lIP`, `lSession`, `luID`) VALUES
 (44, '2024-10-07 01:09:59', '::1', 'tnjlu8pq', 4),
 (45, '2024-10-07 01:15:15', '::1', 'tnjlu8pq', 4),
 (46, '2024-10-07 01:16:35', '::1', 'tnjlu8pq', 4),
-(47, '2024-10-07 01:41:45', '::1', 'tnjlu8pq', 4);
+(47, '2024-10-07 01:41:45', '::1', 'tnjlu8pq', 4),
+(48, '2024-10-07 01:47:16', '::1', 'tnjlu8pq', 4),
+(49, '2024-10-07 02:17:34', '::1', 'tnjlu8pq', 4),
+(50, '2024-10-07 02:38:23', '::1', 'tnjlu8pq', 19),
+(51, '2024-10-07 02:44:27', '::1', 'tnjlu8pq', 17),
+(52, '2024-10-07 02:50:43', '::1', 'tnjlu8pq', 14),
+(53, '2024-10-08 11:56:46', '::1', 'oo7jr3p0', 4),
+(54, '2024-10-08 12:09:21', '::1', 'oo7jr3p0', 19),
+(55, '2024-10-08 12:16:50', '::1', 'oo7jr3p0', 14),
+(56, '2024-10-08 12:18:25', '::1', 'oo7jr3p0', 17),
+(57, '2024-10-08 12:20:25', '::1', 'oo7jr3p0', 15),
+(58, '2024-10-08 01:33:05', '::1', 'sh66ndt6', 14),
+(59, '2024-10-08 01:33:29', '::1', 'sh66ndt6', 4),
+(60, '2024-10-08 01:41:50', '::1', 'sh66ndt6', 16),
+(61, '2024-10-08 01:51:14', '::1', 'sh66ndt6', 12),
+(62, '2024-10-08 01:55:25', '::1', 'sh66ndt6', 13),
+(63, '2024-10-08 01:58:43', '::1', 'sh66ndt6', 12),
+(64, '2024-10-08 03:44:02', '::1', 'sh66ndt6', 14),
+(65, '2024-10-08 03:46:30', '::1', 'sh66ndt6', 15),
+(66, '2024-10-08 03:52:32', '::1', 'sh66ndt6', 17),
+(67, '2024-10-08 03:53:01', '::1', 'sh66ndt6', 13),
+(68, '2024-10-08 04:00:32', '::1', 'sh66ndt6', 13),
+(69, '2024-10-08 04:03:00', '::1', 'ofm2p527', 4);
 
 -- --------------------------------------------------------
 
@@ -151,7 +180,7 @@ CREATE TABLE `naplo` (
   `nDatum` datetime NOT NULL,
   `nIP` varchar(48) NOT NULL,
   `nSession` varchar(8) NOT NULL,
-  `nuID` int(11) NOT NULL,
+  `nuID` int(11) DEFAULT NULL,
   `nURL` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
@@ -1095,7 +1124,264 @@ INSERT INTO `naplo` (`nID`, `nDatum`, `nIP`, `nSession`, `nuID`, `nURL`) VALUES
 (932, '2024-10-07 01:41:41', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=registerform'),
 (933, '2024-10-07 01:41:42', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
 (934, '2024-10-07 01:41:45', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
-(935, '2024-10-07 01:41:46', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/');
+(935, '2024-10-07 01:41:46', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(936, '2024-10-07 01:46:12', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(937, '2024-10-07 01:46:13', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(938, '2024-10-07 01:47:13', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(939, '2024-10-07 01:47:16', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(940, '2024-10-07 02:07:24', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(941, '2024-10-07 02:07:31', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(942, '2024-10-07 02:08:09', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(943, '2024-10-07 02:10:39', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(944, '2024-10-07 02:10:58', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(945, '2024-10-07 02:11:00', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(946, '2024-10-07 02:11:13', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(947, '2024-10-07 02:11:24', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(948, '2024-10-07 02:11:27', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(949, '2024-10-07 02:15:44', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(950, '2024-10-07 02:15:46', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(951, '2024-10-07 02:16:05', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(952, '2024-10-07 02:17:28', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(953, '2024-10-07 02:17:30', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(954, '2024-10-07 02:17:34', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(955, '2024-10-07 02:18:54', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(956, '2024-10-07 02:19:07', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(957, '2024-10-07 02:19:36', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(958, '2024-10-07 02:20:00', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(959, '2024-10-07 02:20:11', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(960, '2024-10-07 02:20:27', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(961, '2024-10-07 02:20:27', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(962, '2024-10-07 02:20:36', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(963, '2024-10-07 02:20:36', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(964, '2024-10-07 02:20:43', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(965, '2024-10-07 02:20:45', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(966, '2024-10-07 02:20:48', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(967, '2024-10-07 02:21:22', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(968, '2024-10-07 02:25:09', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(969, '2024-10-07 02:26:19', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(970, '2024-10-07 02:26:30', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(971, '2024-10-07 02:26:31', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(972, '2024-10-07 02:26:32', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(973, '2024-10-07 02:27:38', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(974, '2024-10-07 02:27:39', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(975, '2024-10-07 02:27:39', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(976, '2024-10-07 02:27:39', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(977, '2024-10-07 02:27:40', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(978, '2024-10-07 02:27:40', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(979, '2024-10-07 02:27:40', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(980, '2024-10-07 02:27:40', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(981, '2024-10-07 02:28:23', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(982, '2024-10-07 02:28:23', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(983, '2024-10-07 02:28:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(984, '2024-10-07 02:28:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(985, '2024-10-07 02:28:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(986, '2024-10-07 02:28:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(987, '2024-10-07 02:28:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(988, '2024-10-07 02:28:35', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(989, '2024-10-07 02:28:49', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(990, '2024-10-07 02:28:49', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(991, '2024-10-07 02:28:50', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(992, '2024-10-07 02:29:10', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(993, '2024-10-07 02:29:21', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(994, '2024-10-07 02:30:07', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(995, '2024-10-07 02:30:16', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(996, '2024-10-07 02:30:59', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(997, '2024-10-07 02:32:25', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(998, '2024-10-07 02:32:59', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(999, '2024-10-07 02:33:16', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1000, '2024-10-07 02:34:39', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(1001, '2024-10-07 02:34:40', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=arak'),
+(1002, '2024-10-07 02:35:54', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1003, '2024-10-07 02:37:09', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1004, '2024-10-07 02:37:22', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1005, '2024-10-07 02:37:32', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1006, '2024-10-07 02:38:19', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(1007, '2024-10-07 02:38:20', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1008, '2024-10-07 02:38:23', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1009, '2024-10-07 02:38:40', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(1010, '2024-10-07 02:44:17', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(1011, '2024-10-07 02:44:18', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1012, '2024-10-07 02:44:27', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1013, '2024-10-07 02:44:43', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1014, '2024-10-07 02:47:31', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1015, '2024-10-07 02:49:38', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1016, '2024-10-07 02:49:57', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1017, '2024-10-07 02:50:16', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1018, '2024-10-07 02:50:39', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/'),
+(1019, '2024-10-07 02:50:40', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1020, '2024-10-07 02:50:43', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1021, '2024-10-07 02:51:40', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1022, '2024-10-07 02:54:43', '::1', 'tnjlu8pq', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1023, '2024-10-08 11:56:26', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1024, '2024-10-08 11:56:36', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/'),
+(1025, '2024-10-08 11:56:40', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1026, '2024-10-08 11:56:46', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1027, '2024-10-08 11:57:33', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1028, '2024-10-08 11:58:58', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1029, '2024-10-08 11:59:35', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1030, '2024-10-08 12:03:14', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1031, '2024-10-08 12:04:59', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1032, '2024-10-08 12:05:50', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1033, '2024-10-08 12:07:06', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1034, '2024-10-08 12:07:58', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1035, '2024-10-08 12:08:49', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1036, '2024-10-08 12:09:10', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/'),
+(1037, '2024-10-08 12:09:11', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1038, '2024-10-08 12:09:21', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1039, '2024-10-08 12:12:53', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1040, '2024-10-08 12:13:11', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1041, '2024-10-08 12:13:42', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1042, '2024-10-08 12:13:49', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1043, '2024-10-08 12:14:25', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1044, '2024-10-08 12:14:28', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1045, '2024-10-08 12:14:36', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1046, '2024-10-08 12:14:59', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1047, '2024-10-08 12:15:02', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1048, '2024-10-08 12:16:07', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/'),
+(1049, '2024-10-08 12:16:33', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1050, '2024-10-08 12:16:50', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1051, '2024-10-08 12:18:00', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/'),
+(1052, '2024-10-08 12:18:18', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1053, '2024-10-08 12:18:25', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1054, '2024-10-08 12:18:36', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/'),
+(1055, '2024-10-08 12:20:15', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1056, '2024-10-08 12:20:25', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1057, '2024-10-08 12:20:30', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1058, '2024-10-08 12:20:48', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1059, '2024-10-08 12:23:18', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1060, '2024-10-08 12:23:24', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/'),
+(1061, '2024-10-08 12:23:28', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=arak'),
+(1062, '2024-10-08 12:23:38', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(1063, '2024-10-08 12:23:41', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1064, '2024-10-08 12:23:43', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(1065, '2024-10-08 12:24:27', '::1', 'oo7jr3p0', 1, '/liftzone/vizsgaremek/'),
+(1066, '2024-10-08 01:32:53', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1067, '2024-10-08 01:33:02', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1068, '2024-10-08 01:33:05', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1069, '2024-10-08 01:33:25', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1070, '2024-10-08 01:33:26', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1071, '2024-10-08 01:33:29', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1072, '2024-10-08 01:35:06', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1073, '2024-10-08 01:35:46', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1074, '2024-10-08 01:35:58', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1075, '2024-10-08 01:36:03', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1076, '2024-10-08 01:36:19', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1077, '2024-10-08 01:36:32', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1078, '2024-10-08 01:36:33', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1079, '2024-10-08 01:36:40', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1080, '2024-10-08 01:36:58', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1081, '2024-10-08 01:37:08', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1082, '2024-10-08 01:37:09', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1083, '2024-10-08 01:37:47', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1084, '2024-10-08 01:37:53', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1085, '2024-10-08 01:38:55', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1086, '2024-10-08 01:38:56', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1087, '2024-10-08 01:38:59', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1088, '2024-10-08 01:38:59', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1089, '2024-10-08 01:38:59', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1090, '2024-10-08 01:39:07', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1091, '2024-10-08 01:41:43', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1092, '2024-10-08 01:41:44', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1093, '2024-10-08 01:41:50', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1094, '2024-10-08 01:41:53', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1095, '2024-10-08 01:42:02', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1096, '2024-10-08 01:42:12', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1097, '2024-10-08 01:42:48', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1098, '2024-10-08 01:43:51', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1099, '2024-10-08 01:43:59', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1100, '2024-10-08 01:44:13', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1101, '2024-10-08 01:46:00', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1102, '2024-10-08 01:46:39', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1103, '2024-10-08 01:46:45', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1104, '2024-10-08 01:47:12', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1105, '2024-10-08 01:47:21', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1106, '2024-10-08 01:47:29', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1107, '2024-10-08 01:47:43', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1108, '2024-10-08 01:48:56', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1109, '2024-10-08 01:49:13', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1110, '2024-10-08 01:49:20', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1111, '2024-10-08 01:49:39', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1112, '2024-10-08 01:49:45', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1113, '2024-10-08 01:50:10', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1114, '2024-10-08 01:50:48', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1115, '2024-10-08 01:50:49', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1116, '2024-10-08 01:51:14', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1117, '2024-10-08 01:51:17', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1118, '2024-10-08 01:51:27', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1119, '2024-10-08 01:51:49', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1120, '2024-10-08 01:51:50', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=arak'),
+(1121, '2024-10-08 01:51:53', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1122, '2024-10-08 01:55:08', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1123, '2024-10-08 01:55:19', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1124, '2024-10-08 01:55:21', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1125, '2024-10-08 01:55:22', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1126, '2024-10-08 01:55:25', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1127, '2024-10-08 01:55:28', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1128, '2024-10-08 01:55:48', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1129, '2024-10-08 01:58:40', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1130, '2024-10-08 01:58:44', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1131, '2024-10-08 01:59:35', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1132, '2024-10-08 02:00:07', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1133, '2024-10-08 02:00:17', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1134, '2024-10-08 02:00:38', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1135, '2024-10-08 02:00:47', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1136, '2024-10-08 02:01:16', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1137, '2024-10-08 02:01:32', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1138, '2024-10-08 02:01:50', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1139, '2024-10-08 02:02:05', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1140, '2024-10-08 02:02:40', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1141, '2024-10-08 02:03:44', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1142, '2024-10-08 02:03:46', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1143, '2024-10-08 02:03:54', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1144, '2024-10-08 02:04:05', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1145, '2024-10-08 02:22:12', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1146, '2024-10-08 02:22:21', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1147, '2024-10-08 02:22:40', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1148, '2024-10-08 02:22:47', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1149, '2024-10-08 02:22:57', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1150, '2024-10-08 02:23:02', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1151, '2024-10-08 02:23:09', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1152, '2024-10-08 02:23:10', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1153, '2024-10-08 02:23:13', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1154, '2024-10-08 02:24:19', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1155, '2024-10-08 02:26:59', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1156, '2024-10-08 02:27:17', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1157, '2024-10-08 02:27:20', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1158, '2024-10-08 02:27:23', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1159, '2024-10-08 02:27:26', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1160, '2024-10-08 02:30:48', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1161, '2024-10-08 03:44:02', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1162, '2024-10-08 03:46:21', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1163, '2024-10-08 03:46:23', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1164, '2024-10-08 03:46:31', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1165, '2024-10-08 03:46:59', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=jegyvasarlasform'),
+(1166, '2024-10-08 03:47:30', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1167, '2024-10-08 03:52:22', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1168, '2024-10-08 03:52:25', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1169, '2024-10-08 03:52:27', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1170, '2024-10-08 03:52:32', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1171, '2024-10-08 03:52:49', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1172, '2024-10-08 03:52:51', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1173, '2024-10-08 03:53:01', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1174, '2024-10-08 03:59:27', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1175, '2024-10-08 03:59:28', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1176, '2024-10-08 03:59:30', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1177, '2024-10-08 03:59:32', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=arak'),
+(1178, '2024-10-08 03:59:39', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1179, '2024-10-08 03:59:42', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/'),
+(1180, '2024-10-08 03:59:44', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=arak'),
+(1181, '2024-10-08 04:00:27', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1182, '2024-10-08 04:00:32', '::1', 'sh66ndt6', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1183, '2024-10-08 04:02:40', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1184, '2024-10-08 04:02:53', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/?o=registerform'),
+(1185, '2024-10-08 04:02:56', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/?o=loginform'),
+(1186, '2024-10-08 04:03:00', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1187, '2024-10-08 04:03:52', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1188, '2024-10-08 04:03:59', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1189, '2024-10-08 04:08:44', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/?o=fiok'),
+(1190, '2024-10-08 04:08:47', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/'),
+(1191, '2024-10-08 04:08:49', '::1', 'ofm2p527', 1, '/liftzone/vizsgaremek/?o=arak'),
+(1192, '2024-10-09 12:50:12', '::1', 'jlt6tc24', 0, '/liftzone/vizsgaremek/');
 
 -- --------------------------------------------------------
 
@@ -1107,7 +1393,7 @@ CREATE TABLE `tipusok` (
   `tpID` int(11) NOT NULL,
   `tpNev` varchar(100) NOT NULL,
   `tpAr` int(11) NOT NULL,
-  `tpHossz` int(11) DEFAULT 60,
+  `tpHossz` int(11) NOT NULL DEFAULT 60,
   `tpAlkalmak` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
@@ -1122,7 +1408,7 @@ INSERT INTO `tipusok` (`tpID`, `tpNev`, `tpAr`, `tpHossz`, `tpAlkalmak`) VALUES
 (4, 'Hat hónapos bérlet', 99900, 180, NULL),
 (5, 'Éves bérlet', 199900, 365, NULL),
 (6, 'Egy hetes bérlet', 12900, 7, NULL),
-(7, 'Tíz alkalmas bérlet', 17900, NULL, 10),
+(7, 'Tíz alkalmas bérlet', 17900, 60, 10),
 (8, 'Délelőtti bérlet', 16900, 30, NULL),
 (9, 'Hétvégi bérlet', 12900, 30, NULL),
 (10, 'Diák/Nyugdíjas Havi bérlet', 17900, 30, NULL),
@@ -1131,7 +1417,7 @@ INSERT INTO `tipusok` (`tpID`, `tpNev`, `tpAr`, `tpHossz`, `tpAlkalmak`) VALUES
 (13, 'Diák/Nyugdíjas Hat hónapos bérlet', 89900, 180, NULL),
 (14, 'Diák/Nyugdíjas Éves bérlet', 176900, 365, NULL),
 (15, 'Diák/Nyugdíjas Egy hetes bérlet', 11900, 7, NULL),
-(16, 'Diák/Nyugdíjas Tíz alkalmas bérlet', 15900, NULL, 10),
+(16, 'Diák/Nyugdíjas Tíz alkalmas bérlet', 15900, 60, 10),
 (17, 'Diák/Nyugdíjas Délelőtti bérlet', 15900, 30, NULL);
 
 -- --------------------------------------------------------
@@ -1179,7 +1465,7 @@ INSERT INTO `user` (`uID`, `uUID`, `uFelhasznalonev`, `uemail`, `uPassword`, `uS
 (1, '0', 'asd', 'hagaja5131@jthoven.com', '$2y$10$LIulwk0DcE8tfBtaFRMaROm2Ikr64wryE5ETYwEReyupnr6Yss0We', '2024-09-19', '2024-09-23 04:25:55', '::1', 'vr8ladp8', '.', '.'),
 (2, '0', 'esgsg', 'letmeinmfk@freemail.hu', '$2y$10$ApSYn0DHmfOPsTlmngOT.eQnuiWQPKwPzLvcuuIN1QUQe0Zl.Ebx2', '2024-09-06', '2024-09-23 04:33:55', '::1', 'vr8ladp8', '.', '.'),
 (3, '0', 'korpagabor38768', 'hagaja5131@jthoven.com', '$2y$10$7YPW/fcotTHOsLH6YWoJLOaTQyyhOXVPubvUTJ2Q6tb6tQoE6IsEa', '2024-09-04', '2024-09-23 05:49:54', '::1', 'vr8ladp8', '.', '.'),
-(4, '0', 'nevnev', 'email@email.com', '$2y$10$Jp93UCTO/agMH.u0M209me19hxFQDQeefR4agLMNi/4/9IXOuk0pO', '2024-09-07', '2024-09-23 07:28:36', '::1', 'tldm7e4s', '.', '.'),
+(4, '6733b4665c7781.58397808', 'nevnev', 'email@email.com', '$2y$10$Jp93UCTO/agMH.u0M209me19hxFQDQeefR4agLMNi/4/9IXOuk0pO', '2024-09-07', '2024-09-23 07:28:36', '::1', 'tldm7e4s', '.', '.'),
 (5, '0', 'asd', 'hagajaaa5131@jthoven.com', '$2y$10$T6mKdLwQwswqccRthr9Xo.xMVUo8POyNqf.s/MMEcd83xB16BfmI.', '2024-09-27', '2024-09-23 07:29:46', '::1', 'tldm7e4s', '.', '.'),
 (6, '0', 'asd', 'emsdail@email.com', '$2y$10$lL34k6Yqg.doEbOGxZoD1eYUKWKLDz0eZbHkwjAaAqGCqaRwVuyMe', '0000-00-00', '2024-10-02 01:27:31', '::1', '13qkro02', 'a', '.'),
 (7, '0', 'Korpa Gábor', 'gaborkorpa@gmail.com', '$2y$10$wwYSbh6j.jI.FEHRS6G0w.wKEMDcW6h80WwvBemYPBHRZq9XuI9G6', '2006-02-20', '2024-10-02 02:29:53', '::1', 'lns4arnc', 'a', '.'),
@@ -1187,8 +1473,8 @@ INSERT INTO `user` (`uID`, `uUID`, `uFelhasznalonev`, `uemail`, `uPassword`, `uS
 (9, '66', 'Ódor Olivér', 'letmeifwfwefewmfk@freemail.hu', '$2y$10$J9l9y.3R9iQzUpo8m/8RPe3Zychm2ZNfKqP.6wJZpqmaXA57VVvIa', '0212-02-02', '2024-10-03 12:32:19', '::1', 'tku3atd8', 'a', '.'),
 (10, '66fe73279a19e3.98463190', 'Szász Gergő', 'hafewfwegaja5131@jthoven.com', '$2y$10$2VUjiNM.59iVGH1ivXnsRuBir6XyC/w9xnSH//F4WL1sJgcVw1Bh.', '0223-02-02', '2024-10-03 12:34:15', '::1', 'tku3atd8', 'a', '.'),
 (12, '6703b36e24b959.20967218', 'a', 'a@a.com', '$2y$10$nX5GIby5c0NjI5BzRZI1I.ApejOR9dTmz20rJNoGAPAEIH8qppfrG', '0000-00-00', '2024-10-07 12:09:50', '::1', 'tnjlu8pq', 'a', '.'),
-(13, '6703b3bf1e1f58.55982756', 'b', 'b@b.com', '$2y$10$BDwVBxcoC/AxmKwPY89wa.oRTPY2ulDJpuBiatz9uQ3Yp24MkEqxG', '0324-03-02', '2024-10-07 12:11:11', '::1', 'tnjlu8pq', 'a', '.'),
-(14, '6703b3e3a05e48.19282392', 'c', 'c@c.com', '$2y$10$GvVs1sADBkPEgnWmmdJ2WucoQEIb8Y9xX7UJl44Fd8Y7i47VU8Cri', '0002-03-04', '2024-10-07 12:11:47', '::1', 'tnjlu8pq', 'a', '.'),
+(13, '6703b3bf1e1f58.55982756', 'b', 'b@b.com', '$2y$10$BDwVBxcoC/AxmKwPY89wa.oRTPY2ulDJpuBiatz9uQ3Yp24MkEqxG', '2005-03-02', '2024-10-07 12:11:11', '::1', 'tnjlu8pq', 'a', '.'),
+(14, '6703b3e3a05e48.19282392', 'c', 'c@c.com', '$2y$10$GvVs1sADBkPEgnWmmdJ2WucoQEIb8Y9xX7UJl44Fd8Y7i47VU8Cri', '0092-02-21', '2024-10-07 12:11:47', '::1', 'tnjlu8pq', 'a', '.'),
 (15, '6703b4365c7781.58397808', 'd', 'd@d.com', '$2y$10$C/CZSeaQmnI4XVGVAH4YmOobfYsOez3ezPJDBpS5ATR6udQcZ1dHO', '0003-03-04', '2024-10-07 12:13:10', '::1', 'tnjlu8pq', 'a', '.'),
 (16, '6703b49f5fba78.28769374', 'e', 'e@e.com', '$2y$10$Maa6ygBsQlWEicXfY6Slmugj7RL/OelplRBvC94R/Bp5pwl1EdF4m', '0003-04-03', '2024-10-07 12:14:55', '::1', 'tnjlu8pq', 'a', '.'),
 (17, '6703b4ba46ca12.29034416', 'f', 'f@f.com', '$2y$10$Cazi5/1AQkzlRAzWQtIqTO.WaWgyk2./hjsqQtbbMnPFC6..rKAEC', '0003-04-03', '2024-10-07 12:15:22', '::1', 'tnjlu8pq', 'a', '.'),
@@ -1198,6 +1484,12 @@ INSERT INTO `user` (`uID`, `uUID`, `uFelhasznalonev`, `uemail`, `uPassword`, `uS
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `alkalmak`
+--
+ALTER TABLE `alkalmak`
+  ADD PRIMARY KEY (`aID`);
 
 --
 -- Indexes for table `jegyek`
@@ -1240,22 +1532,28 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `alkalmak`
+--
+ALTER TABLE `alkalmak`
+  MODIFY `aID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `jegyek`
 --
 ALTER TABLE `jegyek`
-  MODIFY `jID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `jID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `lID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `lID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `naplo`
 --
 ALTER TABLE `naplo`
-  MODIFY `nID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=936;
+  MODIFY `nID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1193;
 
 --
 -- AUTO_INCREMENT for table `tipusok`
