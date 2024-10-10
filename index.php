@@ -41,7 +41,7 @@
     <nav class="navbar navbar-dark  bg-dark p-3">
         <div class="container-fluid">
             <a class="navbar-brand text-warning fs-2" href="./">LiftZone</a>
-            <a class="text-end" href="">1214 Budapest, Kossuth L. u. 117.</a>
+            <a class="text-end" href="">4222 Budapest, Utca u. 117.</a>
             <a class="text-end" href="">6:00 - 23:00</a>
             <form class="d-flex">
                 <?php if (!isset($_SESSION["loggedin"])) {
@@ -79,7 +79,7 @@
                 else if ($o == "jegyvasarlasform") {
                     require("oldalak/jegyvasarlasform.php");
                 }
-                else if ($o == "jelszomodositas") {
+                else if ($o == "jelszomodositasform") {
                     require("oldalak/jelszomodositasform.php");
                 }
                 else{

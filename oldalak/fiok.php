@@ -31,7 +31,7 @@ if (isset($jegy)) {
             </div>
             <div class="mb-3">
                 <!--jelszomodositas.php  -->
-              <p>Ha a jelszódat akarod módosítani akkor azt <a id="jelszomodositas" href="?o=jelszomodositas">itt</a> lehet.</p>
+              <p>Ha a jelszódat akarod módosítani akkor azt <a id="jelszomodositas" href="?o=jelszomodositasform">itt</a> lehet.</p>
             </div>
 
             <button type="submit" class="btn btn-warning w-100">Adatok mentése</button>
