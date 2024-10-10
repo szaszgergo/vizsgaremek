@@ -10,19 +10,15 @@
         exit;
     }
 
-    //ha nincs megadva a paraméter küldés és kilépés
-    if (!isset($_GET['parameter'])) {
-        valaszKuldes(400, 'Hiányzó paraméter: parameter');
-    }
-
-    //ha nincs találat küldés és kilépés
-    if (!$foo) {
-        valaszKuldes(404, 'Az x nem találtuk!');
+    $kuponoklekerdezes = "SELECT * FROM kuponok";
+    $kuponok = sqlcall($kuponoklekerdezes);
+    $kuponokarray = [];
+    while ($row = $kuponok->fetch_assoc()) {
+        $kuponokarray[] = $row;
     }
 
     $valasz = [
-        'x' => $x,
-        'y' => $y
+        'kuponok' => $kuponokarray
     ];
 
     valaszKuldes(200, 'Sikeres', $valasz);

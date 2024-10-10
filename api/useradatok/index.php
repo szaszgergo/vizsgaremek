@@ -1,53 +1,50 @@
 <?php
     header('Content-Type: application/json; charset=utf-8');
     include("../../actions/sqlcall.php");
-    function getJegyTipusAdatok($tipus){
+    function getJegyTipusAdatok($tipus) {
         $sql = "SELECT * FROM tipusok WHERE tpID = $tipus";
         $sor = sqlcall($sql)->fetch_assoc();
         return $sor;
     }
-
-
-    if( !isset($_GET["uid"]))
-    {
-	    $tomb = array(  'status'    => 400 ,
-                        'hiba'      => "hiányos adatok" ,
-                        'uzenet'    => "megadandó paraméterek: uid" ) ;
+    function valaszKuldes($status, $uzenet, $data = []) {
+        echo json_encode(array(
+            'status' => $status,
+            'uzenet' => $uzenet,
+            'data' => $data
+        ), JSON_UNESCAPED_UNICODE);
+        exit;
     }
-    else
-    {
-        $userlekerdezes = "SELECT * FROM user WHERE uID = '$_GET[uid]'";
-        $user = sqlcall($userlekerdezes);
-        $useradatok = $user->fetch_assoc();
-        if (!isset($useradatok)) {
-            $tomb = array(  'status'    => 404  ,
-                            'hiba'      => "nincs találat" ,
-                            'uzenet'    => "megadott paraméter nem helyes, nem létezik" ) ;
-            }
-            else{
-                $jegyeklekerdezes = "SELECT * FROM jegyek WHERE juID = '$_GET[uid]'";
-                $jegyek = sqlcall($jegyeklekerdezes);
-                $jegyekarray = [];
-                while ($row = $jegyek->fetch_assoc()) {
-                    $jegyekarray[] = $row;
-                }
-                if (sizeof($jegyekarray)) {       
-                    //hozzaadjuk a jegyekhez a nevet is
-                    foreach ($jegyekarray as $key => $value) {
-                        $jegyekarray[$key]["jNev"] = getJegyTipusAdatok($value['jtID'])['tpNev']; 
-                    }
-                }
 
-                $tomb = array(
-                                'status'        => 200 ,
-                                'adatok'        => $useradatok ,
-                                'jegyek'        => $jegyekarray ,
-                            ) ;
+    //ha nincs megadva a paraméter küldés és kilépés
+    if (!isset($_GET['uid'])) {
+        valaszKuldes(400, 'Hiányzó paraméter: uid');
+    }
 
-                }
-        }
-        $json = json_encode( $tomb , JSON_UNESCAPED_UNICODE ) ;
+    $uid = $_GET['uid'];
 
-        print $json ;
+    $userlekerdezes = "SELECT * FROM user WHERE uID = '$uid'";
+    $user = sqlcall($userlekerdezes);
+    $useradatok = $user->fetch_assoc();
+
+    //ha nincs találat küldés és kilépés
+    if (!$useradatok) {
+        valaszKuldes(404, 'A felhasználót nem találtuk!');
+    }
+    $jegyeklekerdezes = "SELECT * FROM jegyek WHERE juID = '$uid'";
+    $jegyek = sqlcall($jegyeklekerdezes);
+    $jegyekarray = [];
+
+    //nevek hozzáadása a jegyekhez
+    while ($row = $jegyek->fetch_assoc()) {
+        $row['jNev'] = getJegyTipusAdatok($row['jtID'])['tpNev'];
+        $jegyekarray[] = $row;
+    }
+
+    $valasz = [
+        'user' => $useradatok,
+        'jegyek' => $jegyekarray
+    ];
+
+    valaszKuldes(200, 'Sikeres lekérdezés', $valasz);
 
 ?>
