@@ -11,7 +11,6 @@
 
     $directory = 'oldalak/';
     $files = scandir($directory);
-
     $validPages = [];
     foreach ($files as $file) {
         if (pathinfo($file, PATHINFO_EXTENSION) == 'php') {
