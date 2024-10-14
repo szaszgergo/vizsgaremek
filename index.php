@@ -50,8 +50,8 @@
                     include("actions/getuserinfo.php");
                     include("actions/getjegytipusadatok.php");
                     $a = '
-                    <span class="navbar-text"><a href="./?o=fiok" class="text-end">'.getUserInfo()[2].'<span style="padding-right: 0.15rem;"> </span><i class="fa fa-user-circle-o" style="font-size:36px"></i></a></span>
-                    <a href="actions/logout.php" class="btn btn-danger">Kijelentkezés</a>';
+                    <span stlye="margin-top:-10px;" class="navbar-text"><a href="./?o=fiok"   class="text-end">'.getUserInfo()[2].'<span style="padding-right: 0.15rem;"> </span><i class="fa fa-user-circle-o" style="font-size:36px"></i></a></span>
+                    <a href="actions/logout.php" class="btn btn-danger m-2">Kijelentkezés</a>';
                     echo $a;
                 }?>
             </form>
