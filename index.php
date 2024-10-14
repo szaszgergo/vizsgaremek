@@ -42,18 +42,27 @@
             <a class="navbar-brand text-warning fs-2" href="./">LiftZone</a>
             <a class="text-end" href="">1214 Budapest, Kossuth L. u. 117.</a>
             <a class="text-end" href="">6:00 - 23:00</a>
-            <form class="d-flex">
+            <form class="d-flex align-items-center">
                 <?php if (!isset($_SESSION["loggedin"])) {
                     echo '<a class="btn btn-warning m-2" href="./?o=loginform">Bejelentkezés</a>
                     <a class="btn btn-warning m-2" href="./?o=registerform">Regisztráció </a>';
-                } else{
+                } else {
                     include("actions/getuserinfo.php");
                     include("actions/getjegytipusadatok.php");
+                    
                     $a = '
-                    <span stlye="margin-top:-10px;" class="navbar-text"><a href="./?o=fiok"   class="text-end">'.getUserInfo()[2].'<span style="padding-right: 0.15rem;"> </span><i class="fa fa-user-circle-o" style="font-size:36px"></i></a></span>
+                    <span class="navbar-text">
+                        <a href="./?o=fiok" id="felhasznalo_nev" class="d-flex align-items-center">
+                            '.getUserInfo()[2].'
+                            <span style="padding-left: 0.5rem;"></span>
+                            
+                            <img alt="Profile Image" class="profile-image" src="profile_pic/' . 
+                            (empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11]) . '"/>
+                        </a>
+                    </span>
                     <a href="actions/logout.php" class="btn btn-danger m-2">Kijelentkezés</a>';
                     echo $a;
-                }?>
+                } ?>
             </form>
         </div>
     </nav>
@@ -111,7 +120,7 @@
     <div class="footer">
         cuccok
     </div>
-    <iframe name='kisablak' class="hidden"></iframe>
+    <iframe name='kisablak' class="x"></iframe> <!-- hidden a class -->
     <script>
         window.addEventListener('message', function(event) {
             if (event.data.loginError) {

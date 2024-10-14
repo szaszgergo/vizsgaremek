@@ -28,7 +28,7 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["date"])
         $ip = $_SERVER['REMOTE_ADDR'];
         session_start();
         $sessionid = session_id();
-        $uuid = uniqid('', true);
+        $uuid = uniqid('', more_entropy: true);
         //sql insert statement osszerakása
         $sql = "INSERT INTO user (uID, uUID, uFelhasznalonev, uemail, uPassword, uSzuletesidatum, uRegisztracio, uIP, uSession, uStatus, uKomment)
         VALUES ('', '$uuid', '$username', '$email', '$password', '$date', '$curdate', '$ip', '$sessionid', 'a', '.')";
