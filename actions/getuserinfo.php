@@ -1,4 +1,5 @@
 <?php
+//api-vá alakitva pipa majd torolni
 function getUserInfo(){
     include_once("sqlcall.php");
     $sql = "SELECT * FROM user WHERE uID = '$_SESSION[uid]'";
