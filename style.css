@@ -76,6 +76,15 @@ h1 {
     width: 90%;
     margin: 0 auto;
     margin-top: 1rem;
+    & .form-control {
+        background-color: #23272a;
+        border: none;
+        color: white;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
     & .jegy{
         text-align: center;
         border-radius: 10pt;
@@ -153,14 +162,6 @@ h1 {
     cursor: pointer;
 }
 
-.form-control {
-    background-color: #23272a;
-    border: none;
-    color: white;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 5px;
-}
 
 .form-label {
     font-size: 0.9rem;
