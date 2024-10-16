@@ -15,7 +15,7 @@ if (isset($jegy)) {
 ?>
 <div class="row fiokrow">
     <div class="col-md-8 ">
-        <form class="form bg-dark text-light fiok" action="actions/updateaction.php" method=post target='kisablak'>
+        <form class="form bg-dark text-light fiok" action="actions/updateaction.php" method=post target='kisablak' enctype="multipart/form-data">
             <div id='error-message' class='alert alert-danger' style='display: none;'></div>
             <div class="mb-3">
                 <label for="InputUsername" class="form-label">Felhasználónév</label>
@@ -29,6 +29,12 @@ if (isset($jegy)) {
                 <label for="InputDate" class="form-label">Születési dátum</label>
                 <input value="<?php echo $adatok[5]?>" type="date" class="form-control form-control-dark" id="InputDate" name="date" >
             </div>
+
+            <div class="mb-3">
+                <label for="InputPic" class="form-label">Új Profil kép</label>
+                <input type="file" class="form-control form-control-dark" id="InputPic" name="upic" >
+            </div>
+
             <div class="mb-3">
                 <!--jelszomodositas.php  -->
               <p>Ha a jelszódat akarod módosítani akkor azt <a id="jelszomodositas" href="?o=jelszomodositasform">itt</a> lehet.</p>
