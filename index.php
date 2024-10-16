@@ -131,6 +131,14 @@
                 document.getElementById('error-message').style.display = 'none';
                 window.location.href = "./?o=fiok";
             }
+            if (event.data.updateError) {
+                document.getElementById('error-message').innerHTML = event.data.updateError;
+                document.getElementById('error-message').style.display = 'block';
+            }
+            if (event.data.updateSuccess) {
+                document.getElementById('error-message').style.display = 'none';
+                window.location.href = "./?o=fiok";
+            }
             if (event.data.regSuccess) {
                 document.getElementById('error-message').style.display = 'none';
                 window.location.href = "./?o=loginform";

@@ -29,22 +29,22 @@ if (isset($jegy)) {
 
         <div class="mb-3">
             <label for="InputUsername" class="form-label">Felhasználónév</label>
-            <input value="<?php echo $adatok[2] ?>" type="text" class="form-control" id="InputUsername" name="username" maxlength="100" readonly>
+            <input value="<?php echo $adatok[2] ?>" type="text" class="form-control fiok-input" id="InputUsername" name="username" maxlength="100" readonly>
         </div>
 
         <div class="mb-3">
             <label for="InputEmail" class="form-label">Email cím</label>
-            <input value="<?php echo $adatok[3] ?>" type="email" class="form-control" id="InputEmail" name="email" maxlength="256" readonly>
+            <input value="<?php echo $adatok[3] ?>" type="email" class="form-control fiok-input" id="InputEmail" name="email" maxlength="256" readonly>
         </div>
 
         <div class="mb-3">
             <label for="InputDate" class="form-label">Születési év</label>
-            <input value="<?php echo $adatok[5] ?>" type="date" class="form-control" id="InputDate" name="date" readonly>
+            <input value="<?php echo $adatok[5] ?>" type="date" class="form-control fiok-input" id="InputDate" name="date" readonly>
         </div>
 
         <div class="mb-3">
             <label for="InputPic" class="form-label">Új profilkép</label>
-            <input type="file" class="form-control" id="InputPic" name="upic" readonly>
+            <input type="file" class="form-control fiok-input" id="InputPic" name="upic" readonly>
         </div>
 
         <div class="mb-3">

@@ -76,7 +76,7 @@ h1 {
     width: 90%;
     margin: 0 auto;
     margin-top: 1rem;
-    & .form-control {
+    & .fiok-input {
         background-color: #23272a;
         border: none;
         color: white;
