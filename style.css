@@ -76,14 +76,29 @@ h1 {
     width: 90%;
     margin: 0 auto;
     margin-top: 1rem;
-    & .fiok{
-        width: 100%;
-        border-radius: 10pt;
+    & .fiok-input {
+        background-color: #23272a;
+        border: none;
+        color: white;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
     }
+    
     & .jegy{
         text-align: center;
         border-radius: 10pt;
         padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        & .qr{
+            max-width: 300px;
+            max-height: 300px;
+            margin-bottom: 20px;
+        }
+        
     }
 }
 #jelszomodositas{
@@ -105,47 +120,8 @@ h1 {
 }
 
 .profile-image {
-    width: 60px; 
-    height: 60px;
+    width: 10px; 
+    height: 10px;
     border-radius: 50%;
     object-fit: cover;
   }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto; /
-}
-
-.footer .text h1 {
-    margin-bottom: 10px;
-}
-
-.footer .btn {
-    margin-right: 10px;
-}

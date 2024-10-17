@@ -1,4 +1,5 @@
 <?php
+//ezis megvan apiba majd torolni
 require("sqlcall.php");
 session_start();
 //form adatok lekérdezési a POST-ból
