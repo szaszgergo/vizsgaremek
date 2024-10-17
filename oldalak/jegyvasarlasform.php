@@ -29,11 +29,11 @@ if ($response === false) {
         $card = "
         <div class='col-lg-3 col-md-4 col-sm-5 col-6 d-flex mb-5'>
             <div class='card bg-dark text-white' style='width: 18rem;'>
-                <img class='card-img-top' src='...' alt='Card image cap'>
+                <img class='card-img-top' src='./images/bg.jpg' alt='Card image cap'>
                 <div class='card-body'>
                     <h5 class='card-title'>$jegy->tpNev</h5>
                     <p class='card-text'>$jegy->tpAr HUF</p>
-                    <a href='#' class='btn btn-primary'>Vásárlás</a> 
+                    <button class='btn btn-primary' type='submit'>Vásárlás</button>
                 </div>
             </div>
         </div>
