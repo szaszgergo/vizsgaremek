@@ -8,28 +8,32 @@
     <link rel="stylesheet" href="style.css">
     <?php
         $cim ="";
-
-    $directory = 'oldalak/';
-    $files = scandir($directory);
-    $validPages = [];
-    foreach ($files as $file) {
-        if (pathinfo($file, PATHINFO_EXTENSION) == 'php') {
-            $pageName = basename($file, '.php');
-            $validPages[$pageName] = $directory . $file;
-        }
-    }
-
-    if (isset($_GET['o'])) {
-        $requestedPage = $_GET['o'];
-
-        if (array_key_exists($requestedPage, $validPages)) {
-            $cim ="$requestedPage - LiftZone";
+        if (isset($_GET['o'])) {
+            $o = $_GET['o'];
+            if ($o == "arak") {
+                $cim = "Áraink - LiftZone";
+            }
+            else if ($o == "fiok") {
+                $cim = "Fiókod - LiftZone";
+            }
+            else if ($o == "jegyvasarlasform") {
+                $cim = "Jegy vásárlása - LiftZone";
+            }
+            else if ($o == "jelszomodositasform") {
+                $cim = "Jelszó módosítása - LiftZone";
+            }
+            else if ($o == "loginform") {
+                $cim = "Bejelentkezés - LiftZone";
+            }
+            else if ($o == "registerform") {
+                $cim = "Regisztráció - LiftZone";
+            }
+            else{
+                $cim = "404 - LiftZone";
+            }
         } else {
-            $cim ="404 Error";
+            $cim = "Főoldal - LiftZone";
         }
-    } else {
-        $cim ="LiftZone";
-    }
         
         ?>
     <title><?=$cim?></title>
