@@ -120,8 +120,8 @@ h1 {
 }
 
 .profile-image {
-    width: 10px; 
-    height: 10px;
+    width: 40pt; 
+    height: 40pt;
     border-radius: 50%;
     object-fit: cover;
   }

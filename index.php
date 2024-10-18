@@ -28,6 +28,9 @@
             else if ($o == "registerform") {
                 $cim = "Regisztráció - LiftZone";
             }
+            else if ($o == "adatvedelem") {
+                $cim = "Adatvédelem - LiftZone";
+            }
             else{
                 $cim = "404 - LiftZone";
             }
