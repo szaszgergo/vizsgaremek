@@ -1,5 +1,5 @@
 <div class="row fiokrow">
-    <div class="col-md-8 ">
+    <div class="col">
         <form class="form bg-dark text-light fiok" action="actions/updatepassword.php" method="post" target='kisablak'>
             <div id='error-message' class='alert alert-danger' style='display: none;'></div>
             <div class="mb-3" id='password-container'>

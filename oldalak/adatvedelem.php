@@ -48,7 +48,7 @@
             <h1 style="color: #2c3e50;">Panaszok</h1>
             <p>Ha bármilyen kérdése van az adatvédelemmel kapcsolatban, vagy panaszt szeretne tenni, kérjük, vegye fel velünk a kapcsolatot az alábbi elérhetőségeken:</p>
             <p>E-mail cím: <a href="mailto:fakutya@fkn.hu" style="color: #3498db;">fakutya@fkn.hu</a></p>
-            <p>Telefonszám: +36 50 121 73 04</p>
+            <p>Telefonszám: +36 50 121 24 04</p>
             <p>Továbbá, ha úgy érzi hogy az adatkezelés során az Ön adatvédelmi jogai megsértésre kerültek, akkor jogosult panaszt tenni az illetékes hatóságnál.</p>
         </div>
 

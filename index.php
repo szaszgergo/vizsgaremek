@@ -1,3 +1,7 @@
+<?php
+include('actions/apicall.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,6 +173,13 @@
             if (event.data.updateSuccess) {
                 document.getElementById('error-message').style.display = 'none';
                 window.location.href = "./?o=fiok";
+            }
+            if (event.data.purchaseSuccess) {
+                window.location.href = "./?o=fiok";
+            }
+            if (event.data.purchaseError) {
+                document.getElementById('error-message').innerHTML = event.data.updateError;
+                document.getElementById('error-message').style.display = 'block';
             }
             if (event.data.regSuccess) {
                 document.getElementById('error-message').style.display = 'none';
