@@ -51,7 +51,7 @@ include('actions/apicall.php');
     <?php include('actions/naplozas.php'); naplo(); ?>
     <nav class="navbar navbar-dark  bg-dark p-3">
         <div class="container-fluid">
-            <a class="navbar-brand text-warning fs-2" href="./">LiftZone</a>
+            <a class="navbar-brand text-warning fs-2" href="./"><img src="images/logo.png" alt="LiftZone" title="LiftZone" class="logo"></a>
             <a class="text-end" href="">4222 Budapest, Utca u. 117.</a>
             <a class="text-end" href="">6:00 - 23:00</a>
             <form class="d-flex align-items-center">

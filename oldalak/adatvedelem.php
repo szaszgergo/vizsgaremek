@@ -83,5 +83,4 @@
             <li>Safari</li>
         </ul>    
     </div>
-    
-</div>
+</body>

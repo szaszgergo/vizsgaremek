@@ -97,6 +97,7 @@ h1 {
             max-width: 300px;
             max-height: 300px;
             margin-bottom: 20px;
+            border-radius: 10pt;
         }
         
     }
@@ -184,4 +185,8 @@ h1 {
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
+}
+
+.logo{
+    height: 60pt;
 }
