@@ -5,10 +5,17 @@ if (isset($jegy)) {
     $jtid = $jegy[2];
     $tipusadatok = getJegyTipusAdatok($jtid);
     $src = "https://api.qrserver.com/v1/create-qr-code/?data=$adatok[1]&size=5000x5000&margin=10";
-    $szoveg = "<a href='$src'><img src='$src' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  /></a>
-    <div><h3>$tipusadatok[1]</h3>
-    <h3>$jegy[4]</h3>
-    <h3>Használatok száma: $jegy[5]</h3></div>";
+    $remaining = strtotime($jegy[4]) - time();
+    $maradek_napok = round($remaining / 86400);
+    $szoveg = "
+    <div>
+    <h3>$tipusadatok[1]</h3>
+    <a href='$src'><img src='$src' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  /></a>
+    <h4>ÉRVÉNYES:</h4>
+    <h1 style='color: #ffc107'>$maradek_napok NAP</h1>";
+    if (!is_null($jegy[5])) {
+        $szoveg .= "<h3>Használatok száma: <span style='color: #ffc107'> $jegy[5]</span></h3></div>";
+    }
 } else{
     $szoveg = "<h1>Nincs érvényes jegyed</h1> <a class='btn btn-warning' href='?o=jegyvasarlasform'>Vásárlás</a>";
 }

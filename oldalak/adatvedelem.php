@@ -1,4 +1,4 @@
-<body style="margin: 0 auto; width: 50%; text-align: justify; font-family: Arial, sans-serif; background-color: #f7f7f7;">
+<div style="margin: 0 auto; width: 50%; text-align: justify; font-family: Arial, sans-serif; background-color: #f7f7f7;">
     <div class="gdpr-nyilatkozat" style="padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
         <div class="adatkezelo">
             <h1 style="color: #2c3e50;">Az adatkezelő</h1>
@@ -59,4 +59,4 @@
             <p>Ha további kérdései vagy észrevételei vannak az adatkezeléssel kapcsolatban, kérjük, lépjen velünk kapcsolatba az elérhetőségeinken keresztül. Köszönjük a bizalmat, és reméljük, hogy szolgáltatásaink hozzájárulnak a kutyák boldogságához és egészségéhez!</p>
         </div>
     </div>
-</body>
+</div>
