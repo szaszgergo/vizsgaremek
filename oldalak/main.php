@@ -4,6 +4,10 @@
             height: 400px;
             width: 100%;
         }
+        #gepek{
+            background-image: url(./images/hatter_gym.jpg);
+            border-radius: 30px;
+        }
         
 </style>
  <div class="container text mt-3  p-5" style="text-align:left; border-radius:30px;">
@@ -47,7 +51,7 @@
                 </div>
         </div>
     </section>
-   <section style="background-image: url(./images/hatter_gym.jpg);">
+   <section id="gepek">
         <section  class="m-5 p-5">
             <div class="row mb-5">
                     <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">

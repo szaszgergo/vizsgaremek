@@ -53,8 +53,8 @@ include('actions/apicall.php');
     <nav class="navbar navbar-dark  bg-dark p-3">
         <div class="container-fluid">
             <a class="navbar-brand text-warning fs-2" href="./"><img src="images/logo.png" alt="LiftZone" title="LiftZone" class="logo"></a>
-            <a class="text-end" href="">4222 Budapest, Utca u. 117.</a>
-            <a class="text-end" href="">6:00 - 23:00</a>
+            <p id="nav_p" class="text-end" href="">4222 Budapest, Utca u. 117.</p>
+            <p id="nav_p" class="text-end" href="" >6:00 - 23:00</p>
             <form class="d-flex align-items-center">
                 <?php if (!isset($_SESSION["loggedin"])) {
                     echo '<a class="btn btn-warning m-2" href="./?o=loginform">Bejelentkezés</a>
@@ -140,14 +140,22 @@ include('actions/apicall.php');
     <iframe name='kisablak' class="x"></iframe> <!-- hidden a class -->
 
     
-    <div class="footer">
+   
+
+            <div class="page-wrapper">
+                <div class="page-content">
+                </div>
+       
+        <footer class="footer">
             <div class="text p-3">
                 <p><a class="text-warning" href="./?o=adatvedelem">Adatvédelmi tájékoztató</a></p>
                 <a class="m-1" href="#"><i class="fa-brands fa-facebook-f"  style="font-size:24px"></i></a>
                 <a class="m-1" href="#"><i class="fa-brands fa-instagram"  style="font-size:24px"></i></a>
                 <a class="m-1" href="#"><i class="fa-brands fa-youtube"  style="font-size:24px"></i></a>
-                <a class="m-1" href="#"><i class="fa-brands fa-tiktok"  style="font-size:24px"></i></a>
-            
+                <a class="m-1" href="#"><i class="fa-brands fa-tiktok"  style="font-size:24px"></i></a> 
+            </div>
+            <p style="font-size: small;">Copyright © 2024 LiftZone edzőterem. Minden jog fenntartva.</p>
+        </footer>
     </div>
    
     <script>
