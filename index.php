@@ -57,7 +57,7 @@ include('actions/apicall.php');
             <a class="text-end" href="">6:00 - 23:00</a>
             <form class="d-flex align-items-center">
                 <?php if (!isset($_SESSION["loggedin"])): ?>
-                    <a class="btn btn-warning m-2" href="./?o=loginform">Bejelentkezés</a>
+                    <a class="btn btn-warning m-2" href="./?o=loginform">Bejelentkezés </a>
                     <a class="btn btn-warning m-2" href="./?o=registerform">Regisztráció</a>
                 <?php else: ?>
                     <!-- Felhasználói profil információ -->
