@@ -190,3 +190,15 @@ h1 {
 .logo{
     height: 60pt;
 }
+
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
