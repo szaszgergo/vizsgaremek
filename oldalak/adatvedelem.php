@@ -7,14 +7,15 @@
         text-align: left;
         margin: 1pt;
         padding: 5pt;
+        color: #ffc107;
     }
 </style>
 <div class="gdpr-nyilatkozat bg-dark m-3 p-5" style="padding: 20px; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     <div class="adatkezelo">
         <h1>Az adatkezelő</h1>
         <p>Az adatkezelő neve: LiftZone</p>
-        <p>Székhely: Budapest, Mária királyné útja 18, 1213</p>
-        <p>E-mail cím: <a href="mailto:info@liftzone.hu" style="color: #3498db;">info@liftzone.hu</a></p>
+        <p>Székhely: Budapest, Jimmy király útja 18, 1212</p>
+        <p>E-mail cím: <a class="text-warning" href="mailto:info@liftzone.hu">info@liftzone.hu</a></p>
         <p>Telefonszám: +36 50 121 73 04</p>
     </div>
 
@@ -57,14 +58,14 @@
     <div class="panasz">
         <h1>Panaszok</h1>
         <p>Ha bármilyen kérdése van az adatvédelemmel kapcsolatban, vagy panaszt szeretne tenni, kérjük, vegye fel velünk a kapcsolatot az alábbi elérhetőségeken:</p>
-        <p>E-mail cím: <a href="mailto:info@liftzone.hu" style="color: #3498db;">info@liftzone.hu</a></p>
+        <p>E-mail cím: <a class="text-warning" href="mailto:info@liftzone.hu">info@liftzone.hu</a></p>
         <p>Telefonszám: +36 50 121 73 04</p>
         <p>Továbbá, ha úgy érzi, hogy az adatkezelés során az Ön adatvédelmi jogai megsértésre kerültek, akkor jogosult panaszt tenni az illetékes hatóságnál.</p>
     </div>
 
     <div class="frissites">
         <h1>Az adatvédelmi tájékoztató frissítése</h1>
-        <p>Az adatvédelmi tájékoztatót rendszeresen frissítjük, hogy megfeleljünk a jogszabályi változásoknak és a szolgáltatásunkkal kapcsolatos módosításoknak. Az adatvédelmi tájékoztató legutóbbi frissítése: 2023.04.20.</p>
+        <p>Az adatvédelmi tájékoztatót rendszeresen frissítjük, hogy megfeleljünk a jogszabályi változásoknak és a szolgáltatásunkkal kapcsolatos módosításoknak. Az adatvédelmi tájékoztató legutóbbi frissítése: 2024.10.22.</p>
         <p>Kérjük, hogy a LiftZone szolgáltatásait használva tudomásul veszi, hogy az általunk gyűjtött adatokat a fenti adatkezelési célokra használjuk fel, és elfogadja az adatvédelmi tájékoztatóban foglaltakat.</p>
         <p>Ha további kérdései vagy észrevételei vannak az adatkezeléssel kapcsolatban, kérjük, lépjen velünk kapcsolatba az elérhetőségeinken keresztül. Köszönjük a bizalmat, és reméljük, hogy szolgáltatásaink hozzájárulnak a fitnesz céljai eléréséhez és egészségének megőrzéséhez!</p>
     </div>
