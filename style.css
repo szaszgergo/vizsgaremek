@@ -65,7 +65,7 @@ h1 {
 }
 
 .arak {
-    background-color: black;
+    background-color: #000000ed;
     & img {
         width: 100%;
         height: 10rem;
@@ -79,6 +79,14 @@ h1 {
     }
 }
 
+#map {
+    height: 400px;
+    width: 100%;
+}
+#gepek{
+    background-image: url(./images/hatter_gym.jpg);
+    border-radius: 30px;
+}
 
 .fiokrow{
     width: 90%;
@@ -206,4 +214,22 @@ h1 {
     width: 100%;
     text-align: right;
 
+}
+.mainsite{
+    background-color: #000000ed;
+}
+
+.site{
+    min-height: 100vh; /* Full viewport height */
+}
+
+.content{
+    padding-bottom: 10rem;
+}
+
+.footer{
+    background-color: #000000ed;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

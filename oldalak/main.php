@@ -1,16 +1,4 @@
-
-<style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-        #gepek{
-            background-image: url(./images/hatter_gym.jpg);
-            border-radius: 30px;
-        }
-        
-</style>
- <div class="container text mt-3  p-5" style="text-align:left; border-radius:30px;">
+ <div class="container text mt-3 p-5 mainsite" style="text-align:left; border-radius:30px;">
     <section class="m-5 p-4">
         <div class="row mb-5" style="text-align:center;">
             <h1>Üdvözlünk a LiftZone Gymnél!</h1>

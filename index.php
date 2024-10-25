@@ -9,7 +9,6 @@ include('actions/getjegytipusadatok.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -51,41 +50,41 @@ include('actions/getjegytipusadatok.php');
 </head>
 <body>
     <div class="site">
-    <?php include('actions/naplozas.php'); naplo(); ?>
-    <nav class="navbar navbar-dark  bg-dark p-3">
-        <div class="container-fluid">
-            <a class="navbar-brand text-warning fs-2" href="./"><img src="images/logo.png" alt="LiftZone" title="LiftZone" class="logo"></a>
-            <p id="nav_p" class="text-end" href="">4222 Budapest, Utca u. 117.</p>
-            <p id="nav_p" class="text-end" href="" >6:00 - 23:00</p>
-            <form class="d-flex align-items-center">
-                <?php if (!isset($_SESSION["loggedin"])): ?>
-                    <a class="btn btn-warning m-2" href="./?o=loginform">Bejelentkezés </a>
-                    <a class="btn btn-warning m-2" href="./?o=registerform">Regisztráció</a>
-                <?php else: ?>
-                    <!-- Felhasználói profil információ -->
-                    <span class="navbar-text">
-                        <a href="./?o=fiok" id="felhasznalo_nev" class="d-flex align-items-center">
-                            <?= getUserInfo()[2] ?>
-                            <img alt="Profile Image" class="profile-image" src="profile_pic/<?= empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11] ?>"/>
-                        </a>
-                    </span>
-                    <a href="actions/logout.php" class="btn btn-danger m-2">Kijelentkezés</a>
-                <?php endif; ?>
-                <!-- Hamburger ikon -->
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="hamburgerMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hamburgerMenu">
-                        <li><a class="dropdown-item" href="./?o=arak">Áraink</a></li>
-                        <li><a class="dropdown-item" href="#">Edzők</a></li>
-                        <li><a class="dropdown-item" href="#">Galéria</a></li>
-                        <li><a class="dropdown-item" href="#">Gyakori kérdések</a></li>
-                    </ul>
-                </div>
-            </form>
-        </div>
-    </nav>
+        <?php include('actions/naplozas.php'); naplo(); ?>
+        <nav class="navbar navbar-dark  bg-dark p-3">
+            <div class="container-fluid">
+                <a class="navbar-brand text-warning fs-2" href="./"><img src="images/logo.png" alt="LiftZone" title="LiftZone" class="logo"></a>
+                <p id="nav_p" class="text-end" href="">4222 Budapest, Utca u. 117.</p>
+                <p id="nav_p" class="text-end" href="" >6:00 - 23:00</p>
+                <form class="d-flex align-items-center">
+                    <?php if (!isset($_SESSION["loggedin"])): ?>
+                        <a class="btn btn-warning m-2" href="./?o=loginform">Bejelentkezés </a>
+                        <a class="btn btn-warning m-2" href="./?o=registerform">Regisztráció</a>
+                    <?php else: ?>
+                        <!-- Felhasználói profil információ -->
+                        <span class="navbar-text">
+                            <a href="./?o=fiok" id="felhasznalo_nev" class="d-flex align-items-center">
+                                <?= getUserInfo()[2] ?>
+                                <img alt="Profile Image" class="profile-image" src="profile_pic/<?= empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11] ?>"/>
+                            </a>
+                        </span>
+                        <a href="actions/logout.php" class="btn btn-danger m-2">Kijelentkezés</a>
+                    <?php endif; ?>
+                    <!-- Hamburger ikon -->
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="hamburgerMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hamburgerMenu">
+                            <li><a class="dropdown-item" href="./?o=arak">Áraink</a></li>
+                            <li><a class="dropdown-item" href="#">Edzők</a></li>
+                            <li><a class="dropdown-item" href="#">Galéria</a></li>
+                            <li><a class="dropdown-item" href="#">Gyakori kérdések</a></li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </nav>
         <div class="content">
         <?php
             if (isset($_GET['o'])) {
@@ -144,16 +143,7 @@ include('actions/getjegytipusadatok.php');
             ?>
     
         </div>
-    </div>
-    <iframe name='kisablak' class="x"></iframe> <!-- hidden a class -->
 
-    
-   
-
-            <div class="page-wrapper">
-                <div class="page-content">
-                </div>
-       
         <footer class="footer">
             <div class="text p-3">
                 <p><a class="text-warning" href="./?o=adatvedelem">Adatvédelmi tájékoztató</a></p>
@@ -161,10 +151,13 @@ include('actions/getjegytipusadatok.php');
                 <a class="m-1" href="#"><i class="fa-brands fa-instagram"  style="font-size:24px"></i></a>
                 <a class="m-1" href="#"><i class="fa-brands fa-youtube"  style="font-size:24px"></i></a>
                 <a class="m-1" href="#"><i class="fa-brands fa-tiktok"  style="font-size:24px"></i></a> 
+                <p class="text-white" style="font-size: small;">Copyright © 2024 LiftZone edzőterem. Minden jog fenntartva.</p>
             </div>
-            <p style="font-size: small;">Copyright © 2024 LiftZone edzőterem. Minden jog fenntartva.</p>
         </footer>
     </div>
+    <iframe name='kisablak' style="display: none;"></iframe>
+
+
    
     <?php include("oldalak/jegyvasarlaspopup.php")?>
     <?php include("oldalak/kartyaformpopup.php")?>
