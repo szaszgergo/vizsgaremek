@@ -1,7 +1,45 @@
 <?php
-include('actions/apicall.php');
-include('actions/getuserinfo.php');
-include('actions/getjegytipusadatok.php');
+//requireok
+require('actions/apicall.php');
+require('actions/getuserinfo.php');
+require('actions/getjegytipusadatok.php');
+
+//bövithető lista az uj oldalak cimeihez 
+$cimek = [
+    "arak" => "Áraink - LiftZone",
+    "fiok" => "Fiókod - LiftZone",
+    "jegyvasarlasform" => "Jegy vásárlása - LiftZone",
+    "jelszomodositasform" => "Jelszó módosítása - LiftZone",
+    "loginform" => "Bejelentkezés - LiftZone",
+    "registerform" => "Regisztráció - LiftZone",
+    "adatvedelem" => "Adatvédelem - LiftZone",
+];
+$cim = "Főoldal - LiftZone";
+if (isset($_GET['o']) && array_key_exists($_GET['o'], $cimek)) {
+    $cim = $cimek[$_GET['o']];
+} else {
+    $cim = "404 - LiftZone";
+}
+
+$belepettoldalak = [
+    "arak" => "oldalak/arak.php",
+    "fiok" => "oldalak/fiok.php",
+    "jegyvasarlasform" => "oldalak/jegyvasarlasform.php",
+    "jelszomodositasform" => "oldalak/jelszomodositasform.php",
+    "adatvedelem" => "oldalak/adatvedelem.php",
+    "" => "oldalak/main.php",
+];
+
+$oldalak = [
+    "arak" => "oldalak/arak.php",
+    "loginform" => "oldalak/loginform.php",
+    "registerform" => "oldalak/registerform.php",
+    "adatvedelem" => "oldalak/adatvedelem.php",
+    "" => "oldalak/main.php",
+];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -13,100 +51,28 @@ include('actions/getjegytipusadatok.php');
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <?php
-        $cim ="";
-        if (isset($_GET['o'])) {
-            $o = $_GET['o'];
-            if ($o == "arak") {
-                $cim = "Áraink - LiftZone";
-            }
-            else if ($o == "fiok") {
-                $cim = "Fiókod - LiftZone";
-            }
-            else if ($o == "jegyvasarlasform") {
-                $cim = "Jegy vásárlása - LiftZone";
-            }
-            else if ($o == "jelszomodositasform") {
-                $cim = "Jelszó módosítása - LiftZone";
-            }
-            else if ($o == "loginform") {
-                $cim = "Bejelentkezés - LiftZone";
-            }
-            else if ($o == "registerform") {
-                $cim = "Regisztráció - LiftZone";
-            }
-            else if ($o == "adatvedelem") {
-                $cim = "Adatvédelem - LiftZone";
-            }
-            else{
-                $cim = "404 - LiftZone";
-            }
-        } else {
-            $cim = "Főoldal - LiftZone";
-        }
-        
-        ?>
     <title><?=$cim?></title>
 </head>
 <body>
     <div class="site">
-        <?php include('actions/naplozas.php'); naplo(); ?>
-        <?php include('oldalak/navbar.php'); ?>
+        <?php require('actions/naplozas.php'); naplo(); ?>
+        <?php require('oldalak/navbar.php'); ?>
 
         <div class="content">
         <?php
-            if (isset($_GET['o'])) {
-                $o = $_GET['o'];
-            } else{
-                $o = "";
-            }
+            $o = isset($_GET['o']) ? $_GET['o'] : "";
+            $belepett = isset($_SESSION["uid"]);
 
-            if (isset($_SESSION["uid"])) {
-                if ($o == "arak") {
-                    require("oldalak/arak.php");
-                }
-                else if ($o == "") {
-                    require("oldalak/main.php");
-                }
-                else if ($o == "fiok") {
-                    require("oldalak/fiok.php");
-                }
-                else if ($o == "jegyvasarlasform") {
-                    require("oldalak/jegyvasarlasform.php");
-                }
-                else if ($o == "adatvedelem") {
-                    require("oldalak/adatvedelem.php");
-                }
-                else if ($o == "jelszomodositasform") {
-                    require("oldalak/jelszomodositasform.php");
-                }
-                else{
-                    require("oldalak/404.php");
-                }
-            }
-            else{
-                if ($o == "arak") {
-                    require("oldalak/arak.php");
-                }
-                else if ($o == "loginform") {
-                    require("oldalak/loginform.php");
-                }
-                else if ($o == "registerform") {
-                    require("oldalak/registerform.php");
-                }
-                else if ($o == "adatvedelem") {
-                    require("oldalak/adatvedelem.php");
-                }
-                else if ($o == "") {
-                    require("oldalak/main.php");
-                }
-                
-                else{
-                    require("oldalak/404.php");
-                }
-            }
-            
+            //belepett vagy a sima oldalak listajat hasznaljuk
+            $pages = $belepett ? $belepettoldalak : $oldalak;
 
+            //link alapjan require
+            if (array_key_exists($o, $pages)) {
+                require($pages[$o]);
+            } else {
+                require("oldalak/404.php");
+            }
+            //debug kiiratás
             print_r($_SESSION);
             ?>
     
@@ -127,10 +93,11 @@ include('actions/getjegytipusadatok.php');
 
 
    
-    <?php include("oldalak/jegyvasarlaspopup.php")?>
-    <?php include("oldalak/kartyaformpopup.php")?>
+    <?php require("oldalak/jegyvasarlaspopup.php")?>
+    <?php require("oldalak/kartyaformpopup.php")?>
 
     <script>
+        //majd ezt a hibakezelést is megcsinálom -gabor
         window.addEventListener('message', function(event) {
             if (event.data.loginError) {
                 document.getElementById('error-message').innerHTML = event.data.loginError;
@@ -164,9 +131,9 @@ include('actions/getjegytipusadatok.php');
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="js/pic_change.js"></script>
     <script src="js/jegyvasarlas.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
 
 
