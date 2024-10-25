@@ -13,14 +13,8 @@ $cimek = [
     "loginform" => "Bejelentkezés - LiftZone",
     "registerform" => "Regisztráció - LiftZone",
     "adatvedelem" => "Adatvédelem - LiftZone",
+    "" => "Főoldal - LiftZone",
 ];
-$cim = "Főoldal - LiftZone";
-if (isset($_GET['o']) && array_key_exists($_GET['o'], $cimek)) {
-    $cim = $cimek[$_GET['o']];
-} else {
-    $cim = "404 - LiftZone";
-}
-
 $belepettoldalak = [
     "arak" => "oldalak/arak.php",
     "fiok" => "oldalak/fiok.php",
@@ -38,7 +32,12 @@ $oldalak = [
     "" => "oldalak/main.php",
 ];
 
-
+$o = isset($_GET['o']) ? $_GET['o'] : "";
+if (array_key_exists($o, $cimek)) {
+    $cim = $cimek[$o];
+} else {
+    $cim = "404 - LiftZone";
+}
 
 ?>
 
@@ -60,7 +59,6 @@ $oldalak = [
 
         <div class="content">
         <?php
-            $o = isset($_GET['o']) ? $_GET['o'] : "";
             $belepett = isset($_SESSION["uid"]);
 
             //belepett vagy a sima oldalak listajat hasznaljuk

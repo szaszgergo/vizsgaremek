@@ -64,13 +64,13 @@
     </section>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([47.42057489727823, 19.06725467467809], 13);
+        var map = L.map('map').setView([47.419883635087345, 19.057171205846025], 13);
         
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var marker = L.marker([47.42057489727823, 19.06725467467809]).addTo(map);
+        var marker = L.marker([47.419883635087345, 19.057171205846025]).addTo(map);
 
         marker.bindPopup("<b>Csepel</b><br>Edzőtermünk helyszíne.").openPopup();
     </script>

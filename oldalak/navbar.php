@@ -6,7 +6,7 @@
             <p id="nav_p">6:00 - 23:00</p>
         </div>
         <form class="d-flex align-items-center">
-            <?php if (!isset($_SESSION["loggedin"])): ?>
+            <?php if (!isset($_SESSION["uid"])): ?>
                 <a class="btn btn-warning m-2" href="./?o=loginform">Bejelentkezés </a>
                 <a class="btn btn-warning m-2" href="./?o=registerform">Regisztráció</a>
             <?php else: ?>

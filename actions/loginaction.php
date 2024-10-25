@@ -29,8 +29,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         $sql = "INSERT INTO login (lID, lDatum, lIP, lSession, luID)
         VALUES ('', '$curdate', '$ip', '$sessionid', '$uid')";
         sqlsave($sql);
-        //sessionbe mentjuk a sikeres bejelentkezest
-        $_SESSION["loggedin"] = "true";
         unset($_SESSION['hiba']);
         echo "<script>window.top.postMessage({loginSuccess: true}, '*');</script>";
 
