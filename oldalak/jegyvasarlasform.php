@@ -1,5 +1,5 @@
 <?php 
-$response = apicall('https://liftzone.hu/api/jegyek/');
+$response = apicall('http://liftzone.hu/api/jegyek/');
 if ($response && isset($response->data->tipusok)) {
     $jegyek = $response->data->tipusok;
 } else {

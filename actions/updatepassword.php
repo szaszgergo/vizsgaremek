@@ -1,7 +1,7 @@
 <?php
+session_start();
 require("sqlcall.php");
 require("getuserinfo.php");
-session_start();
 
 $adatok = getUserInfo();
 if (!password_verify($_POST['oldpw'],$adatok[4])) {

@@ -1,7 +1,7 @@
 <?php
 //ezis megvan apiba majd torolni
-require("sqlcall.php");
 session_start();
+require("sqlcall.php");
 //form adatok lekérdezési a POST-ból
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {

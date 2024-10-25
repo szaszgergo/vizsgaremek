@@ -1,6 +1,6 @@
 <?php
-require("sqlcall.php");
 session_start();
+require("sqlcall.php");
 $uid = $_SESSION["uid"];
 $tpID = $_POST["ftpIDvegleges"];
 $kartyaszam = $_POST["cardNumber"];
