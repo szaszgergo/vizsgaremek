@@ -7,7 +7,7 @@
             </div>
             <form action="./actions/jegyvasarlas.php" target="kisablak" method="post">
             <div class="modal-body">
-                <table>
+                <table class="kosartable">
                     <tr>
                         <td id="jegynev"></td>
                         <td>1</td>

@@ -1,5 +1,6 @@
 <?php
 include('actions/apicall.php');
+include('actions/getuserinfo.php');
 ?>
 
 <!DOCTYPE html>
