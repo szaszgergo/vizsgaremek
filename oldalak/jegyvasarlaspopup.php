@@ -5,7 +5,7 @@
                 <h5 class="modal-title" id="kosar">Kosár</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="./actions/jegyvasarlas.php" target="kisablak" method="post">
+            <!-- <form action="./actions/jegyvasarlas.php" target="kisablak" method="post"> -->
             <div class="modal-body">
                 <table class="kosartable">
                     <tr>
@@ -26,7 +26,7 @@
                 </table>
                 <hr>
                 <div id="osszar" class="m-1 text-right"></div>
-                    <input style='display: none;' id="ftpID" name='ftpID' readonly>
+                    <input type="hidden" id="ftpID" name='ftpID' readonly>
                     <label for="InputNev" class="form-label">Név</label>
                     <input type="text" id="InputNev" name="InputNev" maxlength="100" class="form-control bg-secondary text-light" required>
                     <label for="InputEmail" class="form-label">Email</label>
@@ -39,9 +39,10 @@
                     <label for="">Elfogadom az általános szerződési feltételeket</label>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Tovább a fizetésre</button>
+                <!-- <button type="submit" class="btn btn-primary">Tovább a fizetésre</button> -->
+                <button class="btn btn-primary" data-bs-target="#kartyainfo" data-bs-toggle="modal">Tovább a fizetésre</button>
             </div>
-            </form>
+            <!-- </form> -->
         </div>
     </div>
 </div>
