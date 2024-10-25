@@ -24,19 +24,25 @@
                         <td class="price">1234 HUF</td>
                     </tr>
                 </table>
+                <div class="row">
+                <label for="InputCim" class="form-label">Kuponkód</label>
+                <div class="col-7"><input type="text" id="InputKupon" name="InputKupon" maxlength="100" class="form-control bg-secondary text-light"></div>
+                <div class="col-5"><button class="btn btn-primary">Kód alkalmazása</button></div>
+                </div>
+
                 <hr>
                 <div id="osszar" class="m-1 text-right"></div>
-                    <input type="hidden" id="ftpID" name='ftpID' readonly>
-                    <label for="InputNev" class="form-label">Név</label>
-                    <input type="text" id="InputNev" name="InputNev" maxlength="100" class="form-control bg-secondary text-light" required>
-                    <label for="InputEmail" class="form-label">Email</label>
-                    <input type="text" id="InputEmail" name="InputEmail" maxlength="100" class="form-control bg-secondary text-light" required>
-                    <label for="InputAdo" class="form-label">Adószám</label>
-                    <input type="text" id="InputAdo" name="InputAdo" maxlength="100" class="form-control bg-secondary text-light" required>
-                    <label for="InputCim" class="form-label">Lakcím</label>
-                    <input type="text" id="InputCim" name="InputCim" maxlength="100" class="form-control bg-secondary text-light" required>
-                    <input type="checkbox" name="check" required>
-                    <label for="">Elfogadom az általános szerződési feltételeket</label>
+                <input type="hidden" id="ftpID" name='ftpID' readonly>
+                <label for="InputNev" class="form-label">Név</label>
+                <input type="text" id="InputNev" name="InputNev" maxlength="100" class="form-control bg-secondary text-light" required>
+                <label for="InputEmail" class="form-label">Email</label>
+                <input type="text" id="InputEmail" name="InputEmail" maxlength="100" class="form-control bg-secondary text-light" required>
+                <label for="InputAdo" class="form-label">Adószám</label>
+                <input type="text" id="InputAdo" name="InputAdo" maxlength="100" class="form-control bg-secondary text-light" required>
+                <label for="InputCim" class="form-label">Lakcím</label>
+                <input type="text" id="InputCim" name="InputCim" maxlength="100" class="form-control bg-secondary text-light" required>
+                <input type="checkbox" name="check" required>
+                <label for="check">Elfogadom az általános szerződési feltételeket</label>
             </div>
             <div class="modal-footer">
                 <!-- <button type="submit" class="btn btn-primary">Tovább a fizetésre</button> -->

@@ -22,3 +22,15 @@ document.addEventListener('click', function (event) {
 });
 
 
+document.getElementById('cardNumber').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 16) {
+        value = value.slice(0, 16);
+    }
+    e.target.value = value.replace(/(.{4})/g, '$1-').trim();
+
+    if (e.target.value.endsWith('-')) {
+        e.target.value = e.target.value.slice(0, -1);
+    }
+});
+

@@ -44,7 +44,7 @@
             <div class="row mb-5">
                     <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
                             <h1 style="text-align:left; text-transform: uppercase;">Modern <br> <span>gépek</span></h1>
-                            <p>A Chili Fitness-ben a legmodernebb gépekkel találkozhattok. Ezek a gépek találhatók meg a világ legjobb termeiben és mellette ARNOLD, MADONNA most nyíló edzőtermeiben is.</p>
+                            <p>A LiftZone Fitness-ben a legmodernebb gépekkel találkozhattok. Ezek a gépek találhatók meg a világ legjobb termeiben és mellette ARNOLD, MADONNA most nyíló edzőtermeiben is.</p>
                             <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2">Áraink <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                         <div class="col-md-6"></div>
