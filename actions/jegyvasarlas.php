@@ -2,8 +2,9 @@
 require("sqlcall.php");
 session_start();
 $uid = $_SESSION["uid"];
-$tpID = $_POST["tpID"];
-//a tipus alapjan lekerjuk milyen hosszu
+$tpID = $_POST["ftpID"];
+
+// a tipus alapjan lekerjuk milyen hosszu
 $sqljegy = "SELECT * FROM `tipusok` WHERE tpID = $tpID";
 $adatok = sqlcall($sqljegy);
 $jegy = $adatok->fetch_row();

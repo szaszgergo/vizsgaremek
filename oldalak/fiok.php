@@ -27,7 +27,7 @@ if (isset($jegy)) {
         <div id='error-message' class='alert alert-danger' style='display: none;'></div>
         
         <div class="profile-header">
-            <img src="<?php $a= 'profile_pic/' . (empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11]); echo $a; ?>" alt="Profile Picture">
+            <img style="object-fit: cover;" src="<?php $a= 'profile_pic/' . (empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11]); echo $a; ?>" alt="Profile Picture">
             <div>
                 <h2>Igazi Név</h2>
                 <p>@<?php echo $adatok[2] ?></p>

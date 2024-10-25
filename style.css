@@ -9,6 +9,8 @@ body {
     font-family: "Kanit", sans-serif;
 }
 
+
+
 span {
     margin-right: 10pt;
 }
@@ -195,4 +197,13 @@ h1 {
 
 .logo{
     height: 60pt;
+}
+
+.text-right{
+    text-align: right;
+}
+table{
+    width: 100%;
+    text-align: right;
+
 }
