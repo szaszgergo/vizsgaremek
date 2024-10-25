@@ -1,12 +1,3 @@
-<style>
-    #jelszoform{
-        margin: 0px;
-    }
-    .page-wrapper {
-    min-height: 24.5vh;
-  }
-
-</style>
 <div id="fiokrow" class="row fiokrow">
     <div class="col">
         <form id="jelszoform" class="form bg-dark text-light fiok" action="actions/updatepassword.php" method="post" target='kisablak'>

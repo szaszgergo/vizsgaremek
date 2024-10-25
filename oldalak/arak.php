@@ -1,22 +1,4 @@
-<body>
 <div class="arak">
-    <style>
-        table{
-            width: 30%;
-        }
-        table tr{
-            margin-top: 5rem;
-        }
-        table tr th:last-child{
-            text-align: right;
-        }
-        table tr td:last-child{
-            text-align: right;
-        }
-        p{
-            text-align: center;
-        }
-    </style>
 <img src="images/bg.jpg" alt="as">
     <h1 class="text-center text-warning">Bérletárak</h1>
     <div class="row">
@@ -75,7 +57,6 @@
             </table>
         </div>
 
-        <!-- Diák/Nyugdíjas Section -->
         <div class="col-md-5">
             <h2 class="text-warning section-title">Diák / Nyugdíjas</h2>
             <table class="table table-borderless">
@@ -130,5 +111,3 @@
 
     <p><i>*Az alkalmas bérletek a vásárlástól számított 60 napig érvényesek.</i></p>
 </div>
-
-</body>

@@ -1,15 +1,3 @@
-<style>
-    body {
-        font-size: large;
-    }
-
-    h1, h2 {
-        text-align: left;
-        margin: 1pt;
-        padding: 5pt;
-        color: #ffc107;
-    }
-</style>
 <div class="gdpr-nyilatkozat bg-dark m-3 p-5" style="padding: 20px; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     <div class="adatkezelo">
         <h1>Az adatkezelő</h1>
