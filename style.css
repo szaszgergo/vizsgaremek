@@ -141,6 +141,7 @@ h1 {
     height: 40pt;
     border-radius: 50%;
     object-fit: cover;
+    margin-left: 10pt;
   }
 
   .profile-container {
@@ -210,6 +211,9 @@ h1 {
 .text-right{
     text-align: right;
 }
+#nav_p{
+    padding-right: 3rem;
+}
 .kosartable{
     width: 100%;
     text-align: right;
@@ -220,7 +224,7 @@ h1 {
 }
 
 .site{
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh;
 }
 
 .content{
