@@ -1,5 +1,6 @@
 # vizsgaremek
 2024/2025 Vizsgaremekre készült projekt.
+[www.liftzone.hu](https://liftzone.hu).
 
 # Vizsgaremek címe:
 Edzőterem mobilalkalmazása
