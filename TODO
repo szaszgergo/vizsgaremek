@@ -1,0 +1,143 @@
+1. Fejlett Felhasználói Fiók Funkciók
+    - Személyre szabott edzésnapló: Engedélyezze a felhasználók számára az edzések naplózását, célok kitűzését és a fejlődés nyomon követését.
+
+    - Személyre szabott irányítópult: Mutassa a felhasználó legutóbbi tevékenységeit, közelgő foglalt óráit és fitnesz ajánlásait.
+
+    - Eredmények és jelvények: Játékszerűsítse a tapasztalatot, jutalmazza a felhasználókat jelvényekkel mérföldkövek (például részt vett órák száma, fogyás stb.) alapján.
+
+2. Fejlettebb Termék- és Szolgáltatás Opciók
+    - Táplálkozási bolt: Adjon hozzá egy részt táplálékkiegészítők, fehérjeporok vagy edzőtermi termékek értékesítésére.
+
+    - Termék összehasonlítás: Funkció különböző edzőtermi berendezések vagy táplálékkiegészítők összehasonlítására.
+
+    - Előfizetői dobozok: Havi csomagok válogatott fitnesz termékekkel vagy táplálkozási tervekkel.
+
+    - Edzői foglalás: Lehetőség személyi edzések közvetlen foglalására az oldalon.
+
+    - Csoportos kedvezmények: Kedvezményes árak barátoknak/családtagoknak, akik együtt iratkoznak fel.
+
+3. Interaktív Tartalom
+    - Videótár: Hozzáférés edzés oktatóvideókhoz, technikai részletekhez és táplálkozási tanácsokhoz edzőktől.
+
+    - Élő közvetítés: Lehetőség élő órákhoz vagy Q&A ülésekhez csatlakozni fitnesz szakértőkkel.
+
+    - 3D Edzőterem Túr: Immersív virtuális túra, amely bemutatja a létesítményeket.
+
+    - Blog szekció: Fitnesz cikkek, sikertörténetek, edzési tippek és táplálkozási tanácsok.
+
+    - Edzés kihívások: Havi kihívások, amelyekhez a felhasználók csatlakozhatnak a motiváció fenntartása érdekében (például 30 napos guggoló kihívás).
+
+4. Foglalási és Ütemezési Fejlesztések
+    - Óra emlékeztetők és értesítések: Automatikus e-mail/SMS emlékeztetők foglalt órákra.
+
+    - Várólistás funkció: Lehetőség várólistára kerülni, ha egy óra teljesen megtelt, automatikus beiratkozással, ha egy hely felszabadul.
+
+    - Óra értékelések és vélemények: Engedje meg a tagoknak, hogy értékeljék és véleményezzék az órákat vagy edzőket.
+
+5. Interaktív Közösségi Funkciók
+    - Fórum/Közösségi oldal: Terület a tagok számára, hogy megosszanak tippeket, szervezzenek csoportos edzéseket vagy beszélgessenek fitnesz témákról.
+
+    - Edzőtársak: Funkció a tagok számára, hogy kapcsolatba lépjenek edzéspartnereket kereső tagokkal.
+
+    - Tagprofilok: Engedje meg a tagoknak, hogy megosszák fejlődésüket, fitnesz céljaikat és személyes bemutatkozásukat, ha akarják.
+
+6. Játékszerűsített és Motiváló Funkciók
+    - Ranglisták: Kövesse a legjobb tagokat az elvégzett edzések, súlyemelés vagy lefutott mérföldek alapján.
+
+    - Pontok és jutalmak: Szerezzen pontokat az órák látogatásáért, edzőfoglalásért vagy vásárlásokért. Váltsa be a pontokat jutalmakra.
+
+    - Fejlődési fényképek: Privát terület a felhasználók számára, ahol feltölthetik fejlődési képeiket a fizikai változások nyomon követésére.
+
+7. Személyre Szabott Edzés- és Táplálkozási Tervek
+    - Személyre szabott edzésterv: Készítsen egyedi terveket a felhasználók fitnesz céljai alapján (fogyás, izomtömeg növelés stb.).
+
+    - Étkezési tervező eszköz: Engedje meg a felhasználóknak, hogy étkezési terveket készítsenek és mentsenek; ajánljon bevásárlólistákat ezek alapján.
+
+    - Diétás preferenciák: Integrálja a fitnesz profilokkal, hogy figyelembe vegye a diétás korlátozásokat az étkezési ajánlásoknál.
+
+8. Közösségi Média és Marketing Integráció
+    - Instagram hírfolyam integráció: Mutassa be az edzőterem legújabb Instagram bejegyzéseit.
+
+    - Közösségi megosztási gombok: Könnyű megosztás az eredményekről, blogbejegyzésekről vagy órafoglalásokról a közösségi médiában.
+
+    - Felhasználó által generált tartalom: Buzdítsa a tagokat, hogy osszák meg tapasztalataikat egy márkázott hashtag segítségével, és mutassa be ezeket a bejegyzéseket az oldalon.
+
+9. Fejlett Keresési és Szűrési Opciók
+    - Keresés edző szerint: Órák keresése a kedvenc edző alapján.
+
+    - Keresés szint szerint: Órák szűrése kezdő, középhaladó vagy haladó nehézség alapján.
+
+    - Órák szűrése fókusz szerint: Pl. erő, kardió, rugalmasság, állóképesség.
+
+10. Analitika és Fejlődési Elemzések
+    - Kalóriaégetés nyomkövető: Integráljon viselhető fitnesz nyomkövetőket a kalóriaégetés megjelenítéséhez edzésenként.
+
+    - Fejlődési grafikonok: Vizualizálja a fitnesz fejlődését (elveszített súly, emelt súlyok stb.).
+
+    - Fitnesz értékelő eszköz: Kvíz vagy online értékelés, amely útmutatást nyújt a felhasználóknak a megfelelő edzésekhez a fitnesz szintjük alapján.
+
+11. Figyelemfelkeltő Multimédiás Tartalom
+    - Podcastok: Fitnesz podcast indítása az edzőterem edzőivel vagy táplálkozási szakértőivel.
+
+    - Interaktív GYIK szekció: Használjon bővíthető akordeonokat a gyakori kérdésekhez, vagy akár chatbot segítségnyújtást.
+
+    - Vélemények: Videó vélemények elégedett tagoktól vagy sikertörténetek.
+
+12. Hozzáférhetőségi és Támogatási Funkciók
+    - Nyelvi opciók: Több nyelv kínálata az oldal interfészéhez, beleértve a speciális edzőtermi kifejezéseket.
+
+    - Chatbot támogatás: Chatbot implementálása a foglalások, GYIK vagy edzőterem megkeresések kezelésére.
+
+    - Hozzáférhetőségi funkciók: Magas kontrasztú mód, szövegből beszédbe konvertáló eszköz a látássérült felhasználók számára.
+
+13. Innovatív Eszközök és Kalkulátorok
+    - BMI és testzsír kalkulátor: Hasznos eszközök a testmérő adatok becslésére.
+
+    - One-rep-max kalkulátor: Kalkulátor a súlyemelő kedvelők számára, hogy meghatározzák a maximális súlyukat.
+
+    - Kalória nyomkövető: Integrált kalória nyomkövető eszköz az étkezés nyomon követésére.
+
+14. Események és Különleges Ajánlatok
+    - Eseménynaptár: Jelenítse meg a közelgő edzőterem eseményeket, például nyílt napokat, versenyeket vagy tematikus edzéseket.
+
+    - Különleges ajánlatok oldal: Mutassa be a kedvezményeket vagy akciókat (pl. barátajánló, korai madár kedvezmények).
+
+    - Ünnepi programok: Promotáljon különleges ünnepi témájú órákat vagy eseményeket.
+
+15. Specializált Edzésoldalak
+    - Kezdő zóna: Külön oldal/szekció azok számára, akik újonnan kezdenek a fitnesz világában, kezdő útmutatókkal és könnyű edzésekkel.
+
+    - Haladó edzések: Azok számára, akik a következő szintre akarnak lépni—nehéz edzések, haladó technikák.
+
+    - Otthoni edzés útmutatók: Szekció a felhasználóknak, akik otthon szeretnének edzeni, javasolt felszerelésekkel.
+
+16. Személyre Szabás és Ajánlások
+    - AI edzési ajánlások: Használjon mesterséges intelligenciát edzések ajánlására a felhasználó előzményei és preferenciái alapján.
+
+    - Ajánlott órák: Olyan órák megjelenítése, amelyek hasonlóak a felhasználó által korábban látogatottakhoz.
+
+    - Személyre szabott e-mailek: Küldjön a felhasználóknak személyre szabott tartalmakat, közelgő órákat és motiváló tippeket a profiljuk alapján.
+
+17. Mobilalkalmazás és Integráció
+    - Mobilalkalmazás verzió: Készítsen egy kiegészítő mobilalkalmazást a könnyebb hozzáférés érdekében.
+
+    - Integráció a viselhető eszközökkel: Szinkronizálás fitnesz viselhető eszközökkel, mint a Fitbit vagy az Apple Watch az edzések nyomon követésére.
+
+    - Offline mód: Tegye elérhetővé egyes tartalmakat (például edzési terveket) internetkapcsolat nélkül is.
+
+18. Exkluzív Tagtartalom
+    - Prémium tagsági terület: Kínáljon exkluzív edzéstartalmakat, étkezési terveket vagy személyi edzői konzultációkat prémium tagok számára.
+
+    - Letölthető PDF-ek: Nyomtatható edzési tervek vagy táplálkozási útmutatók.
+
+    - E-könyvek: Letölthető fitnesz vagy táplálkozási e-könyvek kínálata.
+
+19. Felhasználói Visszajelzés és Fejlesztés
+    - Felmérő eszköz: Gyűjtse össze a tagok visszajelzéseit az edzőterem vagy az oldal fejlesztése érdekében.
+
+    - Javaslati doboz: Lehetővé tenni a felhasználók számára, hogy közvetlenül a profiljukból javasoljanak új funkciókat vagy órákat.
+
+20. Figyelemfelkeltő Vizuális Tervezés
+    - Animált elemek: Finom animációk a kölcsönhatások vonzóbbá tételéhez (például gombok fölé húzva vagy űrlapok kitöltésekor).
+
+    - Progresszív betöltési sávok: Oldalbetöltési előrehaladás megjelenítése vagy az órafoglalási folyamat vizuálisan vonzóvá tétele lépésről lépésre betöltési sávokkal.
