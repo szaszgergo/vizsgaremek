@@ -15,13 +15,20 @@ function checkField($field, $message) {
     }
 }
 
-function checkEmail($email){
+function checkEmail($email, $checksame = false){
     // Email foglaltság ellenőrzése
     $sqllekerdezes = "SELECT uemail FROM user WHERE uemail = ?";
     $tabla = sqlcall($sqllekerdezes, 's', [$email]);
     $row = $tabla->fetch_row();
-    print_r($row);
-    if($row){if($row[0] != $email){hibaUzenet("Ez az email cím már foglalt!");}};
+    if($row){
+        if ($checksame) {
+            if ($row[0] != $email) {
+                hibaUzenet("Ez az email cím már foglalt!");
+            }
+        }else{
+            hibaUzenet("Ez az email cím már foglalt!");
+        }
+    };
 }
 
 function checkPassword($password) {

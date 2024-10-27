@@ -22,7 +22,7 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["date"])
     $email = $_POST["email"];
     $date =  $_POST["date"];
 
-    checkEmail($email);
+    checkEmail($email, true);
 
     $sql = "UPDATE user SET uemail = '$email', uSzuletesidatum = '$date'";
     if ($vankep) {
