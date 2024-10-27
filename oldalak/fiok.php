@@ -63,7 +63,7 @@ if (isset($jegy)) {
 
     </form>
     </div>
-    <div class="col-md-4 jegy bg-dark ">
+    <div class="col-md-4 jegy">
         <?php echo $szoveg;?>
     </div>
     <script src="./js/edit.js"></script>
