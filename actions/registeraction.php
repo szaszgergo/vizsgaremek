@@ -1,6 +1,7 @@
 <?php
 session_start();
 require("sqlcall.php");
+require("formhandling.php");
 
 // CAPTCHA generálása
 function generateCaptcha() {
@@ -10,32 +11,6 @@ function generateCaptcha() {
     return [$szam1, $szam2];
 }
 
-// Hibakezelés és üzenetküldés
-function hibaUzenet($uzenet) {
-    $_SESSION["hiba"] = $uzenet;
-    echo "<script> window.top.postMessage({loginError: '" . $_SESSION['hiba'] . "'}, '*'); </script>";
-    exit();
-}
-
-// Beviteli mezők ellenőrzése
-function checkField($field, $message) {
-    if (empty($_POST[$field])) {
-        hibaUzenet($message);
-    }
-}
-
-// Jelszó feltételek ellenőrzése
-function checkPassword($password) {
-    if (strlen($password) < 8) {
-        hibaUzenet("Legalább 8 karakter kell hogy legyen a jelszó!");
-    }
-    if (!preg_match("/[a-z]/i", $password)) {
-        hibaUzenet("Legalább egy betűt tartalmaznia kell a jelszónak!");
-    }
-    if (!preg_match("/[0-9]/", $password)) {
-        hibaUzenet("Legalább egy számot tartalmaznia kell a jelszónak!");
-    }
-}
 
 // Beviteli mezők ellenőrzése
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -53,9 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if ($_POST["user_eredmeny"] != $_SESSION["eredmeny"]) {
-        $_SESSION["hiba"] = "Nem sikerült az összeadásod!";
         list($szam1, $szam2) = generateCaptcha(); 
-        echo "<script> window.top.postMessage({loginError: '" . $_SESSION['hiba'] . "', newCaptcha: {num1: $szam1, num2: $szam2}}, '*'); </script>";
+        hibaUzenet("Nem sikerült az összeadásod!");
         exit();
     }
 
@@ -64,29 +38,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $date = $_POST["date"];
 
-    // Email foglaltság ellenőrzése
-    $sqllekerdezes = "SELECT uID FROM user WHERE uemail = ?";
-    $tabla = sqlcall($sqllekerdezes, 's', [$email]);
-    $row = $tabla->fetch_row();
+    checkEmail($email);
+    // Jelszó hashelése és adatok mentése
+    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
+    $curdate = date('Y-m-d H:i:s');
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $sessionid = session_id();
+    $uuid = uniqid('', true);
 
-    if ($row) {
-        hibaUzenet("Ez az email cím már foglalt!");
-    } else {
-        // Jelszó hashelése és adatok mentése
-        $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
-        $curdate = date('Y-m-d H:i:s');
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $sessionid = session_id();
-        $uuid = uniqid('', true);
-
-        $sql = "INSERT INTO user (uUID, uFelhasznalonev, uemail, uPassword, uSzuletesidatum, uRegisztracio, uIP, uSession, uStatus, uKomment)
+    $sql = "INSERT INTO user (uUID, uFelhasznalonev, uemail, uPassword, uSzuletesidatum, uRegisztracio, uIP, uSession, uStatus, uKomment)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'a', '.')";
 
-        sqlsave($sql, 'ssssssss', [$uuid, $username, $email, $password, $date, $curdate, $ip, $sessionid]);
+    sqlsave($sql, 'ssssssss', [$uuid, $username, $email, $password, $date, $curdate, $ip, $sessionid]);
 
-        echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";
+    echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";
     }
-}
 ?>
 
 

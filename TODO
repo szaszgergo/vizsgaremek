@@ -10,9 +10,9 @@
 
     - Termék összehasonlítás: Funkció különböző edzőtermi berendezések vagy táplálékkiegészítők összehasonlítására.
 
-    - Előfizetői dobozok: Havi csomagok válogatott fitnesz termékekkel vagy táplálkozási tervekkel.
+    - ✔ Előfizetői dobozok: Havi csomagok válogatott fitnesz termékekkel vagy táplálkozási tervekkel.
 
-    - Edzői foglalás: Lehetőség személyi edzések közvetlen foglalására az oldalon.
+    - ✔ Edzői foglalás: Lehetőség személyi edzések közvetlen foglalására az oldalon. 
 
     - Csoportos kedvezmények: Kedvezményes árak barátoknak/családtagoknak, akik együtt iratkoznak fel.
 
@@ -23,37 +23,37 @@
 
     - 3D Edzőterem Túr: Immersív virtuális túra, amely bemutatja a létesítményeket.
 
-    - Blog szekció: Fitnesz cikkek, sikertörténetek, edzési tippek és táplálkozási tanácsok.
+    - ✔ Blog szekció: Fitnesz cikkek, sikertörténetek, edzési tippek és táplálkozási tanácsok.
 
     - Edzés kihívások: Havi kihívások, amelyekhez a felhasználók csatlakozhatnak a motiváció fenntartása érdekében (például 30 napos guggoló kihívás).
 
 4. Foglalási és Ütemezési Fejlesztések
-    - Óra emlékeztetők és értesítések: Automatikus e-mail/SMS emlékeztetők foglalt órákra.
+    - ✔ Óra emlékeztetők és értesítések: Automatikus e-mail/SMS emlékeztetők foglalt órákra.
 
     - Várólistás funkció: Lehetőség várólistára kerülni, ha egy óra teljesen megtelt, automatikus beiratkozással, ha egy hely felszabadul.
 
-    - Óra értékelések és vélemények: Engedje meg a tagoknak, hogy értékeljék és véleményezzék az órákat vagy edzőket.
+    - ✔ Óra értékelések és vélemények: Engedje meg a tagoknak, hogy értékeljék és véleményezzék az órákat vagy edzőket.
 
 5. Interaktív Közösségi Funkciók
-    - Fórum/Közösségi oldal: Terület a tagok számára, hogy megosszanak tippeket, szervezzenek csoportos edzéseket vagy beszélgessenek fitnesz témákról.
+    - ✔ Fórum/Közösségi oldal: Terület a tagok számára, hogy megosszanak tippeket, szervezzenek csoportos edzéseket vagy beszélgessenek fitnesz témákról.
 
-    - Edzőtársak: Funkció a tagok számára, hogy kapcsolatba lépjenek edzéspartnereket kereső tagokkal.
+    - ✔ Edzőtársak: Funkció a tagok számára, hogy kapcsolatba lépjenek edzéspartnereket kereső tagokkal.
 
-    - Tagprofilok: Engedje meg a tagoknak, hogy megosszák fejlődésüket, fitnesz céljaikat és személyes bemutatkozásukat, ha akarják.
+    - ✔ Tagprofilok: Engedje meg a tagoknak, hogy megosszák fejlődésüket, fitnesz céljaikat és személyes bemutatkozásukat, ha akarják.
 
 6. Játékszerűsített és Motiváló Funkciók
-    - Ranglisták: Kövesse a legjobb tagokat az elvégzett edzések, súlyemelés vagy lefutott mérföldek alapján.
+    - ✔ Ranglisták: Kövesse a legjobb tagokat az elvégzett edzések, súlyemelés vagy lefutott mérföldek alapján.
 
-    - Pontok és jutalmak: Szerezzen pontokat az órák látogatásáért, edzőfoglalásért vagy vásárlásokért. Váltsa be a pontokat jutalmakra.
+    - ✔ Pontok és jutalmak: Szerezzen pontokat az órák látogatásáért, edzőfoglalásért vagy vásárlásokért. Váltsa be a pontokat jutalmakra.
 
     - Fejlődési fényképek: Privát terület a felhasználók számára, ahol feltölthetik fejlődési képeiket a fizikai változások nyomon követésére.
 
 7. Személyre Szabott Edzés- és Táplálkozási Tervek
-    - Személyre szabott edzésterv: Készítsen egyedi terveket a felhasználók fitnesz céljai alapján (fogyás, izomtömeg növelés stb.).
+    - ✔ Személyre szabott edzésterv: Készítsen egyedi terveket a felhasználók fitnesz céljai alapján (fogyás, izomtömeg növelés stb.).
 
     - Étkezési tervező eszköz: Engedje meg a felhasználóknak, hogy étkezési terveket készítsenek és mentsenek; ajánljon bevásárlólistákat ezek alapján.
 
-    - Diétás preferenciák: Integrálja a fitnesz profilokkal, hogy figyelembe vegye a diétás korlátozásokat az étkezési ajánlásoknál.
+    - ✔ Diétás preferenciák: Integrálja a fitnesz profilokkal, hogy figyelembe vegye a diétás korlátozásokat az étkezési ajánlásoknál.
 
 8. Közösségi Média és Marketing Integráció
     - Instagram hírfolyam integráció: Mutassa be az edzőterem legújabb Instagram bejegyzéseit.
@@ -70,18 +70,18 @@
     - Órák szűrése fókusz szerint: Pl. erő, kardió, rugalmasság, állóképesség.
 
 10. Analitika és Fejlődési Elemzések
-    - Kalóriaégetés nyomkövető: Integráljon viselhető fitnesz nyomkövetőket a kalóriaégetés megjelenítéséhez edzésenként.
+    - ✔ Kalóriaégetés nyomkövető: Integráljon viselhető fitnesz nyomkövetőket a kalóriaégetés megjelenítéséhez edzésenként.
 
-    - Fejlődési grafikonok: Vizualizálja a fitnesz fejlődését (elveszített súly, emelt súlyok stb.).
+    - ✔ Fejlődési grafikonok: Vizualizálja a fitnesz fejlődését (elveszített súly, emelt súlyok stb.).
 
     - Fitnesz értékelő eszköz: Kvíz vagy online értékelés, amely útmutatást nyújt a felhasználóknak a megfelelő edzésekhez a fitnesz szintjük alapján.
 
 11. Figyelemfelkeltő Multimédiás Tartalom
     - Podcastok: Fitnesz podcast indítása az edzőterem edzőivel vagy táplálkozási szakértőivel.
 
-    - Interaktív GYIK szekció: Használjon bővíthető akordeonokat a gyakori kérdésekhez, vagy akár chatbot segítségnyújtást.
+    - ✔ Interaktív GYIK szekció: Használjon bővíthető akordeonokat a gyakori kérdésekhez, vagy akár chatbot segítségnyújtást.
 
-    - Vélemények: Videó vélemények elégedett tagoktól vagy sikertörténetek.
+    - ✔ Vélemények: Videó vélemények elégedett tagoktól vagy sikertörténetek.
 
 12. Hozzáférhetőségi és Támogatási Funkciók
     - Nyelvi opciók: Több nyelv kínálata az oldal interfészéhez, beleértve a speciális edzőtermi kifejezéseket.
@@ -135,7 +135,7 @@
 19. Felhasználói Visszajelzés és Fejlesztés
     - Felmérő eszköz: Gyűjtse össze a tagok visszajelzéseit az edzőterem vagy az oldal fejlesztése érdekében.
 
-    - Javaslati doboz: Lehetővé tenni a felhasználók számára, hogy közvetlenül a profiljukból javasoljanak új funkciókat vagy órákat.
+    - ✔ Javaslati doboz: Lehetővé tenni a felhasználók számára, hogy közvetlenül a profiljukból javasoljanak új funkciókat vagy órákat.
 
 20. Figyelemfelkeltő Vizuális Tervezés
     - Animált elemek: Finom animációk a kölcsönhatások vonzóbbá tételéhez (például gombok fölé húzva vagy űrlapok kitöltésekor).

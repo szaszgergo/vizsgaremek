@@ -2,7 +2,8 @@
 //ezis megvan apiba majd torolni
 session_start();
 require("sqlcall.php");
-//form adatok lekérdezési a POST-ból
+require("formhandling.php");
+
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $name = $_POST["username"];
@@ -30,13 +31,10 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         VALUES ('', '$curdate', '$ip', '$sessionid', '$uid')";
         sqlsave($sql);
         unset($_SESSION['hiba']);
-        echo "<script>window.top.postMessage({loginSuccess: true}, '*');</script>";
+        formSuccess();
 
     } else{
-        $_SESSION["hiba"] = "Helytelen belépési adatok!!";
-        echo "<script>
-            window.top.postMessage({loginError: '" . $_SESSION['hiba'] . "'}, '*');
-        </script>";
+        hibaUzenet("Helytelen belépési adatok!!");
         exit();
     }
 }
