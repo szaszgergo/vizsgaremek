@@ -17,10 +17,11 @@ function checkField($field, $message) {
 
 function checkEmail($email){
     // Email foglaltság ellenőrzése
-    $sqllekerdezes = "SELECT uID FROM user WHERE uemail = ?";
+    $sqllekerdezes = "SELECT uemail FROM user WHERE uemail = ?";
     $tabla = sqlcall($sqllekerdezes, 's', [$email]);
     $row = $tabla->fetch_row();
-    if($row){hibaUzenet("Ez az email cím már foglalt!");};
+    print_r($row);
+    if($row){if($row[0] != $email){hibaUzenet("Ez az email cím már foglalt!");}};
 }
 
 function checkPassword($password) {
