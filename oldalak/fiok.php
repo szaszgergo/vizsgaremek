@@ -12,9 +12,9 @@ if (isset($jegy)) {
     <h3>$tipusadatok[1]</h3>
     <a href='$src'><img src='$src' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  /></a>
     <h4>ÉRVÉNYES:</h4>
-    <h1 style='color: #ffc107'>$maradek_napok NAP</h1>";
+    <h1 class='gold'>$maradek_napok NAP</h1>";
     if (!is_null($jegy[5])) {
-        $szoveg .= "<h3>Használatok száma: <span style='color: #ffc107'> $jegy[5]</span></h3></div>";
+        $szoveg .= "<h3>Használatok száma: <span class='gold'> $jegy[5]</span></h3></div>";
     }
 } else{
     $szoveg = "<h1>Nincs érvényes jegyed</h1> <a class='btn btn-warning' href='?o=jegyvasarlasform'>Vásárlás</a>";

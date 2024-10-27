@@ -12,7 +12,7 @@ if ($response && isset($response->data->tipusok)) {
         foreach ($jegyek as $key => $jegy) {
             $card = "
             <div class='col-lg-4 col-md-6 col-sm-12  mb-5'>
-                <div class='card text-white bg-dark' style='width: 18rem;'>
+                <div class='card text-white'>
                     <div class='card-body'>
                         <h4 class='card-title text-start'>$jegy->tpNev</h4>
                         <p class='card-text text-start'>$jegy->tpAr HUF</p>

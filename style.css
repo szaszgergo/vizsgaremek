@@ -33,10 +33,29 @@ a {
     text-decoration: none;
 }
 
+/* index.php */
+.site {
+    backdrop-filter: blur(2px);
+    min-height: 100vh;
+}
+.content {
+    color: white;
+    padding-bottom: 10rem;
+}
+.footer {
+    background-color: var(--transparent-black);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+/* ---------------------- */
+
 
 /* main.php */
 .mainsite {
     background-color: var(--transparent-black);
+    text-align:left;
+    border-radius:30px;
     #map {
         height: 400px;
         width: 100%;
@@ -162,8 +181,10 @@ a {
 
 /* adatvedelem.php */
 .gdpr-nyilatkozat {
-
-    & h1,
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    h1,
     h2 {
         text-align: left;
         margin: 1pt;
@@ -190,6 +211,7 @@ a {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         border: 2px solid var(--transparent-black);
+        width: 18rem;
     }
 
     .card:hover {
@@ -277,11 +299,6 @@ a {
     padding-right: 3rem;
 }
 
-.site {
-    backdrop-filter: blur(2px);
-    min-height: 100vh;
-}
-
 .form {
     border-radius: 25pt;
     width: 50%;
@@ -299,9 +316,6 @@ h1 {
     height: 0px;
 }
 
-.content {
-    color: white;
-}
 
 .text {
     text-align: center;
@@ -375,13 +389,6 @@ h1 {
     text-align: right;
 }
 
-.content {
-    padding-bottom: 10rem;
-}
-
-.footer {
-    background-color: var(--transparent-black);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.gold{
+    color: var(--gold);
 }
