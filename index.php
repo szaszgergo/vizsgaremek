@@ -3,7 +3,6 @@
 require('actions/apicall.php');
 require('actions/getuserinfo.php');
 require('actions/getjegytipusadatok.php');
-
 //bövithető lista az uj oldalak cimeihez 
 $cimek = [
     "arak" => "Áraink - LiftZone",
@@ -13,6 +12,7 @@ $cimek = [
     "loginform" => "Bejelentkezés - LiftZone",
     "registerform" => "Regisztráció - LiftZone",
     "adatvedelem" => "Adatvédelem - LiftZone",
+    "faqs" => "Gyakran ismételt kérdések - LiftZone",
     "" => "Főoldal - LiftZone",
 ];
 $belepettoldalak = [
@@ -21,6 +21,7 @@ $belepettoldalak = [
     "jegyvasarlasform" => "oldalak/jegyvasarlasform.php",
     "jelszomodositasform" => "oldalak/jelszomodositasform.php",
     "adatvedelem" => "oldalak/adatvedelem.php",
+    "faqs" => "oldalak/faqs.php",
     "" => "oldalak/main.php",
 ];
 
@@ -29,6 +30,7 @@ $oldalak = [
     "loginform" => "oldalak/loginform.php",
     "registerform" => "oldalak/registerform.php",
     "adatvedelem" => "oldalak/adatvedelem.php",
+    "faqs" => "oldalak/faqs.php",
     "" => "oldalak/main.php",
 ];
 
@@ -124,11 +126,6 @@ if (array_key_exists($o, $cimek)) {
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="js/pic_change.js"></script>
     <script src="js/jegyvasarlas.js"></script>
-
-
-
-
-    
-
+    <script src="js/language.js"></script>
 </body>
 </html>
