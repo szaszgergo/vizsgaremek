@@ -1,5 +1,9 @@
 <?php
 include('actions/apicall.php');
+include('actions/getuserinfo.php');
+include('actions/getjegytipusadatok.php');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -158,8 +162,9 @@ include('actions/apicall.php');
                 <a class="m-1" href="#"><i class="fa-brands fa-instagram"  style="font-size:24px"></i></a>
                 <a class="m-1" href="#"><i class="fa-brands fa-youtube"  style="font-size:24px"></i></a>
                 <a class="m-1" href="#"><i class="fa-brands fa-tiktok"  style="font-size:24px"></i></a> 
+                <p style="font-size: small; color: white;">Copyright © 2024 LiftZone edzőterem. Minden jog fenntartva.</p>
+
             </div>
-            <p style="font-size: small;">Copyright © 2024 LiftZone edzőterem. Minden jog fenntartva.</p>
         </footer>
     </div>
    
