@@ -12,9 +12,9 @@ if (isset($jegy)) {
     <h3>$tipusadatok[1]</h3>
     <a href='$src'><img src='$src' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  /></a>
     <h4>ÉRVÉNYES:</h4>
-    <h1 style='color: #ffc107'>$maradek_napok NAP</h1>";
+    <h1 class='gold'>$maradek_napok NAP</h1>";
     if (!is_null($jegy[5])) {
-        $szoveg .= "<h3>Használatok száma: <span style='color: #ffc107'> $jegy[5]</span></h3></div>";
+        $szoveg .= "<h3>Használatok száma: <span class='gold'> $jegy[5]</span></h3></div>";
     }
 } else{
     $szoveg = "<h1>Nincs érvényes jegyed</h1> <a class='btn btn-warning' href='?o=jegyvasarlasform'>Vásárlás</a>";
@@ -27,7 +27,7 @@ if (isset($jegy)) {
         <div id='error-message' class='alert alert-danger' style='display: none;'></div>
         
         <div class="profile-header">
-            <img src="<?php $a= 'profile_pic/' . (empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11]); echo $a; ?>" alt="Profile Picture">
+            <img style="object-fit: cover;" src="<?php $a= 'profile_pic/' . (empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11]); echo $a; ?>" alt="Profile Picture">
             <div>
                 <h2>Igazi Név</h2>
                 <p>@<?php echo $adatok[2] ?></p>
@@ -63,7 +63,7 @@ if (isset($jegy)) {
 
     </form>
     </div>
-    <div class="col-md-4 jegy bg-dark ">
+    <div class="col-md-4 jegy">
         <?php echo $szoveg;?>
     </div>
     <script src="./js/edit.js"></script>

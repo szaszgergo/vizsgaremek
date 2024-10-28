@@ -1,16 +1,4 @@
-
-<style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-        #gepek{
-            background-image: url(./images/hatter_gym.jpg);
-            border-radius: 30px;
-        }
-        
-</style>
- <div class="container text mt-3  p-5" style="text-align:left; border-radius:30px;">
+ <div class="container text mt-3 p-5 mainsite">
     <section class="m-5 p-4">
         <div class="row mb-5" style="text-align:center;">
             <h1>Üdvözlünk a LiftZone Gymnél!</h1>
@@ -56,7 +44,7 @@
             <div class="row mb-5">
                     <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
                             <h1 style="text-align:left; text-transform: uppercase;">Modern <br> <span>gépek</span></h1>
-                            <p>A Chili Fitness-ben a legmodernebb gépekkel találkozhattok. Ezek a gépek találhatók meg a világ legjobb termeiben és mellette ARNOLD, MADONNA most nyíló edzőtermeiben is.</p>
+                            <p>A LiftZone Fitness-ben a legmodernebb gépekkel találkozhattok. Ezek a gépek találhatók meg a világ legjobb termeiben és mellette ARNOLD, MADONNA most nyíló edzőtermeiben is.</p>
                             <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2">Áraink <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                         <div class="col-md-6"></div>
@@ -76,13 +64,13 @@
     </section>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([47.42057489727823, 19.06725467467809], 13);
+        var map = L.map('map').setView([47.419883635087345, 19.057171205846025], 13);
         
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var marker = L.marker([47.42057489727823, 19.06725467467809]).addTo(map);
+        var marker = L.marker([47.419883635087345, 19.057171205846025]).addTo(map);
 
         marker.bindPopup("<b>Csepel</b><br>Edzőtermünk helyszíne.").openPopup();
     </script>
