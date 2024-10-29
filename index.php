@@ -1,11 +1,4 @@
 <?php
-<<<<<<< HEAD
-include('actions/apicall.php');
-include('actions/getuserinfo.php');
-include('actions/getjegytipusadatok.php');
-
-=======
-//requireok
 require('actions/apicall.php');
 require('actions/getuserinfo.php');
 require('actions/getjegytipusadatok.php');
@@ -46,7 +39,6 @@ if (array_key_exists($o, $cimek)) {
 } else {
     $cim = "404 - LiftZone";
 }
->>>>>>> b9fe1049e6a0a635e67459ad1e33311af9f12206
 
 ?>
 
@@ -92,12 +84,8 @@ if (array_key_exists($o, $cimek)) {
                 <a class="m-1" href="#"><i class="fa-brands fa-instagram"  style="font-size:24px"></i></a>
                 <a class="m-1" href="#"><i class="fa-brands fa-youtube"  style="font-size:24px"></i></a>
                 <a class="m-1" href="#"><i class="fa-brands fa-tiktok"  style="font-size:24px"></i></a> 
-<<<<<<< HEAD
                 <p style="font-size: small; color: white;">Copyright © 2024 LiftZone edzőterem. Minden jog fenntartva.</p>
-
-=======
                 <p class="text-white" style="font-size: small;">Copyright © 2024 LiftZone edzőterem. Minden jog fenntartva.</p>
->>>>>>> b9fe1049e6a0a635e67459ad1e33311af9f12206
             </div>
         </footer>
     </div>
