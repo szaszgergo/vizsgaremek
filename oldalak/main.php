@@ -1,4 +1,4 @@
- <div class="container text mt-3 p-5 mainsite">
+ <div class="container text mt-3  p-5 mainsite">
     <section class="m-5 p-4">
         <div class="row mb-5" style="text-align:center;">
             <h1>Üdvözlünk a LiftZone Gymnél!</h1>
@@ -62,6 +62,25 @@
             </div>
         </section>
     </section>
+
+    <section>
+        <div class="row">
+            <h1>Partnereink</h1>
+            <div class="logos"> 
+                <div class="logos-slide">
+                    <img src="./images/sponsor1.webp" />
+                    <img src="./images/sponsor2.webp" />
+                    <img src="./images/sponsor3.webp" />
+                    <img src="./images/sponsor4.webp" />
+                    <img src="./images/sponsor5.webp" />
+                    <img src="./images/sponsor6.webp" />
+                    <img src="./images/sponsor7.webp" />
+                    <img src="./images/sponsor8.webp" />
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         var map = L.map('map').setView([47.419883635087345, 19.057171205846025], 13);

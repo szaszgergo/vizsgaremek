@@ -57,12 +57,16 @@ if (array_key_exists($o, $cimek)) {
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sponsor_slider.css">
+
     <title><?=$cim?></title>
 </head>
 <body>
     <div class="site">
         <?php require('actions/naplozas.php'); naplo(); ?>
         <?php require('oldalak/navbar.php'); ?>
+        <?php require('oldalak/footer.php'); ?>
+
 
         <div class="content">
         <?php
@@ -83,17 +87,7 @@ if (array_key_exists($o, $cimek)) {
     
         </div>
 
-        <footer class="footer">
-            <div class="text p-3">
-                <p><a class="text-warning" href="./?o=adatvedelem">Adatvédelmi tájékoztató</a></p>
-                <a class="m-1" href="#"><i class="fa-brands fa-facebook-f"  style="font-size:24px"></i></a>
-                <a class="m-1" href="#"><i class="fa-brands fa-instagram"  style="font-size:24px"></i></a>
-                <a class="m-1" href="#"><i class="fa-brands fa-youtube"  style="font-size:24px"></i></a>
-                <a class="m-1" href="#"><i class="fa-brands fa-tiktok"  style="font-size:24px"></i></a> 
-                <p class="text-white" style="font-size: small;">Copyright © 2024 LiftZone edzőterem. Minden jog fenntartva.</p>
-
-            </div>
-        </footer>
+      
     </div>
     <iframe name='kisablak' style="display: none;"></iframe>
 
@@ -133,5 +127,7 @@ if (array_key_exists($o, $cimek)) {
     <script src="js/pic_change.js"></script>
     <script src="js/jegyvasarlas.js"></script>
     <script src="js/language.js"></script>
+    <script src="js/sponsor-slide.js"></script>
+
 </body>
 </html>
