@@ -14,7 +14,7 @@ include("actions/language.php");
         </svg>
         </div>
         <div class="answer">
-        <p><?= $languageContent['answer1'] ?></p>
+        <p><?= $languageContent['answer1']?></p>
         </div>
     </div>
     
@@ -66,7 +66,7 @@ include("actions/language.php");
         </svg>
         </div>
         <div class="answer">
-        <p><?= $languageContent['answer5'] ?></p>
+        <p><?= $languageContent['answer5']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
         </div>
     </div>
     </section>

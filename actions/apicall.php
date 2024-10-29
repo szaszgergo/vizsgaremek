@@ -1,6 +1,4 @@
 <?php
-
-
 function apicall($url){
     $contextOptions = array(
         "ssl" => array(
