@@ -21,6 +21,7 @@ $belepettoldalak = [
     "jelszomodositasform" => "oldalak/jelszomodositasform.php",
     "adatvedelem" => "oldalak/adatvedelem.php",
     "faqs" => "oldalak/faqs.php",
+    "hazirend" => "oldalak/hazirend.php",
     "" => "oldalak/main.php",
 ];
 
@@ -30,6 +31,7 @@ $oldalak = [
     "registerform" => "oldalak/registerform.php",
     "adatvedelem" => "oldalak/adatvedelem.php",
     "faqs" => "oldalak/faqs.php",
+    "hazirend" => "oldalak/hazirend.php",
     "" => "oldalak/main.php",
 ];
 
