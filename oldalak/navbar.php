@@ -52,6 +52,7 @@ $flagSrc = $lang === 'hu' ? 'images/hu_flag.png' : 'images/us_flag.png'; // Aktu
                     <li><a class="dropdown-item" href="#">Edzők</a></li>
                     <li><a class="dropdown-item" href="#">Galéria</a></li>
                     <li><a class="dropdown-item" href="./?o=faqs">Gyakran ismételt kérdések</a></li>
+                    <li><a class="dropdown-item" href="./?o=hazirend">Házirend</a></li>
                 </ul>
             </div>
         </form>
