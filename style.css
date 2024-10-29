@@ -470,3 +470,13 @@ h1 {
     margin-right: 8px;
 }
 /* --- */
+
+/* hazirend.php */
+.hazirend_content {
+    background: linear-gradient(15deg, var(--transparent-black) 60%, var(--dark-gray));
+    padding: 2rem;
+    margin: 2rem 9rem;
+    border-radius: 2rem;
+    font-family: Tahoma;
+}
+/* --- */
