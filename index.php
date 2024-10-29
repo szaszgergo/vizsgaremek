@@ -12,6 +12,7 @@ $cimek = [
     "registerform" => "Regisztráció - LiftZone",
     "adatvedelem" => "Adatvédelem - LiftZone",
     "faqs" => "Gyakran ismételt kérdések - LiftZone",
+    "hazirend" => "Házirend - LiftZone",
     "" => "Főoldal - LiftZone",
 ];
 $belepettoldalak = [
