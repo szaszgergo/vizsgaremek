@@ -39,6 +39,8 @@ a {
     min-height: 100vh;
 }
 .content {
+    transform: scale(0.85); 
+    transform-origin: top center;
     color: white;
     padding-bottom: 10rem;
 }

@@ -51,3 +51,8 @@
     border-radius:40%;
     margin: 0 40px;
   }
+  .edzo img{
+    height: 350px;
+    border-radius:20%;
+    animation: transition 1s;
+  }

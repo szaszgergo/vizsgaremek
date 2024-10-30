@@ -79,6 +79,20 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <h1>Magánedzőink</h1>
+            <div class="logos"> 
+                <div class="logos-slide edzo">
+                    <img src="./images/edzo.webp" />
+                    <img src="./images/edzo2.webp" />
+                    <img src="./images/edzo3.webp" />
+                    <img src="./images/edzo4.webp" />
+                    <img src="./images/edzo.webp" />
+                    <img src="./images/edzo2.webp" />
+                    <img src="./images/edzo4.webp" />
+                </div>
+            </div>
+        </div>
     </section>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
