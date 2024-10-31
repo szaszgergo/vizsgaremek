@@ -1,6 +1,3 @@
-<?php
-include("actions/language.php");
-?>
 <body>
     <section class="faqs_section">
     <h2 class="title"><?= $languageContent['title'] ?></h2>
