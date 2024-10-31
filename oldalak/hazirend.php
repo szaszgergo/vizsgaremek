@@ -1,6 +1,3 @@
-<?php
-include("actions/language.php");
-?>
 <head>
     <link rel="stylesheet" href="style.css">
 </head>
