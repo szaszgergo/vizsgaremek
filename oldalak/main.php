@@ -1,23 +1,23 @@
- <div class="container text mt-3  p-5 mainsite">
+  <div class="container text mt-3  p-5 mainsite">
     <section class="m-5 p-4">
         <div class="row mb-5" style="text-align:center;">
-            <h1>Üdvözlünk a LiftZone Gymnél!</h1>
-            <p>Érje el velünk fitneszcéljait. Csatlakozzon motivált egyének közösségéhez, és alakítsa át testét és elméjét.</p>
+            <h1><?= $languageContent['main1'] ?></h1>
+            <p><?= $languageContent['main2'] ?></p>
             <div class="mb-3">
-                <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-warning">Csatlakozz</button>
+                <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-warning"><?= $languageContent['main3'] ?></button>
             </div>
         </div>
         <div class="row mb-5">
-        <h1 class="mb-4">Miért Edz nálunk?</h1>
+        <h1 class="mb-4"><?= $languageContent['main4'] ?></h1>
                 <div class="col-md-6" style="text-align:center;">
                         <i class='fas fa-burn mb-3' style='font-size:36px'></i>
-                        <h4>CSOPORTOS ÓRÁK</h4>
-                        <p>Profi edzők Akár az összes órát látogathatod 1 bérlettel</p>
+                        <h4><?= $languageContent['main5'] ?></h4>
+                        <p><?= $languageContent['main6'] ?></p>
                 </div>
                 <div class="col-md-6" style="text-align:center;">
                         <i class="fa-solid fa-heart mb-3" style="font-size:36px"></i>
-                        <h4>EGYÉNI, PRIVÁT, KISCSOPORTOS EDZÉSEK</h4>
-                        <p>Étrend és életmód tanácsadás Funkcionális és Crossfit órák</p>
+                        <h4><?= $languageContent['main7'] ?></h4>
+                        <p><?= $languageContent['main8'] ?></p>
                 </div>
                 <i class="fa fa-arrow-down" style="font-size:36px; text-align:center;"></i>
         </div>
@@ -26,15 +26,15 @@
     <section class="m-5 p-5">
         <div class="row mb-5">
                 <div class="col-md-6" style="text-align:left;">
-                        <h1  style="text-align:left;">Látogass meg minket edzőtermünkben!</h1>
-                        <p>Budapest, Jimmy király útja 1, 1112</p>
-                        <p><a href="mailto:info@liftzone.hu" class="text-warning">info@liftzone.hu</a></p>
-                        <p>+36 50 121 73 04</p>
-                        <p>Minden nap a nap 24 órájában várunk, csoportos óráinkat pedig a weboldalon található órarend szerint látogathatod! Reméljük már holnap tagjaink közt köszönthetünk!</p>
+                        <h1  style="text-align:left;"><?= $languageContent['main9'] ?></h1>
+                        <p><?= $languageContent['main10'] ?></p>
+                        <p><a href="mailto:info@liftzone.hu" class="text-warning"><?= $languageContent['main11'] ?></a></p>
+                        <p><?= $languageContent['main12'] ?></p>
+                        <p><?= $languageContent['main13'] ?></p>
                 </div>
 
                 <div class="col-md-6" style="text-align: right;">
-                    <h1  style="text-align:left;">Térkép</h1>
+                    <h1  style="text-align:left;"><?= $languageContent['main14'] ?></h1>
                     <div id="map"></div>
                 </div>
         </div>
@@ -43,9 +43,9 @@
         <section  class="m-5 p-5">
             <div class="row mb-5">
                     <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
-                            <h1 style="text-align:left; text-transform: uppercase;">Modern <br> <span>gépek</span></h1>
-                            <p>A LiftZone Fitness-ben a legmodernebb gépekkel találkozhattok. Ezek a gépek találhatók meg a világ legjobb termeiben és mellette ARNOLD, MADONNA most nyíló edzőtermeiben is.</p>
-                            <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2">Áraink <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                            <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['main15'] ?></h1>
+                            <p><?= $languageContent['main16'] ?></p>
+                            <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2"><?= $languageContent['main17'] ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                         <div class="col-md-6"></div>
             </div>
@@ -55,9 +55,9 @@
             <div class="row mb-5">
                 <div class="col-md-6"></div>
                     <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
-                            <h1 style="text-align:left; text-transform: uppercase;">Fitness <br> <span>& cardio</span></h1>
-                            <p>Amennyiben a célod a fogyás, vagy az állóképességed növelése, jó hírünk van. A keményvonalas edzés mellett termünkben kiváló lehetőséged nyílik fitness, cardio és aerob edzések elvégzésére is.</p>
-                            <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2">További információ <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                            <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['main18'] ?></h1>
+                            <p><?= $languageContent['main19'] ?></p>
+                            <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2"><?= $languageContent['main20'] ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
             </div>
         </section>
@@ -65,7 +65,7 @@
 
     <section>
         <div class="row">
-            <h1>Partnereink</h1>
+            <h1><?= $languageContent['main21'] ?></h1>
             <div class="logos"> 
                 <div class="logos-slide">
                     <img src="./images/sponsor1.webp" />
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="row">
-            <h1>Magánedzőink</h1>
+            <h1><?= $languageContent['main22'] ?></h1>
             <div class="logos"> 
                 <div class="logos-slide edzo">
                     <img src="./images/edzo.webp" />
