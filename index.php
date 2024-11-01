@@ -42,7 +42,7 @@ $o = isset($_GET['o']) ? $_GET['o'] : "";
 if (array_key_exists($o, $cimek)) {
     $cim = $cimek[$o];
 } else {
-    $cim = "404 - FitZone";
+    $cim = "404 - LiftZone";
 }
 
 
