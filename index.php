@@ -129,5 +129,6 @@ if (array_key_exists($o, $cimek)) {
     <script src="js/language.js"></script>
     <script src="js/sponsor-slide.js"></script>
 
+
 </body>
 </html>
