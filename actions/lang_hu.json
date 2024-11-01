@@ -3,16 +3,12 @@
 
     "question1": "Miért szükséges fiókot létrehoznom?",
     "answer1": "A LiftZone klubok szolgáltatásait abban az esetben tudod igénybe venni, ha személyes online fiókkal rendelkezel, amelyet az alábbi linkre kattintva tehetsz meg. Amennyiben nem sikerül a profilt létrehoznod, klubjainkban, személyesen segítünk Neked létrehozni fiókodat! Fiókodba való belépés után láthatod aktuális egyenleged, hogy mikor jár le bérleted és it tudod frissíteni személyes információid is.",
-
     "question2": "A létrehozott fiókom melyik LiftZone klubbhoz tartozik?",
     "answer2": " Csak egyszer kell regisztrálnod ezen a felületen és regisztrációd minden LiftZone klubban érvényes lesz. Kérjük, hogy regisztrációkor jelöld meg mely LiftZone klub az, amelyet rendszeresen látogatsz. Online foglaláskor kérjük, hogy kiemelten figyelj, hogy a megfelelő klubban lévő szolgáltatásokra foglalj!",
-
     "question3": "Mi történik, ha elfelejtem a jelszavamat?",
     "answer3": "Ha elfelejted a jelszavadat, az oldal alján találsz egy „Elfelejtett jelszó” gombot, amelyet megnyomva, ha megadod az email címedet, küldünk arra egy emailt, amiben találsz egy linket a jelszavad megváltoztatásához.",
-
     "question4": "Hogy tudok órát foglalni?",
     "answer4": "Ha már rendelkezel online fiókkal a szolgáltatásokhoz kattints a fent lévő tab-okra! Ha kiválasztottad az órát, amelyet szeretnél, kattints rá, és máris kész a foglalásod! A csoportos óra foglalás részleteiről az Órafoglalási Szabályzatban olvashatsz. A Szabályzatok klubonként eltérőek lehetnek. Foglalásod  profilodba belépve láthatod Amennyiben nem tudsz foglalni, kérjük próbálkozz a liftzone.hu oldalon.",
-
     "question5": "Hogy tudok órát lemondani?",
     "answer5": "A helyet legalább 60 perccel az óra kezdete előtt lemondhatod ITT.",
 
@@ -21,28 +17,61 @@
     "title2": "Házirend",
 
     "p1": "A LiftZone klubok üzemeltetője a",
-
     "p2": "LiftZone Hungary Kft <br> Cégjegyzékszám: 01 09 376249 <br> Adószám: 12459872-2-41 <br>  Bankszámlaszám: 12010501-01370929-00100006 <br> Székhely: 1134 Budapest, Váci út 29-31. <br> Levelezési cím: 1082 Budapest, Futó u. 48-50. <br>",
-
     "p3": "<spam class='text-warning'>A Házirend célja,</spam> hogy meghatározza a LiftZone klubokban tartózkodó vendégek és más személyek egymás közötti magatartását és azokat az alapvető szabályokat, amelyek a kulturált szolgáltatói tevékenység magas színvonalon történő végzése érdekében elengedhetetlenek. Előírják továbbá a LiftZone  klubok rendeltetésszerű használatára, állagának megőrzésére, biztonságos üzemeltetésére szolgáló más szabályokban nem rögzített követelményeket.",
-    
     "p4": "<spam class='text-warning'>14. év alatti kiskorú esetén</spam> kizárólag a törvényes képviselője/szülője regisztrálhat a nevében.",
-    
     "p5": "<spam class='text-warning'>14-16 év közötti kiskorú esetén</spam> az érvényes regisztrációhoz és a klub szolgáltatásainak igénybevételéhez az törvényes képviselő/szülő hozzájáruló nyilatkozata szükséges, amely ITT található. Az internetes regisztráció esetén a hozzájárulás a weboldalról letölthető nyomtatvány kitöltésével és annak vagy személyesen, a kiskorú a klubban való első látogatása alkalmával történő leadásával, vagy postán történő visszaküldésével valósul meg.",
-    
     "p6": "Felhívjuk vendégeink figyelmét, hogy kiskorú személyek szolgáltatásainkat kizárólag <spam class='text-danger'>edző engedélyével és folyamatos felügyelete (!) mellett vehetik igénybe</spam>. A további részletek az adott klub házirendjében megtalálhatók:",
-
     "link1": "LiftZone Corvin – Házirend",
-
     "link2": "LiftZone Etele – Házirend",
-
     "link3": "LiftZone Nyugati – Házirend",
-
     "link4": "LiftZone Springday – Házirend",
-
     "link5": "LiftZone Váci 35 – Házirend",
-
     "link6": "LiftZone Flórián – Házirend",
+    "link7": "LiftZone – Órafoglalási szabályzat",
 
-    "link7": "LiftZone – Órafoglalási szabályzat"
-}  
+
+
+    "comment": "navbar.php",
+
+    "utca": "4222 Budapest, Utca u. 117.",
+    "nyitvatartas": "6:00 - 23:00",
+    "loginBtn": "Bejelentkezés",
+    "signupBtn": "Regisztráció",
+    "logoutBtn": "Kijelentkezés",
+    "hu": "Magyar",
+    "en": "Angol",
+    "hambi1": "Áraink",
+    "hambi2": "Edzők",
+    "hambi3": "Galéria",
+    "hambi4": "Gyakran ismételt kérdések",
+    "hambi5": "Házirend",
+
+
+
+    "comment2": "main.php",
+
+    "main1": "Üdvözlünk a LiftZone Gymnél!",
+    "main2": "Érje el velünk fitneszcéljait. Csatlakozzon motivált egyének közösségéhez, és alakítsa át testét és elméjét.",
+    "main3": "Csatlakozz",
+    "main4": "Miért Edz nálunk?",
+    "main5": "CSOPORTOS ÓRÁK",
+    "main6": "Profi edzők Akár az összes órát látogathatod 1 bérlettel",
+    "main7": "EGYÉNI, PRIVÁT, KISCSOPORTOS EDZÉSEK",
+    "main8": "Étrend és életmód tanácsadás Funkcionális és Crossfit órák",
+    "main9": "Látogass meg minket edzőtermünkben!",
+    "main10": "Budapest, Jimmy király útja 1, 1112",
+    "main11": "info@liftzone.hu",
+    "main12": "+36 50 121 73 04",
+    "main13": "Minden nap a nap 24 órájában várunk, csoportos óráinkat pedig a weboldalon található órarend szerint látogathatod! Reméljük már holnap tagjaink közt köszönthetünk!",
+    "main14": "Térkép",
+    "main15": "Modern <br> <span>gépek</span>",
+    "main16": "A LiftZone Fitness-ben a legmodernebb gépekkel találkozhattok. Ezek a gépek találhatók meg a világ legjobb termeiben és mellette ARNOLD, MADONNA most nyíló edzőtermeiben is.",
+    "main17": "Áraink",
+    "main18": "Fitness <br> <span>& cardio</span>",
+    "main19": "Amennyiben a célod a fogyás, vagy az állóképességed növelése, jó hírünk van. A keményvonalas edzés mellett termünkben kiváló lehetőséged nyílik fitness, cardio és aerob edzések elvégzésére is.",
+    "main20": "További információ",
+    "main21": "További információ",
+    "main22": "Partnereink",
+    "main23": "Magánedzőink"
+}

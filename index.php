@@ -64,6 +64,7 @@ if (array_key_exists($o, $cimek)) {
 <body>
     <div class="site">
         <?php require('actions/naplozas.php'); naplo(); ?>
+        <?php include('actions/language.php'); ?>
         <?php require('oldalak/navbar.php'); ?>
         <?php require('oldalak/footer.php'); ?>
 
