@@ -1,6 +1,6 @@
 <?php
 $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'hu';
-$flagSrc = $lang === 'hu' ? 'images/hua_flag.png' : 'images/us_flag.png'; // Aktuális zászló
+$flagSrc = $lang === 'hu' ? 'images/hu_flag.png' : 'images/us_flag.png'; // Aktuális zászló
 ?>
 
 <nav class="navbar navbar-dark bg-dark p-3">
