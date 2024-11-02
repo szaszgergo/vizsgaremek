@@ -1,23 +1,23 @@
   <div class="container text mt-3  p-5 mainsite">
     <section class="m-5 p-4">
         <div class="row mb-5" style="text-align:center;">
-            <h1><?= $languageContent['main1'] ?></h1>
-            <p><?= $languageContent['main2'] ?></p>
+            <h1><?= $languageContent['udv'] ?></h1>
+            <p><?= $languageContent['hypeSzoveg'] ?></p>
             <div class="mb-3">
-                <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-warning"><?= $languageContent['main3'] ?></button>
+                <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-warning"><?= $languageContent['csatlakozz'] ?></button>
             </div>
         </div>
         <div class="row mb-5">
-        <h1 class="mb-4"><?= $languageContent['main4'] ?></h1>
+        <h1 class="mb-4"><?= $languageContent['miertNalunk'] ?></h1>
                 <div class="col-md-6" style="text-align:center;">
                         <i class='fas fa-burn mb-3' style='font-size:36px'></i>
-                        <h4><?= $languageContent['main5'] ?></h4>
-                        <p><?= $languageContent['main6'] ?></p>
+                        <h4><?= $languageContent['csoportosOrak'] ?></h4>
+                        <p><?= $languageContent['proHozzaferes'] ?></p>
                 </div>
                 <div class="col-md-6" style="text-align:center;">
                         <i class="fa-solid fa-heart mb-3" style="font-size:36px"></i>
-                        <h4><?= $languageContent['main7'] ?></h4>
-                        <p><?= $languageContent['main8'] ?></p>
+                        <h4><?= $languageContent['edzes'] ?></h4>
+                        <p><?= $languageContent['tanacsadas'] ?></p>
                 </div>
                 <i class="fa fa-arrow-down" style="font-size:36px; text-align:center;"></i>
         </div>
@@ -26,15 +26,15 @@
     <section class="m-5 p-5">
         <div class="row mb-5">
                 <div class="col-md-6" style="text-align:left;">
-                        <h1  style="text-align:left;"><?= $languageContent['main9'] ?></h1>
-                        <p><?= $languageContent['main10'] ?></p>
-                        <p><a href="mailto:info@liftzone.hu" class="text-warning"><?= $languageContent['main11'] ?></a></p>
-                        <p><?= $languageContent['main12'] ?></p>
-                        <p><?= $languageContent['main13'] ?></p>
+                        <h1  style="text-align:left;"><?= $languageContent['gyere'] ?></h1>
+                        <p><?= $languageContent['cimunk'] ?></p>
+                        <p><a href="mailto:info@liftzone.hu" class="text-warning"><?= $languageContent['email'] ?></a></p>
+                        <p><?= $languageContent['tel'] ?></p>
+                        <p><?= $languageContent['nyitva'] ?></p>
                 </div>
 
                 <div class="col-md-6" style="text-align: right;">
-                    <h1  style="text-align:left;"><?= $languageContent['main14'] ?></h1>
+                    <h1  style="text-align:left;"><?= $languageContent['terkep'] ?></h1>
                     <div id="map"></div>
                 </div>
         </div>
@@ -43,9 +43,9 @@
         <section  class="m-5 p-5">
             <div class="row mb-5">
                     <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
-                            <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['main15'] ?></h1>
-                            <p><?= $languageContent['main16'] ?></p>
-                            <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2"><?= $languageContent['main17'] ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                            <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['modernGepek'] ?></h1>
+                            <p><?= $languageContent['modernGepekSzovege'] ?></p>
+                            <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2"><?= $languageContent['ar'] ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                         <div class="col-md-6"></div>
             </div>
@@ -55,9 +55,9 @@
             <div class="row mb-5">
                 <div class="col-md-6"></div>
                     <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
-                            <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['main18'] ?></h1>
-                            <p><?= $languageContent['main19'] ?></p>
-                            <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2"><?= $languageContent['main20'] ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                            <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['fitnessCardio'] ?></h1>
+                            <p><?= $languageContent['fitnessCardioSzovege'] ?></p>
+                            <button onclick='window.top.location.href = "./?o=arak";' class="btn btn-dark text-white mb-2"><?= $languageContent['info'] ?> <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
             </div>
         </section>
@@ -65,7 +65,7 @@
 
     <section>
         <div class="row">
-            <h1><?= $languageContent['main21'] ?></h1>
+            <h1><?= $languageContent['szponzorok'] ?></h1>
             <div class="logos"> 
                 <div class="logos-slide">
                     <img src="./images/sponsor1.webp" />
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="row">
-            <h1><?= $languageContent['main22'] ?></h1>
+            <h1><?= $languageContent['partnerek'] ?></h1>
             <div class="logos"> 
                 <div class="logos-slide edzo">
                     <img src="./images/edzo.webp" />

@@ -48,11 +48,11 @@ $flagSrc = $lang === 'hu' ? 'images/hu_flag.png' : 'images/us_flag.png'; // Aktu
                     <i class="fa fa-bars"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hamburgerMenu">
-                    <li><a class="dropdown-item" href="./?o=arak"><?= $languageContent['hambi1'] ?></a></li>
-                    <li><a class="dropdown-item" href="#"><?= $languageContent['hambi2'] ?></a></li>
-                    <li><a class="dropdown-item" href="#"><?= $languageContent['hambi3'] ?></a></li>
-                    <li><a class="dropdown-item" href="./?o=faqs"><?= $languageContent['hambi4'] ?></a></li>
-                    <li><a class="dropdown-item" href="./?o=hazirend"><?= $languageContent['hambi5'] ?></a></li>
+                    <li><a class="dropdown-item" href="./?o=arak"><?= $languageContent['hambiArak'] ?></a></li>
+                    <li><a class="dropdown-item" href="#"><?= $languageContent['hambiEdzok'] ?></a></li>
+                    <li><a class="dropdown-item" href="#"><?= $languageContent['hambiGaleria'] ?></a></li>
+                    <li><a class="dropdown-item" href="./?o=faqs"><?= $languageContent['hambiFaqs'] ?></a></li>
+                    <li><a class="dropdown-item" href="./?o=hazirend"><?= $languageContent['hambiHazirend'] ?></a></li>
                 </ul>
             </div>
         </form>

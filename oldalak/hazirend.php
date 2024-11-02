@@ -9,19 +9,19 @@
     <div class="m-3">
  
         <h1><?= $languageContent['title2'] ?></h1>
-        <p><?= $languageContent['p1'] ?></p>
-        <p><?= $languageContent['p2'] ?></p>
+        <p><?= $languageContent['uzemelteto:'] ?></p>
+        <p><?= $languageContent['cegAdatok'] ?></p>
     </div>
     
 
     <div  class="m-3">
-        <p><?= $languageContent['p3'] ?></p>
+        <p><?= $languageContent['hazirendCelja'] ?></p>
 
-        <p><?= $languageContent['p4'] ?></p>
+        <p><?= $languageContent['14evAlatt'] ?></p>
 
-        <p><?= $languageContent['p5'] ?></p>
+        <p><?= $languageContent['1416evKozott'] ?></p>
 
-        <p><?= $languageContent['p6'] ?></p>
+        <p><?= $languageContent['felhivas'] ?></p>
     </div>
    
 
