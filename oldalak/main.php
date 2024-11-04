@@ -79,20 +79,39 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+     
+            <h1><?= $languageContent['main22'] ?></h1>
+=======
         <div class="row">
             <h1><?= $languageContent['partnerek'] ?></h1>
+>>>>>>> aff1835442c2518ee64186544e2e1cf84221fda7
             <div class="logos"> 
-                <div class="logos-slide edzo">
-                    <img src="./images/edzo.webp" />
-                    <img src="./images/edzo2.webp" />
-                    <img src="./images/edzo3.webp" />
-                    <img src="./images/edzo4.webp" />
-                    <img src="./images/edzo.webp" />
-                    <img src="./images/edzo2.webp" />
-                    <img src="./images/edzo4.webp" />
+                <div class="row logos-slide edzo m-1">
+                    <div class="edzo-item">
+                        <a href="./?o=edzok&eid=1"><img src="./images/edzo.webp" /></a>
+                        <a href="./?o=edzok&eid=1"><button type="button" class="btn btn-warning">Tovább</button></a>
+                    </div>
+                    <div class="edzo-item">
+                        <a href="./?o=edzok&eid=2"><img src="./images/edzo2.webp" /></a>
+                        <a href="./?o=edzok&eid=2"><button type="button" class="btn btn-warning">Tovább</button></a>
+                    </div>
+                    <div class="edzo-item">
+                        <a href="./?o=edzok&eid=3"><img src="./images/edzo3.webp" /></a>
+                        <a href="./?o=edzok&eid=3"><button type="button" class="btn btn-warning">Tovább</button></a>
+                    </div>
+                    <div class="edzo-item">
+                        <a href="./?o=edzok&eid=4"><img src="./images/edzo4.webp" /></a>
+                        <a href="./?o=edzok&eid=4"><button type="button" class="btn btn-warning">Tovább</button></a>
+                    </div>
+                    <!-- Add more edzo-item divs as needed -->
                 </div>
             </div>
-        </div>
+
+
+
+      
+       
     </section>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

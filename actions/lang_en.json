@@ -73,7 +73,7 @@
     "fitnessCardioSzovege": "If your goal is weight loss or improving endurance, we have great news. Alongside hardcore training, our gym also offers excellent opportunities for fitness, cardio, and aerobic workouts.",
     "info": "More Information",
     "szponzorok": "Sponsors",
-    "partnerek": "Our Partners",
+    "partnerek": "Personal Trainers",
 
 
 
@@ -124,5 +124,62 @@
     "Microsoft Internet Explorer 9": "Microsoft Internet Explorer 9",
     "Microsoft Internet Explorer 8": "Microsoft Internet Explorer 8",
     "Microsoft Edge": "Microsoft Edge",
-    "Safari": "Safari"
+    "Safari": "Safari",
+
+
+
+    "comment5": "loginform.php",
+
+    "nameOrEmail": "Username/email",
+    "pw": "Password",
+    "login": "Log In",
+
+
+
+    "comment6": "registerform.php",
+
+    "signup": "Sign Up",
+    "usernameLabel": "Username",
+    "emailLabel": "Email Address",
+    "pwLabel": "Password",
+    "pwLeiras": "64 characters long, special characters",
+    "birthdateLabel": "Date of Birth",
+    "captchaLabel": "Calculate the result:",
+    "elfogadomLabel": "I accept the terms <a href='' class='text-warning'>adawfawfafwfaw</a>",
+
+
+
+    "comment7": "fiok.php",
+
+    "name": "Real Name",
+    "edit": "Edit",
+    "newProfilePic": "New Profile Picture",
+    "pwChange": "If you want to change your password, you can do it <a id='jelszomodositas' href='?o=jelszomodositasform'>here</a>.",
+    "saveChanges": "Save Changes",
+    "ervenyes": "VALID:",
+    "nap": "DAY",
+    "hasznalatok": "Number of Uses",
+    "nincsJegy": "You have no valid ticket",
+
+    
+
+    "berletarak": "Membership Prices",
+    "felnottek": "Adult",
+    "diak_nyugdijas": "Student / Senior",
+    "tipus": "Type",
+    "price": "Price",
+    "berletek": [
+        { "tipus": "Monthly Pass", "felnottek_ar": "19 900 Ft", "diak_nyugdijas_ar": "17 900 Ft" },
+        { "tipus": "Day Pass", "felnottek_ar": "2 990 Ft", "diak_nyugdijas_ar": "2 490 Ft" },
+        { "tipus": "Three-Month Pass", "felnottek_ar": "49 900 Ft", "diak_nyugdijas_ar": "45 900 Ft" },
+        { "tipus": "Six-Month Pass", "felnottek_ar": "99 900 Ft", "diak_nyugdijas_ar": "89 900 Ft" },
+        { "tipus": "Annual Pass", "felnottek_ar": "199 900 Ft", "diak_nyugdijas_ar": "176 900 Ft" },
+        { "tipus": "One-Week Pass", "felnottek_ar": "12 900 Ft", "diak_nyugdijas_ar": "11 900 Ft" },
+        { "tipus": "Ten-Use Pass", "felnottek_ar": "17 900 Ft", "diak_nyugdijas_ar": "15 900 Ft" },
+        { "tipus": "Morning Pass", "felnottek_ar": "16 900 Ft", "diak_nyugdijas_ar": "15 900 Ft" },
+        { "tipus": "Weekend Pass", "felnottek_ar": "12 900 Ft", "diak_nyugdijas_ar": "11 900 Ft" },
+        { "tipus": "Towel Use (Small)", "felnottek_ar": "350 Ft", "diak_nyugdijas_ar": "350 Ft" },
+        { "tipus": "Towel Use (Large)", "felnottek_ar": "450 Ft", "diak_nyugdijas_ar": "450 Ft" }
+    ],
+    "megjegyzes": "*Passes with limited uses are valid for 60 days from the date of purchase."
 }

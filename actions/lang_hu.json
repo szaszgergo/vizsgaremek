@@ -72,7 +72,7 @@
     "fitnessCardioSzovege": "Amennyiben a célod a fogyás, vagy az állóképességed növelése, jó hírünk van. A keményvonalas edzés mellett termünkben kiváló lehetőséged nyílik fitness, cardio és aerob edzések elvégzésére is.",
     "info": "További információ",
     "szponzorok": "Szponzorok",
-    "partnerek": "Partnereink",
+    "partnerek": "Személyi edzők",
 
 
 
@@ -123,5 +123,62 @@
     "Microsoft Internet Explorer 9": "Microsoft Internet Explorer 9",
     "Microsoft Internet Explorer 8": "Microsoft Internet Explorer 8",
     "Microsoft Edge": "Microsoft Edge",
-    "Safari": "Safari"
+    "Safari": "Safari",
+
+
+
+    "comment5": "loginform.php",
+
+    "nameOrEmail": "Felhasználónév/email",
+    "pw": "Jelszó",
+    "login": "Bejelentkezés",
+
+
+
+    "comment6": "registerform.php",
+
+    "signup": "Regisztráció",
+    "usernameLabel": "Felhasználónév",
+    "emailLabel": "Email cím",
+    "pwLabel": "Jelszó",
+    "pwLeiras": "64 hossz, specialis karakterek",
+    "birthdateLabel": "Születési dátum",
+    "captchaLabel": "Számítsa ki az eredményt:",
+    "elfogadomLabel": "Elfogadom a cuccokat <a href='' class='text-warning'>adawfawfafwfaw",
+
+
+
+    "comment7": "fiok.php",
+
+    "name": "Igazi Név",
+    "edit": "Szerkesztés",
+    "newProfilePic": "Új profilkép",
+    "pwChange": "Ha szeretnél jelszót változtatni azt <a id='jelszomodositas' href='?o=jelszomodositasform'>itt</a> teheted meg.",
+    "saveChanges": "Változtatások mentése",
+    "ervenyes": "ÉRVÉNYES:",
+    "nap": "NAP",
+    "hasznalatok": "Használatok száma",
+    "nincsJegy": "Nincs érvényes jegyed",
+
+
+
+    "berletarak": "Bérletárak",
+    "felnottek": "Felnőtt",
+    "diak_nyugdijas": "Diák / Nyugdíjas",
+    "tipus": "Típus",
+    "price": "Ár",
+    "berletek": [
+        { "tipus": "Havi bérlet", "felnottek_ar": "19 900 Ft", "diak_nyugdijas_ar": "17 900 Ft" },
+        { "tipus": "Napijegy", "felnottek_ar": "2 990 Ft", "diak_nyugdijas_ar": "2 490 Ft" },
+        { "tipus": "Három hónapos bérlet", "felnottek_ar": "49 900 Ft", "diak_nyugdijas_ar": "45 900 Ft" },
+        { "tipus": "Hat hónapos bérlet", "felnottek_ar": "99 900 Ft", "diak_nyugdijas_ar": "89 900 Ft" },
+        { "tipus": "Éves bérlet", "felnottek_ar": "199 900 Ft", "diak_nyugdijas_ar": "176 900 Ft" },
+        { "tipus": "Egy hetes bérlet", "felnottek_ar": "12 900 Ft", "diak_nyugdijas_ar": "11 900 Ft" },
+        { "tipus": "Tíz alkalmas bérlet", "felnottek_ar": "17 900 Ft", "diak_nyugdijas_ar": "15 900 Ft" },
+        { "tipus": "Délelőtti bérlet", "felnottek_ar": "16 900 Ft", "diak_nyugdijas_ar": "15 900 Ft" },
+        { "tipus": "Hétvégi bérlet", "felnottek_ar": "12 900 Ft", "diak_nyugdijas_ar": "11 900 Ft" },
+        { "tipus": "Törölköző használat (Kicsi)", "felnottek_ar": "350 Ft", "diak_nyugdijas_ar": "350 Ft" },
+        { "tipus": "Törölköző használat (Nagy)", "felnottek_ar": "450 Ft", "diak_nyugdijas_ar": "450 Ft" }
+    ],
+    "megjegyzes": "*Az alkalmas bérletek a vásárlástól számított 60 napig érvényesek."
 }
