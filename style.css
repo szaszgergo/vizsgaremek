@@ -13,6 +13,9 @@
     --gold: #ffc107;
     --transparent-black: #000000ed;
 }
+.bg-transparentblack{
+    background: linear-gradient(15deg, var(--transparent-black) 60%, var(--dark-gray));
+}
 
 body {
     margin: 0 auto;
@@ -39,7 +42,7 @@ a {
     min-height: 100vh;
 }
 .content {
-    transform: scale(0.85); 
+    transform: scale(0.95); 
     transform-origin: top center;
     color: white;
     padding-bottom: 10rem;
@@ -72,6 +75,7 @@ a {
 
 /* arak.php */
 .arak {
+    margin-top: 4rem;
     background-color: var(--transparent-black);
 
     & img {
@@ -405,7 +409,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(0, 0, 0, 0.9);
+  background-color: var(--transparent-black);
   border-radius: 2rem;
 }
 

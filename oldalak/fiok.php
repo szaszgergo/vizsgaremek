@@ -11,13 +11,13 @@ if (isset($jegy)) {
     <div>
     <h3>$tipusadatok[1]</h3>
     <a href='$src'><img src='$src' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  /></a>
-    <h4>ÉRVÉNYES:</h4>
-    <h1 class='gold'>$maradek_napok NAP</h1>";
+    <h4> ". htmlspecialchars($languageContent["edit"]) ." </h4>
+    <h1 class='gold'>$maradek_napok ". htmlspecialchars($languageContent["nap"]) ."</h1>";
     if (!is_null($jegy[5])) {
-        $szoveg .= "<h3>Használatok száma: <span class='gold'> $jegy[5]</span></h3></div>";
+        $szoveg .= "<h3>". htmlspecialchars($languageContent["hasznalatok"]) ." <span class='gold'> $jegy[5]</span></h3></div>";
     }
 } else{
-    $szoveg = "<h1>Nincs érvényes jegyed</h1> <a class='btn btn-warning' href='?o=jegyvasarlasform'>Vásárlás</a>";
+    $szoveg = "<h1>". htmlspecialchars($languageContent["ervenyes"]) ."</h1> <a class='btn btn-warning' href='?o=jegyvasarlasform'>Vásárlás</a>";
 }
 
 ?>
@@ -29,37 +29,37 @@ if (isset($jegy)) {
         <div class="profile-header">
             <img style="object-fit: cover;" src="<?php $a= 'profile_pic/' . (empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11]); echo $a; ?>" alt="Profile Picture">
             <div>
-                <h2>Igazi Név</h2>
+                <h2><?= $languageContent["name"] ?></h2>
                 <p>@<?php echo $adatok[2] ?></p>
             </div>
-            <button type="button" class="edit-btn" id="edit-btn">Szerkesztés</button>
+            <button type="button" class="edit-btn" id="edit-btn"><?= $languageContent["edit"] ?></button>
         </div>
 
         <div class="mb-3">
-            <label for="InputUsername" class="form-label">Felhasználónév</label>
+            <label for="InputUsername" class="form-label"><?= $languageContent["usernameLabel"] ?></label>
             <input value="<?php echo $adatok[2] ?>" type="text" class="form-control fiok-input" id="InputUsername" name="username" maxlength="100" readonly>
         </div>
 
         <div class="mb-3">
-            <label for="InputEmail" class="form-label">Email cím</label>
+            <label for="InputEmail" class="form-label"><?= $languageContent["emailLabel"] ?></label>
             <input value="<?php echo $adatok[3] ?>" type="email" class="form-control fiok-input" id="InputEmail" name="email" maxlength="256" readonly>
         </div>
 
         <div class="mb-3">
-            <label for="InputDate" class="form-label">Születési év</label>
+            <label for="InputDate" class="form-label"><?= $languageContent["birthdateLabel"] ?></label>
             <input value="<?php echo $adatok[5] ?>" type="date" class="form-control fiok-input" id="InputDate" name="date" readonly>
         </div>
 
         <div class="mb-3">
-            <label for="InputPic" class="form-label">Új profilkép</label>
+            <label for="InputPic" class="form-label"><?= $languageContent["newProfilePic"] ?></label>
             <input type="file" class="form-control fiok-input" id="InputPic" name="upic" readonly>
         </div>
 
         <div class="mb-3">
-            <p>Ha szeretnél jelszót változtatni azt <a id="jelszomodositas" href="?o=jelszomodositasform">itt</a> teheted meg.</p>
+            <p><?= $languageContent["pwChange"] ?></p>
         </div>
 
-        <button style="display: none;" type="submit" class="btn-save" id="btn-save">Változtatások mentése</button>
+        <button style="display: none;" type="submit" class="btn-save" id="btn-save"><?= $languageContent["saveChanges"] ?></button>
 
     </form>
     </div>
