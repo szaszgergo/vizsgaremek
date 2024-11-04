@@ -35,6 +35,7 @@ $oldalak = [
     "adatvedelem" => "oldalak/adatvedelem.php",
     "faqs" => "oldalak/faqs.php",
     "hazirend" => "oldalak/hazirend.php",
+    "admin" => "oldalak/admin.php",
     "" => "oldalak/main.php",
 ];
 
