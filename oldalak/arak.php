@@ -1,5 +1,4 @@
 <div class="arak">
-<img src="images/bg.jpg" alt="as">
     <h1 class="text-center text-warning">Bérletárak</h1>
     <div class="row">
         <div class="col-md-1"></div>

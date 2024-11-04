@@ -1,4 +1,4 @@
-<div class="gdpr-nyilatkozat bg-dark m-3 p-5">
+<div class="gdpr-nyilatkozat bg-transparentblack m-3 p-5">
     <div class="adatkezelo">
         <h1><?= $languageContent['adatkezelo'] ?></h1>
         <p><?= $languageContent['adatkezeloNeve'] ?></p>

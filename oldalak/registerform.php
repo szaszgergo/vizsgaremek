@@ -15,7 +15,7 @@ if (isset($_POST['user_eredmeny']) && $_POST['user_eredmeny'] != $_SESSION['ered
 }
 ?>
 
-<form class="form bg-dark text-light p-4 mt-4" action="actions/registeraction.php" method="post" target='kisablak'>
+<form class="form bg-transparentblack text-light p-4 mt-4" action="actions/registeraction.php" method="post" target='kisablak'>
 
     <h1 class="text-warning">Regisztráció</h1>
 
