@@ -484,6 +484,15 @@ h1 {
 }
 /* --- */
 
-/* -sponsor-slider- */
+/* edzok oldal*/
+hr {
+    border: none; /* Eltávolítja az alapértelmezett szegélyt */
+    height: 3px; /* Beállítja a vastagságot */
+    opacity: 1;
+    width: 100%;
+    background-color: #ffc107; /* Beállítja a színt, például narancssárgára */
+    margin: 20px 0; /* Hozzáad egy kis térközt fölötte és alatta */
+}
+
 
 /* --- */
