@@ -10,7 +10,7 @@
                 <th>Alkalmak</th>
                 <th>Érvényesség kezdete</th>
                 <th>Érvényesség vége</th>
-                <th><button class="btn btn-primary">Új</button></th>
+                <th><button class="btn btn-primary btn-new">+</button></th>
             </tr>
         </thead>
         <tbody>

@@ -9,7 +9,7 @@
                 <th>Ár</th>
                 <th>Hossz</th>
                 <th>Alkalmak</th>
-                <th><button class="btn btn-primary">Új</button></th>
+                <th><button class="btn btn-primary btn-new">+</button></th>
 
             </tr>
         </thead>
