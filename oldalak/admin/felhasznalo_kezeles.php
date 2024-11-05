@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <h2>Felhasználók kezelése</h2>
-
+    
     <h3 class="mt-5">Létező felhasználók</h3>
     <div id='error-message' class='alert alert-danger' style='display: none;'></div>
 
@@ -16,7 +16,7 @@
 
 
     <?php
-    $result = sqlcall("SELECT * FROM user");
+    $result = sqlcall("SELECT * FROM user WHERE uSzerep = 1");
     while ($row = $result->fetch_assoc()):
         $isDeleted = ($row['uStatus'] === 'Deleted');?>
         <div class="row <?php echo $isDeleted ? 'deleted-row' : ''; ?>" id="inputcontainer">
@@ -74,6 +74,55 @@
                     <div class="col-md-1">
                         <input value="<?php echo htmlspecialchars($row['uID']); ?>" name="uid" type="hidden">
                         <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Delete</button>
+                    </div>
+                <?php endif; ?>
+            </form>
+        </div>
+    <?php endwhile; ?>
+    </div>
+    <h3 class="mt-5">Admin felhasználók</h3>
+    <div class="table">
+    <div class="row">
+        <div class="col-md-2">Státusz</div>
+        <div class="col-md-2">Felhasználónév</div>
+        <div class="col-md-2">Profilkép</div>
+        <div class="col-md-2">email</div>
+        <div class="col-md-3 text-end">Új hozzáadása: <button class="btn btn-primary btn-new">+</button></div>
+    </div>
+
+    <?php
+    $result = sqlcall("SELECT * FROM user WHERE uSzerep = 2");
+    while ($row = $result->fetch_assoc()):
+        $isDeleted = ($row['uStatus'] === 'Deleted');?>
+        <div class="row <?php echo $isDeleted ? 'deleted-row' : ''; ?>" id="inputcontainer">
+            <form action="actions/admin/delete.php" target="kisablak" method="post" class="row g-2">
+                <div class="col-md-2">
+                    <span><?php echo htmlspecialchars($row['uStatus']); ?></span>
+                </div>
+
+                <div class="col-md-2">
+                    <span><?php echo htmlspecialchars($row['uFelhasznalonev']); ?></span>
+                </div>
+
+                <div class="col-md-2 position-relative">
+                    <?php if (!empty($row['uProfilePic'])): ?>
+                        <div class="profile-pic-container">
+                            <img alt="Profile Image" class="profile-image img-fluid"
+                                src="profile_pic/<?php echo htmlspecialchars($row['uProfilePic']); ?>">
+                        </div>
+                    <?php else: ?>
+                        <img alt="Profile Image" class="profile-image img-fluid" src="images/pic.png">
+                    <?php endif; ?>
+                </div>
+
+                <div class="col-md-2">
+                    <span><?php echo htmlspecialchars($row['uemail']); ?></span>
+                </div>
+
+                <?php if (!$isDeleted): ?>
+                    <div class="col-md-1">
+                        <input value="<?php echo htmlspecialchars($row['uID']); ?>" name="uid" type="hidden">
+                        <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
                 <?php endif; ?>
             </form>
