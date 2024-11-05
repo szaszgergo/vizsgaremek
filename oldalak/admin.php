@@ -1,11 +1,13 @@
 <div class="admin">
     <div class="sidebar">
         <h3 class="text-center text-white">Admin Kezelőfelület</h3>
-        <a href="?o=admin&a=felhasznalo_kezeles">Felhasználok kezelése</a>
-        <a href="?o=admin&a=jegy_kezeles">Jegy tipsuok kezelése</a>
-        <a href="?o=admin&a=kupon_kezeles">Kuponok kezelése</a>
-        <a href="?o=admin&a=statisztika">Statisztika</a>
-        <a href="?o=admin&a=termek_kezeles">Termékek kezelése</a>
+        <?php 
+        $currentPage = $_GET['a'] ?? '';?>
+        <a href="?o=admin&a=felhasznalo_kezeles" class="<?php echo ($currentPage === 'felhasznalo_kezeles') ? 'active' : ''; ?>">Felhasználok kezelése</a>
+        <a href="?o=admin&a=jegy_kezeles" class="<?php echo ($currentPage === 'jegy_kezeles') ? 'active' : ''; ?>">Jegy típusok kezelése</a>
+        <a href="?o=admin&a=kupon_kezeles" class="<?php echo ($currentPage === 'kupon_kezeles') ? 'active' : ''; ?>">Kuponok kezelése</a>
+        <a href="?o=admin&a=statisztika" class="<?php echo ($currentPage === 'statisztika') ? 'active' : ''; ?>">Statisztika</a>
+        <a href="?o=admin&a=termek_kezeles" class="<?php echo ($currentPage === 'termek_kezeles') ? 'active' : ''; ?>">Termékek kezelése</a>
     </div>
 
     <div class="main-content">
