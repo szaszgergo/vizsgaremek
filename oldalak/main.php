@@ -79,12 +79,9 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
     
-=======
         <div class="row">
             <h1><?= $languageContent['partnerek'] ?></h1>
->>>>>>> ca0f29b167e3b2459bb90f2c330c6c807bda9704
             <div class="logos"> 
                 <div class="row logos-slide edzo m-1">
                     <div class="edzo-item">

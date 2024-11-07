@@ -16,6 +16,7 @@ $cimek = [
     "faqs" => "Gyakran ismételt kérdések - LiftZone",
     "hazirend" => "Házirend - LiftZone",
     "edzok"=> "Személyi Edzőink",
+    "galeria"=> "Galéria - LiftZone",
     "" => "Főoldal - LiftZone",
 ];
 $belepettoldalak = [
@@ -27,6 +28,7 @@ $belepettoldalak = [
     "faqs" => "oldalak/faqs.php",
     "hazirend" => "oldalak/hazirend.php",
     "edzok"=> "oldalak/edzok.php",
+    "galeria"=> "oldalak/galeria.php",
     "" => "oldalak/main.php",
 ];
 
@@ -39,6 +41,7 @@ $oldalak = [
     "hazirend" => "oldalak/hazirend.php",
     "admin" => "oldalak/admin.php",
     "edzok"=> "oldalak/edzok.php",
+    "galeria"=> "oldalak/galeria.php",
     "" => "oldalak/main.php",
 ];
 
