@@ -79,13 +79,11 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-     
-            <h1><?= $languageContent['main22'] ?></h1>
-=======
+
+
         <div class="row">
             <h1><?= $languageContent['partnerek'] ?></h1>
->>>>>>> aff1835442c2518ee64186544e2e1cf84221fda7
+
             <div class="logos"> 
                 <div class="row logos-slide edzo m-1">
                     <div class="edzo-item">

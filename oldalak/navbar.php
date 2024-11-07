@@ -49,7 +49,7 @@ $flagSrc = $lang === 'hu' ? 'images/hu_flag.png' : 'images/us_flag.png'; // Aktu
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hamburgerMenu">
                     <li><a class="dropdown-item" href="./?o=arak"><?= $languageContent['hambiArak'] ?></a></li>
-                    <li><a class="dropdown-item" href="#"><?= $languageContent['hambiEdzok'] ?></a></li>
+                    <li><a class="dropdown-item" href="./?o=edzok"><?= $languageContent['hambiEdzok'] ?></a></li>
                     <li><a class="dropdown-item" href="#"><?= $languageContent['hambiGaleria'] ?></a></li>
                     <li><a class="dropdown-item" href="./?o=faqs"><?= $languageContent['hambiFaqs'] ?></a></li>
                     <li><a class="dropdown-item" href="./?o=hazirend"><?= $languageContent['hambiHazirend'] ?></a></li>
