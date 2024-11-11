@@ -70,6 +70,105 @@ a {
         background-image: url(./images/hatter_gym.jpg);
         border-radius: 30px;
     }
+
+    @keyframes slide {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+      
+      .logos {
+        overflow: hidden;
+        padding: 60px 0;
+        background: black;
+        white-space: nowrap;
+        position: relative;
+        width:90%;
+        margin: 0 auto;
+      }
+      
+      
+      .logos:before,
+      .logos:after {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 100%;
+        content: "";
+        z-index: 2;
+      }
+      
+      .logos:before {
+        left: 0;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0), black);
+      }
+      
+      .logos:after {
+        right: 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
+      }
+      
+      .logos:hover .logos-slide {
+        animation-play-state: paused;
+      }
+      
+      .logos-slide {
+        display: inline-block;
+        animation: 35s slide infinite linear;
+      }
+      
+      .logos-slide img {
+        height: 150px;
+        border-radius:40%;
+        margin: 0 40px;
+      }
+      .edzo img{
+        height: 500px;
+        width:250px;
+        border-radius:10%;
+        animation: transition 1s;
+      }
+    
+    
+      .edzo-item {
+        display: inline-block;
+        text-align: center;
+        margin: 0 20px;
+        width: 250px;
+        margin: 10px;
+    }
+    
+    .edzo-item img {
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .edzo-item .btn {
+        margin-top: 10px;
+        text-align: center;
+        margin-left: 30px;
+        font-size: 20px;
+        border-radius: 20px;
+        padding-left:15px;
+        padding-right:15px;
+    
+    }
+    .edzo-item .btn:hover{
+        background-color: black ;
+        border-color: black ;
+        color: white;
+    }
+    
+    .edzo-nev {
+      margin-top: 10px;
+      font-size: 1em;
+      color: white;
+      font-size: 24px;
+      margin-left: 25px;
+    }
 }
 /* ---------------------- */
 
@@ -594,13 +693,106 @@ h1 {
 
 /* -sponsor-slider- */
 /* edzok oldal*/
-hr {
-    border: none; /* Eltávolítja az alapértelmezett szegélyt */
-    height: 3px; /* Beállítja a vastagságot */
-    opacity: 1;
-    width: 100%;
-    background-color: #ffc107; /* Beállítja a színt, például narancssárgára */
-    margin: 20px 0; /* Hozzáad egy kis térközt fölötte és alatta */
+.edzok{
+    hr {
+        border: none; /* Eltávolítja az alapértelmezett szegélyt */
+        height: 3px; /* Beállítja a vastagságot */
+        opacity: 1;
+        width: 100%;
+        background-color: #ffc107; /* Beállítja a színt, például narancssárgára */
+        margin: 20px 0; /* Hozzáad egy kis térközt fölötte és alatta */
+    }
+    .row {
+        font-size: 20px;
+    }
+
+    .col {
+        border-radius: 30px;
+        height: 40%;
+    }
+
+    h1 {
+        text-align: left;
+    }
+
+    .col a {
+        background-color: black;
+        border-radius: 20px;
+        padding: 10px;
+    }
+
+    /* Új stílusok a szövegekhez */
+    .col p {
+        margin-bottom: 15px;
+        /* Térköz a bekezdések között */
+        line-height: 1.5;
+        /* Magasság a sorok között */
+        color: #ffffff;
+        /* Fehér szín a szövegnek */
+    }
+
+    .col h3 {
+        margin-top: 20px;
+        /* Térköz a h3 elem felett */
+        color: #ffc107;
+        /* Bootstrap warning szín */
+    }
+
+    /* A kérdések és motiváló szövegek stílusának javítása */
+    .col .motivational-text {
+        font-weight: bold;
+        /* Félkövér szöveg */
+        font-style: italic;
+        /* Dőlt betűk */
+        margin: 20px 0;
+        /* Térköz */
+        color: #ffda60;
+        /* Világosabb narancssárga szín */
+    }
+
+    .col img {
+        width: 700px;
+        height: 850px;
+        border-radius: 10%;
+        margin-top: 10px;
+    }
+
+    .socialicon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background-color: #000;
+        border-radius: 50%;
+        font-size: 24px;
+    }
+
+    .social-icons-container {
+        display: flex;
+        justify-content: left;
+        gap: 10px;
+    }
+
+    /* style.css */
+    .rating-container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .stars {
+        font-size: 2em;
+        cursor: pointer;
+    }
+
+    .star {
+        color: gray;
+    }
+
+    .star.selected {
+        color: gold;
+    }
+
 }
 
 

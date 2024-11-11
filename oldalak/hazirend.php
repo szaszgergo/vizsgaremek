@@ -1,10 +1,4 @@
-<head>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="hazirend_content gdpr-nyilatkozat bg-dark m-5 p-4">
+<div class="hazirend_content gdpr-nyilatkozat m-5 p-4">
     
     <div class="m-3">
  
@@ -38,5 +32,3 @@
     </div>
 
 </div>
-
-</body>
