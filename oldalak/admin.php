@@ -9,6 +9,7 @@
         <a href="?o=admin&a=jegy_kezeles" class="<?php echo ($currentPage === 'jegy_kezeles') ? 'active' : ''; ?>">Jegy típusok kezelése</a>
         <a href="?o=admin&a=termek_kezeles" class="<?php echo ($currentPage === 'termek_kezeles') ? 'active' : ''; ?>">Termékek kezelése</a>
         <a href="?o=admin&a=statisztika" class="<?php echo ($currentPage === 'statisztika') ? 'active' : ''; ?>">Statisztika</a>
+        <a href="?o=admin&a=messages" class="<?php echo ($currentPage === 'messages') ? 'active' : ''; ?>">Üzenetek</a>
     </div>
 
     <div class="main-content">
@@ -20,6 +21,7 @@
             "termek_kezeles" => "oldalak/admin/termek_kezeles.php",
             "kupon_kezeles" => "oldalak/admin/kupon_kezeles.php",
             "statisztika" => "oldalak/admin/statisztika.php",
+            "messages" => "oldalak/admin/messages.php",
         ];
 
         $a = isset($_GET['a']) ? $_GET['a'] : "";

@@ -14,4 +14,10 @@ function getUserJegyek(){
     //csak 1 sornak kéne lennie ahhol a status 1 ha tobb van valamit elbasztunk szoval itt eleg a sort visszaküldeni
     return $tabla->fetch_row();
 }
+function getUserEdzok(){
+    include_once("sqlcall.php");
+    $sql = "SELECT * FROM szemelyi_edzok";
+    $tabla = sqlcall($sql);
+    return $tabla;
+}
 ?>
