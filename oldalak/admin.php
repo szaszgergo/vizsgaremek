@@ -1,3 +1,10 @@
+<?php
+if (!isset($_SESSION["szerep"]) || $_SESSION["szerep"] != "admin") {
+    header("Location: index.php");
+    exit();
+} ?>
+
+
 <div class="admin">
     <div class="sidebar">
         <h3 class="text-center text-white">Admin Kezelőfelület</h3>

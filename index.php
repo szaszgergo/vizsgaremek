@@ -75,7 +75,6 @@ if (array_key_exists($o, $cimek)) {
         <?php require('actions/naplozas.php'); naplo(); ?>
         <?php include('actions/language.php'); ?>
         <?php require('oldalak/navbar.php'); ?>
-        <?php require('oldalak/footer.php'); ?>
 
 
         <div class="content">
@@ -98,12 +97,12 @@ if (array_key_exists($o, $cimek)) {
     
         </div>
 
-      
+        <?php require('oldalak/footer.php'); ?>
+
     </div>
     <iframe name='kisablak' style="display: none;"></iframe>
 
 
-   
     <?php require("oldalak/jegyvasarlaspopup.php")?>
     <?php require("oldalak/kartyaformpopup.php")?>
     <?php if (isset($_GET['a'])) {

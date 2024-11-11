@@ -10,16 +10,16 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $password = $_POST["password"];
 
     //megnezzuk helyes fiokba akar e belepni?
-    $sqllekerdezes = "SELECT uID, uPassword FROM user WHERE uFelhasznalonev = '$name' OR uemail = '$name'";
+    $sqllekerdezes = "SELECT uID, uPassword, uSzerep FROM user WHERE uFelhasznalonev = '$name' OR uemail = '$name'";
     $tabla = sqlcall($sqllekerdezes);
     //ha helyes volt akkor az idjet es a hashelt jelszot megkapjuk
-    $row = $tabla->fetch_row();
-    $hashedpassword = $row[1];
+    $row = $tabla->fetch_assoc();
+    $hashedpassword = $row['uPassword'];
     print_r($row);
 
 
     if(password_verify($password, $hashedpassword)){
-        $uid = $row[0];
+        $uid = $row['uID'];
         //lementjuk a tovabbiakert
         $_SESSION["uid"] = $uid;
         //login tábla kitöltése
@@ -30,7 +30,15 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         $sql = "INSERT INTO login (lID, lDatum, lIP, lSession, luID)
         VALUES ('', '$curdate', '$ip', '$sessionid', '$uid')";
         sqlsave($sql);
-        unset($_SESSION['hiba']);
+        if ($row['uSzerep'] == "1") {
+            $_SESSION['szerep'] = "user";
+        }
+        else if ($row['uSzerep'] == "2") {
+            $_SESSION['szerep'] = "admin";
+        }
+        else if($row['uSzerep'] == "3"){
+            $_SESSION['szerep'] = "edzo";
+        }
         formSuccess();
 
     } else{
