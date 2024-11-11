@@ -1,6 +1,13 @@
 <?php
-function hibaUzenet($uzenet) {
-    echo "<script> window.top.postMessage({loginError: '" . $uzenet . "'}, '*'); </script>";
+ function hibaUzenet($uzenet, $szam1 = null, $szam2 = null) {
+    if ($szam1 !== null && $szam2 !== null) {
+        echo "<script>window.top.postMessage({
+            loginError: '$uzenet',
+            newCaptcha: {num1: $szam1, num2: $szam2}
+        }, '*');</script>";
+    } else {
+        echo "<script>window.top.postMessage({loginError: '$uzenet'}, '*');</script>";
+    }
     exit();
 }
 

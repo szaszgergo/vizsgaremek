@@ -79,6 +79,7 @@
                 </div>
             </div>
         </div>
+    
         <div class="row">
             <h1><?= $languageContent['partnerek'] ?></h1>
             <div class="logos"> 
