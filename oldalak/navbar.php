@@ -19,11 +19,12 @@ $flagSrc = $lang === 'hu' ? 'images/hu_flag.png' : 'images/us_flag.png'; // Aktu
                 <span class="navbar-text">
                     <a href="./?o=fiok" id="felhasznalo_nev" class="d-flex align-items-center">
                         <?= getUserInfo()[2] ?>
-                        <img alt="Profile Image" class="profile-image" src="profile_pic/<?= empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11] ?>"/>
+                        <img alt="Profile Image" class="profile-image" src="profile_pic/<?= empty(getUserInfo()[12]) ? '../images/pic.png' : getUserInfo()[12] ?>"/>
                     </a>
                 </span>
                 <a href="actions/logout.php" class="btn btn-danger m-2"><?= $languageContent['logoutBtn'] ?></a>
             <?php endif; ?>
+            <a class="btn btn-warning m-2" href="?o=admin&a=felhasznalo_kezeles">Admin</a>
             <!-- Zászló gomb nyelvváltó menüvel -->
             <div class="dropdown">
                 <button class="btn btn-dark dropdown-toggle d-flex align-items-center" type="button" id="languageMenu" data-bs-toggle="dropdown" aria-expanded="false">

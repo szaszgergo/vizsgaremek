@@ -1,12 +1,26 @@
 <?php
     require('../sqlcall.php');
-    require("../formhandling.php");
-
-    $uid = intval($_POST['uid']);
-    $komment = $_POST['ukomment'];
-    $email = $_POST['uemail'];
-    $felhasznalonev = $_POST['ufelhasznalonev'];
-    echo $_POST['uid'];
-    sqlsave("UPDATE user SET uKomment = '$komment', uemail = '$email', uFelhasznalonev = '$felhasznalonev' WHERE uID = $uid");
+    function dinamikusSQLGenerátor_inátor($tabla, $adatok, $primaryKey, $id) {
+        $tabla = preg_replace('/[^a-zA-Z0-9_]/', '', $tabla);
+        $setParts = [];
+        foreach ($adatok as $field => $value) {
+            $field = preg_replace('/[^a-zA-Z0-9_]/', '', $field);
+            $escapedValue = addslashes($value);
+            $setParts[] = "$field = '$escapedValue'";
+        }
+        
+        $setQuery = implode(", ", $setParts);
+        $sql = "UPDATE $tabla SET $setQuery WHERE $primaryKey = $id";
+        return $sql;
+    }
+    $tabla = $_POST['tabla'];
+    $primaryKey = $_POST['primary_key'];
+    $id = intval($_POST['id']);
+    
+    $adatok = $_POST;
+    unset($adatok['tabla'], $adatok['primary_key'], $adatok['id']);
+    
+    $sql = dinamikusSQLGenerátor_inátor($tabla, $adatok, $primaryKey, $id);
+    sqlsave($sql);
     echo "<script>window.top.postMessage({editSuccess: true}, '*');</script>";
 ?>
