@@ -23,48 +23,47 @@ if (isset($jegy)) {
 ?>
 <div class="row fiokrow">
     <div class="col-md-8 ">
-        <form class="profile-container" action="actions/updateaction.php" method="post" target='kisablak' enctype="multipart/form-data">
-        <div id='error-message' class='alert alert-danger' style='display: none;'></div>
-        
-        <div class="profile-header">
-            <img style="object-fit: cover;" src="<?php $a= 'profile_pic/' . (empty(getUserInfo()[11]) ? '../images/pic.png' : getUserInfo()[11]); echo $a; ?>" alt="Profile Picture">
-            <div>
-                <h2><?= $languageContent["name"] ?></h2>
-                <p>@<?php echo $adatok[2] ?></p>
+        <form class="profile-container" action="actions/updateaction.php" method="post" target='kisablak' enctype="multipart/form-data" id="inputcontainer">
+            <div id='error-message' class='alert alert-danger' style='display: none;'></div>
+            
+            <div class="profile-header">
+                <img style="object-fit: cover;" src="<?php $a= 'profile_pic/' . (empty(getUserInfo()[12]) ? '../images/pic.png' : getUserInfo()[12]); echo $a; ?>" alt="Profile Picture">
+                <div>
+                    <h2><?= $languageContent["name"] ?></h2>
+                    <p>@<?php echo $adatok[2] ?></p>
+                </div>
+                <button type="button" class="edit-btn" id="edit-btn"><?= $languageContent["edit"] ?></button>
             </div>
-            <button type="button" class="edit-btn" id="edit-btn"><?= $languageContent["edit"] ?></button>
-        </div>
 
-        <div class="mb-3">
-            <label for="InputUsername" class="form-label"><?= $languageContent["usernameLabel"] ?></label>
-            <input value="<?php echo $adatok[2] ?>" type="text" class="form-control fiok-input" id="InputUsername" name="username" maxlength="100" readonly>
-        </div>
+            <div class="mb-3">
+                <label for="InputUsername" class="form-label"><?= $languageContent["usernameLabel"] ?></label>
+                <input value="<?php echo $adatok[2] ?>" type="text" class="form-control fiok-input" id="InputUsername" name="username" maxlength="100" readonly>
+            </div>
 
-        <div class="mb-3">
-            <label for="InputEmail" class="form-label"><?= $languageContent["emailLabel"] ?></label>
-            <input value="<?php echo $adatok[3] ?>" type="email" class="form-control fiok-input" id="InputEmail" name="email" maxlength="256" readonly>
-        </div>
+            <div class="mb-3">
+                <label for="InputEmail" class="form-label"><?= $languageContent["emailLabel"] ?></label>
+                <input value="<?php echo $adatok[3] ?>" type="email" class="form-control fiok-input" id="InputEmail" name="email" maxlength="256" readonly>
+            </div>
 
-        <div class="mb-3">
-            <label for="InputDate" class="form-label"><?= $languageContent["birthdateLabel"] ?></label>
-            <input value="<?php echo $adatok[5] ?>" type="date" class="form-control fiok-input" id="InputDate" name="date" readonly>
-        </div>
+            <div class="mb-3">
+                <label for="InputDate" class="form-label"><?= $languageContent["birthdateLabel"] ?></label>
+                <input value="<?php echo $adatok[5] ?>" type="date" class="form-control fiok-input" id="InputDate" name="date" readonly>
+            </div>
 
-        <div class="mb-3">
-            <label for="InputPic" class="form-label"><?= $languageContent["newProfilePic"] ?></label>
-            <input type="file" class="form-control fiok-input" id="InputPic" name="upic" disabled>
-        </div>
+            <div class="mb-3">
+                <label for="InputPic" class="form-label"><?= $languageContent["newProfilePic"] ?></label>
+                <input type="file" class="form-control fiok-input" id="InputPic" name="upic" readonly>
+            </div>
 
-        <div class="mb-3">
-            <p><?= $languageContent["pwChange"] ?></p>
-        </div>
+            <div class="mb-3">
+                <p><?= $languageContent["pwChange"] ?></p>
+            </div>
 
-        <button style="display: none;" type="submit" class="btn-save" id="btn-save"><?= $languageContent["saveChanges"] ?></button>
+            <button style="display: none;" type="submit" class="btn-save" id="btn-save"><?= $languageContent["saveChanges"] ?></button>
 
-    </form>
+        </form>
     </div>
     <div class="col-md-4 jegy">
         <?php echo $szoveg;?>
     </div>
-    <script src="./js/edit.js"></script>
 </div>

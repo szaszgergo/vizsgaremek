@@ -30,6 +30,7 @@ $belepettoldalak = [
     "edzok"=> "oldalak/edzok.php",
     "galeria"=> "oldalak/galeria.php",
     "" => "oldalak/main.php",
+    "admin" => "oldalak/admin.php",
 ];
 
 $oldalak = [
@@ -77,6 +78,7 @@ if (array_key_exists($o, $cimek)) {
 
 
         <div class="content">
+            
         <?php
             $belepett = isset($_SESSION["uid"]);
 
@@ -103,6 +105,10 @@ if (array_key_exists($o, $cimek)) {
    
     <?php require("oldalak/jegyvasarlaspopup.php")?>
     <?php require("oldalak/kartyaformpopup.php")?>
+    <?php if (isset($_GET['a'])) {
+    require("oldalak/admin/popups/uj_kupon.php");
+    } ?>
+
 
     <script>
         //majd ezt a hibakezelést is megcsinálom -gabor
@@ -116,7 +122,14 @@ if (array_key_exists($o, $cimek)) {
                 window.location.href = "./?o=fiok";
             }
             if (event.data.Success) {
-                window.location.href = "./";
+                window.location.href = "./";}
+            if (event.data.editError) {
+                document.getElementById('error-message').innerHTML = event.data.editError;
+                document.getElementById('error-message').style.display = 'block';
+            }
+            if (event.data.editSuccess) {
+                document.getElementById('error-message').style.display = 'none';
+                window.location.href = "./?o=admin";
             }
             if (event.data.purchaseSuccess) {
                 window.location.href = "./?o=fiok";
@@ -139,6 +152,8 @@ if (array_key_exists($o, $cimek)) {
     <script src="js/jegyvasarlas.js"></script>
     <script src="js/language.js"></script>
     <script src="js/sponsor-slide.js"></script>
+    <script src="js/edit.js"></script>
+
 
 
 </body>
