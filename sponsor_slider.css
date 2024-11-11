@@ -55,7 +55,7 @@
   .edzo img{
     height: 500px;
     width:250px;
-    border-radius:20%;
+    border-radius:10%;
     animation: transition 1s;
   }
 
@@ -87,4 +87,12 @@
     background-color: black ;
     border-color: black ;
     color: white;
+}
+
+.edzo-nev {
+  margin-top: 10px;
+  font-size: 1em;
+  color: white;
+  font-size: 24px;
+  margin-left: 25px;
 }
