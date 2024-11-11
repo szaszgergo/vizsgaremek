@@ -1,12 +1,88 @@
-<h1>Legtöbbet látogatott oldalak:</h1>
-<?php
-$oldalak = sqlcall("SELECT nURL, COUNT(nURL) as count FROM `naplo` GROUP BY nURL ORDER BY count DESC;");
-while ($row = $oldalak->fetch_assoc()):?>
-<div class="row">
-    <div class="col-md-6"><p><?php echo $row['nURL'];?></p></div>
-    <div class="col-md-6"><p><?php echo $row['count'];?> látogatás</p></div>
+<div style="margin-bottom: 20px; text-align: center;">
+    <a href="?o=admin&a=statisztika&tp=napi" class="btn btn-warning">Napi látogatottság</a>
+    <a href="?o=admin&a=statisztika&tp=oldalak" class="btn btn-warning">Top oldalak</a>
 </div>
 
+<?php
+$tp = isset($_GET['tp']) ? $_GET['tp'] : 'napi';
 
-<?php endwhile; ?>
+if ($tp === 'oldalak') {
+    $oldalak = sqlcall("SELECT nURL, COUNT(nURL) as count FROM `naplo` GROUP BY nURL ORDER BY count DESC;");
+    
+    echo '<h1>Legtöbbet látogatott oldalak:</h1>';
+    while ($row = $oldalak->fetch_assoc()):
+    ?>
+        <div class="row">
+            <div class="col-md-6"><p><?php echo $row['nURL']; ?></p></div>
+            <div class="col-md-6"><p><?php echo $row['count']; ?> látogatás</p></div>
+        </div>
+    <?php
+    endwhile;
+}
 
+if ($tp === 'napi') {
+    $latogatottsag = sqlcall("SELECT DATE(nDatum) AS date, COUNT(DISTINCT nSession) AS latogatas
+                              FROM `naplo`
+                              GROUP BY DATE(nDatum)
+                              ORDER BY date;");
+    
+    $labels = [];
+    $data = [];
+
+    while ($row = $latogatottsag->fetch_assoc()) {
+        $labels[] = $row['date'];
+        $data[] = $row['latogatas'];
+    }
+    ?>
+
+    <h1>Napi látogatottság:</h1>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div style="width: 80%; margin: auto;">
+        <canvas id="visitsChart"></canvas>
+    </div>
+
+    <script>
+        const labels = <?php echo json_encode($labels); ?>;
+        const data = <?php echo json_encode($data); ?>;
+        const ctx = document.getElementById('visitsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Daily Visits',
+                    data: data,
+                    borderColor: 'rgba(255, 193, 7, 1)',
+                    backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Date'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Number of Visits'
+                        },
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    </script>
+<?php
+}
+?>
