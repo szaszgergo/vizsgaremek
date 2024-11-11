@@ -1,4 +1,4 @@
-<form class='form bg-dark text-light p-4 mt-4' action='actions/loginaction.php' method='post' target='kisablak'>
+<form class='form bg-transparentblack text-light p-4 mt-4' action='actions/loginaction.php' method='post' target='kisablak'>
     <h1 class='text-warning'><?= $languageContent["login"]?></h1>
     <div id='error-message' class='alert alert-danger' style='display: none;'></div>
     <div class='mb-3' >

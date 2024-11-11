@@ -11,8 +11,7 @@
                 <th>email</th>
                 <th>Szerep</th>
                 <th>Komment</th>
-                <th><button class="btn btn-primary">Új</button></th>
-
+                <th><button class="btn btn-primary btn-new">+</button></th>
             </tr>
         </thead>
         <tbody>

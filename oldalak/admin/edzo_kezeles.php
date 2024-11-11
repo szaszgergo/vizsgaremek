@@ -9,16 +9,20 @@
         <div class="col-md-2">Státusz</div>
         <div class="col-md-2">Felhasználónév</div>
         <div class="col-md-2">Profilkép</div>
-        <div class="col-md-2">email</div>
+        <div class="col-md-1">email</div>
+        <div class="col-md-1">telefonszám</div>
         <div class="col-md-1">Komment</div>
         <div class="col-md-3 text-end">Új hozzáadása: <button class="btn btn-primary btn-new">+</button></div>
     </div>
 
 
     <?php
-    $result = sqlcall("SELECT * FROM user WHERE uSzerep = 1");
+    $result = sqlcall("SELECT * FROM user WHERE uSzerep = 3");
     while ($row = $result->fetch_assoc()):
-        $isDeleted = ($row['uStatus'] === 'Deleted');?>
+        $isDeleted = ($row['uStatus'] === 'Deleted');
+        $kapcsolas = sqlcall("SELECT * FROM szemelyi_Edzok WHERE szeUID = $row[uID]");
+        $adatok = $kapcsolas->fetch_assoc();
+        ?>
         <div class="row <?php echo $isDeleted ? 'deleted-row' : ''; ?>" id="inputcontainer">
             <form action="actions/admin/edit.php" target="kisablak" method="post" class="row g-2">
                 <input name="tabla" value="user" type="hidden" >
@@ -53,11 +57,19 @@
                     <?php endif; ?>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <?php if ($isDeleted): ?>
                         <span><?php echo htmlspecialchars($row['uemail']); ?></span>
                     <?php else: ?>
                         <input type="text" name="uemail" value="<?php echo htmlspecialchars($row['uemail']); ?>" readonly class="form-control">
+                    <?php endif; ?>
+                </div>
+
+                <div class="col-md-1">
+                    <?php if ($isDeleted): ?>
+                        <span><?php echo htmlspecialchars($adatok['szeTelefon']); ?></span>
+                    <?php else: ?>
+                        <input type="text" name="szeTelefon" value="<?php echo htmlspecialchars($adatok['szeTelefon']); ?>" readonly class="form-control">
                     <?php endif; ?>
                 </div>
 
@@ -81,58 +93,6 @@
             </form>
         </div>
     <?php endwhile; ?>
-    </div>
-    <h3 class="mt-5">Admin felhasználók</h3>
-    <div class="table">
-    <div class="row">
-        <div class="col-md-2">Státusz</div>
-        <div class="col-md-2">Felhasználónév</div>
-        <div class="col-md-2">Profilkép</div>
-        <div class="col-md-2">email</div>
-        <div class="col-md-3 text-end">Új hozzáadása: <button class="btn btn-primary btn-new">+</button></div>
-    </div>
-
-    <?php
-    $result = sqlcall("SELECT * FROM user WHERE uSzerep = 2");
-    while ($row = $result->fetch_assoc()):
-        $isDeleted = ($row['uStatus'] === 'Deleted');?>
-        <div class="row <?php echo $isDeleted ? 'deleted-row' : ''; ?>" id="inputcontainer">
-            <form action="actions/admin/delete.php" target="kisablak" method="post" class="row g-2">
-                <div class="col-md-2">
-                    <span><?php echo htmlspecialchars($row['uStatus']); ?></span>
-                </div>
-
-                <div class="col-md-2">
-                    <span><?php echo htmlspecialchars($row['uFelhasznalonev']); ?></span>
-                </div>
-
-                <div class="col-md-2 position-relative">
-                    <?php if (!empty($row['uProfilePic'])): ?>
-                        <div class="profile-pic-container">
-                            <img alt="Profile Image" class="profile-image img-fluid"
-                                src="profile_pic/<?php echo htmlspecialchars($row['uProfilePic']); ?>">
-                        </div>
-                    <?php else: ?>
-                        <img alt="Profile Image" class="profile-image img-fluid" src="images/pic.png">
-                    <?php endif; ?>
-                </div>
-
-                <div class="col-md-2">
-                    <span><?php echo htmlspecialchars($row['uemail']); ?></span>
-                </div>
-
-                <?php if (!$isDeleted): ?>
-                    <div class="col-md-1">
-                        <input value="<?php echo htmlspecialchars($row['uID']); ?>" name="uid" type="hidden">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </div>
-                <?php endif; ?>
-            </form>
-        </div>
-    <?php endwhile; ?>
-    </div>
-</div>
-
 <script>
 function removeProfilePicture(userId) {
     if (confirm("Biztos ki akarod törölni a felhasználó képét?")) {
