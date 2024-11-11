@@ -7,7 +7,7 @@ require("formhandling.php");
 $adatok = getUserInfo();
 
 //regi jelszo helyes e
-if (!password_verify($_POST['oldpw'], $adatok[4])) {
+if (!password_verify($_POST['oldpw'], $adatok['uPassword'])) {
    hibaUzenet("Nem helyes a régi jelszó!");
 }
 //uj jelszo helyes formatum e

@@ -1,6 +1,7 @@
 <?php
 $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'hu';
 $flagSrc = $lang === 'hu' ? 'images/hu_flag.png' : 'images/us_flag.png'; // Aktuális zászló
+$adatok = getUserInfo();
 ?>
 
 <nav class="navbar navbar-dark bg-dark p-3">
@@ -11,15 +12,15 @@ $flagSrc = $lang === 'hu' ? 'images/hu_flag.png' : 'images/us_flag.png'; // Aktu
             <p id="nav_p"><?= $languageContent['nyitvatartas'] ?></p>
         </div>
         <form class="d-flex align-items-center">
-            <?php if (!isset($_SESSION["uid"])): ?>
+            <?php if (!isset($_SESSION["uid"])):?>
                 <a class="btn btn-warning m-2" href="./?o=loginform"><?= $languageContent['loginBtn'] ?></a>
                 <a class="btn btn-warning m-2" href="./?o=registerform"><?= $languageContent['signupBtn'] ?></a>
             <?php else: ?>
                 <!-- Felhasználói profil információ -->
                 <span class="navbar-text">
                     <a href="./?o=fiok" id="felhasznalo_nev" class="d-flex align-items-center">
-                        <?= getUserInfo()[2] ?>
-                        <img alt="Profile Image" class="profile-image" src="profile_pic/<?= empty(getUserInfo()[12]) ? '../images/pic.png' : getUserInfo()[12] ?>"/>
+                        <?= $adatok['uFelhasznalonev'] ?>
+                        <img alt="Profile Image" class="profile-image" src="profile_pic/<?= empty($adatok['uProfilePic']) ? '../images/pic.png' : $adatok['uProfilePic'] ?>"/>
                     </a>
                 </span>
                 <a href="actions/logout.php" class="btn btn-danger m-2"><?= $languageContent['logoutBtn'] ?></a>
