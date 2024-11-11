@@ -115,7 +115,7 @@
                     </div>
                     <div class="form-group mt-2">
                         <label for="message" class="text-white">Üzenet:</label>
-                        <textarea name="message" id="message" rows="3" class="form-control" style="border-radius: 5px; resize: none;" required></textarea>
+                        <textarea name="message" id="message" rows="3" class="form-control" style="border-radius: 5px; resize: none;" required maxlength="300"></textarea>
                     </div>
                     <button type="submit" class="btn btn-warning mt-3 w-100" style="border-radius: 20px;">Küldés</button>
                 </form>

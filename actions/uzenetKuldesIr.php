@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("sqlcall.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -13,8 +14,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     else{
         echo "<script>alert('Sikeres üzenetküldés!');</script>";
 
-        $_SESSION["emailKuldes"] = $_POST["email"];
-        $_SESSION["uzenetKuldes"] = $_POST["message"];
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $email = $_POST["email"];
+        $message = $_POST["message"];
+        $curdate = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO messages (mEmail, mUzenet, mDate, mIP)
+                VALUES (?, ?, ?, ?)";
+        sqlsave($sql, 'ssss', [$email, $message, $curdate, $ip]);
     
         echo "<script>window.top.postMessage({Success: true}, '*');</script>";
     
