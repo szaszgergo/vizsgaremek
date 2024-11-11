@@ -181,5 +181,12 @@
         { "tipus": "Towel Use (Small)", "felnottek_ar": "350 Ft", "diak_nyugdijas_ar": "350 Ft" },
         { "tipus": "Towel Use (Large)", "felnottek_ar": "450 Ft", "diak_nyugdijas_ar": "450 Ft" }
     ],
-    "megjegyzes": "*Passes with limited uses are valid for 60 days from the date of purchase."
+    "megjegyzes": "*Passes with limited uses are valid for 60 days from the date of purchase.",
+
+
+
+    "comment8": "jelszomodositasform",
+    "oldPw": "Old password",
+    "newPw": "New password",
+    "save": "Save"
 }

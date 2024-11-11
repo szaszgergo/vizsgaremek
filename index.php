@@ -115,6 +115,9 @@ if (array_key_exists($o, $cimek)) {
                 document.getElementById('error-message').style.display = 'none';
                 window.location.href = "./?o=fiok";
             }
+            if (event.data.Success) {
+                window.location.href = "./";
+            }
             if (event.data.purchaseSuccess) {
                 window.location.href = "./?o=fiok";
             }

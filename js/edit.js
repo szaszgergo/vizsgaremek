@@ -6,6 +6,7 @@ editGomb.onclick = function () {
     inputok.forEach((input, index) => {
         //nev ne legyen editable
         if (index !== 0) {
+            input.removeAttribute('disabled');
             input.removeAttribute('readonly');
             input.style.backgroundColor = '#fff';
             input.style.color = '#000';

@@ -104,10 +104,24 @@
                 </div>
             </div>
 
+            <!-- Üzenetküldő űrlap -->
+            <h1>Írj nekünk!</h1>
+            <p>Észrevételed vagy valami ötleted van? Ne habozz lépj velünk kapcsolatba!</p>
+            <div class="contact-form mt-4 p-3 rounded" style="background-color: var(--transparent-black); max-width: 400px; margin: auto; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+                <form action="actions/uzenetKuldesIr.php" method="post" target="kisablak">
+                    <div class="form-group">
+                        <label for="email" class="text-white">Email cím:</label>
+                        <input type="email" name="email" id="email" class="form-control" style="border-radius: 5px;" required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="message" class="text-white">Üzenet:</label>
+                        <textarea name="message" id="message" rows="3" class="form-control" style="border-radius: 5px; resize: none;" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-warning mt-3 w-100" style="border-radius: 20px;">Küldés</button>
+                </form>
+            </div>
 
 
-      
-       
     </section>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
