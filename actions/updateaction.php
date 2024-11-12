@@ -3,7 +3,7 @@ session_start();
 require("sqlcall.php");
 require("formhandling.php");
 
-$kepnev=$_SESSION['uid']."_".date("ymdHis")."_".uniqid('', more_entropy: true); //api kell majd
+$kepnev=$_SESSION['uid']."_".date("ymdHis")."_".uniqid('', true); //api kell majd
 $kepadat=$_FILES['upic'];
 $vankep = $_FILES['upic']['size'] > 0;
 if ($vankep) {
