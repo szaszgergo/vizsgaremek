@@ -1,7 +1,7 @@
 <?php
 require("sqlcall.php");
 session_start();
-$kepnev=$_SESSION['uid']."_".date("ymdHis")."_".uniqid('', more_entropy: true); //api kell majd
+$kepnev=$_SESSION['uid']."_".date("ymdHis")."_".uniqid('', true); //api kell majd
 $kepadat=$_FILES['upic'];
 $vankep = $_FILES['upic']['size'] > 0;
 if ($vankep) {
