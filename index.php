@@ -15,8 +15,9 @@ $cimek = [
     "adatvedelem" => "Adatvédelem - LiftZone",
     "faqs" => "Gyakran ismételt kérdések - LiftZone",
     "hazirend" => "Házirend - LiftZone",
-    "edzok"=> "Személyi Edzőink",
+    "edzok"=> "Személyi Edzőink - LiftZone",
     "galeria"=> "Galéria - LiftZone",
+    "admin" => "Admin Kezelőfelület  - LiftZone",
     "" => "Főoldal - LiftZone",
 ];
 $belepettoldalak = [
@@ -29,8 +30,8 @@ $belepettoldalak = [
     "hazirend" => "oldalak/hazirend.php",
     "edzok"=> "oldalak/edzok.php",
     "galeria"=> "oldalak/galeria.php",
-    "" => "oldalak/main.php",
     "admin" => "oldalak/admin.php",
+    "" => "oldalak/main.php",
 ];
 
 $oldalak = [
