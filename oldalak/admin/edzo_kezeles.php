@@ -20,7 +20,7 @@
     $result = sqlcall("SELECT * FROM user WHERE uSzerep = 3");
     while ($row = $result->fetch_assoc()):
         $isDeleted = ($row['uStatus'] === 'Deleted');
-        $kapcsolas = sqlcall("SELECT * FROM szemelyi_Edzok WHERE szeUID = $row[uID]");
+        $kapcsolas = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeUID = $row[uID]");
         $adatok = $kapcsolas->fetch_assoc();
         ?>
         <div class="row <?php echo $isDeleted ? 'deleted-row' : ''; ?>" id="inputcontainer">

@@ -72,4 +72,3 @@
             <li><?= $languageContent['Safari'] ?></li>
         </ul>    
     </div>
-</body>

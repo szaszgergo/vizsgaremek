@@ -1,90 +1,4 @@
-<style>
-    .row {
-        font-size: 20px;
-    }
-
-    .col {
-        border-radius: 30px;
-        height: 40%;
-    }
-
-    h1 {
-        text-align: left;
-    }
-
-    .col a {
-        background-color: black;
-        border-radius: 20px;
-        padding: 10px;
-    }
-
-    /* Új stílusok a szövegekhez */
-    .col p {
-        margin-bottom: 15px;
-        /* Térköz a bekezdések között */
-        line-height: 1.5;
-        /* Magasság a sorok között */
-        color: #ffffff;
-        /* Fehér szín a szövegnek */
-    }
-
-    .col h3 {
-        margin-top: 20px;
-        /* Térköz a h3 elem felett */
-        color: #ffc107;
-        /* Bootstrap warning szín */
-    }
-
-    /* A kérdések és motiváló szövegek stílusának javítása */
-    .col .motivational-text {
-        font-weight: bold;
-        /* Félkövér szöveg */
-        font-style: italic;
-        /* Dőlt betűk */
-        margin: 20px 0;
-        /* Térköz */
-        color: #ffda60;
-        /* Világosabb narancssárga szín */
-    }
-
-    .col img {
-        width: 700px;
-        height: 850px;
-        border-radius: 10%;
-        margin-top: 10px;
-    }
-
-    .socialicon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        background-color: #000;
-        border-radius: 50%;
-        font-size: 24px;
-    }
-
-    .social-icons-container {
-        display: flex;
-        justify-content: left;
-        gap: 10px;
-    }
-
-    .stars {
-        font-size: 2em;
-        cursor: pointer;
-    }
-
-    .star {
-        color: gray;
-    }
-
-    .star.selected {
-        color: gold;
-    }
-</style>
-<div class="row">
+<div class="row edzok">
     <?php
     $result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeID = " . intval($_GET['eid']));
     while ($row = $result->fetch_assoc()):
@@ -182,6 +96,11 @@
                 </div>
             </div>
 
+        <div class="col bg-transparentblack m-3 p-5">
+            <h3>Elérhetőségek:</h3>
+            <p><i class="fa fa-envelope" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i><?php echo htmlspecialchars($row['szeEmail']); ?></p>
+            <p><i class="fa fa-phone p-1" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i><?php echo htmlspecialchars($row['szeTelefon']); ?></p>
+            <p><?php echo htmlspecialchars($row['szeVegzetseg']); ?></p>
             <div class="social-icons-container">
                 <div class="socialicon">
                     <a class="m-1 p-2" href="<?php echo isset($szeSocialMedia['facebook']) ? $szeSocialMedia['facebook'] : '#'; ?>" target="_blank">

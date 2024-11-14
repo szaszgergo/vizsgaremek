@@ -2,10 +2,13 @@
 //api-vá alakitva pipa majd torolni
 function getUserInfo(){
     include_once("sqlcall.php");
-    $sql = "SELECT * FROM user WHERE uID = '$_SESSION[uid]'";
-    $tabla = sqlcall($sql);
-    $row = $tabla->fetch_row();
-    return $row;
+    if (isset($_SESSION['uid'])) {
+        $sql = "SELECT * FROM user WHERE uID = '$_SESSION[uid]'";
+        $tabla = sqlcall($sql);
+        $row = $tabla->fetch_assoc();
+        return $row;
+    }
+    return [];
 }
 function getUserJegyek(){
     include_once("sqlcall.php");

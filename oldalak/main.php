@@ -63,7 +63,7 @@
           </section>
       </section>
 
-      <section>
+      <section class="sliders">
           <div class="row">
               <h1><?= $languageContent['szponzorok'] ?></h1>
               <div class="logos">

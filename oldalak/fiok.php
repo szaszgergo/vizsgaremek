@@ -4,13 +4,13 @@ $jegy = getUserJegyek();
 if (isset($jegy)) {
     $jtid = $jegy[2];
     $tipusadatok = getJegyTipusAdatok($jtid);
-    $src = "https://api.qrserver.com/v1/create-qr-code/?data=$adatok[1]&size=5000x5000&margin=10";
+    $src = "https://api.qrserver.com/v1/create-qr-code/?data=$adatok[uUID]&size=5000x5000&margin=10";
     $remaining = strtotime($jegy[4]) - time();
     $maradek_napok = round($remaining / 86400);
     $szoveg = "
     <div>
     <h3>$tipusadatok[1]</h3>
-    <a href='$src'><img src='$src' alt='<?php echo $adatok[1]?>' title='JEGY' class='qr'  /></a>
+    <a href='$src'><img src='$src' alt='<?php echo $adatok[uUID]?>' title='JEGY' class='qr'  /></a>
     <h4> ". htmlspecialchars($languageContent["edit"]) ." </h4>
     <h1 class='gold'>$maradek_napok ". htmlspecialchars($languageContent["nap"]) ."</h1>";
     if (!is_null($jegy[5])) {
@@ -27,27 +27,27 @@ if (isset($jegy)) {
             <div id='error-message' class='alert alert-danger' style='display: none;'></div>
             
             <div class="profile-header">
-                <img style="object-fit: cover;" src="<?php $a= 'profile_pic/' . (empty(getUserInfo()[12]) ? '../images/pic.png' : getUserInfo()[12]); echo $a; ?>" alt="Profile Picture">
+                <img style="object-fit: cover;" src="<?php $a= 'profile_pic/' . (empty($adatok['uProfilePic']) ? '../images/pic.png' : $adatok['uProfilePic']); echo $a; ?>" alt="Profile Picture">
                 <div>
                     <h2><?= $languageContent["name"] ?></h2>
-                    <p>@<?php echo $adatok[2] ?></p>
+                    <p>@<?php echo $adatok['uFelhasznalonev'] ?></p>
                 </div>
                 <button type="button" class="edit-btn" id="edit-btn"><?= $languageContent["edit"] ?></button>
             </div>
 
             <div class="mb-3">
                 <label for="InputUsername" class="form-label"><?= $languageContent["usernameLabel"] ?></label>
-                <input value="<?php echo $adatok[2] ?>" type="text" class="form-control fiok-input" id="InputUsername" name="username" maxlength="100" readonly>
+                <input value="<?php echo $adatok['uFelhasznalonev'] ?>" type="text" class="form-control fiok-input" id="InputUsername" name="username" maxlength="100" readonly>
             </div>
 
             <div class="mb-3">
                 <label for="InputEmail" class="form-label"><?= $languageContent["emailLabel"] ?></label>
-                <input value="<?php echo $adatok[3] ?>" type="email" class="form-control fiok-input" id="InputEmail" name="email" maxlength="256" readonly>
+                <input value="<?php echo $adatok['uemail'] ?>" type="email" class="form-control fiok-input" id="InputEmail" name="email" maxlength="256" readonly>
             </div>
 
             <div class="mb-3">
                 <label for="InputDate" class="form-label"><?= $languageContent["birthdateLabel"] ?></label>
-                <input value="<?php echo $adatok[5] ?>" type="date" class="form-control fiok-input" id="InputDate" name="date" readonly>
+                <input value="<?php echo $adatok['uSzuletesidatum'] ?>" type="date" class="form-control fiok-input" id="InputDate" name="date" readonly>
             </div>
 
             <div class="mb-3">

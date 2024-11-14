@@ -2,7 +2,7 @@
 
 $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'hu';
 
-$filePath = $lang === 'hu' ? 'actions/lang_hu.json' : 'actions/lang_en.json';
+$filePath = $lang === 'hu' ? './lang/lang_hu.json' : './lang/lang_en.json';
 
 if (!file_exists($filePath)) {
     die("Error: Language file not found.");

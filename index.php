@@ -15,8 +15,9 @@ $cimek = [
     "adatvedelem" => "Adatvédelem - LiftZone",
     "faqs" => "Gyakran ismételt kérdések - LiftZone",
     "hazirend" => "Házirend - LiftZone",
-    "edzok"=> "Személyi Edzőink",
+    "edzok"=> "Személyi Edzőink - LiftZone",
     "galeria"=> "Galéria - LiftZone",
+    "admin" => "Admin Kezelőfelület  - LiftZone",
     "" => "Főoldal - LiftZone",
 ];
 $belepettoldalak = [
@@ -29,8 +30,8 @@ $belepettoldalak = [
     "hazirend" => "oldalak/hazirend.php",
     "edzok"=> "oldalak/edzok.php",
     "galeria"=> "oldalak/galeria.php",
-    "" => "oldalak/main.php",
     "admin" => "oldalak/admin.php",
+    "" => "oldalak/main.php",
 ];
 
 $oldalak = [
@@ -67,7 +68,6 @@ if (array_key_exists($o, $cimek)) {
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sponsor_slider.css">
 
     <title><?=$cim?></title>
 </head>
@@ -76,7 +76,6 @@ if (array_key_exists($o, $cimek)) {
         <?php require('actions/naplozas.php'); naplo(); ?>
         <?php include('actions/language.php'); ?>
         <?php require('oldalak/navbar.php'); ?>
-        <?php require('oldalak/footer.php'); ?>
 
 
         <div class="content">
@@ -99,12 +98,12 @@ if (array_key_exists($o, $cimek)) {
     
         </div>
 
-      
+        <?php require('oldalak/footer.php'); ?>
+
     </div>
     <iframe name='kisablak' style="display: none;"></iframe>
 
 
-   
     <?php require("oldalak/jegyvasarlaspopup.php")?>
     <?php require("oldalak/kartyaformpopup.php")?>
     <?php if (isset($_GET['a'])) {
