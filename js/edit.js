@@ -10,6 +10,7 @@ editButtons.forEach(editButton => {
         var inputs = row.querySelectorAll('input');
         inputs.forEach(input => {
             input.removeAttribute('readonly');
+            input.removeAttribute('disabled');
             input.style.backgroundColor = '#fff';
             input.style.color = '#000';
         });
