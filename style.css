@@ -15,6 +15,7 @@
 }
 .bg-transparentblack{
     background: linear-gradient(15deg, var(--transparent-black) 60%, var(--dark-gray));
+    border-radius: 3%;
 }
 
 body {
@@ -782,7 +783,7 @@ h1 {
 
     /* style.css */
     .rating-container {
-        text-align: center;
+        text-align: left;
         margin-top: 50px;
     }
 

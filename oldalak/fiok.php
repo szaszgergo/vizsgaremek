@@ -52,7 +52,7 @@ if (isset($jegy)) {
 
             <div class="mb-3">
                 <label for="InputPic" class="form-label"><?= $languageContent["newProfilePic"] ?></label>
-                <input type="file" class="form-control fiok-input" id="InputPic" name="upic" readonly>
+                <input type="file" class="form-control fiok-input" id="InputPic" name="upic" disabled>
             </div>
 
             <div class="mb-3">
