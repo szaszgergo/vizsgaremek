@@ -876,3 +876,12 @@ h1 {
 }
 
 /* --- */
+
+/* termek oldal */
+.termek{
+    .carousel-inner img {
+        max-height: 400px;
+        object-fit: strech;
+    }
+}
+/* --- */

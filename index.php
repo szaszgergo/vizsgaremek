@@ -17,6 +17,7 @@ $cimek = [
     "edzok" => "Személyi Edzőink - LiftZone",
     "galeria" => "Galéria - LiftZone",
     "admin" => "Admin Kezelőfelület  - LiftZone",
+    "shop" => "Bolt - LiftZone",
     "" => "Főoldal - LiftZone",
 ];
 
@@ -31,6 +32,8 @@ $belepettoldalak = [
     "edzok" => "oldalak/edzok.php",
     "galeria" => "oldalak/galeria.php",
     "admin" => "oldalak/admin.php",
+    "shop" => "oldalak/webshop.php",
+    "termek" => "oldalak/termek.php",
     "" => "oldalak/main.php",
 ];
 
@@ -44,6 +47,8 @@ $oldalak = [
     "admin" => "oldalak/admin.php",
     "edzok" => "oldalak/edzok.php",
     "galeria" => "oldalak/galeria.php",
+    "shop" => "oldalak/webshop.php",
+    "termek" => "oldalak/termek.php",
     "" => "oldalak/main.php",
 ];
 

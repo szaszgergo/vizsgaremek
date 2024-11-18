@@ -53,6 +53,7 @@ $adatok = getUserInfo();
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hamburgerMenu">
                     <li><a class="dropdown-item" href="./?o=arak"><?= $languageContent['hambiArak'] ?></a></li>
+                    <li><a class="dropdown-item" href="./?o=shop">Webshop</a></li>
                     <li><a class="dropdown-item" href="./?o=galeria"><?= $languageContent['hambiGaleria'] ?></a></li>
                     <li><a class="dropdown-item" href="./?o=edzok"><?= $languageContent['hambiEdzok'] ?></a></li>
                     <li><a class="dropdown-item" href="./?o=faqs"><?= $languageContent['hambiFaqs'] ?></a></li>
