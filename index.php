@@ -103,7 +103,7 @@ $cim = $cimek[$o] ?? "404 - LiftZone";
             "oldalak/popups/kartya_informacio_popup.php"
         ],
         'fiok' => [
-            "oldalak/admin/popups/vasarlasi_elozmeny_popup.php"
+            "oldalak/popups/vasarlasi_elozmeny_popup.php"
         ]
     ];
 
