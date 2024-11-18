@@ -11,7 +11,7 @@ if (isset($_GET['id'])):
     endif;
 
     $kepekMappa = "images/termekek/$id/";
-    $kepek = glob("$kepekMappa*.{png,jpg,jpeg,gif}", GLOB_BRACE);
+    $kepek = glob("$kepekMappa*.{png,jpg,jpeg,gif,webp}", GLOB_BRACE);
 ?>
     <div class="container mt-5 bg-transparentblack termek">
         <div class="row align-items-center">

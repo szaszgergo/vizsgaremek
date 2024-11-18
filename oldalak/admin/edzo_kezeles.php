@@ -1,7 +1,7 @@
 <div class="container mt-5">
-    <h2>Felhasználók kezelése</h2>
+    <h2>Edzők kezelése</h2>
     
-    <h3 class="mt-5">Létező felhasználók</h3>
+    <h3 class="mt-5">Létező edzők</h3>
     <div id='error-message' class='alert alert-danger' style='display: none;'></div>
 
     <div class="table">
@@ -87,12 +87,14 @@
                         <button type="submit" class="btn btn-success" id="btn-save">Save</button>
                     </div>
                     <div class="col-md-1">
-                        <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Delete</button>
+                        <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Edzői jog megvonása</button>
                     </div>
                 <?php endif; ?>
             </form>
         </div>
     <?php endwhile; ?>
+    </div>
+</div>
 <script>
 function removeProfilePicture(userId) {
     if (confirm("Biztos ki akarod törölni a felhasználó képét?")) {
