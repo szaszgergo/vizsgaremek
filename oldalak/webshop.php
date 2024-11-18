@@ -1,9 +1,11 @@
-<div class="bg-transparentblack">
+<div class="container bg-transparentblack">
+<div class="row">
 <?php
 $termekek = sqlcall("SELECT * FROM termekek");
 while ($termek = $termekek->fetch_assoc()):
 ?>
-    <div class="card" style="width: 18rem; margin: 1rem;">
+<div class="col-md-4">
+    <div class="card" style="margin: 1rem;">
         <img src="./images/termekek/<?php echo $termek['teID']; ?>/main.png" class="card-img-top" alt="<?php echo htmlspecialchars($termek['teNev']); ?>">
         <div class="card-body">
             <h5 class="card-title"><?php echo htmlspecialchars($termek['teNev']); ?></h5>
@@ -12,5 +14,7 @@ while ($termek = $termekek->fetch_assoc()):
             <a href="?o=termek&id=<?php echo $termek['teID']; ?>" class="btn btn-primary">View Details</a>
         </div>
     </div>
+</div>
 <?php endwhile; ?>
+</div>
 </div>
