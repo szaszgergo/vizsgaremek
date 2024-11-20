@@ -18,13 +18,15 @@ if ($vankep) {
 }
 
 
-if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["date"])) {
+if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["date"]) && isset($_POST["realname"])) {
     $email = $_POST["email"];
     $date =  $_POST["date"];
+    $realname =  $_POST["realname"];
+
 
     checkEmail($email, true);
 
-    $sql = "UPDATE user SET uemail = '$email', uSzuletesidatum = '$date'";
+    $sql = "UPDATE user SET uemail = '$email', uSzuletesidatum = '$date', uSzuleteskorinev = '$realname' ";
     if ($vankep) {
         $sql .= ", uProfilePic='$kepnev', uOriginPic='$og_pic' WHERE uid = $_SESSION[uid] ";
     } else{

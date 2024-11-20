@@ -1,15 +1,17 @@
 <style>
-    body{
-        text-align:justify ;
+    body {
+        text-align: justify;
     }
-    .row{
+
+    .row {
         font-size: 20px;
     }
-    img{
+
+    #prof_pic {
         width: 90%;
         height: 700px;
         border-radius: 20%;
-        margin-left: 50px;
+
     }
 </style>
 <div class="row edzok">
@@ -28,7 +30,7 @@
         <div class="d-flex bg-transparentblack m-3 p-5">
             <div class="col-md-6">
 
-            <div class="row">
+                <div class="row">
                     <div class="col">
                         <h3>Elérhetőségek:</h3>
                         <p><i class="fa fa-envelope" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i><?php echo htmlspecialchars($row['szeEmail']); ?></p>
@@ -37,50 +39,50 @@
                     </div>
                     <div class="col mt-3">
                         <?php
-                           $eid = $_GET['eid'];
-                           $sql_csillagok = "SELECT AVG(Csillag_value) as avgStars FROM csillag WHERE CsSzeID=?";
-                           $result_csillagok = sqlcall($sql_csillagok, 'i', [$eid]);
-           
-                           $ertekelok = "SELECT COUNT(Csillag_value) FROM csillag WHERE CsSzeID=?";
-                           $result_ertekelok = sqlcall($ertekelok, 'i', [$eid]);
-           
-                           $csUID = $_SESSION['uid'] ?? 0;
-                           $sql_felhasznalok = "SELECT csUID FROM csillag WHERE csUID=? AND CsSzeID=?";
-                           $result_felhasznalok = sqlcall($sql_felhasznalok, 'ii', [$csUID, $eid]);
-           
-                           if ($result_ertekelok) {
-                               $row_ertekelok = $result_ertekelok->fetch_row();
-                               echo "<h3 class='mt-1'>Értékelés: <span style='opacity:50%; color:white;'>($row_ertekelok[0])</span></h3>";
-                           }
+                        $eid = $_GET['eid'];
+                        $sql_csillagok = "SELECT AVG(Csillag_value) as avgStars FROM csillag WHERE CsSzeID=?";
+                        $result_csillagok = sqlcall($sql_csillagok, 'i', [$eid]);
 
-                           
-                if ($result_csillagok) {
-                    $row_csillagok = $result_csillagok->fetch_assoc();
-                    $sql_csillagok_ossz = isset($row_csillagok['avgStars']) ? (int)floor($row_csillagok['avgStars']) : 0;
+                        $ertekelok = "SELECT COUNT(Csillag_value) FROM csillag WHERE CsSzeID=?";
+                        $result_ertekelok = sqlcall($ertekelok, 'i', [$eid]);
 
-                    echo "<div class='stars'>";
-                    for ($i = 0; $i < $sql_csillagok_ossz; $i++) {
-                        echo "<span readonly class='star' style='color: gold;  pointer-events: none;'>&#9733;</span>";
-                    }
-                    for ($i = $sql_csillagok_ossz; $i < 5; $i++) {
-                        echo "<span readonly class='star' style='color: gray;  pointer-events: none;'>&#9733;</span>";
-                    }
+                        $csUID = $_SESSION['uid'] ?? 0;
+                        $sql_felhasznalok = "SELECT csUID FROM csillag WHERE csUID=? AND CsSzeID=?";
+                        $result_felhasznalok = sqlcall($sql_felhasznalok, 'ii', [$csUID, $eid]);
 
-                    if ($result_felhasznalok->num_rows > 0) {
-                        echo "<br><span style='font-size:20px;'>Ez a felhasznaló már értékelt.</span>";
-                    }
-                    echo "</div>";
-                } else {
-                    echo "<div class='stars'>";
-                    for ($i = 0; $i < 5; $i++) {
-                        echo "<span readonly class='star' style='color: gray;  pointer-events: none;'>&#9733;</span>";
-                    }
-                    echo "</div>";
-                }
+                        if ($result_ertekelok) {
+                            $row_ertekelok = $result_ertekelok->fetch_row();
+                            echo "<h3 class='mt-1'>Értékelés: <span style='opacity:50%; color:white;'>($row_ertekelok[0])</span></h3>";
+                        }
+
+
+                        if ($result_csillagok) {
+                            $row_csillagok = $result_csillagok->fetch_assoc();
+                            $sql_csillagok_ossz = isset($row_csillagok['avgStars']) ? (int)floor($row_csillagok['avgStars']) : 0;
+
+                            echo "<div class='stars'>";
+                            for ($i = 0; $i < $sql_csillagok_ossz; $i++) {
+                                echo "<span readonly class='star' style='color: gold;  pointer-events: none;'>&#9733;</span>";
+                            }
+                            for ($i = $sql_csillagok_ossz; $i < 5; $i++) {
+                                echo "<span readonly class='star' style='color: gray;  pointer-events: none;'>&#9733;</span>";
+                            }
+
+                            if ($result_felhasznalok->num_rows > 0) {
+                                echo "<br><span style='font-size:20px;'>Ez a felhasznaló már értékelt.</span>";
+                            }
+                            echo "</div>";
+                        } else {
+                            echo "<div class='stars'>";
+                            for ($i = 0; $i < 5; $i++) {
+                                echo "<span readonly class='star' style='color: gray;  pointer-events: none;'>&#9733;</span>";
+                            }
+                            echo "</div>";
+                        }
                         ?>
                     </div>
-            </div>
-            
+                </div>
+
                 <!-- Társasági ikonok -->
                 <div class="social-icons-container">
                     <a class="m-1 p-2" href="<?php echo isset($szeSocialMedia['facebook']) ? $szeSocialMedia['facebook'] : '#'; ?>" target="_blank">
@@ -100,7 +102,7 @@
                 <p><?php echo htmlspecialchars($row['szeLeiras2']); ?></p>
 
                 <!-- Csillagos értékelés és forma -->
-                <div class="rating-container w-50">
+                <div class="rating-container ">
                     <h2>Értékeld az edzőt:</h2>
                     <form id="rating-form" action="actions/star_submit.php" target="kisablak" method="POST">
                         <div class="stars ">
@@ -136,11 +138,26 @@
                     });
                 </script>
 
+            </div>
+            <div class="col-md-6" style="margin-left: 50px;">
+    <img id="prof_pic" src="<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/edzo.webp'; ?>" alt="Profilkép">
+    <div class="row">
+        <form action="" class="w-100">
+            <div class="row">
+                <div class="col-md-6  p-3">
+                    <p>Ha felkeltettem az érdeklődésedet és szeretnéd a segítségemet igénybe venni, jelentkezz itt.</p>
+                    <button type="submit" class="btn btn-warning" style="font-size:20px; ">Jelentkezés</button>
+                </div>
+                <div class="col-md-6  p-3">
+                    <p>vagy írj email-t nekem itt. <br> <i class="fa fa-envelope m-1" aria-hidden="true" style="font-size: 24px;"></i> <?php print"<span class='text-warning'> ".htmlspecialchars($row["szeEmail"])." </span>" ?></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
-            </div>
-            <div class="col-md-6">
-                <img  src="<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/edzo.webp'; ?>" alt="Profilkép" >
-            </div>
+
+
         </div>
     <?php endwhile; ?>
 </div>

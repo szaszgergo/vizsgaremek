@@ -107,7 +107,9 @@
       </section>
     
             <h1>Írj nekünk!</h1>
-            <p>Észrevételed vagy valami ötleted van? Ne habozz lépj velünk kapcsolatba!</p>
+           
+            <p> Kérdéseiddel, észrevételekkel és problémákkal
+            kapcsolatban kérlek írj e-mailt vagy írj itt. Ne habozz lépj velünk kapcsolatba!</p>
             <div class="contact-form mt-4 p-3 rounded" style="background-color: var(--transparent-black); max-width: 400px; margin: auto; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
                 <form action="actions/uzenetKuldesIr.php" method="post" target="kisablak">
                     <div class="form-group">
