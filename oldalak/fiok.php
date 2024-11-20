@@ -41,6 +41,12 @@ if (isset($jegy)) {
             </div>
 
             <div class="mb-3">
+                <label for="InputRealName" class="form-label"><?= $languageContent["RealNameLabel"] ?></label>
+                <input value="<?php echo $adatok['uSzuleteskorinev'] ?>" type="text" class="form-control fiok-input" id="InputRealName" name="realname" maxlength="100" readonly>
+            </div>
+
+
+            <div class="mb-3">
                 <label for="InputEmail" class="form-label"><?= $languageContent["emailLabel"] ?></label>
                 <input value="<?php echo $adatok['uemail'] ?>" type="email" class="form-control fiok-input" id="InputEmail" name="email" maxlength="256" readonly>
             </div>

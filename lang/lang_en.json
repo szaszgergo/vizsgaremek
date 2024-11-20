@@ -154,6 +154,7 @@
     "comment7": "fiok.php",
 
     "name": "Real Name",
+    "RealNameLabel":"Birth Name",
     "edit": "Edit",
     "newProfilePic": "New Profile Picture",
     "pwChange": "If you want to change your password, you can do it <a id='jelszomodositas' href='?o=jelszomodositasform'>here</a>.",
