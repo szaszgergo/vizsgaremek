@@ -669,7 +669,7 @@ h1 {
         }
     }
     .main-content {
-        margin-left: 250px;
+        margin: 0 auto;
         padding: 20px;
     }
     form{
