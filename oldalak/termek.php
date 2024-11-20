@@ -12,6 +12,11 @@ if (isset($_GET['id'])):
 
     $kepekMappa = "images/termekek/$id/";
     $kepek = glob("$kepekMappa*.{png,jpg,jpeg,gif,webp}", GLOB_BRACE);
+
+
+    echo "<script>
+    document.title = '" . addslashes($termek["teNev"]) . " | LiftZone';
+</script>";
 ?>
     <div class="container mt-5 bg-transparentblack termek">
         <div class="row align-items-center">

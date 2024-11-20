@@ -600,7 +600,8 @@ h1 {
     .table{
         border: 1px solid var(--gold);
         border-radius: 20pt;
-        padding: 1rem;
+        padding-top: 1rem;
+        padding-inline: 5rem;
     }
     .profile-pic-container {
         position: relative;
@@ -890,3 +891,16 @@ h1 {
     }
 }
 /* --- */
+
+/* shop oldal */
+.kosarikon{
+    background-color: var(--gold);
+    padding: 1.5rem;
+    width: min-content;
+    border-radius: 50%;
+    position: sticky;
+    margin-right: 1rem;
+    top: 0;
+    float: right;
+    z-index: 3000;
+}
