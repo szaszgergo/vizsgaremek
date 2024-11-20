@@ -1,35 +1,35 @@
 <div class="container mt-5">
-    <h2>Felhasználók kezelése</h2>
+    <h2>Termékek kezelése</h2>
 
-    <h3 class="mt-5">Létező felhasználók</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>UID</th>
-                <th>Felhasználónév</th>
-                <th>Profilkép</th>
-                <th>email</th>
-                <th>Szerep</th>
-                <th>Komment</th>
-                <th><button class="btn btn-primary btn-new">+</button></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $result = sqlcall("SELECT * FROM user");
-            while ($row = $result->fetch_assoc()): ?>
-                <tr>
-                    <td><?php echo $row['uUID']; ?></td>
-                    <td><?php echo $row['uFelhasznalonev']; ?></td>
-                    <td><img alt="Profile Image" class="profile-image" src="profile_pic/<?= empty($row['uProfilePic']) ? '../images/pic.png' : $row['uProfilePic'] ?>"/></td>
-                    <td><?php echo $row['uemail']; ?></td>
-                    <td><?php echo $row['uStatus']; ?></td>
-                    <td><?php echo $row['uKomment']; ?></td>
-                    <td><button class="btn btn-warning">Edit</button>
-                    <button class="btn btn-danger">Delete</button></td>
+    <h3 class="mt-5">Létező termékek</h3>
+    <div class="table">
+        <div class="row">
+            <div class="col-md-1">id</div>
+            <div class="col-md-3">Termék neve</div>
+            <div class="col-md-3">Termék ára (HUF)</div>
+            <div class="col-md-3">teLeiras</div>
+            <div class="col-md-2"><button class="btn btn-primary btn-new " data-bs-toggle='modal'
+                    data-bs-target='#ujtermekpopup'>+</button></div>
 
-                </tr>
-            <?php endwhile; ?>
-        </tbody>
-    </table>
+        </div>
+        <?php
+        $result = sqlcall("SELECT * FROM termekek");
+        while ($row = $result->fetch_assoc()): ?>
+        <form >
+            <div class="row">
+                <div class="col-md-1"><?php echo $row['teID']; ?></div>
+                <div class="col-md-3"><?php echo $row['teNev']; ?></div>
+                <div class="col-md-3"><?php echo $row['teAr']; ?></div>
+                <div class="col-md-3"><?php echo $row['teLeiras']; ?></div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-warning" id="edit-btn">Edit</button>
+                    <button type="submit" class="btn btn-success" id="btn-save">Save</button>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </form>
+        <?php endwhile; ?>
+    </div>
 </div>

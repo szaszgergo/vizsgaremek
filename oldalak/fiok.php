@@ -8,13 +8,13 @@ if (isset($jegy)) {
     $remaining = strtotime($jegy[4]) - time();
     $maradek_napok = round($remaining / 86400);
     $szoveg = "
-    <div>
+    <>
     <h3>$tipusadatok[1]</h3>
     <a href='$src'><img src='$src' alt='<?php echo $adatok[uUID]?>' title='JEGY' class='qr'  /></a>
     <h4> ". htmlspecialchars($languageContent["ervenyes"]) ." </h4>
     <h1 class='gold'>$maradek_napok ". htmlspecialchars($languageContent["nap"]) ."</h1>";
     if (!is_null($jegy[5])) {
-        $szoveg .= "<h3>". htmlspecialchars($languageContent["hasznalatok"]) ." <span class='gold'> $jegy[5]</span></h3></div>";
+        $szoveg .= "<h3>". htmlspecialchars($languageContent["hasznalatok"]) ." <span class='gold'> $jegy[5]</span></h3>";
     }
 } else{
     $szoveg = "<h1>". htmlspecialchars($languageContent["nincsJegy"]) ."</h1> <a class='btn btn-warning' href='?o=jegyvasarlasform'>". htmlspecialchars($languageContent["vasarlas"]) ."</a>";
@@ -71,5 +71,6 @@ if (isset($jegy)) {
     </div>
     <div class="col-md-4 jegy">
         <?php echo $szoveg;?>
+        <button class="btn btn-warning btn-new" data-bs-toggle='modal' data-bs-target='#vasarlasielozmenypopup'>Számlázás</button>
     </div>
     </div>

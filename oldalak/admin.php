@@ -5,8 +5,8 @@ if (!isset($_SESSION["szerep"]) || $_SESSION["szerep"] != "admin") {
 } ?>
 
 
-<div class="admin">
-    <div class="sidebar">
+<div class="admin row bg-transparentblack">
+    <div class="sidebar col-md-4 ">
         <h3 class="text-center text-white">Admin Kezelőfelület</h3>
         <?php 
         $currentPage = $_GET['a'] ?? '';?>
@@ -19,7 +19,7 @@ if (!isset($_SESSION["szerep"]) || $_SESSION["szerep"] != "admin") {
         <a href="?o=admin&a=messages" class="<?php echo ($currentPage === 'messages') ? 'active' : ''; ?>">Üzenetek</a>
     </div>
 
-    <div class="main-content">
+    <div class="main-content col-md-8">
         <?php
         $adminoldalak = [
             "felhasznalo_kezeles" => "oldalak/admin/felhasznalo_kezeles.php",

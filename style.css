@@ -13,8 +13,9 @@
     --gold: #ffc107;
     --transparent-black: #000000dd;
 }
+
 .bg-transparentblack{
-    background: linear-gradient(15deg, var(--transparent-black) 60%, var(--dark-gray));
+    background: var(--transparent-black);
     border-radius: 3%;
 }
 
@@ -37,14 +38,17 @@ a {
     text-decoration: none;
 }
 
+.table>:not(caption)>*>* {
+    color: white;
+    background-color: transparent;
+}
+
 /* index.php */
 .site {
     backdrop-filter: blur(2px);
     min-height: 100vh;
 }
 .content {
-    transform: scale(0.95); 
-    transform-origin: top center;
     color: white;
     padding-bottom: 10rem;
 }
@@ -433,10 +437,6 @@ h1 {
     margin: 0 auto;
 }
 
-.table>:not(caption)>*>* {
-    color: white;
-    background-color: transparent;
-}
 
 #password-container {
     position: relative;
@@ -591,7 +591,9 @@ h1 {
 
 /* admin.php */
 .admin {
-
+    transform: scale(0.95);
+    transform-origin: top center;
+    border-radius: 0 0 30pt 30pt;
     h2{
         text-align: center;
     }
@@ -643,11 +645,13 @@ h1 {
     .sidebar {
         height: 100vh;
         width: 250px;
-        position: fixed;
+        position: relative;
         top: 0;
         left: 0;
         padding-top: 20px;
-
+        border-right: solid 1pt var(--orange);
+        border-bottom: solid 1pt var(--orange);
+        border-radius: 0 0 20pt 0;
         & a {
             display: block;
             color: var(--white);
@@ -668,29 +672,30 @@ h1 {
         margin-left: 250px;
         padding: 20px;
     }
+    form{
+        input{
+            background-color: transparent;
+            border: none;
+            color: white;
+        }
+        input:enabled{
+            background-color: transparent;
+            border: none;
+            color: white;
+        }
+    }
+    td{
+        vertical-align:middle
+    }
     .btn-new{
         float: right;
         font-size: 1.5em;
         width: 30pt;
         padding: 0;
     }
-    input{
-        background-color: transparent;
-        border: none;
-        color: white;
-    }
-    input:enabled{
-        background-color: transparent;
-        border: none;
-        color: white;
-    }
-    td{
-        vertical-align:middle
-    }
     #btn-save{
         display: none;
     }
-    background-color: var(--transparent-black);
     #searchInput{
         background-color: white;
         color: black;
@@ -875,4 +880,13 @@ h1 {
     color: gold;
 }
 
+/* --- */
+
+/* termek oldal */
+.termek{
+    .carousel-inner img {
+        max-height: 400px;
+        object-fit: strech;
+    }
+}
 /* --- */
