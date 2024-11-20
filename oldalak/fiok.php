@@ -29,7 +29,7 @@ if (isset($jegy)) {
             <div class="profile-header">
                 <img style="object-fit: cover;" src="<?php $a= 'profile_pic/' . (empty($adatok['uProfilePic']) ? '../images/pic.png' : $adatok['uProfilePic']); echo $a; ?>" alt="Profile Picture">
                 <div>
-                    <h2><?= $languageContent["name"] ?></h2>
+                    <h2><?= $adatok['uSzuleteskorinev'] ?></h2>
                     <p>@<?php echo $adatok['uFelhasznalonev'] ?></p>
                 </div>
                 <button type="button" class="edit-btn" id="edit-btn"><?= $languageContent["edit"] ?></button>
