@@ -192,5 +192,17 @@
     "comment8": "jelszomodositasform",
     "oldPw": "Old password",
     "newPw": "New password",
-    "save": "Save"
+    "save": "Save",
+
+
+
+    "comment9": "edzok.php",
+    "elerhetosegek": "Contact Information",
+    "ertekeles": "Rating",
+    "ertekelt": "This user has already rated",
+    "ertekeld": "Rate the trainer:",
+    "ertekelesBekuldes": "Submit Rating",
+    "jelentkezzItt": "If I’ve piqued your interest and you’d like to work with me, sign up here.",
+    "jelentkezes": "Application",
+    "irjEmail": "or send me an email here."
 }
