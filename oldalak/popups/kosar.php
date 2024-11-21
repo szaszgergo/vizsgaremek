@@ -64,7 +64,10 @@
                                 <span><?= number_format($price * $count, 0, ',', ' ')?> Ft</span>
                             </div>
                             <div class="col text-right">
-                                <button class="btn btn-danger btn-sm">X</button>
+                                <form action="actions/removeFromKosar.php" target="kisablak" method="POST">
+                                    <input type="hidden" name="teID" value="<?php htmlspecialchars($teid);?>">
+                                    <button class="btn btn-danger btn-sm">X</button>
+                                </form>
                             </div>
                         </div>
                     <?php endwhile;
