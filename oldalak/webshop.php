@@ -1,3 +1,6 @@
+<button class="kosarikon" data-bs-toggle="modal" data-bs-target="#kosarpopup">
+        <i class="fa fa-cart-shopping" style="font-size: 3em"></i>
+</button>
 <div class="container bg-transparentblack">
     <div class="row">
         <?php

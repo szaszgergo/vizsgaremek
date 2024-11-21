@@ -32,10 +32,19 @@
 
                 <div class="row">
                     <div class="col">
-                        <h3>Elérhetőségek:</h3>
+                        <h3><?= $languageContent["elerhetosegek"] ?></h3>
                         <p><i class="fa fa-envelope" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i><?php echo htmlspecialchars($row['szeEmail']); ?></p>
                         <p><i class="fa fa-phone p-1" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i><?php echo htmlspecialchars($row['szeTelefon']); ?></p>
-                        <p><?php echo htmlspecialchars($row['szeVegzetseg']); ?></p>
+                        <p>
+                        <?php
+                        if(isset($_SESSION["lang"]) && $_SESSION["lang"] == "en") {
+                            echo htmlspecialchars($row['szeVegzettsegEN']);
+                        }
+                        else {
+                            echo htmlspecialchars($row['szeVegzetseg']);
+                        }
+                        ?>
+                        </p>
                     </div>
                     <div class="col mt-3">
                         <?php
@@ -52,7 +61,7 @@
 
                         if ($result_ertekelok) {
                             $row_ertekelok = $result_ertekelok->fetch_row();
-                            echo "<h3 class='mt-1'>Értékelés: <span style='opacity:50%; color:white;'>($row_ertekelok[0])</span></h3>";
+                            echo "<h3 class='mt-1'>". htmlspecialchars($languageContent["ertekeles"]) ." <span style='opacity:50%; color:white;'>($row_ertekelok[0])</span></h3>";
                         }
 
 
@@ -69,7 +78,7 @@
                             }
 
                             if ($result_felhasznalok->num_rows > 0) {
-                                echo "<br><span style='font-size:20px;'>Ez a felhasznaló már értékelt.</span>";
+                                echo "<br><span style='font-size:20px;'>". htmlspecialchars($languageContent["ertekelt"]) ."</span>";
                             }
                             echo "</div>";
                         } else {
@@ -98,12 +107,31 @@
 
                 <hr class="text-warning">
 
-                <p class="motivational-text"><?php echo htmlspecialchars($row['szeLeiras']); ?></p>
-                <p><?php echo htmlspecialchars($row['szeLeiras2']); ?></p>
+                <p class="motivational-text">
+                <?php
+                if (isset($_SESSION["lang"]) && $_SESSION["lang"] == "en") {
+                    echo htmlspecialchars($row['szeLeirasEN']);
+                }
+                else {
+                    echo htmlspecialchars($row['szeLeiras']);
+                }
+                ?>
+                </p>
+
+                <p>
+                <?php
+                if (isset($_SESSION["lang"]) && $_SESSION["lang"] == "en") {
+                    echo htmlspecialchars($row['szeLeiras2EN']);
+                }
+                else {
+                    echo htmlspecialchars($row['szeLeiras2']);
+                }
+                ?>
+                </p>
 
                 <!-- Csillagos értékelés és forma -->
                 <div class="rating-container ">
-                    <h2>Értékeld az edzőt:</h2>
+                    <h2><?= $languageContent["ertekeld"] ?></h2>
                     <form id="rating-form" action="actions/star_submit.php" target="kisablak" method="POST">
                         <div class="stars ">
                             <?php for ($i = 1; $i <= 5; $i++): ?>
@@ -112,7 +140,7 @@
                         </div>
                         <input type="hidden" id="star-value" name="star_value" value="0">
                         <input name="eid" value="<?php echo htmlspecialchars($_GET['eid']); ?>" type="hidden">
-                        <button type="submit" class="btn btn-warning " style="font-size:20px; margin-left:20px;">Értékelés beküldése</button>
+                        <button type="submit" class="btn btn-warning " style="font-size:20px; margin-left:20px;"><?= $languageContent["ertekelesBekuldes"] ?></button>
                     </form>
                     <p id="error" style="color:red;"></p>
                 </div>
@@ -145,11 +173,11 @@
         <form action="" class="w-100">
             <div class="row">
                 <div class="col-md-6  p-3">
-                    <p>Ha felkeltettem az érdeklődésedet és szeretnéd a segítségemet igénybe venni, jelentkezz itt.</p>
-                    <button type="submit" class="btn btn-warning" style="font-size:20px; ">Jelentkezés</button>
+                    <p><?= $languageContent["jelentkezzItt"] ?></p>
+                    <button type="submit" class="btn btn-warning" style="font-size:20px; "><?= $languageContent["jelentkezes"] ?></button>
                 </div>
                 <div class="col-md-6  p-3">
-                    <p>vagy írj email-t nekem itt. <br> <i class="fa fa-envelope m-1" aria-hidden="true" style="font-size: 24px;"></i> <?php print"<span class='text-warning'> ".htmlspecialchars($row["szeEmail"])." </span>" ?></p>
+                    <p><?= $languageContent["irjEmail"] ?> <br> <i class="fa fa-envelope m-1" aria-hidden="true" style="font-size: 24px;"></i> <?php print"<span class='text-warning'> ".htmlspecialchars($row["szeEmail"])." </span>" ?></p>
                 </div>
             </div>
         </form>

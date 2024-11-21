@@ -75,6 +75,10 @@
     "szponzorok": "Sponsors",
     "partnerek": "Personal Trainers",
     "tovabbgomb": "More info",
+    "irjNekunk": "Write to us",
+    "lepjKapcsolatba": "For questions, feedback, or issues, please send us an email or write here. Don’t hesitate to get in touch!",
+    "uzenetLabel": "Message:",
+    "kuldes": "Send",
 
 
 
@@ -192,5 +196,17 @@
     "comment8": "jelszomodositasform",
     "oldPw": "Old password",
     "newPw": "New password",
-    "save": "Save"
+    "save": "Save",
+
+
+
+    "comment9": "edzok.php",
+    "elerhetosegek": "Contact Information",
+    "ertekeles": "Rating",
+    "ertekelt": "This user has already rated",
+    "ertekeld": "Rate the trainer:",
+    "ertekelesBekuldes": "Submit Rating",
+    "jelentkezzItt": "If I’ve piqued your interest and you’d like to work with me, sign up here.",
+    "jelentkezes": "Application",
+    "irjEmail": "or send me an email here."
 }

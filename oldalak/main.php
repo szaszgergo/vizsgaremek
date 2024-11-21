@@ -106,21 +106,20 @@
 
       </section>
     
-            <h1>Írj nekünk!</h1>
+            <h1><?= $languageContent["irjNekunk"] ?></h1>
            
-            <p> Kérdéseiddel, észrevételekkel és problémákkal
-            kapcsolatban kérlek írj e-mailt vagy írj itt. Ne habozz lépj velünk kapcsolatba!</p>
+            <p><?= $languageContent["lepjKapcsolatba"] ?></p>
             <div class="contact-form mt-4 p-3 rounded" style="background-color: var(--transparent-black); max-width: 400px; margin: auto; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
                 <form action="actions/uzenetKuldesIr.php" method="post" target="kisablak">
                     <div class="form-group">
-                        <label for="email" class="text-white">Email cím:</label>
+                        <label for="email" class="text-white"><?= $languageContent["emailLabel"] ?></label>
                         <input type="email" name="email" id="email" class="form-control" style="border-radius: 5px;" required>
                     </div>
                     <div class="form-group mt-2">
-                        <label for="message" class="text-white">Üzenet:</label>
+                        <label for="message" class="text-white"><?= $languageContent["uzenetLabel"] ?></label>
                         <textarea name="message" id="message" rows="3" class="form-control" style="border-radius: 5px; resize: none;" required maxlength="300"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-warning mt-3 w-100" style="border-radius: 20px;">Küldés</button>
+                    <button type="submit" class="btn btn-warning mt-3 w-100" style="border-radius: 20px;"><?= $languageContent["kuldes"] ?></button>
                 </form>
             </div>
 

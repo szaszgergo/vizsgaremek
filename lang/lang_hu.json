@@ -74,6 +74,10 @@
     "szponzorok": "Szponzorok",
     "partnerek": "Személyi edzők",
     "tovabbgomb": "Több info",
+    "irjNekunk": "Írj nekünk",
+    "lepjKapcsolatba": "Kérdéseiddel, észrevételekkel és problémákkal kapcsolatban kérlek írj e-mailt vagy írj itt. Ne habozz lépj velünk kapcsolatba!",
+    "uzenetLabel": "Üzenet:",
+    "kuldes": "Küldés",
 
 
     "comment3": "footer.php",
@@ -189,5 +193,17 @@
     "comment8": "jelszomodositasform",
     "oldPw": "Régi jelszó",
     "newPw": "Új jelszó",
-    "save": "Adatok mentése"
+    "save": "Adatok mentése",
+
+
+
+    "comment9": "edzok.php",
+    "elerhetosegek": "Elérhetőségek",
+    "ertekeles": "Értékelés",
+    "ertekelt": "Ez a felhasználó már értékelt",
+    "ertekeld": "Értékeld az edzőt:",
+    "ertekelesBekuldes": "Értékelés beküldése",
+    "jelentkezzItt": "Ha felkeltettem az érdeklődésedet és szeretnéd a segítségemet igénybe venni, jelentkezz itt.",
+    "jelentkezes": "Jelentkezés",
+    "irjEmail": "vagy írj email-t nekem itt." 
 }
