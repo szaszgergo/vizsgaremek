@@ -1,6 +1,7 @@
 <div style="margin-bottom: 20px; text-align: center;">
     <a href="?o=admin&a=statisztika&tp=napi" class="btn btn-warning">Napi látogatottság</a>
     <a href="?o=admin&a=statisztika&tp=oldalak" class="btn btn-warning">Top oldalak</a>
+    <a href="?o=admin&a=statisztika&tp=termekek" class="btn btn-warning">Top termékek</a>
 </div>
 
 <?php
@@ -19,6 +20,31 @@ if ($tp === 'oldalak') {
     <?php
     endwhile;
 }
+
+if ($tp === 'termekek') {
+    $oldalak = sqlcall("SELECT nURL, COUNT(nURL) as count FROM `naplo` WHERE nURL LIKE '%termek%' GROUP BY nURL ORDER BY count DESC;");
+
+    echo '<h1>Legtöbbet látogatott termékek:</h1>';
+    while ($row = $oldalak->fetch_assoc()):
+        $url = $row['nURL'];
+        parse_str(parse_url($url, PHP_URL_QUERY), $queryParams); 
+        $id = isset($queryParams['id']) ? intval($queryParams['id']) : null;
+
+        if ($id) {
+            $termekQuery = sqlcall("SELECT teNev FROM termekek WHERE teID = $id");
+            $termek = $termekQuery->fetch_assoc();
+            $termeknev = $termek ? $termek['teNev'] : 'Ismeretlen termék';
+
+            ?>
+            <div class="row">
+                <div class="col-md-6"><p><?php echo htmlspecialchars($termeknev); ?></p></div>
+                <div class="col-md-6"><p><?php echo $row['count']; ?> látogatás</p></div>
+            </div>
+            <?php
+        }
+    endwhile;
+}
+
 
 if ($tp === 'napi') {
     $latogatottsag = sqlcall("SELECT DATE(nDatum) AS date, COUNT(DISTINCT nSession) AS latogatas

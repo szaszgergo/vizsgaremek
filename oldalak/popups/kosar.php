@@ -1,4 +1,4 @@
-<div class="modal fade" id="kosarpopup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="kosarpopup" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content bg-dark text-light">
@@ -7,14 +7,18 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
+            <?php
+            
+            $osszar = 0;
+            ?>
 
             <form action="" target="kisablak" method="post">
                 <div class="modal-body">
                     <div class="row mb-2">
                         <div class="col"><strong>Kép</strong></div>
-                        <div class="col"><strong>Description</strong></div>
-                        <div class="col"><strong>Price</strong></div>
-                        <div class="col"><strong></strong></div>
+                        <div class="col"><strong>Név</strong></div>
+                        <div class="col"><strong>Darabszám</strong></div>
+                        <div class="col"><strong>Ár</strong></div>
                         <div class="col"><strong></strong></div>
 
                     </div>
@@ -30,7 +34,8 @@
                         $teid = $details["teID"];
                         $count = $item["count"];
                         $name = $details["teNev"];
-                        $price = number_format($details["teAr"], 0, ',', ' ');
+                        $price = $details["teAr"];
+                        $osszar += ($price *$count);
                         $description = $details["teLeiras"];
                         $cartContentIterator->next();
                         ?>
@@ -47,26 +52,28 @@
                                     }
                                 } ?>
                                 <img src="<?= htmlspecialchars($coverImage); ?>"
-                                    alt="<?= htmlspecialchars($name); ?>" style="max-width: 100px; max-height: 100px;">
+                                    alt="<?= htmlspecialchars($name); ?>" style="width: 60pt; height: 60pt; object-fit: strech;">
                             </div>
                             <div class="col">
                                 <strong><?= htmlspecialchars($name); ?></strong><br>
                             </div>
                             <div class="col">
-                                <span><?= $price; ?> Ft</span>
+                                <span><?= $count; ?>x</span>
                             </div>
                             <div class="col">
-                                <span><?= $count; ?> db</span>
+                                <span><?= number_format($price * $count, 0, ',', ' ')?> Ft</span>
                             </div>
                             <div class="col text-right">
                                 <button class="btn btn-danger btn-sm">X</button>
                             </div>
                         </div>
-                    <?php endwhile; ?>
-
+                    <?php endwhile;
+                    ?>
+                            
                 </div>
 
                 <div class="modal-footer">
+                    <?php echo "<p class='text-right '>". number_format($osszar, 0, ',', ' ') ."Ft <p>";?>
                     <button type="submit" class="btn btn-primary">Vásárlás</button>
                 </div>
             </form>

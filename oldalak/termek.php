@@ -53,7 +53,6 @@ if (isset($_GET['id'])):
                     <input type="hidden" name="teID" value="<?php echo htmlspecialchars($id);?>">
                     <button type="submit" class="btn btn-primary">Add to Cart</button>
                     </form>
-                    <a href="index.php" class="btn btn-secondary">Back to Products</a>
                 </div>
             </div>
         </div>

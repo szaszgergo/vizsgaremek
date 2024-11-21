@@ -16,8 +16,13 @@ if (!$kosar) {
 }
 
 $koID = $kosar["koID"];
+$termeklekeres = sqlcall("SELECT ktMennyiseg FROM kosar_Tetelek WHERE ktkoID = $koID AND ktBeazonosito = $teid AND ktTipus = 'TERMEK'");
 
-sqlsave("INSERT INTO kosar_tetelek (ktkoID, ktTipus, ktBeazonosito, ktMennyiseg) VALUES ($koID, 'TERMEK', $teid, 1)");
-
+if ($termek = $termeklekeres->fetch_assoc()) {
+    $ujMennyiseg = $termek['ktMennyiseg'] + 1;
+    sqlsave("UPDATE kosar_Tetelek SET ktMennyiseg = $ujMennyiseg WHERE ktkoID = $koID AND ktBeazonosito = $teid AND ktTipus = 'TERMEK'");
+} else {
+    sqlsave("INSERT INTO kosar_Tetelek (ktkoID, ktTipus, ktBeazonosito, ktMennyiseg) VALUES ($koID, 'TERMEK', $teid, 1)");
+}
 echo "<alert>Termék sikeresen hozzáadva a kosárhoz!</alert>";
 ?>
