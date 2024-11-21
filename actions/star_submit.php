@@ -1,7 +1,7 @@
 <?php 
 session_start();
 require("sqlcall.php"); 
-print_r($_POST);
+//print_r($_POST);
 $star_value = $_POST['star_value'];
 $eid = $_POST['eid']; 
 $csUID = $_SESSION['uid'];
