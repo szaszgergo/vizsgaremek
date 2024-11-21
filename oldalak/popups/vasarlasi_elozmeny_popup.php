@@ -31,10 +31,6 @@
                     <?php endwhile; ?>
 
                 </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Vásárlás</button>
-                </div>
             </form>
         </div>
     </div>

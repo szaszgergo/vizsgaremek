@@ -111,6 +111,9 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
             ],
             'fiok' => [
                 "oldalak/popups/vasarlasi_elozmeny_popup.php"
+            ],
+            'shop' => [
+                "oldalak/popups/kosar.php"
             ]
         ];
 

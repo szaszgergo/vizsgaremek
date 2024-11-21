@@ -8,7 +8,6 @@ if (isset($jegy)) {
     $remaining = strtotime($jegy[4]) - time();
     $maradek_napok = round($remaining / 86400);
     $szoveg = "
-    <>
     <h3>$tipusadatok[1]</h3>
     <a href='$src'><img src='$src' alt='<?php echo $adatok[uUID]?>' title='JEGY' class='qr'  /></a>
     <h4> ". htmlspecialchars($languageContent["ervenyes"]) ." </h4>

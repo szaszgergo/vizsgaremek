@@ -49,7 +49,10 @@ if (isset($_GET['id'])):
                     <h1><?php echo htmlspecialchars($termek['teNev']); ?></h1>
                     <h3 class="text-warning"><?php echo htmlspecialchars($termek['teAr']); ?> Ft</h3>
                     <p><?php echo nl2br(htmlspecialchars($termek['teLeiras'])); ?></p>
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="actions/addToKosar.php" method="POST" target="kisablak">
+                    <input type="hidden" name="teID" value="<?php echo htmlspecialchars($id);?>">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
                     <a href="index.php" class="btn btn-secondary">Back to Products</a>
                 </div>
             </div>
