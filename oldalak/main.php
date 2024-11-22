@@ -68,14 +68,14 @@
               <h1><?= $languageContent['szponzorok'] ?></h1>
               <div class="logos">
                   <div class="logos-slide">
-                      <img src="./images/sponsor1.webp" />
-                      <img src="./images/sponsor2.webp" />
-                      <img src="./images/sponsor3.webp" />
-                      <img src="./images/sponsor4.webp" />
-                      <img src="./images/sponsor5.webp" />
-                      <img src="./images/sponsor6.webp" />
-                      <img src="./images/sponsor7.webp" />
-                      <img src="./images/sponsor8.webp" />
+                      <img src="./images/sponsors/sponsor1.webp" />
+                      <img src="./images/sponsors/sponsor2.webp" />
+                      <img src="./images/sponsors/sponsor3.webp" />
+                      <img src="./images/sponsors/sponsor4.webp" />
+                      <img src="./images/sponsors/sponsor5.webp" />
+                      <img src="./images/sponsors/sponsor6.webp" />
+                      <img src="./images/sponsors/sponsor7.webp" />
+                      <img src="./images/sponsors/sponsor8.webp" />
                   </div>
               </div>
           </div>
