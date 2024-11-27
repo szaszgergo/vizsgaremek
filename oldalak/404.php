@@ -35,7 +35,7 @@
     margin-left: 0;
 }
 
-i {
+.boxok i {
     font-size: 48px;
     margin-bottom: 10px;
 }
@@ -90,7 +90,7 @@ a {
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="./?o=edzok">
+                    <a href="./?o=edzokall">
                         <div class="boxok bg-warning m-2 p-1">
                             <span><i class="fa-solid fa-person"></i><br>
                                 <p>Edzők</p>
