@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2024 at 07:02 PM
+-- Generation Time: Nov 21, 2024 at 12:53 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -136,8 +136,18 @@ INSERT INTO `jegyek` (`jID`, `juID`, `jtID`, `jStatus`, `jLejarat`, `jAlkalmak`)
 
 CREATE TABLE `kosar` (
   `koID` int(11) NOT NULL,
-  `koUID` int(11) NOT NULL
+  `koUID` int(11) NOT NULL,
+  `koTranzakcioID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- Dumping data for table `kosar`
+--
+
+INSERT INTO `kosar` (`koID`, `koUID`, `koTranzakcioID`) VALUES
+(1, 12, NULL),
+(2, 15, NULL),
+(3, 14, NULL);
 
 -- --------------------------------------------------------
 
@@ -150,8 +160,22 @@ CREATE TABLE `kosar_tetelek` (
   `ktkoID` int(11) NOT NULL,
   `ktTipus` varchar(20) NOT NULL,
   `ktBeazonosito` int(11) NOT NULL,
-  `ktMennyiseg` int(11) NOT NULL
+  `ktMennyiseg` int(11) NOT NULL,
+  `ktStatus` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- Dumping data for table `kosar_tetelek`
+--
+
+INSERT INTO `kosar_tetelek` (`ktID`, `ktkoID`, `ktTipus`, `ktBeazonosito`, `ktMennyiseg`, `ktStatus`) VALUES
+(1, 1, 'TERMEK', 3, 2, 1),
+(2, 1, 'TERMEK', 2, 1, 1),
+(3, 1, 'TERMEK', 5, 3, 1),
+(4, 2, 'TERMEK', 7, 1, 1),
+(5, 2, 'TERMEK', 7, 1, 1),
+(6, 3, 'TERMEK', 4, 9, 1),
+(7, 3, 'TERMEK', 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -376,7 +400,13 @@ INSERT INTO `login` (`lID`, `lDatum`, `lIP`, `lSession`, `luID`) VALUES
 (173, '2024-11-18 05:43:29', '::1', 'odu2ef3n', 12),
 (174, '2024-11-18 05:51:29', '::1', 'fbuh3c17', 12),
 (175, '2024-11-18 05:57:07', '::1', 'eu1lc1np', 12),
-(176, '2024-11-18 06:00:24', '::1', 'l7nk32qg', 12);
+(176, '2024-11-18 06:00:24', '::1', 'l7nk32qg', 12),
+(177, '2024-11-20 01:20:50', '::1', 'lqnil4u5', 12),
+(178, '2024-11-21 09:57:02', '::1', '133ru9gr', 12),
+(179, '2024-11-21 11:11:40', '::1', '133ru9gr', 15),
+(180, '2024-11-21 11:13:16', '::1', '133ru9gr', 12),
+(181, '2024-11-21 12:04:09', '::1', '133ru9gr', 14),
+(182, '2024-11-21 12:08:06', '::1', '133ru9gr', 12);
 
 -- --------------------------------------------------------
 
@@ -6874,7 +6904,425 @@ INSERT INTO `naplo` (`nID`, `nDatum`, `nIP`, `nSession`, `nuID`, `nURL`) VALUES
 (6438, '2024-11-18 06:56:54', '::1', 'l7nk32qg', 12, '/?o=shop'),
 (6439, '2024-11-18 07:00:53', '::1', 'l7nk32qg', 12, '/?o=shop'),
 (6440, '2024-11-18 07:01:10', '::1', 'l7nk32qg', 12, '/?o=termek&id=5'),
-(6441, '2024-11-18 07:01:21', '::1', 'l7nk32qg', 12, '/?o=shop');
+(6441, '2024-11-18 07:01:21', '::1', 'l7nk32qg', 12, '/?o=shop'),
+(6442, '2024-11-20 01:20:22', '::1', 'lqnil4u5', 0, '/'),
+(6443, '2024-11-20 01:20:28', '::1', 'lqnil4u5', 0, '/?o=loginform'),
+(6444, '2024-11-20 01:20:50', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6445, '2024-11-20 01:20:54', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6446, '2024-11-20 01:20:55', '::1', 'lqnil4u5', 12, '/?o=admin&a=termek_kezeles'),
+(6447, '2024-11-20 01:21:00', '::1', 'lqnil4u5', 12, '/?o=admin&a=termek_kezeles'),
+(6448, '2024-11-20 01:21:01', '::1', 'lqnil4u5', 12, '/?o=admin&a=termek_kezeles'),
+(6449, '2024-11-20 01:21:03', '::1', 'lqnil4u5', 12, '/'),
+(6450, '2024-11-20 01:21:05', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6451, '2024-11-20 01:21:17', '::1', 'lqnil4u5', 12, '/?o=termek&id=3'),
+(6452, '2024-11-20 01:21:27', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6453, '2024-11-20 01:21:32', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6454, '2024-11-20 01:21:43', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6455, '2024-11-20 01:21:46', '::1', 'lqnil4u5', 12, '/?o=termek&id=4'),
+(6456, '2024-11-20 01:21:50', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6457, '2024-11-20 01:21:52', '::1', 'lqnil4u5', 12, '/?o=admin&a=termek_kezeles'),
+(6458, '2024-11-20 01:21:55', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6459, '2024-11-20 01:22:00', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6460, '2024-11-20 01:22:00', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6461, '2024-11-20 01:22:00', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6462, '2024-11-20 01:22:02', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6463, '2024-11-20 01:22:03', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6464, '2024-11-20 01:22:03', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6465, '2024-11-20 01:22:03', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6466, '2024-11-20 01:22:03', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6467, '2024-11-20 01:22:04', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6468, '2024-11-20 01:22:04', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6469, '2024-11-20 01:22:04', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6470, '2024-11-20 01:22:04', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6471, '2024-11-20 01:22:04', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6472, '2024-11-20 01:22:04', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6473, '2024-11-20 01:22:05', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6474, '2024-11-20 01:22:05', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6475, '2024-11-20 01:22:06', '::1', 'lqnil4u5', 12, '/?o=admin&a=jegy_kezeles'),
+(6476, '2024-11-20 01:22:07', '::1', 'lqnil4u5', 12, '/?o=admin&a=termek_kezeles'),
+(6477, '2024-11-20 01:22:08', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6478, '2024-11-20 01:22:09', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6479, '2024-11-20 01:24:52', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6480, '2024-11-20 01:24:53', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6481, '2024-11-20 01:25:04', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6482, '2024-11-20 01:25:29', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6483, '2024-11-20 01:25:33', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6484, '2024-11-20 01:25:45', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6485, '2024-11-20 01:25:53', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6486, '2024-11-20 01:25:56', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6487, '2024-11-20 01:25:59', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6488, '2024-11-20 01:26:01', '::1', 'lqnil4u5', 12, '/?o=admin&a=kupon_kezeles'),
+(6489, '2024-11-20 01:26:03', '::1', 'lqnil4u5', 12, '/?o=admin&a=jegy_kezeles'),
+(6490, '2024-11-20 01:26:04', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6491, '2024-11-20 01:30:24', '::1', 'lqnil4u5', 12, '/'),
+(6492, '2024-11-20 01:30:28', '::1', 'lqnil4u5', 12, '/fsaz'),
+(6493, '2024-11-20 01:30:41', '::1', 'lqnil4u5', 12, '/'),
+(6494, '2024-11-20 01:30:45', '::1', 'lqnil4u5', 12, '/fiok'),
+(6495, '2024-11-20 01:30:49', '::1', 'lqnil4u5', 12, '/jegyvasarlsa'),
+(6496, '2024-11-20 01:30:59', '::1', 'lqnil4u5', 12, '/admin/kupon_kezeles'),
+(6497, '2024-11-20 01:30:59', '::1', 'lqnil4u5', 12, '/admin/style.css'),
+(6498, '2024-11-20 01:31:18', '::1', 'lqnil4u5', 12, '/admin/style.css'),
+(6499, '2024-11-20 01:31:47', '::1', 'lqnil4u5', 12, '/admin/'),
+(6500, '2024-11-20 01:31:47', '::1', 'lqnil4u5', 12, '/admin/style.css'),
+(6501, '2024-11-20 01:31:51', '::1', 'lqnil4u5', 12, '/admin/?o=fiok'),
+(6502, '2024-11-20 01:31:51', '::1', 'lqnil4u5', 12, '/admin/style.css'),
+(6503, '2024-11-20 01:31:53', '::1', 'lqnil4u5', 12, '/admin/'),
+(6504, '2024-11-20 01:31:53', '::1', 'lqnil4u5', 12, '/admin/style.css'),
+(6505, '2024-11-20 01:31:53', '::1', 'lqnil4u5', 12, '/admin/?o=fiok'),
+(6506, '2024-11-20 01:31:53', '::1', 'lqnil4u5', 12, '/admin/style.css'),
+(6507, '2024-11-20 01:31:54', '::1', 'lqnil4u5', 12, '/admin/'),
+(6508, '2024-11-20 01:31:54', '::1', 'lqnil4u5', 12, '/admin/style.css'),
+(6509, '2024-11-20 01:31:55', '::1', 'lqnil4u5', 12, '/admin/kupon_kezeles'),
+(6510, '2024-11-20 01:31:56', '::1', 'lqnil4u5', 12, '/admin/style.css'),
+(6511, '2024-11-20 01:31:57', '::1', 'lqnil4u5', 12, '/jegyvasarlsa'),
+(6512, '2024-11-20 01:32:01', '::1', 'lqnil4u5', 12, '/admin'),
+(6513, '2024-11-20 01:32:03', '::1', 'lqnil4u5', 12, '/admin?o=admin&a=felhasznalo_kezeles'),
+(6514, '2024-11-20 01:32:04', '::1', 'lqnil4u5', 12, '/admin?o=admin&a=edzo_kezeles'),
+(6515, '2024-11-20 01:32:05', '::1', 'lqnil4u5', 12, '/admin?o=admin&a=kupon_kezeles'),
+(6516, '2024-11-20 01:32:06', '::1', 'lqnil4u5', 12, '/'),
+(6517, '2024-11-20 01:32:28', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6518, '2024-11-20 01:32:30', '::1', 'lqnil4u5', 12, '/?o=admin&a=kupon_kezeles'),
+(6519, '2024-11-20 01:32:31', '::1', 'lqnil4u5', 12, '/?o=admin&a=statisztika'),
+(6520, '2024-11-20 01:32:36', '::1', 'lqnil4u5', 12, '/'),
+(6521, '2024-11-20 01:32:47', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6522, '2024-11-20 01:34:09', '::1', 'lqnil4u5', 12, '/shop'),
+(6523, '2024-11-20 01:34:12', '::1', 'lqnil4u5', 12, '/shop/'),
+(6524, '2024-11-20 01:34:12', '::1', 'lqnil4u5', 12, '/shop/style.css'),
+(6525, '2024-11-20 01:34:18', '::1', 'lqnil4u5', 12, '/shop'),
+(6526, '2024-11-20 01:36:23', '::1', 'lqnil4u5', 12, '/'),
+(6527, '2024-11-20 01:36:24', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6528, '2024-11-20 01:36:25', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6529, '2024-11-20 01:36:28', '::1', 'lqnil4u5', 12, '/fiok'),
+(6530, '2024-11-20 01:36:32', '::1', 'lqnil4u5', 12, '/shop'),
+(6531, '2024-11-20 01:36:34', '::1', 'lqnil4u5', 12, '/shop/'),
+(6532, '2024-11-20 01:36:41', '::1', 'lqnil4u5', 12, '/shop/aasdaef'),
+(6533, '2024-11-20 01:36:49', '::1', 'lqnil4u5', 12, '/admin/asd'),
+(6534, '2024-11-20 01:36:55', '::1', 'lqnil4u5', 12, '/admin/kupon_kezeles'),
+(6535, '2024-11-20 01:38:26', '::1', 'lqnil4u5', 12, '/'),
+(6536, '2024-11-20 01:38:35', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6537, '2024-11-20 01:39:45', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6538, '2024-11-20 01:40:36', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6539, '2024-11-20 01:40:46', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6540, '2024-11-20 01:41:15', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6541, '2024-11-20 01:47:55', '::1', 'lqnil4u5', 12, '/asd/asd'),
+(6542, '2024-11-20 01:47:57', '::1', 'lqnil4u5', 12, '/favicon.ico'),
+(6543, '2024-11-20 01:47:59', '::1', 'lqnil4u5', 12, '/asd/asd'),
+(6544, '2024-11-20 01:48:00', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6545, '2024-11-20 01:49:36', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6546, '2024-11-20 01:50:10', '::1', 'lqnil4u5', 12, '/?o=admin&a=kupon_kezeles'),
+(6547, '2024-11-20 01:50:14', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6548, '2024-11-20 01:51:12', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6549, '2024-11-20 01:51:14', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6550, '2024-11-20 01:51:14', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6551, '2024-11-20 01:51:14', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6552, '2024-11-20 01:51:32', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6553, '2024-11-20 01:51:33', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6554, '2024-11-20 01:51:37', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6555, '2024-11-20 01:51:47', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6556, '2024-11-20 01:51:59', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6557, '2024-11-20 01:52:01', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6558, '2024-11-20 01:52:21', '::1', 'lqnil4u5', 12, '/?o=admin&a=kupon_kezeles'),
+(6559, '2024-11-20 01:52:22', '::1', 'lqnil4u5', 12, '/?o=admin&a=jegy_kezeles'),
+(6560, '2024-11-20 01:52:23', '::1', 'lqnil4u5', 12, '/?o=admin&a=termek_kezeles'),
+(6561, '2024-11-20 01:52:24', '::1', 'lqnil4u5', 12, '/?o=admin&a=statisztika'),
+(6562, '2024-11-20 01:52:25', '::1', 'lqnil4u5', 12, '/?o=admin&a=kupon_kezeles'),
+(6563, '2024-11-20 01:52:25', '::1', 'lqnil4u5', 12, '/?o=admin&a=edzo_kezeles'),
+(6564, '2024-11-20 01:52:32', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6565, '2024-11-20 01:56:19', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6566, '2024-11-20 01:56:20', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6567, '2024-11-20 01:56:21', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6568, '2024-11-20 01:56:39', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6569, '2024-11-20 01:56:42', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6570, '2024-11-20 01:57:23', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6571, '2024-11-20 01:57:40', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6572, '2024-11-20 01:57:55', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6573, '2024-11-20 01:58:19', '::1', 'lqnil4u5', 12, '/?o=asd'),
+(6574, '2024-11-20 01:58:38', '::1', 'lqnil4u5', 12, '/?o=asd'),
+(6575, '2024-11-20 01:58:59', '::1', 'lqnil4u5', 12, '/asd/asd'),
+(6576, '2024-11-20 01:59:01', '::1', 'lqnil4u5', 12, '/'),
+(6577, '2024-11-20 01:59:12', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6578, '2024-11-20 01:59:31', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6579, '2024-11-20 01:59:33', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6580, '2024-11-20 01:59:33', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6581, '2024-11-20 01:59:40', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6582, '2024-11-20 01:59:48', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6583, '2024-11-20 01:59:54', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6584, '2024-11-20 02:00:11', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6585, '2024-11-20 02:00:32', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6586, '2024-11-20 02:00:38', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6587, '2024-11-20 02:00:45', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6588, '2024-11-20 02:00:56', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6589, '2024-11-20 02:01:18', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6590, '2024-11-20 02:01:44', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6591, '2024-11-20 02:02:00', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6592, '2024-11-20 02:02:01', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6593, '2024-11-20 02:05:37', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6594, '2024-11-20 02:05:46', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6595, '2024-11-20 02:05:46', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6596, '2024-11-20 02:05:46', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6597, '2024-11-20 02:05:56', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6598, '2024-11-20 02:06:03', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6599, '2024-11-20 02:06:12', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6600, '2024-11-20 02:06:19', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6601, '2024-11-20 02:06:24', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6602, '2024-11-20 02:06:32', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6603, '2024-11-20 02:06:45', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6604, '2024-11-20 02:06:54', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6605, '2024-11-20 02:06:54', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6606, '2024-11-20 02:07:04', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6607, '2024-11-20 02:07:09', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6608, '2024-11-20 02:07:09', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6609, '2024-11-20 02:07:47', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6610, '2024-11-20 02:07:49', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6611, '2024-11-20 02:07:49', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6612, '2024-11-20 02:08:09', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6613, '2024-11-20 02:08:41', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6614, '2024-11-20 02:08:50', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6615, '2024-11-20 02:09:23', '::1', 'lqnil4u5', 12, '/'),
+(6616, '2024-11-20 02:10:04', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6617, '2024-11-20 02:10:20', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6618, '2024-11-20 02:10:21', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6619, '2024-11-20 02:11:19', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6620, '2024-11-20 02:11:20', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6621, '2024-11-20 02:11:58', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6622, '2024-11-20 02:11:58', '::1', 'lqnil4u5', 12, '/favicon.ico'),
+(6623, '2024-11-20 02:13:59', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6624, '2024-11-20 02:14:13', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6625, '2024-11-20 02:15:20', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6626, '2024-11-20 02:15:31', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6627, '2024-11-20 02:15:36', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6628, '2024-11-20 02:15:55', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6629, '2024-11-20 02:16:21', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6630, '2024-11-20 02:16:30', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6631, '2024-11-20 02:16:46', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6632, '2024-11-20 02:16:49', '::1', 'lqnil4u5', 12, '/'),
+(6633, '2024-11-20 02:16:55', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6634, '2024-11-20 02:17:18', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6635, '2024-11-20 02:17:28', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6636, '2024-11-20 02:17:38', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6637, '2024-11-20 02:17:44', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6638, '2024-11-20 02:18:18', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6639, '2024-11-20 02:18:32', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6640, '2024-11-20 02:18:43', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6641, '2024-11-20 02:18:57', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6642, '2024-11-20 02:19:05', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6643, '2024-11-20 02:19:18', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6644, '2024-11-20 02:19:33', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6645, '2024-11-20 02:19:38', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6646, '2024-11-20 02:19:43', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6647, '2024-11-20 02:19:51', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6648, '2024-11-20 02:19:58', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6649, '2024-11-20 02:20:15', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6650, '2024-11-20 02:20:25', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6651, '2024-11-20 02:22:27', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6652, '2024-11-20 02:23:09', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6653, '2024-11-20 02:24:03', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6654, '2024-11-20 02:24:29', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6655, '2024-11-20 02:28:09', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6656, '2024-11-20 02:28:10', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6657, '2024-11-20 02:28:31', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6658, '2024-11-20 02:29:16', '::1', 'lqnil4u5', 12, '/?o=termek&id=5'),
+(6659, '2024-11-20 02:29:27', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6660, '2024-11-20 02:29:30', '::1', 'lqnil4u5', 12, '/?o=termek&id=2'),
+(6661, '2024-11-20 02:30:07', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6662, '2024-11-20 02:33:59', '::1', 'lqnil4u5', 12, '/?o=termek&id=3'),
+(6663, '2024-11-20 02:34:06', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6664, '2024-11-20 02:34:08', '::1', 'lqnil4u5', 12, '/?o=admin&a=termek_kezeles'),
+(6665, '2024-11-20 02:35:15', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6666, '2024-11-20 02:35:21', '::1', 'lqnil4u5', 12, '/?o=termek&id=6'),
+(6667, '2024-11-20 02:35:27', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6668, '2024-11-20 02:35:38', '::1', 'lqnil4u5', 12, '/?o=edzok'),
+(6669, '2024-11-20 02:35:41', '::1', 'lqnil4u5', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6670, '2024-11-20 02:35:42', '::1', 'lqnil4u5', 12, '/?o=admin&a=termek_kezeles'),
+(6671, '2024-11-20 02:36:23', '::1', 'lqnil4u5', 12, '/?o=shop'),
+(6672, '2024-11-20 02:37:29', '::1', 'lqnil4u5', 12, '/?o=termek&id=3'),
+(6673, '2024-11-20 02:37:47', '::1', 'lqnil4u5', 12, '/?o=galeria'),
+(6674, '2024-11-20 02:37:48', '::1', 'lqnil4u5', 12, '/favicon.ico'),
+(6675, '2024-11-20 02:37:58', '::1', 'lqnil4u5', 12, '/favicon.ico'),
+(6676, '2024-11-20 02:38:06', '::1', 'lqnil4u5', 12, '/favicon.ico'),
+(6677, '2024-11-20 02:38:26', '::1', 'lqnil4u5', 12, '/?o=fiok'),
+(6678, '2024-11-21 09:51:27', '::1', '133ru9gr', 0, '/'),
+(6679, '2024-11-21 09:52:07', '::1', '133ru9gr', 0, '/?o=loginform'),
+(6680, '2024-11-21 09:57:02', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6681, '2024-11-21 10:00:23', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6682, '2024-11-21 10:00:30', '::1', '133ru9gr', 12, '/?o=shop'),
+(6683, '2024-11-21 10:04:58', '::1', '133ru9gr', 12, '/?o=shop'),
+(6684, '2024-11-21 10:05:25', '::1', '133ru9gr', 12, '/?o=shop'),
+(6685, '2024-11-21 10:05:31', '::1', '133ru9gr', 12, '/?o=shop'),
+(6686, '2024-11-21 10:06:41', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6687, '2024-11-21 10:06:45', '::1', '133ru9gr', 12, '/?o=shop'),
+(6688, '2024-11-21 10:07:18', '::1', '133ru9gr', 12, '/?o=shop'),
+(6689, '2024-11-21 10:07:57', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6690, '2024-11-21 10:08:13', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6691, '2024-11-21 10:08:17', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6692, '2024-11-21 10:08:35', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6693, '2024-11-21 10:08:37', '::1', '133ru9gr', 12, '/'),
+(6694, '2024-11-21 10:08:39', '::1', '133ru9gr', 12, '/?o=arak'),
+(6695, '2024-11-21 10:08:41', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6696, '2024-11-21 10:08:43', '::1', '133ru9gr', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6697, '2024-11-21 10:08:48', '::1', '133ru9gr', 12, '/?o=shop'),
+(6698, '2024-11-21 10:09:09', '::1', '133ru9gr', 12, '/?o=shop'),
+(6699, '2024-11-21 10:09:21', '::1', '133ru9gr', 12, '/?o=shop'),
+(6700, '2024-11-21 10:15:58', '::1', '133ru9gr', 12, '/?o=termek&id=7'),
+(6701, '2024-11-21 10:16:00', '::1', '133ru9gr', 12, '/?o=shop'),
+(6702, '2024-11-21 10:16:24', '::1', '133ru9gr', 12, '/?o=shopi'),
+(6703, '2024-11-21 10:19:19', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6704, '2024-11-21 10:19:29', '::1', '133ru9gr', 12, '/?o=shop'),
+(6705, '2024-11-21 10:19:52', '::1', '133ru9gr', 12, '/?o=shop'),
+(6706, '2024-11-21 10:20:04', '::1', '133ru9gr', 12, '/?o=shop'),
+(6707, '2024-11-21 10:20:24', '::1', '133ru9gr', 12, '/?o=shop'),
+(6708, '2024-11-21 10:49:03', '::1', '133ru9gr', 12, '/?o=shop'),
+(6709, '2024-11-21 10:49:10', '::1', '133ru9gr', 12, '/?o=termek&id=3'),
+(6710, '2024-11-21 10:50:13', '::1', '133ru9gr', 12, '/?o=termek&id=3'),
+(6711, '2024-11-21 10:50:38', '::1', '133ru9gr', 12, '/'),
+(6712, '2024-11-21 10:50:41', '::1', '133ru9gr', 12, '/?o=shop'),
+(6713, '2024-11-21 10:50:43', '::1', '133ru9gr', 12, '/?o=termek&id=2'),
+(6714, '2024-11-21 10:50:46', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6715, '2024-11-21 10:50:48', '::1', '133ru9gr', 12, '/'),
+(6716, '2024-11-21 10:53:06', '::1', '133ru9gr', 12, '/'),
+(6717, '2024-11-21 10:53:08', '::1', '133ru9gr', 12, '/?o=shop'),
+(6718, '2024-11-21 10:54:06', '::1', '133ru9gr', 12, '/?o=shop'),
+(6719, '2024-11-21 10:54:20', '::1', '133ru9gr', 12, '/?o=shop'),
+(6720, '2024-11-21 10:54:41', '::1', '133ru9gr', 12, '/?o=shop'),
+(6721, '2024-11-21 10:55:04', '::1', '133ru9gr', 12, '/?o=shop'),
+(6722, '2024-11-21 10:58:23', '::1', '133ru9gr', 12, '/?o=shop'),
+(6723, '2024-11-21 11:07:33', '::1', '133ru9gr', 12, '/?o=shop'),
+(6724, '2024-11-21 11:08:12', '::1', '133ru9gr', 12, '/?o=shop'),
+(6725, '2024-11-21 11:08:30', '::1', '133ru9gr', 12, '/?o=shop'),
+(6726, '2024-11-21 11:09:11', '::1', '133ru9gr', 12, '/?o=shop'),
+(6727, '2024-11-21 11:09:30', '::1', '133ru9gr', 12, '/?o=shop'),
+(6728, '2024-11-21 11:09:44', '::1', '133ru9gr', 12, '/?o=termek&id=5'),
+(6729, '2024-11-21 11:09:49', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6730, '2024-11-21 11:09:51', '::1', '133ru9gr', 12, '/?o=shop'),
+(6731, '2024-11-21 11:11:36', '::1', '133ru9gr', 0, '/'),
+(6732, '2024-11-21 11:11:37', '::1', '133ru9gr', 0, '/?o=loginform'),
+(6733, '2024-11-21 11:11:40', '::1', '133ru9gr', 15, '/?o=fiok'),
+(6734, '2024-11-21 11:11:44', '::1', '133ru9gr', 15, '/?o=shop'),
+(6735, '2024-11-21 11:11:47', '::1', '133ru9gr', 15, '/?o=termek&id=7'),
+(6736, '2024-11-21 11:11:52', '::1', '133ru9gr', 15, '/?o=shop'),
+(6737, '2024-11-21 11:13:11', '::1', '133ru9gr', 0, '/'),
+(6738, '2024-11-21 11:13:14', '::1', '133ru9gr', 0, '/?o=loginform'),
+(6739, '2024-11-21 11:13:17', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6740, '2024-11-21 11:13:20', '::1', '133ru9gr', 12, '/?o=shop'),
+(6741, '2024-11-21 11:16:26', '::1', '133ru9gr', 12, '/?o=shop'),
+(6742, '2024-11-21 11:16:27', '::1', '133ru9gr', 12, '/?o=shop'),
+(6743, '2024-11-21 11:24:32', '::1', '133ru9gr', 12, '/?o=shop'),
+(6744, '2024-11-21 11:24:40', '::1', '133ru9gr', 12, '/?o=shop'),
+(6745, '2024-11-21 11:24:52', '::1', '133ru9gr', 12, '/?o=shop'),
+(6746, '2024-11-21 11:25:03', '::1', '133ru9gr', 12, '/?o=shop'),
+(6747, '2024-11-21 11:25:12', '::1', '133ru9gr', 12, '/?o=shop'),
+(6748, '2024-11-21 11:25:13', '::1', '133ru9gr', 12, '/?o=shop'),
+(6749, '2024-11-21 11:25:14', '::1', '133ru9gr', 12, '/?o=shop'),
+(6750, '2024-11-21 11:27:34', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6751, '2024-11-21 11:34:38', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6752, '2024-11-21 11:34:40', '::1', '133ru9gr', 12, '/?o=shop'),
+(6753, '2024-11-21 11:45:10', '::1', '133ru9gr', 12, '/?o=shop'),
+(6754, '2024-11-21 11:45:19', '::1', '133ru9gr', 12, '/?o=termek&id=6'),
+(6755, '2024-11-21 11:45:23', '::1', '133ru9gr', 12, '/?o=shop'),
+(6756, '2024-11-21 11:45:26', '::1', '133ru9gr', 12, '/?o=termek&id=7'),
+(6757, '2024-11-21 11:45:27', '::1', '133ru9gr', 12, '/?o=shop'),
+(6758, '2024-11-21 11:46:48', '::1', '133ru9gr', 12, '/?o=shop'),
+(6759, '2024-11-21 11:46:53', '::1', '133ru9gr', 12, '/?o=termek&id=5'),
+(6760, '2024-11-21 11:46:56', '::1', '133ru9gr', 12, '/?o=shop'),
+(6761, '2024-11-21 11:47:02', '::1', '133ru9gr', 12, '/?o=termek&id=5'),
+(6762, '2024-11-21 11:47:31', '::1', '133ru9gr', 12, '/'),
+(6763, '2024-11-21 11:47:35', '::1', '133ru9gr', 12, '/?o=shop'),
+(6764, '2024-11-21 11:47:37', '::1', '133ru9gr', 12, '/?o=termek&id=5'),
+(6765, '2024-11-21 11:47:41', '::1', '133ru9gr', 12, '/?o=shop'),
+(6766, '2024-11-21 11:50:01', '::1', '133ru9gr', 12, '/?o=shop'),
+(6767, '2024-11-21 11:50:17', '::1', '133ru9gr', 12, '/?o=shop'),
+(6768, '2024-11-21 11:50:29', '::1', '133ru9gr', 12, '/?o=shop'),
+(6769, '2024-11-21 11:50:43', '::1', '133ru9gr', 12, '/?o=shop'),
+(6770, '2024-11-21 11:51:15', '::1', '133ru9gr', 12, '/?o=shop'),
+(6771, '2024-11-21 11:52:22', '::1', '133ru9gr', 12, '/?o=termek&id=3'),
+(6772, '2024-11-21 11:52:26', '::1', '133ru9gr', 12, '/?o=shop'),
+(6773, '2024-11-21 11:52:37', '::1', '133ru9gr', 12, '/?o=shop'),
+(6774, '2024-11-21 11:53:20', '::1', '133ru9gr', 12, '/?o=shop'),
+(6775, '2024-11-21 11:53:51', '::1', '133ru9gr', 12, '/?o=shop'),
+(6776, '2024-11-21 11:55:22', '::1', '133ru9gr', 12, '/?o=shop'),
+(6777, '2024-11-21 11:57:09', '::1', '133ru9gr', 12, '/?o=shop'),
+(6778, '2024-11-21 11:57:32', '::1', '133ru9gr', 12, '/?o=shop'),
+(6779, '2024-11-21 11:57:53', '::1', '133ru9gr', 12, '/?o=shop'),
+(6780, '2024-11-21 11:58:01', '::1', '133ru9gr', 12, '/?o=shop'),
+(6781, '2024-11-21 11:58:09', '::1', '133ru9gr', 12, '/?o=shop'),
+(6782, '2024-11-21 11:58:10', '::1', '133ru9gr', 12, '/?o=shop'),
+(6783, '2024-11-21 11:58:27', '::1', '133ru9gr', 12, '/?o=shop'),
+(6784, '2024-11-21 11:58:50', '::1', '133ru9gr', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6785, '2024-11-21 11:59:47', '::1', '133ru9gr', 12, '/?o=shop'),
+(6786, '2024-11-21 11:59:48', '::1', '133ru9gr', 12, '/?o=termek&id=2'),
+(6787, '2024-11-21 12:00:16', '::1', '133ru9gr', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6788, '2024-11-21 12:00:18', '::1', '133ru9gr', 12, '/?o=admin&a=statisztika'),
+(6789, '2024-11-21 12:00:20', '::1', '133ru9gr', 12, '/?o=admin&a=statisztika&tp=termekek'),
+(6790, '2024-11-21 12:03:24', '::1', '133ru9gr', 12, '/?o=admin&a=statisztika&tp=termekek'),
+(6791, '2024-11-21 12:03:30', '::1', '133ru9gr', 12, '/?o=admin&a=statisztika&tp=termekek'),
+(6792, '2024-11-21 12:03:42', '::1', '133ru9gr', 12, '/?o=admin&a=statisztika&tp=termekek'),
+(6793, '2024-11-21 12:03:54', '::1', '133ru9gr', 12, '/?o=shop'),
+(6794, '2024-11-21 12:04:03', '::1', '133ru9gr', 12, '/?o=termek&id=4'),
+(6795, '2024-11-21 12:04:05', '::1', '133ru9gr', 0, '/'),
+(6796, '2024-11-21 12:04:06', '::1', '133ru9gr', 0, '/?o=loginform'),
+(6797, '2024-11-21 12:04:09', '::1', '133ru9gr', 14, '/?o=fiok'),
+(6798, '2024-11-21 12:04:12', '::1', '133ru9gr', 14, '/?o=shop'),
+(6799, '2024-11-21 12:04:13', '::1', '133ru9gr', 14, '/?o=termek&id=4'),
+(6800, '2024-11-21 12:04:17', '::1', '133ru9gr', 14, '/?o=shop'),
+(6801, '2024-11-21 12:04:39', '::1', '133ru9gr', 14, '/?o=fiok'),
+(6802, '2024-11-21 12:04:42', '::1', '133ru9gr', 14, '/?o=shop'),
+(6803, '2024-11-21 12:05:46', '::1', '133ru9gr', 14, '/?o=termek&id=6'),
+(6804, '2024-11-21 12:05:49', '::1', '133ru9gr', 14, '/index.php'),
+(6805, '2024-11-21 12:06:01', '::1', '133ru9gr', 14, '/index.php'),
+(6806, '2024-11-21 12:06:04', '::1', '133ru9gr', 14, '/?o=shop'),
+(6807, '2024-11-21 12:06:05', '::1', '133ru9gr', 14, '/?o=termek&id=3'),
+(6808, '2024-11-21 12:06:17', '::1', '133ru9gr', 14, '/?o=shop'),
+(6809, '2024-11-21 12:06:27', '::1', '133ru9gr', 14, '/?o=termek&id=4'),
+(6810, '2024-11-21 12:06:31', '::1', '133ru9gr', 14, '/?o=shop'),
+(6811, '2024-11-21 12:08:03', '::1', '133ru9gr', 0, '/'),
+(6812, '2024-11-21 12:08:03', '::1', '133ru9gr', 0, '/?o=loginform'),
+(6813, '2024-11-21 12:08:06', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6814, '2024-11-21 12:08:07', '::1', '133ru9gr', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6815, '2024-11-21 12:08:08', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6816, '2024-11-21 12:08:33', '::1', '133ru9gr', 12, '/?o=shop'),
+(6817, '2024-11-21 12:08:35', '::1', '133ru9gr', 12, '/?o=fiok'),
+(6818, '2024-11-21 12:08:37', '::1', '133ru9gr', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6819, '2024-11-21 12:08:39', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6820, '2024-11-21 12:09:21', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6821, '2024-11-21 12:09:25', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6822, '2024-11-21 12:10:20', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6823, '2024-11-21 12:10:22', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6824, '2024-11-21 12:10:33', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6825, '2024-11-21 12:10:37', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6826, '2024-11-21 12:10:42', '::1', '133ru9gr', 12, '/?teID=3&teNev=B%C3%B6gre+-+LiftZone&teAr=2500&teLeiras=S%C3%A1rga+b%C3%B6gre+g%C3%B6rbe+b%C3%B6gre'),
+(6827, '2024-11-21 12:10:44', '::1', '133ru9gr', 12, '/?o=shop'),
+(6828, '2024-11-21 12:12:03', '::1', '133ru9gr', 12, '/?o=admin&a=felhasznalo_kezeles'),
+(6829, '2024-11-21 12:12:04', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6830, '2024-11-21 12:18:23', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6831, '2024-11-21 12:18:36', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6832, '2024-11-21 12:18:38', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6833, '2024-11-21 12:18:48', '::1', '133ru9gr', 12, '/?o=admin&a=termek_kezeles'),
+(6834, '2024-11-21 12:18:52', '::1', '133ru9gr', 12, '/?o=admin&a=statisztika'),
+(6835, '2024-11-21 12:18:53', '::1', '133ru9gr', 12, '/?o=admin&a=statisztika&tp=termekek'),
+(6836, '2024-11-21 12:22:22', '::1', '133ru9gr', 12, '/?o=shop'),
+(6837, '2024-11-21 12:22:26', '::1', '133ru9gr', 12, '/?o=shop'),
+(6838, '2024-11-21 12:29:08', '::1', '133ru9gr', 12, '/?o=shop'),
+(6839, '2024-11-21 12:29:12', '::1', '133ru9gr', 12, '/?o=shop'),
+(6840, '2024-11-21 12:29:14', '::1', '133ru9gr', 12, '/?o=shop'),
+(6841, '2024-11-21 12:29:22', '::1', '133ru9gr', 12, '/?o=shop'),
+(6842, '2024-11-21 12:30:08', '::1', '133ru9gr', 12, '/?o=shop'),
+(6843, '2024-11-21 12:30:12', '::1', '133ru9gr', 12, '/?o=shop'),
+(6844, '2024-11-21 12:30:14', '::1', '133ru9gr', 12, '/?o=shop'),
+(6845, '2024-11-21 12:30:20', '::1', '133ru9gr', 12, '/?o=shop'),
+(6846, '2024-11-21 12:31:42', '::1', '133ru9gr', 12, '/?o=shop'),
+(6847, '2024-11-21 12:31:48', '::1', '133ru9gr', 12, '/?o=shop'),
+(6848, '2024-11-21 12:31:52', '::1', '133ru9gr', 12, '/?o=shop'),
+(6849, '2024-11-21 12:32:33', '::1', '133ru9gr', 12, '/?o=shop'),
+(6850, '2024-11-21 12:32:36', '::1', '133ru9gr', 12, '/?o=shop'),
+(6851, '2024-11-21 12:32:56', '::1', '133ru9gr', 12, '/?o=shop'),
+(6852, '2024-11-21 12:33:22', '::1', '133ru9gr', 12, '/?o=shop'),
+(6853, '2024-11-21 12:33:31', '::1', '133ru9gr', 12, '/?o=shop'),
+(6854, '2024-11-21 12:40:01', '::1', '133ru9gr', 12, '/?o=shop'),
+(6855, '2024-11-21 12:40:08', '::1', '133ru9gr', 12, '/?o=shop'),
+(6856, '2024-11-21 12:53:11', '::1', '133ru9gr', 12, '/'),
+(6857, '2024-11-21 12:53:16', '::1', '133ru9gr', 12, '/?o=edzok&eid=3'),
+(6858, '2024-11-21 12:53:18', '::1', '133ru9gr', 12, '/?o=edzok&eid=3'),
+(6859, '2024-11-21 12:53:20', '::1', '133ru9gr', 12, '/?o=edzok&eid=3');
 
 -- --------------------------------------------------------
 
@@ -6889,8 +7337,11 @@ CREATE TABLE `szemelyi_edzok` (
   `szeEmail` varchar(255) NOT NULL,
   `szeTelefon` varchar(255) NOT NULL,
   `szeVegzetseg` varchar(255) NOT NULL,
+  `szeVegzettsegEN` varchar(255) NOT NULL,
   `szeLeiras` text NOT NULL,
+  `szeLeirasEN` text NOT NULL,
   `szeLeiras2` text NOT NULL,
+  `szeLeiras2EN` text NOT NULL,
   `szeElerhetoseg` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`szeElerhetoseg`)),
   `szeKepek` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`szeKepek`)),
   `szeEgyeb` varchar(255) NOT NULL
@@ -6900,12 +7351,12 @@ CREATE TABLE `szemelyi_edzok` (
 -- Dumping data for table `szemelyi_edzok`
 --
 
-INSERT INTO `szemelyi_edzok` (`szeID`, `szeUID`, `szeuFelhasznalonev`, `szeEmail`, `szeTelefon`, `szeVegzetseg`, `szeLeiras`, `szeLeiras2`, `szeElerhetoseg`, `szeKepek`, `szeEgyeb`) VALUES
-(1, 1, 'Sablon Név', 'sablonemail@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\n\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\n\nA sport iránti szenvedélyem\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\n\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Új kihívások és az egészséges életmód\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\n\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\n\nHiszem, hogy Te is képes vagy rá\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', '{ \n        \"instagram\": \"https://www.instagram.com/sablon/\", \n        \"facebook\": \"https://www.facebook.com/sablon/\", \n        \"tiktok\": \"https://www.tiktok.com/sablon/\"\n    }', '{\n    \"profilkep\": \"images/edzo.webp\",\n    \"galeriakepeim\": [\n        \"images/falomwfwa.jpg\",\n        \"images/falomwfwa.jpg\"\n    ]\n}', 'valami'),
-(2, 2, 'Sablon Név2', 'sablonemail2@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\n\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\n\nA sport iránti szenvedélyem\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\n\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Új kihívások és az egészséges életmód\r\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\r\n\r\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\r\n\r\nHiszem, hogy Te is képes vagy rá\r\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', '{ \n        \"instagram\": \"https://www.instagram.com/sablon/\", \n        \"facebook\": \"https://www.facebook.com/sablon/\", \n        \"tiktok\": \"https://www.tiktok.com/sablon/\"\n    }', '{\n    \"profilkep\": \"images/edzo2.webp\",\n    \"galeriakepeim\": [\n        \"images/falomwfwa.jpg\",\n        \"images/falomwfwa.jpg\"\n    ]\n}', 'valami'),
-(3, 3, 'Sablon Név3', 'sablonemail3@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\r\n\r\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\r\n\r\nA sport iránti szenvedélyem\r\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\r\n\r\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Új kihívások és az egészséges életmód\r\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\r\n\r\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\r\n\r\nHiszem, hogy Te is képes vagy rá\r\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', '{ \r\n        \"instagram\": \"https://www.instagram.com/sablon/\", \r\n        \"facebook\": \"https://www.facebook.com/sablon/\", \r\n        \"tiktok\": \"https://www.tiktok.com/sablon/\"\r\n    }', '{\r\n    \"profilkep\": \"images/edzo3.webp\",\r\n    \"galeriakepeim\": [\r\n        \"images/falomwfwa.jpg\",\r\n        \"images/falomwfwa.jpg\"\r\n    ]\r\n}', 'valami'),
-(4, 4, 'Sablon Név4', 'sablonemail4@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\r\n\r\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\r\n\r\nA sport iránti szenvedélyem\r\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\r\n\r\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Új kihívások és az egészséges életmód\r\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\r\n\r\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\r\n\r\nHiszem, hogy Te is képes vagy rá\r\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', '{ \r\n        \"instagram\": \"https://www.instagram.com/sablon/\", \r\n        \"facebook\": \"https://www.facebook.com/sablon/\", \r\n        \"tiktok\": \"https://www.tiktok.com/sablon/\"\r\n    }', '{\r\n    \"profilkep\": \"images/edzo4.webp\",\r\n    \"galeriakepeim\": [\r\n        \"images/falomwfwa.jpg\",\r\n        \"images/falomwfwa.jpg\"\r\n    ]\r\n}', 'valami'),
-(5, 5, 'Sablon Név5', 'sablonemail@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\r\n\r\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\r\n\r\nA sport iránti szenvedélyem\r\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\r\n\r\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Új kihívások és az egészséges életmód\r\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\r\n\r\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\r\n\r\nHiszem, hogy Te is képes vagy rá\r\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', '{ \r\n        \"instagram\": \"https://www.instagram.com\", \r\n        \"facebook\": \"https://www.facebook.com\", \r\n        \"tiktok\": \"https://www.tiktok.com\"\r\n    }', '{\n    \"profilkep\": \"images/edzo5.webp\",\n    \"galeriakepeim\": [\n        \"images/falomwfwa.jpg\",\n        \"images/falomwfwa.jpg\"\n    ]\n}', 'valami');
+INSERT INTO `szemelyi_edzok` (`szeID`, `szeUID`, `szeuFelhasznalonev`, `szeEmail`, `szeTelefon`, `szeVegzetseg`, `szeVegzettsegEN`, `szeLeiras`, `szeLeirasEN`, `szeLeiras2`, `szeLeiras2EN`, `szeElerhetoseg`, `szeKepek`, `szeEgyeb`) VALUES
+(1, 1, 'Sablon Név', 'sablonemail@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'IWI Fitness instructor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\n\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\n\nA sport iránti szenvedélyem\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\n\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Would you like to try something new? Not sure if you should take the leap?  Would you like to lose a bit of weight or get more toned? I know the feeling. At the start of my athletic career, I felt the same way. Why would I succeed? But from experience, I know that all it takes is one deep breath to dive in. Don’t hesitate! Trust me, the hardest part is starting—after that, it gets easier.  My Passion for Sports From 2008 to 2019, I competed in kayaking at a professional level, which strengthened me both physically and mentally. For three consecutive years, my perseverance allowed me to stand on the top step of the podium. I learned firsthand that with determination and hard work, any goal is achievable.  My passion for sports has remained a defining part of my life ever since.', 'Új kihívások és az egészséges életmód\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\n\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\n\nHiszem, hogy Te is képes vagy rá\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', 'New Challenges and a Healthy Lifestyle In 2019, I decided to face new challenges. I committed to building my muscle consciously, paying close attention to nutrition, the use of supplements, and maintaining a healthy balance in all of it.  For four years, I worked in logistics, so I know exactly how challenging it can be to maintain a healthy lifestyle alongside work and everyday stress. Despite this, I managed to achieve it.  I Believe You Can Too I believe that anyone can change their life if they truly decide to, regardless of the number of daily tasks and challenges. I’m confident that you can succeed as well.  If you trust me, we’ll do this together. I’ll be here to support and help you every step of the way.', '{ \n        \"instagram\": \"https://www.instagram.com/sablon/\", \n        \"facebook\": \"https://www.facebook.com/sablon/\", \n        \"tiktok\": \"https://www.tiktok.com/sablon/\"\n    }', '{\n    \"profilkep\": \"images/edzo.webp\",\n    \"galeriakepeim\": [\n        \"images/falomwfwa.jpg\",\n        \"images/falomwfwa.jpg\"\n    ]\n}', 'valami'),
+(2, 2, 'Sablon Név2', 'sablonemail2@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'IWI Fitness instructor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\n\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\n\nA sport iránti szenvedélyem\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\n\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Would you like to try something new? Not sure if you should take the leap?  Would you like to lose a bit of weight or get more toned? I know the feeling. At the start of my athletic career, I felt the same way. Why would I succeed? But from experience, I know that all it takes is one deep breath to dive in. Don’t hesitate! Trust me, the hardest part is starting—after that, it gets easier.  My Passion for Sports From 2008 to 2019, I competed in kayaking at a professional level, which strengthened me both physically and mentally. For three consecutive years, my perseverance allowed me to stand on the top step of the podium. I learned firsthand that with determination and hard work, any goal is achievable.  My passion for sports has remained a defining part of my life ever since.', 'Új kihívások és az egészséges életmód\r\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\r\n\r\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\r\n\r\nHiszem, hogy Te is képes vagy rá\r\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', 'New Challenges and a Healthy Lifestyle In 2019, I decided to face new challenges. I committed to building my muscle consciously, paying close attention to nutrition, the use of supplements, and maintaining a healthy balance in all of it.  For four years, I worked in logistics, so I know exactly how challenging it can be to maintain a healthy lifestyle alongside work and everyday stress. Despite this, I managed to achieve it.  I Believe You Can Too I believe that anyone can change their life if they truly decide to, regardless of the number of daily tasks and challenges. I’m confident that you can succeed as well.  If you trust me, we’ll do this together. I’ll be here to support and help you every step of the way.', '{ \n        \"instagram\": \"https://www.instagram.com/sablon/\", \n        \"facebook\": \"https://www.facebook.com/sablon/\", \n        \"tiktok\": \"https://www.tiktok.com/sablon/\"\n    }', '{\n    \"profilkep\": \"images/edzo2.webp\",\n    \"galeriakepeim\": [\n        \"images/falomwfwa.jpg\",\n        \"images/falomwfwa.jpg\"\n    ]\n}', 'valami'),
+(3, 3, 'Sablon Név3', 'sablonemail3@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'IWI Fitness instructor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\r\n\r\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\r\n\r\nA sport iránti szenvedélyem\r\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\r\n\r\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Would you like to try something new? Not sure if you should take the leap?  Would you like to lose a bit of weight or get more toned? I know the feeling. At the start of my athletic career, I felt the same way. Why would I succeed? But from experience, I know that all it takes is one deep breath to dive in. Don’t hesitate! Trust me, the hardest part is starting—after that, it gets easier.  My Passion for Sports From 2008 to 2019, I competed in kayaking at a professional level, which strengthened me both physically and mentally. For three consecutive years, my perseverance allowed me to stand on the top step of the podium. I learned firsthand that with determination and hard work, any goal is achievable.  My passion for sports has remained a defining part of my life ever since.', 'Új kihívások és az egészséges életmód\r\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\r\n\r\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\r\n\r\nHiszem, hogy Te is képes vagy rá\r\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', 'New Challenges and a Healthy Lifestyle In 2019, I decided to face new challenges. I committed to building my muscle consciously, paying close attention to nutrition, the use of supplements, and maintaining a healthy balance in all of it.  For four years, I worked in logistics, so I know exactly how challenging it can be to maintain a healthy lifestyle alongside work and everyday stress. Despite this, I managed to achieve it.  I Believe You Can Too I believe that anyone can change their life if they truly decide to, regardless of the number of daily tasks and challenges. I’m confident that you can succeed as well.  If you trust me, we’ll do this together. I’ll be here to support and help you every step of the way.', '{ \r\n        \"instagram\": \"https://www.instagram.com/sablon/\", \r\n        \"facebook\": \"https://www.facebook.com/sablon/\", \r\n        \"tiktok\": \"https://www.tiktok.com/sablon/\"\r\n    }', '{\r\n    \"profilkep\": \"images/edzo3.webp\",\r\n    \"galeriakepeim\": [\r\n        \"images/falomwfwa.jpg\",\r\n        \"images/falomwfwa.jpg\"\r\n    ]\r\n}', 'valami'),
+(4, 4, 'Sablon Név4', 'sablonemail4@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'IWI Fitness instructor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\r\n\r\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\r\n\r\nA sport iránti szenvedélyem\r\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\r\n\r\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Would you like to try something new? Not sure if you should take the leap?  Would you like to lose a bit of weight or get more toned? I know the feeling. At the start of my athletic career, I felt the same way. Why would I succeed? But from experience, I know that all it takes is one deep breath to dive in. Don’t hesitate! Trust me, the hardest part is starting—after that, it gets easier.  My Passion for Sports From 2008 to 2019, I competed in kayaking at a professional level, which strengthened me both physically and mentally. For three consecutive years, my perseverance allowed me to stand on the top step of the podium. I learned firsthand that with determination and hard work, any goal is achievable.  My passion for sports has remained a defining part of my life ever since.', 'Új kihívások és az egészséges életmód\r\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\r\n\r\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\r\n\r\nHiszem, hogy Te is képes vagy rá\r\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', 'New Challenges and a Healthy Lifestyle In 2019, I decided to face new challenges. I committed to building my muscle consciously, paying close attention to nutrition, the use of supplements, and maintaining a healthy balance in all of it.  For four years, I worked in logistics, so I know exactly how challenging it can be to maintain a healthy lifestyle alongside work and everyday stress. Despite this, I managed to achieve it.  I Believe You Can Too I believe that anyone can change their life if they truly decide to, regardless of the number of daily tasks and challenges. I’m confident that you can succeed as well.  If you trust me, we’ll do this together. I’ll be here to support and help you every step of the way.', '{ \r\n        \"instagram\": \"https://www.instagram.com/sablon/\", \r\n        \"facebook\": \"https://www.facebook.com/sablon/\", \r\n        \"tiktok\": \"https://www.tiktok.com/sablon/\"\r\n    }', '{\r\n    \"profilkep\": \"images/edzo4.webp\",\r\n    \"galeriakepeim\": [\r\n        \"images/falomwfwa.jpg\",\r\n        \"images/falomwfwa.jpg\"\r\n    ]\r\n}', 'valami'),
+(5, 5, 'Sablon Név5', 'sablonemail@gmail.com', '+36 123456789', 'IWI Fitness instruktor', 'IWI Fitness instructor', 'Szeretnél valami újat kipróbálni? Nem tudod, belevágj-e?\r\n\r\nJó lenne kicsit fogyni vagy izmosabb szeretnél lenni? Ismerem az érzést. Sportolói karrierem elején én is így éreztem. Miért pont nekem sikerülne? De tapasztalatból tudom, elég, ha veszel egy mély levegőt és belevágsz. Ne tétovázz! Hidd el, csak az elindulás nehéz, utána már menni fog.\r\n\r\nA sport iránti szenvedélyem\r\n2008-tól 2019-ig versenyszerűen kajakoztam, ami nemcsak fizikailag, de mentálisan is megerősített. 3 éven keresztül a kitartásomnak köszönhetően a dobogó legmagasabb fokára állhattam. Bebizonyosodott számomra, hogy ha kitűzünk egy célt, azt kitartó munkával képesek vagyunk elérni.\r\n\r\nA sport iránti szenvedélyem azóta is az életem meghatározó részét képezi.', 'Would you like to try something new? Not sure if you should take the leap?  Would you like to lose a bit of weight or get more toned? I know the feeling. At the start of my athletic career, I felt the same way. Why would I succeed? But from experience, I know that all it takes is one deep breath to dive in. Don’t hesitate! Trust me, the hardest part is starting—after that, it gets easier.  My Passion for Sports From 2008 to 2019, I competed in kayaking at a professional level, which strengthened me both physically and mentally. For three consecutive years, my perseverance allowed me to stand on the top step of the podium. I learned firsthand that with determination and hard work, any goal is achievable.  My passion for sports has remained a defining part of my life ever since.', 'Új kihívások és az egészséges életmód\r\n2019-ben úgy döntöttem, új kihívások elé nézek. Elhatároztam, hogy tudatosan építem izomzatomat, figyelve a táplálkozásra, a táplálékkiegészítők használatára és mindezek egészséges egyensúlyára.\r\n\r\nNégy évig dolgoztam a logisztika területén, így pontosan tudom, milyen kihívásokkal jár a munka és a mindennapi stressz mellett fenntartani az egészséges életmódot. Ennek ellenére sikerült megvalósítanom.\r\n\r\nHiszem, hogy Te is képes vagy rá\r\nÚgy gondolom, hogy mindenki képes változtatni az életén, ha igazán elhatározza, függetlenül a napi teendők és kihívások mennyiségétől. Hiszem, hogy Neked is sikerülni fog. Ha bízol bennem, ketten együtt megcsináljuk. Én azon leszek, hogy mindenben segítselek téged.', 'New Challenges and a Healthy Lifestyle In 2019, I decided to face new challenges. I committed to building my muscle consciously, paying close attention to nutrition, the use of supplements, and maintaining a healthy balance in all of it.  For four years, I worked in logistics, so I know exactly how challenging it can be to maintain a healthy lifestyle alongside work and everyday stress. Despite this, I managed to achieve it.  I Believe You Can Too I believe that anyone can change their life if they truly decide to, regardless of the number of daily tasks and challenges. I’m confident that you can succeed as well.  If you trust me, we’ll do this together. I’ll be here to support and help you every step of the way.', '{ \r\n        \"instagram\": \"https://www.instagram.com\", \r\n        \"facebook\": \"https://www.facebook.com\", \r\n        \"tiktok\": \"https://www.tiktok.com\"\r\n    }', '{\n    \"profilkep\": \"images/edzo5.webp\",\n    \"galeriakepeim\": [\n        \"images/falomwfwa.jpg\",\n        \"images/falomwfwa.jpg\"\n    ]\n}', 'valami');
 
 -- --------------------------------------------------------
 
@@ -6947,9 +7398,11 @@ CREATE TABLE `termekek` (
 INSERT INTO `termekek` (`teID`, `teNev`, `teAr`, `teLeiras`) VALUES
 (1, 'LiftZone \n mintás póló', 1677, 'Fasza póló'),
 (2, 'LiftZone szöveges póló', 1677, 'Nagyon stilusos polo\r\nmüködik e az enter\r\nasd'),
-(3, 'Bögre - LiftZone', 2353232, 'Sárga bögre görbe bögre'),
-(4, 'Bögre - LiftZone', 324324324, 'SDADSADASDADS'),
-(5, 'Macska', 1, 'Cica');
+(3, 'Bögre - LiftZone', 2500, 'Sárga bögre görbe bögre'),
+(4, 'Bögre - LiftZone', 1, 'SDADSADASDADS'),
+(5, 'Macska', 1, 'Cica'),
+(6, 'Shaker', 3000, 'UUUUUUUU'),
+(7, 'vsdevsw', 324, 'vews');
 
 -- --------------------------------------------------------
 
@@ -7030,6 +7483,7 @@ INSERT INTO `tranzakciok` (`trID`, `tuID`, `tFizetes`, `tMod`, `tOsszeg`, `tStat
 CREATE TABLE `user` (
   `uID` int(11) NOT NULL,
   `uUID` varchar(23) NOT NULL,
+  `uSzuleteskorinev` varchar(100) NOT NULL,
   `uFelhasznalonev` varchar(100) NOT NULL,
   `uemail` varchar(254) NOT NULL,
   `uPassword` varchar(64) NOT NULL,
@@ -7048,29 +7502,29 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`uID`, `uUID`, `uFelhasznalonev`, `uemail`, `uPassword`, `uSzuletesidatum`, `uRegisztracio`, `uIP`, `uSession`, `uStatus`, `uSzerep`, `uKomment`, `uProfilePic`, `uOriginPic`) VALUES
-(10, '66fe73279a19e3.98463190', 'Szász Gergő', 'd@d.com', '$2y$10$2VUjiNM.59iVGH1ivXnsRuBir6XyC/w9xnSH//F4WL1sJgcVw1Bh.', '2000-03-04', '2024-10-03 12:34:15', '::1', 'tku3atd8', 'Deleted', 1, 'SZeretem a tejet', '', ''),
-(12, '6703b36e24b959.20967218', 'a', 'a@a.com', '$2y$10$pBrLF8gZx/R2ofw8Uo3gDe5gO1Qi9JcxSr2/A6qrygIdT9dD2YuCC', '2005-03-04', '2024-10-07 12:09:50', '::1', 'tnjlu8pq', 'Active', 2, 'fawfawfawf', '12_241105211244_672a7c3cae0ef1.14009411.jpg', 'WIN_20241003_10_50_07_Pro.jpg'),
-(13, '6703b3bf1e1f58.55982756', 'b', 'b@b.com', '$2y$10$BDwVBxcoC/AxmKwPY89wa.oRTPY2ulDJpuBiatz9uQ3Yp24MkEqxG', '2000-03-04', '2024-10-07 12:11:11', '::1', 'tnjlu8pq', 'Active', 1, 'Gwasfa', '', '2e04dc7245fc1e9dab7ca03bad68fa7d.jpg'),
-(14, '6703b3e3a05e48.19282392', 'c', 'c@c.com', '$2y$10$zXy1vyfMnq4yhssTzEFDS.BKsghRFZwO1ieae4OE0UHjOWmtdOG.S', '2000-03-04', '2024-10-07 12:11:47', '::1', 'tnjlu8pq', 'Active', 1, 'Csal', '14_241105205625_672a7869b44f84.41363113.gif', '6fbeb391d97455ead64a1e6a78e8a90b.gif'),
-(15, '6703b4365c7781.58397808', 'd', 'd@d.com', '$2y$10$C/CZSeaQmnI4XVGVAH4YmOobfYsOez3ezPJDBpS5ATR6udQcZ1dHO', '2004-03-04', '2024-10-07 12:13:10', '::1', 'tnjlu8pq', 'Active', 1, 'gerwgre', '15_241016145030_670fb696a48597.83343645.jpg', 'WIN_20241003_10_50_10_Pro (2).jpg'),
-(16, '6703b49f5fba78.28769374', 'e', 'e@e.com', '$2y$10$Maa6ygBsQlWEicXfY6Slmugj7RL/OelplRBvC94R/Bp5pwl1EdF4m', '2000-03-04', '2024-10-07 12:14:55', '::1', 'tnjlu8pq', 'Active', 1, 'fwafaf', '', ''),
-(17, '6703b4ba46ca12.29034416', 'f', 'f@f.com', '$2y$10$Cazi5/1AQkzlRAzWQtIqTO.WaWgyk2./hjsqQtbbMnPFC6..rKAEC', '2000-03-04', '2024-10-07 12:15:22', '::1', 'tnjlu8pq', 'Active', 3, '.Ő a maganedzo', '', ''),
-(18, '6703b4e5718374.96760104', 'g', 'g@g.com', '$2y$10$pBrLF8gZx/R2ofw8Uo3gDe5gO1Qi9JcxSr2/A6qrygIdT9dD2YuCC', '2000-03-04', '2024-10-07 12:16:05', '::1', 'tnjlu8pq', 'Active', 1, 'reg', '18_241021144429_67164cad3a3dc0.42901139.jpg', 'WIN_20241017_12_13_14_Pro.jpg'),
-(19, '6703b527c51d26.38391213', 'h', 'h@h.com', '$2y$10$4olOxkBpf7XatKVCaKdLj.w8E660yQ1ASIbF.THCGdbBachg31Pwe', '2000-03-04', '2024-10-07 12:17:11', '::1', 'tnjlu8pq', 'Active', 1, '.', '19_241107115344_672c9c38703296.40069300.jpg', 'WIN_20241003_10_50_09_Pro.jpg'),
-(20, '670e3ec17bf836.82719144', 'i', 'i@i.com', '$2y$10$knxqVR.CJVfG2VU7SAJL7.vLQtzEuietIy8edWkvZsJ40YwZTxuN2', '2000-03-04', '2024-10-15 12:06:57', '::1', 'tg86ldjg', 'Deleted', 1, '.', '', ''),
-(21, '670e3f003fb7e3.53561285', 'apibol', 'api@api.com', '$2y$10$49eKOXBE.Jrx3USKRyt8e.RnqRN2a20XAn8.MNH8xzel4/RyxU35q', '2000-03-04', '2024-10-15 12:08:00', '::1', 'tg86ldjg', 'Active', 1, 'halo', '', ''),
-(22, '6710e30af21d61.08552390', 'nemd', 'nemd@gmail.com', '$2y$10$1mKTR8xi3bzrMXRR4pJvv.He7/0LBR6ObEvhBZdkNF5T0rOxWdRFS', '2004-02-20', '2024-10-17 12:12:26', '::1', '052v0qcv', 'Active', 1, '.', '22_241017123557_6710e88de75ca5.77056373.jpg', 'c044e5911acb4a9cd8021f7a33ad2991.jpg'),
-(23, '671382dce60f04.90154113', 'hisuhake', 'norok@mailinator.com', '$2y$10$AiFzn.eHV7r9jqmQzNXEGexqJUppNM73cCL1wgay.6TeDSlJ6G33K', '1974-08-30', '2024-10-19 11:58:52', '::1', 'dn5nd5vq', 'Active', 1, '.', '', ''),
-(24, '671382e31b3ee7.66554181', 'josenisu', 'cuvu@mailinator.com', '$2y$10$8YlnDTtExgIkcsWFh7LMlexKGk8GjCV5cad0Z6IZhH48HfmFbP3Ui', '1996-07-12', '2024-10-19 11:58:59', '::1', 'dn5nd5vq', 'Active', 1, '.', '', ''),
-(25, '671a0741a920e4.60574074', 'wyvimigoza', 'gavut@mailinator.com', '$2y$10$ZXVFwqEnYJr7tEUm7M0n/.yToxjJq2ovYwE.6p1kPo0ajjY4RKXY2', '1986-06-28', '2024-10-24 10:37:21', '::1', 'ae54ibjk', 'Active', 1, '.', '', ''),
-(26, '671bcfb1d1ec13.94520810', 'kyfovowipa', 'quxiwejybo@mailinator.com', '$2y$10$dV43DjFAybmDhFhab704B.WNl.CSb81gT4yKOA3RV.dl.CYG2eIuy', '1997-05-17', '2024-10-25 19:04:49', '::1', 'fb82urmr', 'Active', 1, '.', '', ''),
-(27, '671bd35d392238.61115772', 'ezegynagyonhusszunevmajdnemalimit', 'gaborkorpa@gmail.com', '$2y$10$u9DwbATi2VaE7sOk5hWlruAc0SLiTM8S0EWKBGuTvXt9oXBG//GLK', '2004-02-20', '2024-10-25 19:20:29', '::1', 'fb82urmr', 'Active', 1, '.', '27_241025192131_671bd39b0cc171.71829233.png', 'Névtelen.png'),
-(28, '671e16f4ec9f45.87985939', 'hedak', 'lenet@mailinator.com', '$2y$10$n/dB628yvgd4.TWiEHFCFO6TGO7m791V3qur/OCb6KF5mF/ykCvQu', '2016-07-27', '2024-10-27 11:33:24', '::1', 'ha4o364g', 'Active', 1, '.', '', ''),
-(29, '671e18904a5ff7.50470603', 'muxypynuj', 'abcde@a.com', '$2y$10$u9.lhWfHreIW2BbmOgFq0epAluqwfHIWTeaEETqXhDKQWKmt/RWEK', '1974-10-22', '2024-10-27 11:40:16', '::1', 'ha4o364g', 'Active', 1, 'Ő egy jo ember', '', ''),
-(30, '671e1985329e31.04532229', 'fovubujep', 'abcd@a.com', '$2y$10$WCNFP73y16WpWNfJ60/C1.tVl00jwZteOzJV/kqcw3QmLlicvoGOq', '2010-12-17', '2024-10-27 11:44:21', '::1', 'ha4o364g', 'Active', 1, '.', '', ''),
-(31, '671e9dc0187042.83513478', 'gylydykam', 'aasd@a.com', '$2y$10$wyo7ir7Bb9jV0mO4TOtbmOYb4UxzGGJYM8c8CyxKJ/WyXHpfH/am6', '2015-08-19', '2024-10-27 21:08:32', '::1', 'vvkktsa4', 'Active', 1, '.', '', ''),
-(32, '672236b3009dc9.64340921', 'jidebor', 'hoxivuvyxy@mailinator.com', '$2y$10$jttKi2B4a742x7D2BlkyCeM5fwr40GaKKPc7c32rWp2L82lyHFRbu', '1970-08-02', '2024-10-30 14:37:55', '::1', 'c77udh3m', 'Active', 1, '.', '', '');
+INSERT INTO `user` (`uID`, `uUID`, `uSzuleteskorinev`, `uFelhasznalonev`, `uemail`, `uPassword`, `uSzuletesidatum`, `uRegisztracio`, `uIP`, `uSession`, `uStatus`, `uSzerep`, `uKomment`, `uProfilePic`, `uOriginPic`) VALUES
+(10, '66fe73279a19e3.98463190', '0', 'Szász Gergő', 'd@d.com', '$2y$10$2VUjiNM.59iVGH1ivXnsRuBir6XyC/w9xnSH//F4WL1sJgcVw1Bh.', '2000-03-04', '2024-10-03 12:34:15', '::1', 'tku3atd8', 'Deleted', 1, 'SZeretem a tejet', '', ''),
+(12, '6703b36e24b959.20967218', 'Gábor', 'a', 'a@a.com', '$2y$10$pBrLF8gZx/R2ofw8Uo3gDe5gO1Qi9JcxSr2/A6qrygIdT9dD2YuCC', '2005-03-04', '2024-10-07 12:09:50', '::1', 'tnjlu8pq', 'Active', 2, 'fawfawfawf', '12_241105211244_672a7c3cae0ef1.14009411.jpg', 'WIN_20241003_10_50_07_Pro.jpg'),
+(13, '6703b3bf1e1f58.55982756', '0', 'b', 'b@b.com', '$2y$10$BDwVBxcoC/AxmKwPY89wa.oRTPY2ulDJpuBiatz9uQ3Yp24MkEqxG', '2000-03-04', '2024-10-07 12:11:11', '::1', 'tnjlu8pq', 'Active', 1, 'Gwasfa', '', '2e04dc7245fc1e9dab7ca03bad68fa7d.jpg'),
+(14, '6703b3e3a05e48.19282392', '0', 'c', 'c@c.com', '$2y$10$zXy1vyfMnq4yhssTzEFDS.BKsghRFZwO1ieae4OE0UHjOWmtdOG.S', '2000-03-04', '2024-10-07 12:11:47', '::1', 'tnjlu8pq', 'Active', 1, 'Csal', '14_241105205625_672a7869b44f84.41363113.gif', '6fbeb391d97455ead64a1e6a78e8a90b.gif'),
+(15, '6703b4365c7781.58397808', '0', 'd', 'd@d.com', '$2y$10$C/CZSeaQmnI4XVGVAH4YmOobfYsOez3ezPJDBpS5ATR6udQcZ1dHO', '2004-03-04', '2024-10-07 12:13:10', '::1', 'tnjlu8pq', 'Active', 1, 'gerwgre', '15_241016145030_670fb696a48597.83343645.jpg', 'WIN_20241003_10_50_10_Pro (2).jpg'),
+(16, '6703b49f5fba78.28769374', '0', 'e', 'e@e.com', '$2y$10$Maa6ygBsQlWEicXfY6Slmugj7RL/OelplRBvC94R/Bp5pwl1EdF4m', '2000-03-04', '2024-10-07 12:14:55', '::1', 'tnjlu8pq', 'Active', 1, 'fwafaf', '', ''),
+(17, '6703b4ba46ca12.29034416', '0', 'f', 'f@f.com', '$2y$10$Cazi5/1AQkzlRAzWQtIqTO.WaWgyk2./hjsqQtbbMnPFC6..rKAEC', '2000-03-04', '2024-10-07 12:15:22', '::1', 'tnjlu8pq', 'Active', 3, '.Ő a maganedzo', '', ''),
+(18, '6703b4e5718374.96760104', '0', 'g', 'g@g.com', '$2y$10$pBrLF8gZx/R2ofw8Uo3gDe5gO1Qi9JcxSr2/A6qrygIdT9dD2YuCC', '2000-03-04', '2024-10-07 12:16:05', '::1', 'tnjlu8pq', 'Active', 1, 'reg', '18_241021144429_67164cad3a3dc0.42901139.jpg', 'WIN_20241017_12_13_14_Pro.jpg'),
+(19, '6703b527c51d26.38391213', '0', 'h', 'h@h.com', '$2y$10$4olOxkBpf7XatKVCaKdLj.w8E660yQ1ASIbF.THCGdbBachg31Pwe', '2000-03-04', '2024-10-07 12:17:11', '::1', 'tnjlu8pq', 'Active', 1, '.', '19_241107115344_672c9c38703296.40069300.jpg', 'WIN_20241003_10_50_09_Pro.jpg'),
+(20, '670e3ec17bf836.82719144', '0', 'i', 'i@i.com', '$2y$10$knxqVR.CJVfG2VU7SAJL7.vLQtzEuietIy8edWkvZsJ40YwZTxuN2', '2000-03-04', '2024-10-15 12:06:57', '::1', 'tg86ldjg', 'Deleted', 1, '.', '', ''),
+(21, '670e3f003fb7e3.53561285', '0', 'apibol', 'api@api.com', '$2y$10$49eKOXBE.Jrx3USKRyt8e.RnqRN2a20XAn8.MNH8xzel4/RyxU35q', '2000-03-04', '2024-10-15 12:08:00', '::1', 'tg86ldjg', 'Active', 1, 'halo', '', ''),
+(22, '6710e30af21d61.08552390', '0', 'nemd', 'nemd@gmail.com', '$2y$10$1mKTR8xi3bzrMXRR4pJvv.He7/0LBR6ObEvhBZdkNF5T0rOxWdRFS', '2004-02-20', '2024-10-17 12:12:26', '::1', '052v0qcv', 'Active', 1, '.', '22_241017123557_6710e88de75ca5.77056373.jpg', 'c044e5911acb4a9cd8021f7a33ad2991.jpg'),
+(23, '671382dce60f04.90154113', '0', 'hisuhake', 'norok@mailinator.com', '$2y$10$AiFzn.eHV7r9jqmQzNXEGexqJUppNM73cCL1wgay.6TeDSlJ6G33K', '1974-08-30', '2024-10-19 11:58:52', '::1', 'dn5nd5vq', 'Active', 1, '.', '', ''),
+(24, '671382e31b3ee7.66554181', '0', 'josenisu', 'cuvu@mailinator.com', '$2y$10$8YlnDTtExgIkcsWFh7LMlexKGk8GjCV5cad0Z6IZhH48HfmFbP3Ui', '1996-07-12', '2024-10-19 11:58:59', '::1', 'dn5nd5vq', 'Active', 1, '.', '', ''),
+(25, '671a0741a920e4.60574074', '0', 'wyvimigoza', 'gavut@mailinator.com', '$2y$10$ZXVFwqEnYJr7tEUm7M0n/.yToxjJq2ovYwE.6p1kPo0ajjY4RKXY2', '1986-06-28', '2024-10-24 10:37:21', '::1', 'ae54ibjk', 'Active', 1, '.', '', ''),
+(26, '671bcfb1d1ec13.94520810', '0', 'kyfovowipa', 'quxiwejybo@mailinator.com', '$2y$10$dV43DjFAybmDhFhab704B.WNl.CSb81gT4yKOA3RV.dl.CYG2eIuy', '1997-05-17', '2024-10-25 19:04:49', '::1', 'fb82urmr', 'Active', 1, '.', '', ''),
+(27, '671bd35d392238.61115772', '0', 'ezegynagyonhusszunevmajdnemalimit', 'gaborkorpa@gmail.com', '$2y$10$u9DwbATi2VaE7sOk5hWlruAc0SLiTM8S0EWKBGuTvXt9oXBG//GLK', '2004-02-20', '2024-10-25 19:20:29', '::1', 'fb82urmr', 'Active', 1, '.', '27_241025192131_671bd39b0cc171.71829233.png', 'Névtelen.png'),
+(28, '671e16f4ec9f45.87985939', '0', 'hedak', 'lenet@mailinator.com', '$2y$10$n/dB628yvgd4.TWiEHFCFO6TGO7m791V3qur/OCb6KF5mF/ykCvQu', '2016-07-27', '2024-10-27 11:33:24', '::1', 'ha4o364g', 'Active', 1, '.', '', ''),
+(29, '671e18904a5ff7.50470603', '0', 'muxypynuj', 'abcde@a.com', '$2y$10$u9.lhWfHreIW2BbmOgFq0epAluqwfHIWTeaEETqXhDKQWKmt/RWEK', '1974-10-22', '2024-10-27 11:40:16', '::1', 'ha4o364g', 'Active', 1, 'Ő egy jo ember', '', ''),
+(30, '671e1985329e31.04532229', '0', 'fovubujep', 'abcd@a.com', '$2y$10$WCNFP73y16WpWNfJ60/C1.tVl00jwZteOzJV/kqcw3QmLlicvoGOq', '2010-12-17', '2024-10-27 11:44:21', '::1', 'ha4o364g', 'Active', 1, '.', '', ''),
+(31, '671e9dc0187042.83513478', '0', 'gylydykam', 'aasd@a.com', '$2y$10$wyo7ir7Bb9jV0mO4TOtbmOYb4UxzGGJYM8c8CyxKJ/WyXHpfH/am6', '2015-08-19', '2024-10-27 21:08:32', '::1', 'vvkktsa4', 'Active', 1, '.', '', ''),
+(32, '672236b3009dc9.64340921', '0', 'jidebor', 'hoxivuvyxy@mailinator.com', '$2y$10$jttKi2B4a742x7D2BlkyCeM5fwr40GaKKPc7c32rWp2L82lyHFRbu', '1970-08-02', '2024-10-30 14:37:55', '::1', 'c77udh3m', 'Active', 1, '.', '', '');
 
 --
 -- Indexes for dumped tables
@@ -7099,6 +7553,12 @@ ALTER TABLE `jegyek`
 --
 ALTER TABLE `kosar`
   ADD PRIMARY KEY (`koID`);
+
+--
+-- Indexes for table `kosar_tetelek`
+--
+ALTER TABLE `kosar_tetelek`
+  ADD PRIMARY KEY (`ktID`);
 
 --
 -- Indexes for table `kuponok`
@@ -7186,7 +7646,13 @@ ALTER TABLE `jegyek`
 -- AUTO_INCREMENT for table `kosar`
 --
 ALTER TABLE `kosar`
-  MODIFY `koID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `koID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `kosar_tetelek`
+--
+ALTER TABLE `kosar_tetelek`
+  MODIFY `ktID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `kuponok`
@@ -7198,7 +7664,7 @@ ALTER TABLE `kuponok`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `lID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `lID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -7210,7 +7676,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `naplo`
 --
 ALTER TABLE `naplo`
-  MODIFY `nID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6442;
+  MODIFY `nID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6860;
 
 --
 -- AUTO_INCREMENT for table `szemelyi_edzok`
@@ -7228,7 +7694,7 @@ ALTER TABLE `szerepkorok`
 -- AUTO_INCREMENT for table `termekek`
 --
 ALTER TABLE `termekek`
-  MODIFY `teID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `teID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tipusok`

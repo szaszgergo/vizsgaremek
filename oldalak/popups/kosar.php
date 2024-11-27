@@ -12,7 +12,6 @@
             $osszar = 0;
             ?>
 
-            <form action="" target="kisablak" method="post">
                 <div class="modal-body">
                     <div class="row mb-2">
                         <div class="col"><strong>Kép</strong></div>
@@ -64,7 +63,10 @@
                                 <span><?= number_format($price * $count, 0, ',', ' ')?> Ft</span>
                             </div>
                             <div class="col text-right">
-                                <button class="btn btn-danger btn-sm">X</button>
+                                <form action="actions/removeFromKosar.php" target="kisablak" method="POST">
+                                    <input name="id"  value="<?php echo htmlspecialchars($teid); ?>" type="hidden">
+                                    <button type="submit" class="btn btn-danger btn-sm">X</button>
+                                </form>
                             </div>
                         </div>
                     <?php endwhile;
@@ -76,7 +78,6 @@
                     <?php echo "<p class='text-right '>". number_format($osszar, 0, ',', ' ') ."Ft <p>";?>
                     <button type="submit" class="btn btn-primary">Vásárlás</button>
                 </div>
-            </form>
         </div>
     </div>
 </div>
