@@ -4,7 +4,6 @@ require("sqlcall.php");
 
 $teid = $_POST["teID"]; 
 $uid = $_SESSION["uid"]; 
-
 $kosarlekeres = sqlcall("SELECT koID FROM kosar WHERE koUID = $uid AND koTranzakcioID IS NULL");
 $kosar = $kosarlekeres->fetch_assoc();
 
@@ -16,13 +15,19 @@ if (!$kosar) {
 }
 
 $koID = $kosar["koID"];
-$termeklekeres = sqlcall("SELECT ktMennyiseg FROM kosar_Tetelek WHERE ktkoID = $koID AND ktBeazonosito = $teid AND ktTipus = 'TERMEK'");
+$termeklekeres = sqlcall("SELECT ktMennyiseg, ktStatus FROM kosar_tetelek WHERE ktkoID = $koID AND ktBeazonosito = $teid AND ktTipus = 'TERMEK'");
 
 if ($termek = $termeklekeres->fetch_assoc()) {
-    $ujMennyiseg = $termek['ktMennyiseg'] + 1;
-    sqlsave("UPDATE kosar_Tetelek SET ktMennyiseg = $ujMennyiseg WHERE ktkoID = $koID AND ktBeazonosito = $teid AND ktTipus = 'TERMEK'");
+    if ($termek['ktStatus'] == 0) {
+
+        sqlsave("UPDATE kosar_tetelek SET ktMennyiseg = 0, ktStatus = 1 WHERE ktkoID = $koID AND ktBeazonosito = $teid AND ktTipus = 'TERMEK'");
+    }
+
+    $ujMennyiseg = $termek['ktStatus'] == 0 ? 1 : $termek['ktMennyiseg'] + 1;
+    sqlsave("UPDATE kosar_tetelek SET ktMennyiseg = $ujMennyiseg WHERE ktkoID = $koID AND ktBeazonosito = $teid AND ktTipus = 'TERMEK'");
 } else {
-    sqlsave("INSERT INTO kosar_Tetelek (ktkoID, ktTipus, ktBeazonosito, ktMennyiseg) VALUES ($koID, 'TERMEK', $teid, 1)");
+    sqlsave("INSERT INTO kosar_tetelek (ktkoID, ktTipus, ktBeazonosito, ktMennyiseg, ktStatus) VALUES ($koID, 'TERMEK', $teid, 1, 1)");
 }
+
 echo "<alert>Termék sikeresen hozzáadva a kosárhoz!</alert>";
 ?>

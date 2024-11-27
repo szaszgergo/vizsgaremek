@@ -10,7 +10,7 @@ if (!$kosarid) {
     return [];
 }
 
-$kosartartalomlekeres = sqlcall("SELECT * FROM kosar_tetelek WHERE ktkoID = $kosarid");
+$kosartartalomlekeres = sqlcall("SELECT * FROM kosar_tetelek WHERE ktkoID = $kosarid AND ktStatus = 1");
 $kosartartalma = [];
 
 while ($item = $kosartartalomlekeres->fetch_assoc()) {
