@@ -153,7 +153,12 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
                 } else if (data.purchaseError) {
                     errorMessage.innerHTML = data.updateError;
                     errorMessage.style.display = 'block';
-                } else if (data.regSuccess) {
+                }
+                else if (data.success) {
+                    document.getElementById('success-message').innerText = data.success;
+                    document.getElementById('success-message').style.display = 'block';
+                }
+                else if (data.regSuccess) {
                     errorMessage.style.display = 'none';
                     window.location.href = "./?o=loginform";
                     alert('Sikeres regisztráció, lépj be!');

@@ -29,13 +29,22 @@
     .carousel-indicators li {
         transform: translateX(-38px);
     }
+
     .container-fluid {
-    overflow-x:unset; /* ez még nem annyira fasza */
-}
-body {
-    overflow-x: hidden;
-    margin: 0;
-}
+        overflow-x: unset;
+        /* ez még nem annyira fasza */
+    }
+
+    body {
+        overflow-x: hidden;
+        margin: 0;
+    }
+
+    .komment {
+        border: solid #ffcc00 3px;
+        border-radius: 5px;
+        width: 88%;
+    }
 </style>
 <div class="container-fluid">
     <div class="row edzok">
@@ -238,6 +247,37 @@ body {
                             </div>
                         </form>
                     </div>
+                    <div class="komment">
+                        <form action="actions/komment_ir.php" target="kisablak" method="post">
+                            <h2 style="margin:15px;">Írj értékelést az edzőnkről</h2>
+                            <input type="hidden" name="eid" value="<?php echo $_GET['eid']; ?>">
+                            <textarea style="width: 95%; height: 150px; margin-left:15px; border-radius:5px;resize: none;" placeholder="Üzenet" name="textarea_komment" id="textarea_komment" maxlength="300"></textarea>
+                            <button id="elkuldkomment" type="submit" class="btn btn-warning" style="font-size:20px; margin:15px; ">Elküldés</button>
+
+                            <?php
+                            if(isset($_SESSION['uid'])){
+                                $sql_ertekelte = "SELECT ekUserID FROM edzok_kommentek WHERE ekUserID=? AND ekSzeID=?";
+                                $result_felhasznalok = sqlcall($sql_ertekelte, 'ii', [$_SESSION['uid'], $eid]);
+    
+                                if ($result_felhasznalok->num_rows > 0) {
+                                    echo "<br><span class='m-3' style='font-size:20px;'>Már kommenteltél ehhez az edzőhöz!</span>";
+                                    echo "<script>document.getElementById('elkuldkomment').style.display = 'none';</script>";
+                                }
+                            }
+                           //lehet kommentelni 1 ember egy edzohoz   inkább ugy kéne hogy a text areaban lesz a komment és szerkeszteni lehessen egy gombbal 
+                            ?>
+
+
+                        </form>
+                    </div>
+                    <div id='error-message' class='alert alert-danger mt-3 p-1' style='display: none; width:88%;'></div>
+                    <div id="success-message" class="mt-3 p-1" style="display: none; width:88%; background-color:#28a745; color: #fff; border-radius: 5px;">
+                    </div>
+
+                    <div class="kommentek">
+
+                    </div>
+
                 </div>
             </div>
         <?php endwhile; ?>
