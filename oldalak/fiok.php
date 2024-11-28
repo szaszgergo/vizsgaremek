@@ -1,24 +1,28 @@
 <?php
 $adatok = getUserInfo();
 $jegy = getUserJegyek();
+
 if (isset($jegy)) {
     $jtid = $jegy[2];
     $tipusadatok = getJegyTipusAdatok($jtid);
-    $src = "https://api.qrserver.com/v1/create-qr-code/?data=$adatok[uUID]&size=5000x5000&margin=10";
-    $remaining = strtotime($jegy[4]) - time();
-    $maradek_napok = round($remaining / 86400);
-    $szoveg = "
-    <h3>$tipusadatok[1]</h3>
-    <a href='$src'><img src='$src' alt='<?php echo $adatok[uUID]?>' title='JEGY' class='qr'  /></a>
-    <h4> ". htmlspecialchars($languageContent["ervenyes"]) ." </h4>
-    <h1 class='gold'>$maradek_napok ". htmlspecialchars($languageContent["nap"]) ."</h1>";
-    if (!is_null($jegy[5])) {
-        $szoveg .= "<h3>". htmlspecialchars($languageContent["hasznalatok"]) ." <span class='gold'> $jegy[5]</span></h3>";
-    }
-} else{
-    $szoveg = "<h1>". htmlspecialchars($languageContent["nincsJegy"]) ."</h1> <a class='btn btn-warning' href='?o=jegyvasarlasform'>". htmlspecialchars($languageContent["vasarlas"]) ."</a>";
-}
+    $src = "https://api.qrserver.com/v1/create-qr-code/?data={$adatok['uUID']}&size=5000x5000&margin=10";
+    $maradek_napok = round((strtotime($jegy[4]) - time()) / 86400);
 
+    $tipus_nev = $_SESSION["lang"] === "en" ? $tipusadatok[2] : $tipusadatok[1];
+    $szoveg = "
+        <h3>$tipus_nev</h3>
+        <a href='$src'><img src='$src' alt='" . htmlspecialchars($adatok['uUID']) . "' title='JEGY' class='qr' /></a>
+        <h4>" . htmlspecialchars($languageContent["ervenyes"]) . "</h4>
+        <h1 class='gold'>$maradek_napok " . htmlspecialchars($languageContent["nap"]) . "</h1>";
+
+    if (!is_null($jegy[5])) {
+        $szoveg .= "<h3>" . htmlspecialchars($languageContent["hasznalatok"]) . " <span class='gold'>$jegy[5]</span></h3>";
+    }
+} else {
+    $szoveg = "
+        <h1>" . htmlspecialchars($languageContent["nincsJegy"]) . "</h1>
+        <a class='btn btn-warning' href='?o=jegyvasarlasform'>" . htmlspecialchars($languageContent["vasarlas"]) . "</a>";
+}
 ?>
 <div class="row fiokrow">
     <div class="col-md-8 ">
