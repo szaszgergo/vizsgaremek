@@ -92,18 +92,26 @@
                         </a>
                     </div>
                     <div class="theback">
-                    <h4><i class="fa-solid fa-location-dot" style="font-size:24px;"></i>Csepel</h4><br>
-                        <h5>További információk az edzőről</h5>
+                    <h4><i class="fa-solid fa-location-dot" style="font-size:24px;"></i> Csepel</h4><br>
+                        <h5><?= $languageContent['tobbInfo'] ?></h5>
                         <div class="row">
                             <div class="col-md-4 p-2 m-2">
-                                <p>Elérhetőség:</p>
-                                <p>Email-cím:</p>
-                                <p>Végzettség:</p>
+                                <p><?= $languageContent['telefon'] ?></p>
+                                <p><?= $languageContent['emailLabel'] ?></p>
+                                <p><?= $languageContent['vegzettseg'] ?></p>
                             </div>
                             <div class="col-md-6 p-2 m-2">
                                 <p><?php echo $row['szeTelefon'] ?></p>
                                 <p><?php echo $row['szeEmail'] ?></p>
-                                <p><?php echo $row['szeVegzetseg'] ?></p>
+                                <p>
+                                <?php
+                                if (isset($_SESSION["lang"]) && $_SESSION["lang"] == "en") {
+                                    echo htmlspecialchars($row['szeVegzettsegEN']);
+                                } else {
+                                    echo htmlspecialchars($row['szeVegzetseg']);
+                                }
+                                ?>
+                                </p>
                             </div>
                         </div>
                     </div>

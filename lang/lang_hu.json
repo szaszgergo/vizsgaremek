@@ -205,5 +205,12 @@
     "ertekelesBekuldes": "Értékelés beküldése",
     "jelentkezzItt": "Ha felkeltettem az érdeklődésedet és szeretnéd a segítségemet igénybe venni, jelentkezz itt.",
     "jelentkezes": "Jelentkezés",
-    "irjEmail": "vagy írj email-t nekem itt." 
+    "irjEmail": "vagy írj email-t nekem itt.",
+
+
+
+    "comment10": "edzokall.php",
+    "telefon": "Telefonszám",
+    "vegzettseg": "Végzettségek",
+    "tobbInfo": "További információk az edzőről"
 }
