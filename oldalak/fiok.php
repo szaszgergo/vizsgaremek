@@ -7,7 +7,9 @@ if (isset($jegy)) {
     $tipusadatok = getJegyTipusAdatok($jtid);
     $src = "https://api.qrserver.com/v1/create-qr-code/?data={$adatok['uUID']}&size=5000x5000&margin=10";
     $maradek_napok = round((strtotime($jegy[4]) - time()) / 86400);
-
+    if(!isset($_SESSION["lang"])) {
+        $_SESSION["lang"] = "hu";
+    }
     $tipus_nev = $_SESSION["lang"] === "en" ? $tipusadatok[2] : $tipusadatok[1];
     $szoveg = "
         <h3>$tipus_nev</h3>
