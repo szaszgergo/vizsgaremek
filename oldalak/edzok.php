@@ -248,31 +248,81 @@
                         </form>
                     </div>
                     <div class="komment">
+                    <h2 style="margin:15px;">Írj értékelést az edzőnkről</h2>
+                        <?php
+                        $existing_comment = "";
+
+                        if (isset($_SESSION['uid'])) {
+                            $faszom = "SELECT ekKomment FROM edzok_kommentek WHERE ekUserID=? AND ekSzeID=?";
+                            $result_faszom = sqlcall($faszom, 'ii', [$_SESSION['uid'], $eid]);
+
+                            if ($result_faszom->num_rows > 0) {
+                                $row = $result_faszom->fetch_assoc();
+                                $existing_comment = trim($row['ekKomment']);
+                            }
+                        }
+                        ?>
+
                         <form action="actions/komment_ir.php" target="kisablak" method="post">
-                            <h2 style="margin:15px;">Írj értékelést az edzőnkről</h2>
                             <input type="hidden" name="eid" value="<?php echo $_GET['eid']; ?>">
-                            <textarea style="width: 95%; height: 150px; margin-left:15px; border-radius:5px;resize: none;" placeholder="Üzenet" name="textarea_komment" id="textarea_komment" maxlength="300"></textarea>
-                            <button id="elkuldkomment" type="submit" class="btn btn-warning" style="font-size:20px; margin:15px; ">Elküldés</button>
+
+                            <textarea style="width: 95%; height: 150px; margin-left:15px; border-radius:5px; resize: none; text-align: left; padding: 0; border: 1px solid #ccc;"
+                                placeholder="Üzenet" name="textarea_komment" id="textarea_komment" maxlength="300"
+                                <?php if (!empty($existing_comment)) echo 'readonly'; ?>>
+    <?php echo htmlspecialchars($existing_comment); ?>
+</textarea>
+
+
+                            <button id="elkuldkomment" type="submit" class="btn btn-warning" style="font-size:20px; margin:15px;"
+                                <?php if (!empty($existing_comment)) echo 'style="display:none;"'; ?>>
+                                Elküldés
+                            </button>
+
+                            <div class="row">
+                                <div class="col-md-3"> <button id="szerkezdkomment_valtoztatas" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="button">Szerkesztés</button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button id="szerkezdkomment" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="submit" formaction="actions/komment_update.php" class="btn btn-danger">Elküldés</button>
+                                    <script>
+                                        document.getElementById('szerkezdkomment_valtoztatas').addEventListener('click', function() {
+                                            const textarea = document.getElementById('textarea_komment');
+
+                                            if (textarea.hasAttribute('readonly')) {
+                                                textarea.removeAttribute('readonly');
+                                             
+                                            } else {
+                                                textarea.setAttribute('readonly', 'true');
+                                                textarea.style.backgroundColor = ''; 
+                                                textarea.style.borderColor = '';
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
 
                             <?php
-                            if(isset($_SESSION['uid'])){
+                            if (isset($_SESSION['uid'])) {
                                 $sql_ertekelte = "SELECT ekUserID FROM edzok_kommentek WHERE ekUserID=? AND ekSzeID=?";
                                 $result_felhasznalok = sqlcall($sql_ertekelte, 'ii', [$_SESSION['uid'], $eid]);
-    
+
                                 if ($result_felhasznalok->num_rows > 0) {
-                                    echo "<br><span class='m-3' style='font-size:20px;'>Már kommenteltél ehhez az edzőhöz!</span>";
+
+                                    echo "<script>document.getElementById('szerkezdkomment_valtoztatas'). = 'block';</script>";
+                                    echo "<script>document.getElementById('szerkezdkomment').style.display = 'block';</script>";
+                                    echo "<script>document.getElementById('szerkezdkomment_valtoztatas').style.display = 'block';</script>";
                                     echo "<script>document.getElementById('elkuldkomment').style.display = 'none';</script>";
                                 }
                             }
-                           //lehet kommentelni 1 ember egy edzohoz   inkább ugy kéne hogy a text areaban lesz a komment és szerkeszteni lehessen egy gombbal 
                             ?>
-
-
                         </form>
                     </div>
+
                     <div id='error-message' class='alert alert-danger mt-3 p-1' style='display: none; width:88%;'></div>
                     <div id="success-message" class="mt-3 p-1" style="display: none; width:88%; background-color:#28a745; color: #fff; border-radius: 5px;">
                     </div>
+
+
+
 
                     <div class="kommentek">
 
