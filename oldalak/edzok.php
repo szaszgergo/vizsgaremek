@@ -248,7 +248,7 @@
                         </form>
                     </div>
                     <div class="komment">
-                    <h2 style="margin:15px;">Írj értékelést az edzőnkről</h2>
+                        <h2 style="margin:15px;">Írj értékelést az edzőnkről</h2>
                         <?php
                         $existing_comment = "";
 
@@ -289,10 +289,10 @@
 
                                             if (textarea.hasAttribute('readonly')) {
                                                 textarea.removeAttribute('readonly');
-                                             
+
                                             } else {
                                                 textarea.setAttribute('readonly', 'true');
-                                                textarea.style.backgroundColor = ''; 
+                                                textarea.style.backgroundColor = '';
                                                 textarea.style.borderColor = '';
                                             }
                                         });
@@ -324,12 +324,36 @@
 
 
 
-                    <div class="kommentek">
 
+
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="kommentek_kiiratas">
+                    <?php 
+                    
+                      $sql = "SELECT uFelhasznalonev,ekKomment, ekDatum FROM user,edzok_kommentek WHERE ekUserID = uID ORDER BY ekDatum DESC;"; // ez fasza 
+
+                     // $result = sqlcall($sql, 'i', [$eid]);
+
+                    
+                    ?>
+                    <h2>Vélemények:</h2>
+                    <div class="komment bg-transparentblack m-3 p-3 w-100">
+                        <span style="display: flex; justify-content: space-between; width: 100%;">
+                            <h3>Neve</h3>
+                            <h3 style="text-align: right;">2020-10-20</h3>
+                        </span>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore a deleniti iste, sunt pariatur praesentium, non numquam molestiae laudantium eius vero cum necessitatibus blanditiis ad beatae eveniet vel. A, iure quibusdam quia soluta sequi rem voluptate porro placeat. Voluptas deleniti autem illum odio maxime repellat soluta doloremque numquam totam id.</p>
                     </div>
 
                 </div>
-            </div>
+            </div> 
+
         <?php endwhile; ?>
+
     </div>
 </div>
