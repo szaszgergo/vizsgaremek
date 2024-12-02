@@ -26,7 +26,7 @@ while ($row = $oldalak->fetch_assoc()): ?>
        <div class="col-md-1">
             <form method="post" action="actions/velemeny_feldolgozas.php" target="kisablak">
                 <input type="hidden" name="ekID" value="<?php echo $row['ekID']; ?>">
-                <input type="hidden" name="action" value="elutasitas">
+                <input type="hidden" name="deny" value="elutasitas">
                 <button type="submit" class="btn btn-danger">✖</button>
             </form>
        </div>
