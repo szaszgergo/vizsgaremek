@@ -17,14 +17,14 @@ while ($row = $oldalak->fetch_assoc()): ?>
             <p><small><em>Dátum: <?php echo $row['ekDatum']; ?></em></small></p>
         </div>
         <div class="col-md-1">
-            <form method="post" action="admin/velemeny_feldolgozas.php">
+            <form method="post" action="actions/velemeny_feldolgozas.php" target="kisablak">
                 <input type="hidden" name="ekID" value="<?php echo $row['ekID']; ?>">
-                <input type="hidden" name="action" value="elfogadas">
+                <input type="hidden" name="accept" value="elfogadas">
                 <button type="submit" class="btn btn-success">✔</button>
             </form>
        </div>
        <div class="col-md-1">
-            <form method="post" action="admin/velemeny_feldolgozas.php">
+            <form method="post" action="actions/velemeny_feldolgozas.php" target="kisablak">
                 <input type="hidden" name="ekID" value="<?php echo $row['ekID']; ?>">
                 <input type="hidden" name="action" value="elutasitas">
                 <button type="submit" class="btn btn-danger">✖</button>
