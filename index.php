@@ -19,6 +19,7 @@ $cimek = [
     "galeria" => "Galéria | LiftZone",
     "admin" => "Admin Kezelőfelület  | LiftZone",
     "shop" => "Bolt | LiftZone",
+    "uzenofal" => "Üzenőfal | LiftZone",
     "" => "Főoldal | LiftZone",
 ];
 
@@ -36,6 +37,7 @@ $belepettoldalak = [
     "admin" => "oldalak/admin.php",
     "shop" => "oldalak/webshop.php",
     "termek" => "oldalak/termek.php",
+    "uzenofal" => "oldalak/uzenofal.php",
     "" => "oldalak/main.php",
 ];
 
@@ -52,6 +54,7 @@ $oldalak = [
     "galeria" => "oldalak/galeria.php",
     "shop" => "oldalak/webshop.php",
     "termek" => "oldalak/termek.php",
+    "uzenofal" => "oldalak/uzenofal.php",
     "" => "oldalak/main.php",
 ];
 

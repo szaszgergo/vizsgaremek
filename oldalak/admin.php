@@ -18,6 +18,7 @@ if (!isset($_SESSION["szerep"]) || $_SESSION["szerep"] != "admin") {
         <a href="?o=admin&a=statisztika" class="<?php echo ($currentPage === 'statisztika') ? 'active' : ''; ?>">Statisztika</a>
         <a href="?o=admin&a=messages" class="<?php echo ($currentPage === 'messages') ? 'active' : ''; ?>">Üzenetek</a>
         <a href="?o=admin&a=velemenyek" class="<?php echo ($currentPage === 'velemenyek') ? 'active' : ''; ?>">Vélemények</a>
+        <a href="?o=admin&a=uzenofalAdmin" class="<?php echo ($currentPage === 'uzenofalAdmin') ? 'active' : ''; ?>">Üzenőfal</a>
     </div>
 
     <div class="main-content col-md-8">
@@ -31,6 +32,7 @@ if (!isset($_SESSION["szerep"]) || $_SESSION["szerep"] != "admin") {
             "statisztika" => "oldalak/admin/statisztika.php",
             "messages" => "oldalak/admin/messages.php",
             "velemenyek" => "oldalak/admin/velemenyek.php",
+            "uzenofalAdmin" => "oldalak/admin/uzenofalAdmin.php",
         ];
 
         $a = isset($_GET['a']) ? $_GET['a'] : "";
