@@ -1,5 +1,6 @@
 <?php
 
+require('actions/naplozas.php');
 require('actions/apicall.php');
 require('actions/getuserinfo.php');
 require('actions/getjegytipusadatok.php');
@@ -82,9 +83,8 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
     <body>
         <div class="site">
             <?php
-            require('actions/naplozas.php');
             naplo();
-            include('actions/language.php');
+            require('actions/language.php');
             require('oldalak/navbar.php');
             ?>
 
