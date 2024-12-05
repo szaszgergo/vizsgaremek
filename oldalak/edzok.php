@@ -32,7 +32,7 @@
 
     .container-fluid {
         overflow-x: unset;
-        /* ez még nem annyira fasza */
+
     }
 
     body {
@@ -44,6 +44,10 @@
         border: solid #ffcc00 3px;
         border-radius: 5px;
         width: 88%;
+    }
+    .comment-image{
+        object-fit: cover;
+        margin-right:15px;
     }
 </style>
 <div class="container-fluid">
@@ -235,17 +239,18 @@
 
                     <!-- PFP VÉGE -->
                     <div class="row">
-                        <form action="" class="w-100">
+                       
                             <div class="row">
                                 <div class="col-md-6  p-3">
+                                  
                                     <p><?= $languageContent["jelentkezzItt"] ?></p>
-                                    <button type="submit" class="btn btn-warning" style="font-size:20px; "><?= $languageContent["jelentkezes"] ?></button>
+                                    <button onclick='window.top.location.href = "/foglalas";' type="submit" class="btn btn-warning" style="font-size:20px; "><?= $languageContent["jelentkezes"] ?></button>
                                 </div>
                                 <div class="col-md-6  p-3">
                                     <p><?= $languageContent["irjEmail"] ?> <br> <i class="fa fa-envelope m-1" aria-hidden="true" style="font-size: 24px;"></i> <?php print "<span class='text-warning'> " . htmlspecialchars($row["szeEmail"]) . " </span>" ?></p>
                                 </div>
                             </div>
-                        </form>
+                  
                     </div>
                     <div class="komment">
                         <h2 style="margin:15px;">Írj értékelést az edzőnkről</h2>
@@ -277,7 +282,6 @@
                                 <?php if (!empty($existing_comment)) echo 'style="display:none;"'; ?>>
                                 Elküldés
                             </button>
-
                             <div class="row">
                                 <div class="col-md-3"> <button id="szerkezdkomment_valtoztatas" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="button">Szerkesztés</button>
                                 </div>
@@ -332,28 +336,42 @@
             </div>
             <div class="row">
                 <div class="kommentek_kiiratas">
-                    <?php 
-                    
-                      $sql = "SELECT uFelhasznalonev,ekKomment, ekDatum FROM user,edzok_kommentek WHERE ekUserID = uID ORDER BY ekDatum DESC;"; // ez fasza 
+                    <?php
+                    $result = sqlcall("SELECT uFelhasznalonev, ekKomment, ekDatum, uProfilePic FROM user, edzok_kommentek WHERE ekUserID = uID AND ekSzeID=$eid AND ek_Status=1 ORDER BY ekDatum DESC");
 
-                     // $result = sqlcall($sql, 'i', [$eid]);
+                    if ($result->num_rows > 0) {
+                        echo "<h2 class='m-3'>Vélemények:</h2>";
+                        while ($row = $result->fetch_assoc()) {
+                            $adat = [
+                                'nev' => $row['uFelhasznalonev'],
+                                'komment' => $row['ekKomment'],
+                                'datum' => $row['ekDatum'],
+                                'profilePic' => !empty($row['uProfilePic']) ? $row['uProfilePic'] : '../images/pic.png'
+                            ];
 
-                    
+                            echo "
+                <div class='komment bg-transparentblack m-3 p-3 w-50'>
+                    <span style='display: flex; justify-content: space-between; width: 100%; align-items: center;'>
+                        <h4><img alt='Profile Image' class='comment-image' src='profile_pic/{$adat['profilePic']}' style='height: 50px; width: 50px; border-radius: 50%;'/>{$adat['nev']} </h4>
+                       
+                        <h4 style='text-align: right;'>{$adat['datum']}</h4>
+                    </span>
+                    <p>{$adat['komment']}</p>
+                  
+                   
+                </div>";
+                        }
+                    } else {
+                        echo "Nincs találat.";
+                    }
                     ?>
-                    <h2>Vélemények:</h2>
-                    <div class="komment bg-transparentblack m-3 p-3 w-100">
-                        <span style="display: flex; justify-content: space-between; width: 100%;">
-                            <h3>Neve</h3>
-                            <h3 style="text-align: right;">2020-10-20</h3>
-                        </span>
-
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore a deleniti iste, sunt pariatur praesentium, non numquam molestiae laudantium eius vero cum necessitatibus blanditiis ad beatae eveniet vel. A, iure quibusdam quia soluta sequi rem voluptate porro placeat. Voluptas deleniti autem illum odio maxime repellat soluta doloremque numquam totam id.</p>
-                    </div>
-
                 </div>
-            </div> 
+            </div>
+
+
 
         <?php endwhile; ?>
 
+     
     </div>
 </div>
