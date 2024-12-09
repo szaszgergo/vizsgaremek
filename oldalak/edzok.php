@@ -45,9 +45,10 @@
         border-radius: 5px;
         width: 88%;
     }
-    .comment-image{
+
+    .comment-image {
         object-fit: cover;
-        margin-right:15px;
+        margin-right: 15px;
     }
 </style>
 <div class="container-fluid">
@@ -239,19 +240,33 @@
 
                     <!-- PFP VÉGE -->
                     <div class="row">
-                       
-                            <div class="row">
-                                <div class="col-md-6  p-3">
-                                  
-                                    <p><?= $languageContent["jelentkezzItt"] ?></p>
-                                    <button onclick='window.top.location.href = "/foglalas";' type="submit" class="btn btn-warning" style="font-size:20px; "><?= $languageContent["jelentkezes"] ?></button>
-                                </div>
-                                <div class="col-md-6  p-3">
-                                    <p><?= $languageContent["irjEmail"] ?> <br> <i class="fa fa-envelope m-1" aria-hidden="true" style="font-size: 24px;"></i> <?php print "<span class='text-warning'> " . htmlspecialchars($row["szeEmail"]) . " </span>" ?></p>
-                                </div>
-                            </div>
-                  
+                        <div class="col-md-6 p-3">
+                            <p><?= $languageContent["jelentkezzItt"] ?></p>
+
+
+                            <button id="booking-button" type="button" class="btn btn-warning" style="font-size:20px;">
+                                <?= $languageContent["jelentkezes"] ?>
+                            </button>
+                            <div id="error-message" class="alert alert-danger mt-3 p-1" style="display: none; width:88%;">Nem vagy bejelentkezve!</div>
+
+                        </div>
+                        <div class="col-md-6 p-3">
+                            <p><?= $languageContent["irjEmail"] ?> <br> <i class="fa fa-envelope m-1" aria-hidden="true" style="font-size: 24px;"></i>
+                                <?php print "<span class='text-warning'> " . htmlspecialchars($row["szeEmail"]) . " </span>" ?>
+                            </p>
+                        </div>
                     </div>
+
+                    <script>
+                        document.getElementById('booking-button').addEventListener('click', function() {
+                            <?php if (!isset($_SESSION['uid'])): ?>
+                                document.getElementById('error-message').style.display = 'block';
+                            <?php else: ?>
+                                window.top.location.href = '/foglalas';
+                            <?php endif; ?>
+                        });
+                    </script>
+
                     <div class="komment">
                         <h2 style="margin:15px;">Írj értékelést az edzőnkről</h2>
                         <?php
@@ -372,6 +387,6 @@
 
         <?php endwhile; ?>
 
-     
+
     </div>
 </div>
