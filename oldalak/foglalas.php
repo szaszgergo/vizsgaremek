@@ -33,14 +33,12 @@
             width: 150px;
             text-align: center;
 
-            cursor: pointer; /* Mutatja, hogy kattintható */
+            cursor: pointer; 
         }
-   /* Minden cella fekete szegéllyel */
 td, th {
     border: solid 2px black;
 }
 
-/* Első oszlop ("Idő") és az első sor ("Napok") sárga szegéllyel */
 #tablazat th, 
 #tablazat td:first-child {
     border-color: #ffcc00;
@@ -58,11 +56,11 @@ td, th {
         }
 
         .checkbox-cell.checked {
-            background-color: red; /* Zöld szín a kijelölt celláknak */
+            background-color: red; 
         }
 
         input[type="checkbox"] {
-            display: none; /* Checkbox elrejtése */
+            display: none; 
         }
     </style>
 </head>
@@ -91,10 +89,9 @@ td, th {
     </div>
 
     <script>
-        // 1. Dinamikus JSON generálás
         const Adatok = [];
-        let startHour = 6; // Kezdő óra
-        let endHour = 23;  // Végző óra
+        let startHour = 6; 
+        let endHour = 23;  
 
         for (let hour = startHour; hour <= endHour; hour++) {
             for (let minute = 0; minute < 60; minute += 30) {
@@ -114,17 +111,15 @@ td, th {
             }
         }
 
-        // 2. Táblázat kitöltése
         document.querySelector('body').onload = () => addTR(Adatok);
 
         function addTR(arr) {
             arr.forEach(row => {
                 let tr = document.createElement('tr');
 
-                // Minden oszlop érték bejárása
                 for (const key in row) {
                     if (key === "ido") {
-                        addTD(tr, row[key]); // Idő oszlop szöveges
+                        addTD(tr, row[key]); 
 
                     } else {
                         addInteractiveCell(tr);
@@ -148,17 +143,16 @@ td, th {
             let checkbox = document.createElement("input");
             checkbox.type = "checkbox";
 
-            // Kattintásra váltás
             td.addEventListener("click", function () {
-                checkbox.checked = !checkbox.checked; // Állapot váltása
+                checkbox.checked = !checkbox.checked; 
                 if (checkbox.checked) {
-                    td.classList.add("checked"); // Zöld szín
+                    td.classList.add("checked"); 
                 } else {
-                    td.classList.remove("checked"); // Fehér szín
+                    td.classList.remove("checked"); 
                 }
             });
 
-            td.appendChild(checkbox); // Checkbox rejtve, de működik
+            td.appendChild(checkbox); 
             parent.appendChild(td);
         }
     </script>

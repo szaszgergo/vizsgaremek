@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById("comments-container");
     const controls = document.getElementById("pagination-controls");
 
-    const commentsPerPage = 20;
+    const commentsPerPage = 10;
     let currentPage = 1;
 
     function showComments(page) {
