@@ -58,6 +58,7 @@ $adatok = getUserInfo();
                     <li><a class="dropdown-item" href="./?o=edzokall"><?= $languageContent['hambiEdzok'] ?></a></li>
                     <li><a class="dropdown-item" href="./?o=faqs"><?= $languageContent['hambiFaqs'] ?></a></li>
                     <li><a class="dropdown-item" href="./?o=hazirend"><?= $languageContent['hambiHazirend'] ?></a></li>
+                    <li><a class="dropdown-item" href="./?o=uzenofal"><?= $languageContent['hambiUzenofal'] ?></a></li>
                 </ul>
             </div>
         </form>

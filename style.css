@@ -904,3 +904,57 @@ h1 {
     float: right;
     z-index: 3000;
 }
+
+/* Üzenőfal */
+.blokk {
+    background: var(--transparent-black);
+    min-height: 100px;
+    width: 800px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30pt;
+    border: 5px solid black;
+    padding: 15px; 
+}
+.uzenofalKep {
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    border: 5px solid #999;
+}
+#uzenoCim {
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 4rem;
+    margin-top: 10pt;
+}
+.belsoCim {
+    text-shadow: 1px 1px 2px #999999;
+}
+.belsoDatum {
+    color: #bbb;
+}
+.belsoSzoveg {
+    width: 600px;
+    margin: auto;
+}
+/* admin üzenőfal */
+.form-container {
+    text-align: center;
+}
+
+.form-textarea {
+    width: 300px;
+    height: 40px;
+    resize: none;
+}
+
+.form-file {
+    width: 300px;
+}
+
+.form-button {
+    width: 300px;
+    height: 40px;
+}
+
+/* --- */
