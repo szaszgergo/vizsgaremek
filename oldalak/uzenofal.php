@@ -13,7 +13,7 @@ ORDER BY uzenoDatum DESC;
     <p class="belsoSzoveg"><?php echo $row["uzenoSzoveg"] ?></p>
     <p class="belsoDatum"><small><em><?php echo $row["uzenoDatum"] ?></small></em></p>
     <?php if (!empty($row["uzenoKep"])): ?>
-        <img src="<?php echo str_replace('C:/xampp/htdocs/vizsgaremek/', '', $row["uzenoKep"]); ?>" class="uzenofalKep">
+        <img src="images/uzenofal/<?php echo str_replace('C:/xampp/htdocs/vizsgaremek/', '', $row["uzenoKep"]); ?>" class="uzenofalKep">
     <?php endif; ?>
 </div>
 <?php endwhile; ?>
