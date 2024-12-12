@@ -57,7 +57,6 @@ $oldalak = [
     "shop" => "oldalak/webshop.php",
     "termek" => "oldalak/termek.php",
     "uzenofal" => "oldalak/uzenofal.php",
-"foglalas"=>"oldalak/foglalas.php",
     "" => "oldalak/main.php",
 ];
 

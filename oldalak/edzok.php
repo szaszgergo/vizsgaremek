@@ -244,7 +244,7 @@
                             <p><?= $languageContent["jelentkezzItt"] ?></p>
 
 
-                            <button id="booking-button" type="button" class="btn btn-warning" style="font-size:20px;">
+                            <button  id="booking-button" type="button" class="btn btn-warning" style="font-size:20px;">
                                 <?= $languageContent["jelentkezes"] ?>
                             </button>
                             <div id="error-message" class="alert alert-danger mt-3 p-1" style="display: none; width:88%;">Nem vagy bejelentkezve!</div>
@@ -262,7 +262,7 @@
                             <?php if (!isset($_SESSION['uid'])): ?>
                                 document.getElementById('error-message').style.display = 'block';
                             <?php else: ?>
-                                window.top.location.href = '/foglalas';
+                                window.top.location.href = '/foglalas&eid=<?php echo $row['szeID']; ?>';
                             <?php endif; ?>
                         });
                     </script>
