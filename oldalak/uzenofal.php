@@ -1,14 +1,19 @@
+<?php
+$adatok = sqlcall("
+SELECT uzenoCim, uzenoSzoveg, uzenoDatum, uzenoKep
+FROM uzenofal
+ORDER BY uzenoDatum DESC;
+");
+?>
 <h1 id="uzenoCim">Üzenőfal</h1>
 <br>
+<?php while($row = $adatok->fetch_assoc()): ?>
 <div class="blokk">
-    <h4 class="belsoCim"><strong>Valami cím</strong></h4>
-    <p class="belsoSzoveg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ab quas nemo. Voluptatibus numquam accusamus aperiam, consequatur labore, cumque atque error aliquam quod unde molestiae, commodi omnis culpa quasi id?</p>
-    <p class="belsoDatum"><small><em>Bejegyzés dátuma</small></em></p>
-    <img src="images/galeria/galeria1.jpg" class="uzenofalKep">
+    <h4 class="belsoCim"><strong><?php echo $row["uzenoCim"] ?></strong></h4>
+    <p class="belsoSzoveg"><?php echo $row["uzenoSzoveg"] ?></p>
+    <p class="belsoDatum"><small><em><?php echo $row["uzenoDatum"] ?></small></em></p>
+    <?php if (!empty($row["uzenoKep"])): ?>
+        <img src="images/uzenofal/<?php echo str_replace('C:/xampp/htdocs/vizsgaremek/', '', $row["uzenoKep"]); ?>" class="uzenofalKep">
+    <?php endif; ?>
 </div>
-<div class="blokk">
-    <h4 class="belsoCim">Valami cím</h4>
-    <p class="belsoSzoveg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum illo, fugiat in itaque a culpa tenetur qui asperiores molestias, distinctio ut alias velit perspiciatis porro molestiae animi ducimus ipsum ab?</p>
-    <p class="belsoDatum"><small><em>Bejegyzés dátuma</small></em></p>
-    <img src="images/galeria/galeria1.jpg" class="uzenofalKep">
-</div>
+<?php endwhile; ?>

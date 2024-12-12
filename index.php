@@ -108,6 +108,7 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
             <?php require('oldalak/footer.php'); ?>
         </div>
 
+        <!-- <iframe name='kisablak'></iframe> -->
         <iframe name='kisablak' style="display: none;"></iframe>
 
         <?php

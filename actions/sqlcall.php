@@ -56,10 +56,12 @@ function sqlsave($sql, $types = '', $params = []) {
     
     if ($stmt->execute() !== true) {
         echo "Hiba: " . $stmt->error;
+        return false;
     }
     
     $stmt->close();
     $db->close();
+    return true;
 }
 // Ezek a paraméterezett SQL lekérdezéshez kellettek, amit a query függvény nem kezel helyesen.
 ?>
