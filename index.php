@@ -119,9 +119,6 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
             ],
             'fiok' => [
                 "oldalak/popups/vasarlasi_elozmeny_popup.php"
-            ],
-            'shop' => [
-                "oldalak/popups/kosar.php"
             ]
         ];
 
@@ -134,6 +131,10 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
             foreach ($popups[$o] as $popup) {
                 require($popup);
             }
+        }
+
+        if (isset($_SESSION["uid"])) {
+            require("oldalak/popups/kosar.php");
         }
 
         if (isset($adminPopups[$a])) {

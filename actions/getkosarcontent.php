@@ -7,7 +7,8 @@ $kosar = $kosarlekeres->fetch_assoc();
 $kosarid = $kosar["koID"];
 
 if (!$kosarid) {
-    return [];
+    sqlcall("INSERT INTO kosar (koUID) VALUES ($uid)");
+    $kosarid = sqlcall("SELECT koID FROM kosar WHERE koUID = $uid AND koTranzakcioID IS NULL")->fetch_assoc()["koID"];
 }
 
 $kosartartalomlekeres = sqlcall("SELECT * FROM kosar_tetelek WHERE ktkoID = $kosarid AND ktStatus = 1");

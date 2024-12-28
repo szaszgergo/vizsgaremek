@@ -28,6 +28,10 @@ $adatok = getUserInfo();
             <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "admin"):?>
             <a class="btn btn-danger m-2" href="?o=admin&a=felhasznalo_kezeles">Admin</a>
             <?php endif; ?>
+            <!-- Cart Icon -->
+            <abutton class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#kosarpopup">
+                <i class="fa fa-shopping-cart"></i>
+            </abutton>
             <!-- Zászló gomb nyelvváltó menüvel -->
             <div class="dropdown">
                 <button class="btn btn-dark dropdown-toggle d-flex align-items-center" type="button" id="languageMenu" data-bs-toggle="dropdown" aria-expanded="false">
