@@ -1,13 +1,10 @@
-<button class="kosarikon" data-bs-toggle="modal" data-bs-target="#kosarpopup">
-        <i class="fa fa-cart-shopping" style="font-size: 3em"></i>
-</button>
 <div class="container bg-transparentblack">
     <div class="row">
         <?php
         $termekek = sqlcall("SELECT * FROM termekek");
         while ($termek = $termekek->fetch_assoc()):
             ?>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="card" style="margin: 1rem;">
                     <?php
                     $mappa = "./images/termekek/" . $termek['teID'] . "/";
@@ -22,7 +19,7 @@
                     ?>
                     <img src="<?php echo htmlspecialchars($coverImage); ?>" class="card-img-top"
                         alt="<?php echo htmlspecialchars($termek['teNev']); ?>">
-                    <div class="card-body">
+                    <div class="card-body text-white bg-dark">
                         <h5 class="card-title"><?php echo htmlspecialchars($termek['teNev']); ?></h5>
                         <p class="card-text"><?php echo htmlspecialchars($termek['teLeiras']); ?></p>
                         <p class="card-text"><strong>Price:</strong> <?php echo htmlspecialchars($termek['teAr']); ?> Ft</p>
