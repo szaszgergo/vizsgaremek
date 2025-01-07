@@ -133,9 +133,9 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
             }
         }
 
-        if (isset($_SESSION["uid"])) {
-            require("oldalak/popups/kosar.php");
-        }
+
+        require("oldalak/popups/kosar.php");
+        
 
         if (isset($adminPopups[$a])) {
             foreach ($adminPopups[$a] as $popup) {
