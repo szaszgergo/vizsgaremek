@@ -30,5 +30,6 @@ if ($termek = $termeklekeres->fetch_assoc()) {
 } else {
     echo "<alert>Termék nem található a kosárban!</alert>";
 }
+echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 
 ?>

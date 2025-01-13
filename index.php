@@ -79,6 +79,11 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <meta content="LiftZone" property="og:title" />
+        <meta content="Ez az oldalunk leírása" property="og:description" />
+        <meta content="https://liftzone.hu" property="og:url" />
+        <meta content="https://liftzone.hu/images/logo.png" property="og:image" />
+        <meta content="#43B581" data-react-helmet="true" name="theme-color" />
         <title><?= htmlspecialchars($cim) ?></title>
     </head>
 
@@ -119,9 +124,6 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
             ],
             'fiok' => [
                 "oldalak/popups/vasarlasi_elozmeny_popup.php"
-            ],
-            'shop' => [
-                "oldalak/popups/kosar.php"
             ]
         ];
 
@@ -135,6 +137,10 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
                 require($popup);
             }
         }
+
+
+        require("oldalak/popups/kosar.php");
+        
 
         if (isset($adminPopups[$a])) {
             foreach ($adminPopups[$a] as $popup) {

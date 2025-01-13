@@ -6,52 +6,11 @@
 
 <?php
 $tp = isset($_GET['tp']) ? $_GET['tp'] : 'napi';
+?>
 
-if ($tp === 'oldalak') {
-    $oldalak = sqlcall("SELECT nURL, COUNT(nURL) as count FROM `naplo` GROUP BY nURL ORDER BY count DESC;");
-    
-    echo '<h1>Legtöbbet látogatott oldalak:</h1>';
-    while ($row = $oldalak->fetch_assoc()):
-    ?>
-        <div class="row">
-            <div class="col-md-6"><p><?php echo $row['nURL']; ?></p></div>
-            <div class="col-md-6"><p><?php echo $row['count']; ?> látogatás</p></div>
-        </div>
+<?php if ($tp === 'napi'): ?>
     <?php
-    endwhile;
-}
-
-if ($tp === 'termekek') {
-    $oldalak = sqlcall("SELECT nURL, COUNT(nURL) as count FROM `naplo` WHERE nURL LIKE '%termek%' GROUP BY nURL ORDER BY count DESC;");
-
-    echo '<h1>Legtöbbet látogatott termékek:</h1>';
-    while ($row = $oldalak->fetch_assoc()):
-        $url = $row['nURL'];
-        parse_str(parse_url($url, PHP_URL_QUERY), $queryParams); 
-        $id = isset($queryParams['id']) ? intval($queryParams['id']) : null;
-
-        if ($id) {
-            $termekQuery = sqlcall("SELECT teNev FROM termekek WHERE teID = $id");
-            $termek = $termekQuery->fetch_assoc();
-            $termeknev = $termek ? $termek['teNev'] : 'Ismeretlen termék';
-
-            ?>
-            <div class="row">
-                <div class="col-md-6"><p><?php echo htmlspecialchars($termeknev); ?></p></div>
-                <div class="col-md-6"><p><?php echo $row['count']; ?> látogatás</p></div>
-            </div>
-            <?php
-        }
-    endwhile;
-}
-
-
-if ($tp === 'napi') {
-    $latogatottsag = sqlcall("SELECT DATE(nDatum) AS date, COUNT(DISTINCT nSession) AS latogatas
-                              FROM `naplo`
-                              GROUP BY DATE(nDatum)
-                              ORDER BY date;");
-    
+    $latogatottsag = sqlcall("SELECT DATE(nDatum) AS date, COUNT(DISTINCT nSession) AS latogatas FROM `naplo` GROUP BY DATE(nDatum) ORDER BY date;");
     $labels = [];
     $data = [];
 
@@ -60,7 +19,6 @@ if ($tp === 'napi') {
         $data[] = $row['latogatas'];
     }
     ?>
-
     <h1>Napi látogatottság:</h1>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div style="width: 80%; margin: auto;">
@@ -109,6 +67,45 @@ if ($tp === 'napi') {
             }
         });
     </script>
-<?php
-}
-?>
+<?php endif; ?>
+
+<?php if ($tp === 'oldalak' || $tp === 'termekek'): ?>
+    <div id="all-statistics" style="display: none;">
+        <?php
+        if ($tp === 'oldalak') {
+            $query = "SELECT nURL, COUNT(nURL) as count FROM `naplo` GROUP BY nURL ORDER BY count DESC;";
+        } elseif ($tp === 'termekek') {
+            $query = "SELECT nURL, COUNT(nURL) as count FROM `naplo` WHERE nURL LIKE '%termek%' GROUP BY nURL ORDER BY count DESC;";
+        }
+        $oldalak = sqlcall($query);
+
+        while ($row = $oldalak->fetch_assoc()):
+            if ($tp === 'termekek') {
+                parse_str(parse_url($row['nURL'], PHP_URL_QUERY), $queryParams);
+                $id = isset($queryParams['id']) ? intval($queryParams['id']) : null;
+                if ($id) {
+                    $termekQuery = sqlcall("SELECT teNev FROM termekek WHERE teID = $id");
+                    $termek = $termekQuery->fetch_assoc();
+                    $termeknev = $termek ? $termek['teNev'] : 'Ismeretlen termék';
+                } else {
+                    $termeknev = 'Ismeretlen termék';
+                }
+            }
+        ?>
+            <div class="stat-item">
+                <div class="row">
+                    <?php if ($tp === 'termekek'): ?>
+                        <div class="col-md-6"><p><?php echo htmlspecialchars($termeknev); ?></p></div>
+                    <?php else: ?>
+                        <div class="col-md-6"><p><?php echo htmlspecialchars($row['nURL']); ?></p></div>
+                    <?php endif; ?>
+                    <div class="col-md-6"><p><?php echo $row['count']; ?> látogatás</p></div>
+                </div>
+            </div>
+        <?php endwhile; ?>
+    </div>
+
+    <div id="statistics-container"></div>
+    <div id="pagination-controls" style="text-align: center; margin-top: 20px;"></div>
+    <script src="js/statisztika.js"></script>
+<?php endif; ?>

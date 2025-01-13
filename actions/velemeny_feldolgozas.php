@@ -6,7 +6,10 @@ if (isset($_POST["accept"])) {
     $params = [1, $ekID];
     $types = "ii";
     sqlsave($sql, $types, $params);
-    header("Location: " . ($_SERVER['HTTP_REFERER'] ?? 'index.php'));
+    echo "<script>
+            alert('Vélemény elfogadva!');
+            window.location.href = '" . ($_SERVER['HTTP_REFERER'] ?? 'index.php') . "';
+          </script>";
     exit();
 }
 
@@ -16,7 +19,10 @@ if (isset($_POST["deny"])) {
     $params = [0, $ekID];
     $types = "ii";
     sqlsave($sql, $types, $params);
-    header("Location: " . ($_SERVER['HTTP_REFERER'] ?? 'index.php'));
+    echo "<script>
+            alert('Vélemény elutasítva!');
+            window.location.href = '" . ($_SERVER['HTTP_REFERER'] ?? 'index.php') . "';
+          </script>";
     exit();
 }
 ?>

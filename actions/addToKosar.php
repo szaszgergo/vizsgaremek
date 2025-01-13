@@ -29,5 +29,5 @@ if ($termek = $termeklekeres->fetch_assoc()) {
     sqlsave("INSERT INTO kosar_tetelek (ktkoID, ktTipus, ktBeazonosito, ktMennyiseg, ktStatus) VALUES ($koID, 'TERMEK', $teid, 1, 1)");
 }
 
-echo "<alert>Termék sikeresen hozzáadva a kosárhoz!</alert>";
+echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 ?>
