@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hétválasztó Táblázat</title>
     <style>
         body,
         html {
@@ -59,7 +58,7 @@
         }
 
         .checkbox-cell.checked {
-            background-color: red;
+            background-color: red !important;
         }
 
         input[type="checkbox"] {
@@ -133,23 +132,28 @@
         let startHour = 6;
         let endHour = 23;
 
-        for (let hour = startHour; hour <= endHour; hour++) {
-            for (let minute = 0; minute < 60; minute += 30) {
-                if (hour === endHour && minute > 0) break;
+        // Hozzáadjuk az aktuális évet
+        const currentYear = new Date().getFullYear();
 
-                const timeString = `${hour}:${minute.toString().padStart(2, '0')}`;
-                Adatok.push({
-                    ido: timeString,
-                    hetfo: "",
-                    kedd: "",
-                    szerda: "",
-                    csutortok: "",
-                    pentek: "",
-                    szombat: "",
-                    vasarnap: ""
-                });
-            }
+        for (let hour = startHour; hour < endHour; hour++) {
+            // A számok előtt 0 hozzáadása, ha kisebbek mint 10
+            const hourString = hour < 10 ? `0${hour}` : `${hour}`;
+            const startTime = `${hourString}:00:00`;
+            const endTime = `${hour + 1 < 10 ? '0' + (hour + 1) : hour + 1}:00:00`;
+            const timeRange = `${startTime}`;
+
+            Adatok.push({
+                ido: timeRange,
+                hetfo: "",
+                kedd: "",
+                szerda: "",
+                csutortok: "",
+                pentek: "",
+                szombat: "",
+                vasarnap: ""
+            });
         }
+
 
         let currentWeekStart = getMonday(new Date());
 
@@ -188,22 +192,31 @@
                 month: '2-digit',
                 day: '2-digit'
             };
+
             document.getElementById('currentWeek').textContent =
                 `${start.toLocaleDateString('hu-HU', options)} - ${end.toLocaleDateString('hu-HU', options)}`;
+
+            const weekdays = ['hetfo', 'kedd', 'szerda', 'csutortok', 'pentek', 'szombat', 'vasarnap'];
+            weekdays.forEach((day, i) => {
+                const date = new Date(currentWeekStart);
+                date.setDate(currentWeekStart.getDate() + i);
+                const dayCell = document.querySelector(`th:nth-child(${i + 2})`);
+                dayCell.textContent = `${day.charAt(0).toUpperCase() + day.slice(1)}\n${date.toLocaleDateString('hu-HU', options)}`;
+            });
         }
 
         function renderTable(data, weekStart) {
             const table = document.getElementById("tablazat");
             table.querySelectorAll("tr:not(:first-child)").forEach(row => row.remove());
 
-            data.forEach(row => {
+            data.forEach((row, rowIndex) => {
                 let tr = document.createElement('tr');
 
                 for (const key in row) {
                     if (key === "ido") {
                         addTD(tr, row[key]);
                     } else {
-                        addInteractiveCell(tr, key);
+                        addInteractiveCell(tr, key, rowIndex, weekStart);
                     }
                 }
 
@@ -217,14 +230,20 @@
             parent.appendChild(td);
         }
 
-        function addInteractiveCell(parent, day) {
+        function addInteractiveCell(parent, day, rowIndex, weekStart) {
             let td = document.createElement("td");
             td.classList.add("checkbox-cell");
 
             let checkbox = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.classList.add("checkbox");
-            checkbox.value = 30;  // Minden checkbox értéke 30
+
+            // Dátum és időpont generálása
+            const dayDate = new Date(weekStart);
+            dayDate.setDate(weekStart.getDate() + ["hetfo", "kedd", "szerda", "csutortok", "pentek", "szombat", "vasarnap"].indexOf(day));
+            const dateStr = `${currentYear}-${(dayDate.getMonth() + 1).toString().padStart(2, '0')}-${dayDate.getDate().toString().padStart(2, '0')}`;
+            const timeRange = Adatok[rowIndex].ido;
+            checkbox.value = `${dateStr} ${timeRange}`; // A checkbox értéke: "YYYY.MM.DD HH:mm-HH:mm"
 
             td.addEventListener("click", function() {
                 checkbox.checked = !checkbox.checked;
@@ -264,9 +283,35 @@
         }
 
         function loadCheckboxes() {
-            // Betöltjük az elmentett checkboxokat (ezt a PHP fogja kezelni, amikor az adatokat visszaküldjük)
+            // Ha az URL-ben '&eid=3' formában szerepel az adat, akkor először pótolni kell a kérdőjelet
+            const url = window.location.href;
+            const correctedUrl = url.indexOf('?') === -1 ? url.replace('&', '?') : url;
+
+            const urlParams = new URLSearchParams(correctedUrl.split('?')[1]);
+            const eid = urlParams.get('eid');
+
+
+
+            fetch(`actions/get_idopontok.php?eid=${eid}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('checkboxes-container');
+                    container.innerHTML = ''; // Clear previous content
+
+                    // Handle checkboxes
+                    const checkboxes = document.querySelectorAll('.checkbox');
+                    checkboxes.forEach(checkbox => {
+                        if (data.includes(checkbox.value)) {
+                            // If there is a match, highlight it
+                            checkbox.parentElement.classList.add('checked'); // Add 'checked' class
+                            checkbox.checked = true; // Check the checkbox
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching idopontok:', error));
         }
     </script>
+
 </body>
 
 </html>

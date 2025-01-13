@@ -1,39 +1,86 @@
 <?php
-session_start();
-// Include the sqlsave function from sqlcall.php
 require_once 'sqlcall.php';
-$eid=intval($_POST['eid']);
-$uid=$_SESSION['uid'];
-$currentDateTime='NOW()';
-// Check if the form is submitted
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the weekKey and checkbox data from the POST request
-    $weekKey = $_POST['weekKey'];
-    
-    // Loop through the checkboxes and save them
-    $totalTime = 0; // A teljes idő összegzése
+    $weekKey = $_POST['weekKey'] ?? null;
+    $eid = $_POST['eid'] ?? null;
+    $curdate = date('Y-m-d H:i:s');
+
+    if (!$weekKey || !$eid) {
+        die('Hibás vagy hiányzó adatok!');
+    }
+
+    $checkboxes = [];
     foreach ($_POST as $key => $value) {
-        if (strpos($key, 'checkbox-') === 0) { // Only process checkbox inputs
-            $totalTime += (int)$value; // Az értéket hozzáadjuk
+        if (strpos($key, 'checkbox-') === 0 && $value !== '0') {
+            $checkboxes[] = $value; // Mentjük a kiválasztott időpontokat
         }
     }
 
-    // Prepare the SQL query to insert or update the data
-    $sql = "INSERT INTO edzok_foglalas (foUserID, foEdzoID, foDate, foNap, foIdo)
-    VALUES (?, ?, ?, ?, ?)
-    ON DUPLICATE KEY UPDATE
-    foDate = ?, foNap = ?, foIdo = ?";
+    if (count($checkboxes) > 0) {
+        $existingTimes = [];
+        $newTimes = [];
 
-// Adjust the parameters to match your actual table schema
-$params = [$uid, $eid, $currentDateTime, 'Monday', $totalTime, $currentDateTime, 'Monday', $totalTime]; 
+        // Ellenőrzés: meglévő foglalások lekérdezése
+        $db = new mysqli('localhost', 'root', '', 'regisztraciofitness');
+        if ($db->connect_error) {
+            die("Adatbázis kapcsolódási hiba: " . $db->connect_error);
+        }
 
-// Execute the query with the correct parameter types
-sqlsave($sql, 'iiissssi', $params);  // Use 'iiisssss' for 3 integers and 4 strings
-//ez még nem jó
+        foreach ($checkboxes as $idopont) {
+            $stmt = $db->prepare("SELECT COUNT(*) AS count FROM edzok_foglalas WHERE foEID = ?  AND fo_idopont = ?");
+            $stmt->bind_param('is', $eid, $idopont);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
 
-    // Respond to the client
-    echo "Adatok sikeresen elmentve!";
-} else {
-    echo "Nem érkezett adat.";
+            if ($row['count'] > 0) {
+                $existingTimes[] = $idopont; // Már meglévő foglalások
+            } else {
+                $newTimes[] = $idopont; // Új időpontok
+            }
+
+            $stmt->close();
+        }
+
+        // Csak az új időpontokat szúrjuk be
+        if (count($newTimes) > 0) {
+            $placeholders = [];
+            $params = [];
+            $types = '';
+
+            foreach ($newTimes as $idopont) {
+                $placeholders[] = "(?, ?, ?, ?)";
+                $params[] = $eid;
+                $params[] = $_SESSION['uid'];
+                $params[] = $curdate;
+                $params[] = $idopont;
+                $types .= 'iiss';
+            }
+
+            $sql = "INSERT INTO edzok_foglalas (foEID, foUID, fo_datum, fo_idopont) VALUES " . implode(", ", $placeholders);
+            $stmt = $db->prepare($sql);
+            $stmt->bind_param($types, ...$params);
+
+            if (!$stmt->execute()) {
+                die('Hiba történt a foglalás mentése során: ' . $stmt->error);
+            }
+
+            $stmt->close();
+        }
+
+        $db->close();
+
+        if (!empty($existingTimes)) {
+            echo 'Az alábbi időpontokat már lefoglalták: ' . implode(', ', $existingTimes);
+        }
+
+        // POST kérés után átirányítjuk a felhasználót egy új GET kérésre, hogy a böngésző ne küldje el újra a POST adatokat.
+        header("Location: " . $_SERVER['PHP_SELF']); // Az oldal újratöltése GET módban
+        exit; // Megakadályozza a további kód futtatását
+    } else {
+        die('Nincsenek kiválasztott időpontok vagy már mind foglaltak!');
+    }
 }
 ?>
