@@ -15,8 +15,6 @@
 
             <?php if (isset($_SESSION['uid'])): ?>
                 <?php
-                require("actions/getkosarcontent.php");
-                $cartContent = getKosarContent();
 
                 $cartContentIterator = new ArrayIterator($cartContent);
                 while ($cartContentIterator->valid()):
