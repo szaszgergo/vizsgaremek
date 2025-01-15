@@ -97,13 +97,15 @@
                 ?>
                 <div class="col-md-12">
                     <div class="blokk">
-                        <div class="card-body ">
+                        <div class="card-body">
                             <h5 class="card-title" id="uzenoCim"><?= htmlspecialchars($legujjabbhir['uzenoCim']); ?></h5>
                             <p class="card-text"><?= htmlspecialchars($truncatedText); ?></p>
                             <p class="card-text"><small
-                            class="text-muted"><?= htmlspecialchars($legujjabbhir['uzenoDatum']); ?></small></p>
-                            <img src="images/uzenofal/<?= htmlspecialchars($legujjabbhir['uzenoKep']); ?>" class="card-img-top uzenofalKep"
-                            alt="News Image"><br>
+                                    class="text-muted"><?= htmlspecialchars($legujjabbhir['uzenoDatum']); ?></small></p>
+                            <?php if (!empty($legujjabbhir['uzenoKep'])): ?>
+                                <img src="images/uzenofal/<?= htmlspecialchars($legujjabbhir['uzenoKep']); ?>"
+                                    class="card-img-top uzenofalKep" alt="News Image"><br>
+                            <?php endif; ?>
                             <a href="?o=uzenofal" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
@@ -113,6 +115,7 @@
             <?php endif; ?>
         </div>
     </section>
+
 
     <section class="sliders">
         <div class="row">
