@@ -973,7 +973,7 @@ h1 {
     margin: 4px 2px;
     cursor: pointer;
 }
-.pagination-btn:hover {
+.pagination-btn.active {
     background-color: #dc3545;
 }
 /*  */

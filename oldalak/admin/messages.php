@@ -69,8 +69,9 @@ $oldalak = sqlcall("SELECT * FROM messages LIMIT $start, $rows_per_page");
     <div class="page-numbers">
         <?php
         for ($counter = 1; $counter <= $pages; $counter++) {
+            $activeClass = ($counter == $page) ? 'active' : '';
         ?>
-            <a class="pagination-btn" href="?o=admin&a=messages&page-nr=<?php echo $counter; ?>"><?php echo $counter; ?></a>
+            <a class="pagination-btn <?php echo $activeClass; ?>" href="?o=admin&a=messages&page-nr=<?php echo $counter; ?>"><?php echo $counter; ?></a>
         <?php
         }
         ?>
