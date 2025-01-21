@@ -80,7 +80,7 @@ $oldalak = sqlcall("SELECT * FROM messages LIMIT $start, $rows_per_page");
     <?php
     if (!isset($_GET['page-nr'])) {
     ?>
-        <a href="?o=admin&a=messages&page-nr=2" class="pagination-btn">Next</a>;
+        <a href="?o=admin&a=messages&page-nr=2" class="pagination-btn">Next</a>
         <?php
     } else {
         if ($_GET['page-nr'] >= $pages) {
