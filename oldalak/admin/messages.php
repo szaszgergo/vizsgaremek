@@ -40,7 +40,7 @@ $oldalak = sqlcall("SELECT * FROM messages LIMIT $start, $rows_per_page");
     <?php endwhile; ?>
 </div>
 
-<div class="page-info">
+<div class="page-info" style="text-align: center;">
     <?php
     if (!isset($_GET['page-nr'])) {
         $page = 1;
@@ -51,7 +51,7 @@ $oldalak = sqlcall("SELECT * FROM messages LIMIT $start, $rows_per_page");
     Showing <?php echo $page; ?> of <?php echo $pages; ?> pages
 </div>
 
-<div class="pagination">
+<div class="pagination" style="display: flex; justify-content: center; align-items: center;">
     <a href="?o=admin&a=messages&page-nr=1" class="pagination-btn">First</a>
 
     <?php

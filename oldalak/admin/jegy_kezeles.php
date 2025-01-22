@@ -1,3 +1,22 @@
+<?php
+$start = 0;
+
+$rows_per_page = 4;
+
+$records = sqlcall("SELECT * FROM tipusok");
+
+$number_of_rows = $records->num_rows;
+
+$pages = ceil($number_of_rows / $rows_per_page);
+
+if (isset($_GET['page-nr'])) {
+    $page = $_GET['page-nr'] - 1;
+    $start = $page * $rows_per_page;
+}
+
+$oldalak = sqlcall("SELECT * FROM tipusok LIMIT $start, $rows_per_page");
+?>
+
 <div class="container mt-5">
     <h2>Jegyek kezelése</h2>
 
@@ -15,8 +34,7 @@
             </div>
 
             <?php
-            $result = sqlcall("SELECT * FROM tipusok");
-            while ($row = $result->fetch_assoc()): ?>
+            while ($row = $oldalak->fetch_assoc()): ?>
                 <div class="row" id="inputcontainer">
                     <form action="actions/admin/edit.php" target="kisablak" method="post" class="row">
                         <input name="tabla" value="tipusok" type="hidden" >
@@ -37,4 +55,62 @@
                 </div>
             <?php endwhile; ?>
     </div>
+</div>
+
+<div class="page-info" style="text-align: center;">
+    <?php
+    if (!isset($_GET['page-nr'])) {
+        $page = 1;
+    } else {
+        $page = $_GET['page-nr'];
+    }
+    ?>
+    Showing <?php echo $page; ?> of <?php echo $pages; ?> pages
+</div>
+
+<div class="pagination" style="display: flex; justify-content: center;align-items: center;">
+    <a href="?o=admin&a=jegy_kezeles&page-nr=1" class="pagination-btn">First</a>
+
+    <?php
+    if (isset($_GET['page-nr']) && $_GET['page-nr'] > 1) {
+    ?>
+        <a href="?o=admin&a=jegy_kezeles&page-nr=<?php echo $_GET['page-nr'] - 1; ?>" class="pagination-btn">Previous</a>
+    <?php
+    } else {
+    ?>
+        <a class="pagination-btn">Previous</a>  
+    <?php
+    }
+    ?>
+
+    <div class="page-numbers">
+        <?php
+        for ($counter = 1; $counter <= $pages; $counter++) {
+            $activeClass = ($counter == $page) ? 'active' : '';
+        ?>
+            <a class="pagination-btn <?php echo $activeClass; ?>" href="?o=admin&a=jegy_kezeles&page-nr=<?php echo $counter; ?>"><?php echo $counter; ?></a>
+        <?php
+        }
+        ?>
+    </div>
+
+    <?php
+    if (!isset($_GET['page-nr'])) {
+    ?>
+        <a href="?o=admin&a=jegy_kezeles&page-nr=2" class="pagination-btn">Next</a>
+        <?php
+    } else {
+        if ($_GET['page-nr'] >= $pages) {
+        ?>
+            <a class="pagination-btn">Next</a>
+        <?php
+        } else {
+        ?>
+            <a class="pagination-btn" href="?o=admin&a=jegy_kezeles&page-nr=<?php echo $_GET['page-nr'] + 1; ?>">Next</a>
+    <?php
+        }
+    }
+    ?>
+
+    <a href="?o=admin&a=jegy_kezeles&page-nr=<?php echo $pages; ?>" class="pagination-btn">Last</a>
 </div>
