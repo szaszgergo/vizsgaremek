@@ -46,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sessionid = session_id();
     $uuid = uniqid('', true);
 
-    $sql = "INSERT INTO user (uUID, uFelhasznalonev, uemail, uPassword, uSzuletesidatum, uRegisztracio, uIP, uSession, uStatus, uKomment)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'a', '.')";
+    $sql = "INSERT INTO user (uUID, uFelhasznalonev, uemail, uPassword, uSzuletesidatum, uRegisztracio, uIP, uSession, uStatus, uKomment, uSzerep)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'a', '.', 1)";
 
     sqlsave($sql, 'ssssssss', [$uuid, $username, $email, $password, $date, $curdate, $ip, $sessionid]);
 

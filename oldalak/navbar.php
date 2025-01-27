@@ -26,7 +26,7 @@ $adatok = getUserInfo();
                 <a href="actions/logout.php" class="btn btn-danger m-2"><?= $languageContent['logoutBtn'] ?></a>
             <?php endif; ?>
             <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "admin"):?>
-            <a class="btn btn-danger m-2" href="?o=admin&a=felhasznalo_kezeles">Admin</a>
+            <a class="btn btn-danger m-2" href="?o=admin&a=felhasznalo_kezeles&search=">Admin</a>
             <?php endif; ?>
             <!-- Cart Icon -->
             <div class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#kosarpopup">
