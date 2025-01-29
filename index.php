@@ -82,7 +82,7 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
         <meta content="LiftZone" property="og:title" />
         <meta content="Ez az oldalunk leírása" property="og:description" />
         <meta content="https://liftzone.hu" property="og:url" />
-        <meta content="https://liftzone.hu/images/logo.png" property="og:image" />
+        <meta content="http://liftzone.hu/images/logo.png" property="og:image" />
         <meta content="#43B581" data-react-helmet="true" name="theme-color" />
         <title><?= htmlspecialchars($cim) ?></title>
     </head>
