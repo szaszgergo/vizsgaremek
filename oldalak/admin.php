@@ -10,7 +10,7 @@ if (!isset($_SESSION["szerep"]) || $_SESSION["szerep"] != "admin") {
         <h3 class="text-center text-white">Admin Kezelőfelület</h3>
         <?php 
         $currentPage = $_GET['a'] ?? '';?>
-        <a href="?o=admin&a=felhasznalo_kezeles" class="<?php echo ($currentPage === 'felhasznalo_kezeles') ? 'active' : ''; ?>">Felhasználok kezelése</a>
+        <a href="?o=admin&a=felhasznalo_kezeles&search=" class="<?php echo ($currentPage === 'felhasznalo_kezeles') ? 'active' : ''; ?>">Felhasználok kezelése</a>
         <a href="?o=admin&a=edzo_kezeles" class="<?php echo ($currentPage === 'edzo_kezeles') ? 'active' : ''; ?>">Edzők kezelése</a>
         <a href="?o=admin&a=kupon_kezeles" class="<?php echo ($currentPage === 'kupon_kezeles') ? 'active' : ''; ?>">Kuponok kezelése</a>
         <a href="?o=admin&a=jegy_kezeles" class="<?php echo ($currentPage === 'jegy_kezeles') ? 'active' : ''; ?>">Jegy típusok kezelése</a>
@@ -24,7 +24,7 @@ if (!isset($_SESSION["szerep"]) || $_SESSION["szerep"] != "admin") {
     <div class="main-content col-md-8">
         <?php
         $adminoldalak = [
-            "felhasznalo_kezeles" => "oldalak/admin/felhasznalo_kezeles.php",
+            "felhasznalo_kezeles" => "oldalak/admin/felhasznalo_kezeles.php",   
             "edzo_kezeles" => "oldalak/admin/edzo_kezeles.php",
             "jegy_kezeles" => "oldalak/admin/jegy_kezeles.php",
             "termek_kezeles" => "oldalak/admin/termek_kezeles.php",
