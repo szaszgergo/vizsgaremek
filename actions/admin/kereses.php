@@ -11,7 +11,7 @@ if ($searchQuery === '') {
 $sql = "SELECT * FROM `user` WHERE uSzerep != 3 AND uFelhasznalonev LIKE '%$searchQuery%'";
 $users = sqlcall($sql);
 
-if (!empty($users)) {
+if ($users->num_rows > 0) {
     echo "<div class='table'>
             <div class='row'>
                 <div class='col-md-6'>Név</div>
@@ -25,7 +25,7 @@ if (!empty($users)) {
                     <div class='col-md-4'>" . htmlspecialchars($user['uSzuleteskorinev']) . "</div>
                     <div class='col-md-4'>" . htmlspecialchars($user['uFelhasznalonev']) . "</div>
                     <div class='col-md-4'>
-                        <button style='background-color: #0d6efd; class='btn btn-primary' type='submit'>Add as Trainer</button>
+                        <button style='background-color: #0d6efd;' class='btn btn-primary' type='submit'>Add as Trainer</button>
                     </div>
                 </form>
               </div>";

@@ -29,9 +29,8 @@ $oldalak = sqlcall("SELECT * FROM user WHERE uSzerep = 3 LIMIT $start, $rows_per
             <div class="col-md-2">Felhasználónév</div>
             <div class="col-md-2">Profilkép</div>
             <div class="col-md-1">email</div>
-            <div class="col-md-1">telefonszám</div>
             <div class="col-md-1">Komment</div>
-            <div class="col-md-3 text-end">Új hozzáadása: <button class="btn btn-primary btn-new">+</button></div>
+            <div class="col-md-3 text-end">Új hozzáadása: <button class="btn btn-primary btn-new" data-bs-toggle='modal' data-bs-target='#ujedzo' style='background-color: #0d6efd;'>+</button></div>
         </div>
 
 
@@ -83,14 +82,6 @@ $oldalak = sqlcall("SELECT * FROM user WHERE uSzerep = 3 LIMIT $start, $rows_per
                         <?php endif; ?>
                     </div>
 
-                    <div class="col-md-1">
-                        <?php if ($isDeleted): ?>
-                            <span><?php echo htmlspecialchars($adatok['szeTelefon']); ?></span>
-                        <?php else: ?>
-                            <input type="text" name="szeTelefon" value="<?php echo htmlspecialchars($adatok['szeTelefon']); ?>" readonly class="form-control">
-                        <?php endif; ?>
-                    </div>
-
                     <div class="col-md-2">
                         <?php if ($isDeleted): ?>
                             <span><?php echo htmlspecialchars($row['uKomment']); ?></span>
@@ -105,7 +96,7 @@ $oldalak = sqlcall("SELECT * FROM user WHERE uSzerep = 3 LIMIT $start, $rows_per
                             <button type="submit" class="btn btn-success" id="btn-save">Save</button>
                         </div>
                         <div class="col-md-1">
-                            <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Edzői jog megvonása</button>
+                            <button type="submit" formaction="actions/admin/edzodemote.php" class="btn btn-danger">Edzői jog megvonása</button>
                         </div>
                     <?php endif; ?>
                 </form>
