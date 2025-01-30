@@ -10,9 +10,8 @@
         <div class="col-md-2">Felhasználónév</div>
         <div class="col-md-2">Profilkép</div>
         <div class="col-md-1">email</div>
-        <div class="col-md-1">telefonszám</div>
         <div class="col-md-1">Komment</div>
-        <div class="col-md-3 text-end">Új hozzáadása: <button class="btn btn-primary btn-new">+</button></div>
+        <div class="col-md-3 text-end">Új hozzáadása: <button class="btn btn-primary btn-new" data-bs-toggle='modal' data-bs-target='#ujedzo'>+</button></div>
     </div>
 
 
@@ -62,14 +61,6 @@
                         <span><?php echo htmlspecialchars($row['uemail']); ?></span>
                     <?php else: ?>
                         <input type="text" name="uemail" value="<?php echo htmlspecialchars($row['uemail']); ?>" readonly class="form-control">
-                    <?php endif; ?>
-                </div>
-
-                <div class="col-md-1">
-                    <?php if ($isDeleted): ?>
-                        <span><?php echo htmlspecialchars($adatok['szeTelefon']); ?></span>
-                    <?php else: ?>
-                        <input type="text" name="szeTelefon" value="<?php echo htmlspecialchars($adatok['szeTelefon']); ?>" readonly class="form-control">
                     <?php endif; ?>
                 </div>
 

@@ -129,6 +129,7 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
 
         $adminPopups = [
             'kupon_kezeles' => ["oldalak/admin/popups/uj_kupon.php"],
+            'edzo_kezeles' => ["oldalak/admin/popups/uj_edzo.php"],
             'termek_kezeles' => ["oldalak/admin/popups/uj_termek.php"]
         ];
 
