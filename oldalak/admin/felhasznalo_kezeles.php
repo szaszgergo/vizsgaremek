@@ -62,8 +62,7 @@
             <div class="col-md-2">Felhasználónév</div>
             <div class="col-md-2">Profilkép</div>
             <div class="col-md-2">email</div>
-            <div class="col-md-1">Komment</div>
-            <div class="col-md-3 text-end">Új hozzáadása: <button class="btn btn-primary btn-new">+</button></div>
+            <div class="col-md-2">Komment</div>
         </div>
 
         <?php

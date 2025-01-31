@@ -26,7 +26,7 @@
                     
                     <div class="mb-3">
                         <label for="teKepek" class="form-label">Képek feltöltése</label>
-                        <input type="file" class="form-control" id="teKepek" name="teKepek[]" multiple accept="image/*">
+                        <input type="file" class="form-control" id="teKepek" required name="teKepek[]" multiple accept="image/*">
                         <div class="form-text">Tölts fel egy vagy több képet a termékről (JPEG, PNG, stb.).</div>
                     </div>
             </div>
