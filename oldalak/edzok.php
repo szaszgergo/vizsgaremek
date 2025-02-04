@@ -77,13 +77,7 @@
                             <p><i class="fa fa-envelope" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i><?php echo htmlspecialchars($row['szeEmail']); ?></p>
                             <p><i class="fa fa-phone p-1" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i><?php echo htmlspecialchars($row['szeTelefon']); ?></p>
                             <p>
-                                <?php
-                                if (isset($_SESSION["lang"]) && $_SESSION["lang"] == "en") {
-                                    echo htmlspecialchars($row['szeVegzettsegEN']);
-                                } else {
-                                    echo htmlspecialchars($row['szeVegzetseg']);
-                                }
-                                ?>
+                                <?php echo htmlspecialchars($row['szeVegzetseg']); ?>
                             </p>
                         </div>
                         <div class="col mt-3">
@@ -144,25 +138,16 @@
                         </a>
                     </div>
                     <hr class="text-warning">
-                    <p class="motivational-text">
-                        <?php
-                        if (isset($_SESSION["lang"]) && $_SESSION["lang"] == "en") {
-                            echo htmlspecialchars($row['szeLeirasEN']);
-                        } else {
-                            echo htmlspecialchars($row['szeLeiras']);
-                        }
-                        ?>
-                    </p>
-                    <p>
-                        <?php
-                        if (isset($_SESSION["lang"]) && $_SESSION["lang"] == "en") {
-                            echo htmlspecialchars($row['szeLeiras2EN']);
-                        } else {
-                            echo htmlspecialchars($row['szeLeiras2']);
-                        }
-                        ?>
-                    </p>
-
+                    <form action="actions/edzo_leiras_mentes.php" target="kisablak" method="post">
+                        <input name="eid" value="<?php echo htmlspecialchars($_GET['eid']); ?>" type="hidden">
+                        <p class="motivational-text">
+                            <textarea style="background: transparent; color: #fff; resize: none; width: 100%; min-height: 400px;" readonly id="leiras_textarea" name="edzo_leirasa"> <?php echo htmlspecialchars($row['szeLeiras']); ?> </textarea>
+                        </p>
+                    
+                        <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"): ?>
+                        <button class="btn btn-warning" style="font-size: 1.2rem;" id="edit_leiras">Szerkesztés</button>
+                        <?php endif; ?>
+                    </form>
                     <!-- Csillagos értékelés és forma -->
                     <div class="rating-container ">
                         <h2><?= $languageContent["ertekeld"] ?></h2>
@@ -244,7 +229,7 @@
                             <p><?= $languageContent["jelentkezzItt"] ?></p>
 
 
-                            <button  id="booking-button" type="button" class="btn btn-warning" style="font-size:20px;">
+                            <button id="booking-button" type="button" class="btn btn-warning" style="font-size:20px;">
                                 <?= $languageContent["jelentkezes"] ?>
                             </button>
                             <div id="error-message" class="alert alert-danger mt-3 p-1" style="display: none; width:88%;">Nem vagy bejelentkezve!</div>
@@ -298,10 +283,10 @@
                                 Elküldés
                             </button>
                             <div class="row">
-                                <div class="col-md-3"> <button id="szerkezdkomment_valtoztatas" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="button">Szerkesztés</button>
+                                <div class="col-md-3"> <button id="szerkezdkomment_valtoztatas" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="button"><?php echo $languageContent['edit']; ?></button>
                                 </div>
                                 <div class="col-md-3">
-                                    <button id="szerkezdkomment" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="submit" formaction="actions/komment_update.php" class="btn btn-danger">Elküldés</button>
+                                    <button id="szerkezdkomment" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="submit" formaction="actions/komment_update.php" class="btn btn-danger"><?php echo $languageContent['send']; ?></button>
                                     <script>
                                         document.getElementById('szerkezdkomment_valtoztatas').addEventListener('click', function() {
                                             const textarea = document.getElementById('textarea_komment');
@@ -315,6 +300,26 @@
                                                 textarea.style.borderColor = '';
                                             }
                                         });
+                                        const editBtn = document.getElementById('edit_leiras')
+                                        editBtn.onclick = function(){
+                                            const leiras = document.getElementById('leiras_textarea')
+
+                                            if(leiras.hasAttribute('readonly')){
+                                                leiras.removeAttribute('readonly')
+                                                leiras.style.backgroundColor = "#fff"
+                                                leiras.style.color = "black"
+                                            } else{
+                                                leiras.setAttribute('readonly', 'true')
+                                                leiras.style.backgroundColor = "transparent"
+                                                leiras.style.color = "#fff"
+                                            }
+
+                                            if(editBtn.innerText == "Szerkesztés"){
+                                                editBtn.innerText = "Mentés"
+                                            } else{
+                                                editBtn.innerText = "Szerkesztés"
+                                            }
+                                        }
                                     </script>
                                 </div>
                             </div>

@@ -105,11 +105,7 @@
                                 <p><?php echo $row['szeEmail'] ?></p>
                                 <p>
                                 <?php
-                                if (isset($_SESSION["lang"]) && $_SESSION["lang"] == "en") {
-                                    echo htmlspecialchars($row['szeVegzettsegEN']);
-                                } else {
                                     echo htmlspecialchars($row['szeVegzetseg']);
-                                }
                                 ?>
                                 </p>
                             </div>
