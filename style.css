@@ -907,7 +907,6 @@ h1 {
 .blokk {
     background: var(--transparent-black);
     min-height: 100px;
-    width: 800px;
     margin: auto;
     text-align: center;
     margin-bottom: 30pt;

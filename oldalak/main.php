@@ -54,6 +54,7 @@
                 </div>
             <?php endwhile; ?>
         </div>
+        <a href="?o=shop" class="btn btn-primary">Tovább a termékeinkhez</a>
     </section>
 
 
