@@ -176,6 +176,7 @@
                         ?>
 </form>
 <!-- Csillagos értékelés és forma -->
+<?php if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
 <div class="rating-container ">
     <h2><?= $languageContent["ertekeld"] ?></h2>
     <form id="rating-form" action="actions/star_submit.php" target="kisablak" method="POST">
@@ -190,6 +191,7 @@
     </form>
     <p id="error" style="color:red;"></p>
 </div>
+<?php endif; ?>
 
 <script>
     // Csillag értékelési script
