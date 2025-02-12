@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     sqlsave($sql, 'ssssssss', [$uuid, $username, $email, $password, $date, $curdate, $ip, $sessionid]);
 
-    sendMail($email, "Sikeres regisztáció!", "Köszönjük hogy csatlakoztál a LiftZonehoz!");
+    sendMail($email, "regisztracio");
 
     echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";
 }
