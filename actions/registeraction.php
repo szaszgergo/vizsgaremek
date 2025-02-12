@@ -4,7 +4,8 @@ require("sqlcall.php");
 require("formhandling.php");
 
 // CAPTCHA generálása
-function generateCaptcha() {
+function generateCaptcha()
+{
     $szam1 = rand(1, 9);
     $szam2 = rand(1, 9);
     $_SESSION['eredmeny'] = $szam1 + $szam2;
@@ -51,6 +52,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     sqlsave($sql, 'ssssssss', [$uuid, $username, $email, $password, $date, $curdate, $ip, $sessionid]);
 
-    echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";
+    $to = "email";
+    $subject = "Test Email from PHP";
+    $message = "This is a test email sent using the PHP mail() function.";
+    $headers = "From: info@liftzone.hu\r\n" .
+        "Reply-To: info@liftzone.hu\r\n" .
+        "X-Mailer: PHP/" . phpversion();
+
+    if (mail($to, $subject, $message, $headers)) {
+        echo "Email sent successfully!";
+    } else {
+        echo "Failed to send email.";
     }
-?>
+
+    echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";
+}
