@@ -9,9 +9,10 @@ editButtons.forEach(editButton => {
 
         var inputs = row.querySelectorAll('input');
         inputs.forEach(input => {
-            input.setAttribute('data-original-value', input.value);
+            
 
             input.removeAttribute('readonly');
+            input.removeAttribute('disabled');
             input.style.backgroundColor = '#fff';
             input.style.color = '#000';
         });
@@ -29,9 +30,10 @@ saveButtons.forEach(saveButton => {
 
         var inputs = row.querySelectorAll('input');
         inputs.forEach(input => {
-            input.value = input.getAttribute('data-original-value');
+            
 
             input.setAttribute('readonly', 'true');
+            input.setAttribute('disabled', 'true');
             input.style.backgroundColor = "transparent";
             input.style.color = '#fff';
         });

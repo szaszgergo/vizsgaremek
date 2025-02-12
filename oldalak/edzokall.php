@@ -78,17 +78,21 @@
 
     <div class="row edzo m-1">
         <?php
-        $result = sqlcall("SELECT * FROM szemelyi_edzok");
+        if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"):
+            $result = sqlcall("SELECT * FROM szemelyi_edzok");
+        else:
+            $result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeVisibility = 1");
+        endif;
         while ($row = $result->fetch_assoc()):
             $szeKepek = json_decode($row['szeKepek'], true);
         ?>
             <div class="col-md-3">
                 <div class="edzo-item">
                     <div class="thefront">
-                        <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>" alt="Edző képe" />
+                        <img src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>" alt="Edző képe" />
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>" class="edzo-nev"><?php echo htmlspecialchars($row['szeuFelhasznalonev']); ?></a>
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>">
-                            <button type="button" class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb'] ?></button>
+                            <button type="button" class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb'] ?></button>    
                         </a>
                     </div>
                     <div class="theback">

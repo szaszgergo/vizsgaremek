@@ -7,8 +7,8 @@ sqlcall($sql);
 
 
 $edzotablasql = "INSERT INTO szemelyi_edzok
-( szeUID, szeVegzetseg, szeLeiras, szeVegzettsegEN, szeLeiras2, szeLeiras2EN, szeElerhetoseg, szeKepek,  szeStatus) VALUES
-($uid, '', '', '', '', '', '', '', 'a');";
+( szeUID, szeVegzetseg, szeLeiras, szeElerhetoseg, szeKepek,  szeStatus) VALUES
+($uid, '', '', '', '', 'a');";
 sqlsave($edzotablasql);
 
 
