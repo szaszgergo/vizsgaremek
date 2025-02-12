@@ -186,7 +186,7 @@
         <p><?= $languageContent["lepjKapcsolatba"] ?></p>
         <div class="contact-form mt-4 p-3 rounded"
             style="background-color: var(--transparent-black); max-width: 400px; margin: auto; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-            <form action="actions/uzenetKuldesIr.php" method="post" target="kisablak">
+            <form action="actions/uzenet_kuldes.php" method="post" target="kisablak">
                 <div class="form-group">
                     <label for="email" class="text-white"><?= $languageContent["emailLabel"] ?></label>
                     <input type="email" name="email" id="email" class="form-control" style="border-radius: 5px;"

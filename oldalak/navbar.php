@@ -23,7 +23,7 @@ $adatok = getUserInfo();
                         <img alt="Profile Image" class="profile-image" src="profile_pic/<?= empty($adatok['uProfilePic']) ? '../images/pic.png' : $adatok['uProfilePic'] ?>"/>
                     </a>
                 </span>
-                <a href="actions/logout.php" class="btn btn-danger m-2"><?= $languageContent['logoutBtn'] ?></a>
+                <a href="actions/kijelentkezes.php" class="btn btn-danger m-2"><?= $languageContent['logoutBtn'] ?></a>
             <?php endif; ?>
             <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "admin"):?>
             <a class="btn btn-danger m-2" href="?o=admin&a=felhasznalo_kezeles&search=">Admin</a>
@@ -33,7 +33,7 @@ $adatok = getUserInfo();
                 <i class="fa fa-shopping-cart fa-xl"></i>
                 <?php
                 if (isset($_SESSION['uid'])):
-                require("actions/getkosarcontent.php");
+                require("actions/kosar_tartalom.php");
                 $cartContent = getKosarContent();
                 ?><span class="kosarszam"><?php echo count($cartContent);?></span>
                 <?php endif; ?>
@@ -45,12 +45,12 @@ $adatok = getUserInfo();
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageMenu">
                     <li id="hungaryOption">
-                        <a class="dropdown-item d-flex align-items-center" href="actions/change_language.php?lang=hu" onclick="switchFlag('images/hu_flag.png')">
+                        <a class="dropdown-item d-flex align-items-center" href="actions/nyelv_valtoztatas.php?lang=hu" onclick="switchFlag('images/hu_flag.png')">
                             <img src="images/hu_flag.png" alt="Hungary" class="flag-icon"> <?= $languageContent['hu'] ?>
                         </a>
                     </li>
                     <li id="usaOption">
-                        <a class="dropdown-item d-flex align-items-center" href="actions/change_language.php?lang=en" onclick="switchFlag('images/us_flag.png')">
+                        <a class="dropdown-item d-flex align-items-center" href="actions/nyelv_valtoztatas.php?lang=en" onclick="switchFlag('images/us_flag.png')">
                             <img src="images/us_flag.png" alt="USA" class="flag-icon"> <?= $languageContent['en'] ?>
                         </a>
                     </li>

@@ -1,9 +1,9 @@
 <?php
 
 require('actions/naplozas.php');
-require('actions/apicall.php');
+require('actions/api_hivas.php');
 require('actions/getuserinfo.php');
-require('actions/getjegytipusadatok.php');
+require('actions/jegy_tipusok.php');
 
 $cimek = [
     "arak" => "Áraink | LiftZone",
@@ -91,7 +91,7 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
         <div class="site">
             <?php
             naplo();
-            require('actions/language.php');
+            require('actions/nyelv_betoltes.php');
             require('oldalak/navbar.php');
             ?>
 
