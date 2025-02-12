@@ -2,6 +2,7 @@
 session_start();
 require("sqlcall.php");
 require("formhandling.php");
+require("mail.php");
 
 // CAPTCHA generálása
 function generateCaptcha()
@@ -52,18 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     sqlsave($sql, 'ssssssss', [$uuid, $username, $email, $password, $date, $curdate, $ip, $sessionid]);
 
-    $to = "email";
-    $subject = "Test Email from PHP";
-    $message = "This is a test email sent using the PHP mail() function.";
-    $headers = "From: info@liftzone.hu\r\n" .
-        "Reply-To: info@liftzone.hu\r\n" .
-        "X-Mailer: PHP/" . phpversion();
-
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Email sent successfully!";
-    } else {
-        echo "Failed to send email.";
-    }
+    sendMail($email, "Sikeres regisztáció!", "Köszönjük hogy csatlakoztál a LiftZonehoz!");
 
     echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";
 }
