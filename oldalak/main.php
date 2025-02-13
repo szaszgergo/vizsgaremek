@@ -25,7 +25,7 @@
     </section>
 
     <!-- Webshop Products Section -->
-    <section class="m-5 p-5">
+    <section class="m-5">
         <div class="row mb-5">
             <h1 class="mb-4">Termékeink</h1>
             <?php
@@ -59,10 +59,10 @@
 
 
 
-    <section id="gepek">
-        <section class="m-5 p-5">
+    <section id="gepek" class="p-2">
+        <section class="m-5">
             <div class="row  mb-5">
-                <div class="col-md-6 p-4 bg-warning text-dark" style="text-align:left; border-radius:20px;">
+                <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
                     <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['modernGepek'] ?></h1>
                     <p><?= $languageContent['modernGepekSzovege'] ?></p>
                     <button onclick='window.top.location.href = "./?o=arak";'
@@ -73,10 +73,10 @@
             </div>
         </section>
 
-        <section class="m-5 p-5">
+        <section class="m-5">
             <div class="row mb-5">
                 <div class="col-md-6"></div>
-                <div class="col-md-6 p-4 bg-warning text-dark" style="text-align:left; border-radius:20px;">
+                <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
                     <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['fitnessCardio'] ?>
                     </h1>
                     <p><?= $languageContent['fitnessCardioSzovege'] ?></p>
@@ -88,7 +88,7 @@
         </section>
     </section>
     <!-- News Board Section -->
-    <section class="m-5 p-5">
+    <section class="m-5">
         <div class="row mb-5">
             <?php
             $news = sqlcall("SELECT * FROM uzenofal ORDER BY uzenoDatum DESC LIMIT 1");
@@ -164,7 +164,7 @@
 
     </section>
 
-    <section class="m-5 p-5">
+    <section class="m-5">
         <div class="row mb-5">
             <div class="col-md-6" style="text-align:left;">
                 <h1 style="text-align:left;"><?= $languageContent['gyere'] ?></h1>
