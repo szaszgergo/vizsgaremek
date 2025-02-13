@@ -1,58 +1,60 @@
-<div class="modal fade" id="kosarpopup" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-    aria-hidden="true">
+<div class="modal fade" id="kosarpopup" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content bg-dark text-light">
             <div class="modal-header">
                 <h5 class="modal-title" id="kosar">Kosár</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <?php
 
-            $osszar = 0;
-            ?>
-                                <div class="modal-body">
+            <?php $osszar = 0; ?>
 
-            <?php if (isset($_SESSION['uid'])): ?>
-                <?php
-                if (count($cartContent) > 0):
-                    $cartContentIterator = new ArrayIterator($cartContent);
-                    while ($cartContentIterator->valid()):
-                        $item = $cartContentIterator->current();
-                        $type = $item["type"];
-                        $details = $item["details"];
-                        $teid = $details["teID"];
-                        $count = $item["count"];
-                        $name = $details["teNev"];
-                        $price = $details["teAr"];
-                        $osszar += ($price * $count);
-                        $description = $details["teLeiras"];
-                        $cartContentIterator->next();
-                        ?>
+            <div class="modal-body">
+                <?php if (isset($_SESSION['uid'])): ?>
+                    <?php if (count($cartContent) > 0): ?>
+                        <div class="row mb-2">
+                            <div class="col"><strong>Név</strong></div>
+                            <div class="col"><strong>Darabszám</strong></div>
+                            <div class="col"><strong>Ár</strong></div>
+                            <div class="col"><strong></strong></div>
+                        </div>
 
-                            <div class="row mb-2">
-                                <div class="col"><strong>Kép</strong></div>
-                                <div class="col"><strong>Név</strong></div>
-                                <div class="col"><strong>Darabszám</strong></div>
-                                <div class="col"><strong>Ár</strong></div>
-                                <div class="col"><strong></strong></div>
+                        <?php foreach ($cartContent as $item): ?>
+                            <?php
+                            $type = $item["type"];
+                            $details = $item["details"];
+                            $count = $item["count"];
+                            
+                            if ($type === "JEGY") {
+                                // JEGY (Pass) Handling
+                                $name = $details["tpNev"];
+                                $price = $details["tpAr"];
+                                $id = $details["tpID"];
+                            } else {
+                                // TERMÉK (Product) Handling
+                                $name = $details["teNev"];
+                                $price = $details["teAr"];
+                                $id = $details["teID"];
+                                $mappa = "./images/termekek/" . $id . "/";
+                                $coverImage = "default.png";
 
-                            </div>
+                                if (is_dir($mappa)) {
+                                    $images = glob("$mappa*.{png,jpg,jpeg,gif,webp}", GLOB_BRACE);
+                                    if (!empty($images)) {
+                                        $coverImage = $images[0];
+                                    }
+                                }
+                            }
+
+                            $osszar += ($price * $count);
+                            ?>
+
                             <div class="row" id="inputcontainer">
-                                <div class="col">
-                                    <?php
-                                    $mappa = "./images/termekek/" . $teid . "/";
-                                    $coverImage = "default.png";
+                                <?php if ($type !== "JEGY"): // Only show image for products ?>
+                                    <div class="col">
+                                        <img src="<?= htmlspecialchars($coverImage); ?>" alt="<?= htmlspecialchars($name); ?>" style="width: 60pt; height: 60pt; object-fit: strech;">
+                                    </div>
+                                <?php endif; ?>
 
-                                    if (is_dir($mappa)) {
-                                        $images = glob("$mappa*.{png,jpg,jpeg,gif,webp}", GLOB_BRACE);
-                                        if (!empty($images)) {
-                                            $coverImage = $images[0];
-                                        }
-                                    } ?>
-                                    <img src="<?= htmlspecialchars($coverImage); ?>" alt="<?= htmlspecialchars($name); ?>"
-                                        style="width: 60pt; height: 60pt; object-fit: strech;">
-                                </div>
                                 <div class="col">
                                     <strong><?= htmlspecialchars($name); ?></strong><br>
                                 </div>
@@ -64,12 +66,13 @@
                                 </div>
                                 <div class="col text-right">
                                     <form action="actions/kosar_termek_torles.php" target="kisablak" method="POST">
-                                        <input name="id" value="<?php echo htmlspecialchars($teid); ?>" type="hidden">
+                                        <input name="id" value="<?php echo htmlspecialchars($id); ?>" type="hidden">
                                         <button type="submit" class="btn btn-danger btn-sm">-</button>
                                     </form>
                                 </div>
                             </div>
-                    <?php endwhile; ?>
+                        <?php endforeach; ?>
+
                     <?php else: ?>
                         <h1 class="text">Jelenleg üres a kosarad</h1>
                     <?php endif; ?>
@@ -80,7 +83,7 @@
             <?php endif; ?>
 
             <div class="modal-footer">
-                <?php echo "<p class='text-right '>" . number_format($osszar, 0, ',', ' ') . "Ft <p>"; ?>
+                <p class="text-right"><?= number_format($osszar, 0, ',', ' ') ?> Ft</p>
                 <button type="submit" class="btn btn-primary">Vásárlás</button>
             </div>
         </div>

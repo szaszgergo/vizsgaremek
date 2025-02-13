@@ -8,7 +8,6 @@ require('actions/jegy_tipusok.php');
 $cimek = [
     "arak" => "Áraink | LiftZone",
     "fiok" => "Fiókod | LiftZone",
-    "jegyvasarlasform" => "Jegy vásárlása | LiftZone",
     "jelszomodositasform" => "Jelszó módosítása | LiftZone",
     "loginform" => "Bejelentkezés | LiftZone",
     "registerform" => "Regisztráció | LiftZone",
@@ -27,7 +26,6 @@ $cimek = [
 $belepettoldalak = [
     "arak" => "oldalak/arak.php",
     "fiok" => "oldalak/fiok.php",
-    "jegyvasarlasform" => "oldalak/jegyvasarlasform.php",
     "jelszomodositasform" => "oldalak/jelszomodositasform.php",
     "adatvedelem" => "oldalak/adatvedelem.php",
     "faqs" => "oldalak/faqs.php",
@@ -118,7 +116,7 @@ $cim = $cimek[$o] ?? "404 | LiftZone";
 
         <?php
         $popups = [
-            'jegyvasarlasform' => [
+            'shop' => [
                 "oldalak/popups/jegy_vasarlas_popup.php",
                 "oldalak/popups/kartya_informacio_popup.php"
             ],

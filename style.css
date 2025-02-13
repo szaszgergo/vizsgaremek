@@ -381,13 +381,11 @@ a {
 /* webshop.php */
 .webshop{
     padding: 1rem;
-    .product-card {
+    .product-card, .card {
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         border-radius: 8px;
         overflow: hidden;
         transition: transform 0.3s ease-in-out;
-        display: flex;
-        flex-direction: column;
         height: 100%;
     }
 
@@ -399,10 +397,18 @@ a {
 
     .product-info {
         padding: 15px;
-        flex-grow: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+    }
+
+    .btn-primary {
+        align-self: flex-start;
+    }
+
+    .toggle-buttons button {
+        width: 150px;
+        margin: 0 10px;
     }
 }
 /* ---------------------- */
