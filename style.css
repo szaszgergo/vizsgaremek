@@ -14,10 +14,6 @@
     --transparent-black: #000000dd;
 }
 
-*{
-    word-wrap: break-word;
-}
-
 .bg-transparentblack{
     background: var(--transparent-black);
     border-radius: 3%;
