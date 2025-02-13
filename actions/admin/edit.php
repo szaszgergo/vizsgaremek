@@ -22,5 +22,5 @@
     
     $sql = dinamikusSQLGenerátor_inátor($tabla, $adatok, $primaryKey, $id);
     sqlsave($sql);
-    echo "<script>window.top.postMessage({editSuccess: true}, '*');</script>";
+    echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 ?>

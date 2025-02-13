@@ -20,5 +20,5 @@
     $sql = dinamikusSQLGenerátor_inátor_csak_torleshez($tabla, $primaryKey, $id, $statusField);
     sqlsave($sql);
     
-    echo "<script>window.top.postMessage({deleteSuccess: true}, '*');</script>";
+    echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 ?>
