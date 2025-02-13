@@ -29,7 +29,7 @@ $jegyek = sqlcall("SELECT * FROM tipusok");
             <div class="row">
                 <?php if ($termekek->num_rows > 0): ?>
                     <?php while ($termek = $termekek->fetch_assoc()): ?>
-                        <div class="col-md-3">
+                        <div class="col-lg-3 col-md-4">
                             <div class="product-card">
                                 <?php
                                 $mappa = "./images/termekek/" . $termek['teID'] . "/";

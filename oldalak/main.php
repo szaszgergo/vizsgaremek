@@ -40,7 +40,7 @@
                     }
                 }
                 ?>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card" style="margin: 1rem;">
                         <img src="<?= htmlspecialchars($coverImage); ?>" class="card-img-top"
                             alt="<?= htmlspecialchars($termek['teNev']); ?>">
