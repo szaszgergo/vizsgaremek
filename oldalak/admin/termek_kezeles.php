@@ -1,8 +1,6 @@
 <?php
 $start = 0;
-
-$rows_per_page = 4;
-
+$rows_per_page = 10;
 $records = sqlcall("SELECT * FROM termekek");
 
 $number_of_rows = $records->num_rows;
@@ -23,36 +21,44 @@ $oldalak = sqlcall("SELECT * FROM termekek LIMIT $start, $rows_per_page");
     <h3 class="mt-5">Létező termékek</h3>
     <div class="table">
         <div class="row">
+            <div class="col-md-2"></div>
             <div class="col-md-3">Termék neve</div>
-            <div class="col-md-3">Termék ára (HUF)</div>
-            <div class="col-md-4">teLeiras</div>
+            <div class="col-md-2">Termék ára (HUF)</div>
+            <div class="col-md-3">teLeiras</div>
             <div class="col-md-2"><button class="btn btn-primary btn-new " data-bs-toggle='modal'
                     data-bs-target='#ujtermekpopup'>+</button></div>
-
         </div>
         <?php
-        while ($row = $oldalak->fetch_assoc()): ?>
+        while ($row = $oldalak->fetch_assoc()): 
+            $rowClass = ($row['teStatus'] == 0) ? 'bg-danger text-white' : '';
+        ?>
         <form action="actions/admin/edit.php" target="kisablak" method="POST">
-            <div class="row" id="inputcontainer">
-                <input name="tabla" value="termekek" type="hidden" >
+            <div class="row <?php echo $rowClass; ?>" id="inputcontainer">
+                <input name="tabla" value="termekek" type="hidden">
                 <input name="primary_key" value="teID" type="hidden">
-                <input name="id"  value="<?php echo htmlspecialchars($row['teID']); ?>" type="hidden">
+                <input name="id" value="<?php echo htmlspecialchars($row['teID']); ?>" type="hidden">
+                <div class="col-md-2"><img src="images/termekek/<?php echo $row['teID']; ?>/main.png" class="profile-image img-fluid" style="border-radius: 0; scale: 2;"></div>
                 <div class="col-md-3"><input type="text" value="<?php echo $row['teNev']; ?>" name="teNev" class="form-control" readonly></div>
-                <div class="col-md-3"><input type="text" value="<?php echo $row['teAr']; ?>" name="teAr" class="form-control" readonly></div>
-                <div class="col-md-4"><input type="text" value="<?php echo $row['teLeiras']; ?>" name="teLeiras" class="form-control" readonly></div>
+                <div class="col-md-2"><input type="text" value="<?php echo $row['teAr']; ?>" name="teAr" class="form-control" readonly></div>
+                <div class="col-md-3"><input type="text" value="<?php echo $row['teLeiras']; ?>" name="teLeiras" class="form-control" readonly></div>
                 <div class="col-md-1">
                     <button type="button" class="btn btn-warning" id="edit-btn">Edit</button>
                     <button type="submit" class="btn btn-success" id="btn-save">Save</button>
                 </div>
                 <div class="col-md-1">
-                    <button class="btn btn-danger">Delete</button>
+                    <input name="status" value="teStatus" type="hidden">
+                    <?php if ($row['teStatus'] == 0): ?>
+                        <button type="submit" formaction="actions/admin/readd.php" class="btn btn-info">Re-add</button>
+                    <?php else: ?>
+                        <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Delete</button>
+                    <?php endif; ?>
                 </div>
             </div>
         </form>
+        <br><br>
         <?php endwhile; ?>
     </div>
 </div>
-
 <div class="page-info" style="text-align: center;">
     <?php
     if (!isset($_GET['page-nr'])) {

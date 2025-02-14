@@ -25,9 +25,9 @@
     </section>
 
     <!-- Webshop Products Section -->
-    <section class="m-5 p-5">
+    <section class="m-5">
         <div class="row mb-5">
-            <h1 class="mb-4"><?= $languageContent["termekeink"]; ?></h1>
+            <h1 class="mb-4">Termékeink</h1>
             <?php
             $termekek = sqlcall("SELECT * FROM termekek ORDER BY teDatum DESC LIMIT 4");
             while ($termek = $termekek->fetch_assoc()):
@@ -40,7 +40,7 @@
                     }
                 }
                 ?>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card" style="margin: 1rem;">
                         <img src="<?= htmlspecialchars($coverImage); ?>" class="card-img-top"
                             alt="<?= htmlspecialchars($termek['teNev']); ?>">
@@ -48,21 +48,21 @@
                             <h5 class="card-title"><?= htmlspecialchars($termek['teNev']); ?></h5>
                             <p class="card-text"><?= htmlspecialchars($termek['teLeiras']); ?></p>
                             <p class="card-text"><strong>Price:</strong> <?= htmlspecialchars($termek['teAr']); ?> Ft</p>
-                            <a href="?o=termek&id=<?= $termek['teID']; ?>" class="btn btn-primary"><?= $languageContent['tovabb'] ?></a>
+                            <a href="?o=termek&id=<?= $termek['teID']; ?>" class="btn btn-primary">Tovább</a>
                         </div>
                     </div>
                 </div>
             <?php endwhile; ?>
         </div>
-        <a href="?o=shop" class="btn btn-primary"><?= $languageContent['tobbTermek'] ?></a>
+        <a href="?o=shop" class="btn btn-primary">Tovább a termékeinkhez</a>
     </section>
 
 
 
-    <section id="gepek">
-        <section class="m-5 p-5">
+    <section id="gepek" class="p-2">
+        <section class="m-5">
             <div class="row  mb-5">
-                <div class="col-md-6 p-4 bg-warning text-dark" style="text-align:left; border-radius:20px;">
+                <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
                     <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['modernGepek'] ?></h1>
                     <p><?= $languageContent['modernGepekSzovege'] ?></p>
                     <button onclick='window.top.location.href = "./?o=arak";'
@@ -73,10 +73,10 @@
             </div>
         </section>
 
-        <section class="m-5 p-5">
+        <section class="m-5">
             <div class="row mb-5">
                 <div class="col-md-6"></div>
-                <div class="col-md-6 p-4 bg-warning text-dark" style="text-align:left; border-radius:20px;">
+                <div class="col-md-6 bg-warning text-dark" style="text-align:left; border-radius:20px;">
                     <h1 style="text-align:left; text-transform: uppercase;"><?= $languageContent['fitnessCardio'] ?>
                     </h1>
                     <p><?= $languageContent['fitnessCardioSzovege'] ?></p>
@@ -88,7 +88,7 @@
         </section>
     </section>
     <!-- News Board Section -->
-    <section class="m-5 p-5">
+    <section class="m-5">
         <div class="row mb-5">
             <?php
             $news = sqlcall("SELECT * FROM uzenofal ORDER BY uzenoDatum DESC LIMIT 1");
@@ -143,23 +143,19 @@
 
             <div class="row logos-slide edzo m-1">
                 <?php
-                if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"):
-                    $result = sqlcall("SELECT * FROM szemelyi_edzok");
-                else:
-                    $result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeVisibility = 1");
-                endif;
+                $result = sqlcall("SELECT * FROM szemelyi_edzok");
                 while ($row = $result->fetch_assoc()):
                     $szeKepek = json_decode($row['szeKepek'], true);
                     ?>
                     <div class="edzo-item">
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>">
-                            <img src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>"
+                            <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>"
                                 alt="Edző képe" />
                         </a>
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>"
                             class="edzo-nev"><?php echo htmlspecialchars($row['szeuFelhasznalonev']); ?><br>
                             <button type="button"
-                                class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb']; ?></button>
+                                class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb'] ?></button>
                         </a>
                     </div>
                 <?php endwhile; ?>
@@ -168,7 +164,7 @@
 
     </section>
 
-    <section class="m-5 p-5">
+    <section class="m-5">
         <div class="row mb-5">
             <div class="col-md-6" style="text-align:left;">
                 <h1 style="text-align:left;"><?= $languageContent['gyere'] ?></h1>
@@ -190,7 +186,7 @@
         <p><?= $languageContent["lepjKapcsolatba"] ?></p>
         <div class="contact-form mt-4 p-3 rounded"
             style="background-color: var(--transparent-black); max-width: 400px; margin: auto; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-            <form action="actions/uzenetKuldesIr.php" method="post" target="kisablak">
+            <form action="actions/uzenet_kuldes.php" method="post" target="kisablak">
                 <div class="form-group">
                     <label for="email" class="text-white"><?= $languageContent["emailLabel"] ?></label>
                     <input type="email" name="email" id="email" class="form-control" style="border-radius: 5px;"

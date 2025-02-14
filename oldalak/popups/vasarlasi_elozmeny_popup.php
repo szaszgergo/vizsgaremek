@@ -8,7 +8,7 @@
                     aria-label="Close"></button>
             </div>
 
-            <form action="./actions/jegyvasarlas.php" target="kisablak" method="post">
+            <form action="./actions/jegy_vasarlas.php" target="kisablak" method="post">
                 <div class="modal-body">
                     <div class="row mb-2">
                         <div class="col"><strong>Date</strong></div>

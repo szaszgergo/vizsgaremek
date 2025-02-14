@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             
-            <form action="./actions/jegyvasarlas.php" target="kisablak" method="post">
+            <form action="./actions/jegy_vasarlas.php" target="kisablak" method="post">
                 <div class="modal-body">
                     <div class="text bg-dark p-3">
                         <a class="m-1" href="#"><i class="fa-brands fa-cc-visa" style="color: #1A1F71; font-size: 24pt;"></i></a>

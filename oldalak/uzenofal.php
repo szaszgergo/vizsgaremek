@@ -16,7 +16,7 @@ if (isset($_GET['page-nr'])) {
 $adatok = sqlcall("SELECT * FROM uzenofal LIMIT $start, $rows_per_page");
 ?>
 
-<h1 id="uzenoCim"><?= $languageContent["hambiUzenofal"] ?></h1>
+<h1 id="uzenoCim">Üzenőfal</h1>
 <br>
 <?php while($row = $adatok->fetch_assoc()): ?>
 <div class="blokk">
@@ -37,20 +37,20 @@ $adatok = sqlcall("SELECT * FROM uzenofal LIMIT $start, $rows_per_page");
         $page = $_GET['page-nr'];
     }
     ?>
-    <?= $languageContent["showing"] ?> <?php echo $page; ?> <?= $languageContent["of"] ?> <?php echo $pages; ?> <?= $languageContent["pages"] ?>
+    Showing <?php echo $page; ?> of <?php echo $pages; ?> pages
 </div>
 
 <div class="pagination" style="display: flex; justify-content: center;align-items: center;">
-    <a href="?o=uzenofal&page-nr=1" class="pagination-btn"><?= $languageContent["first"] ?></a>
+    <a href="?o=uzenofal&page-nr=1" class="pagination-btn">First</a>
 
     <?php
     if (isset($_GET['page-nr']) && $_GET['page-nr'] > 1) {
     ?>
-        <a href="?o=uzenofal&page-nr=<?php echo $_GET['page-nr'] - 1; ?>" class="pagination-btn"><?= $languageContent["previous"] ?></a>
+        <a href="?o=uzenofal&page-nr=<?php echo $_GET['page-nr'] - 1; ?>" class="pagination-btn">Previous</a>
     <?php
     } else {
     ?>
-        <a class="pagination-btn"><?= $languageContent["previous"] ?></a>  
+        <a class="pagination-btn">Previous</a>  
     <?php
     }
     ?>
@@ -77,20 +77,20 @@ $adatok = sqlcall("SELECT * FROM uzenofal LIMIT $start, $rows_per_page");
     <?php
     if (!isset($_GET['page-nr'])) {
     ?>
-        <a href="?o=uzenofal&page-nr=2" class="pagination-btn"><?= $languageContent["next"] ?></a>
+        <a href="?o=uzenofal&page-nr=2" class="pagination-btn">Next</a>
         <?php
     } else {
         if ($_GET['page-nr'] >= $pages) {
         ?>
-            <a class="pagination-btn"><?= $languageContent["next"] ?></a>
+            <a class="pagination-btn">Next</a>
         <?php
         } else {
         ?>
-            <a class="pagination-btn" href="?o=uzenofal&page-nr=<?php echo $_GET['page-nr'] + 1; ?>"><?= $languageContent["next"] ?></a>
+            <a class="pagination-btn" href="?o=uzenofal&page-nr=<?php echo $_GET['page-nr'] + 1; ?>">Next</a>
     <?php
         }
     }
     ?>
 
-    <a href="?o=uzenofal&page-nr=<?php echo $pages; ?>" class="pagination-btn"><?= $languageContent["last"] ?></a>
+    <a href="?o=uzenofal&page-nr=<?php echo $pages; ?>" class="pagination-btn">Last</a>
 </div>

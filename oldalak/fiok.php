@@ -28,7 +28,7 @@ if (isset($jegy)) {
 ?>
 <div class="row fiokrow">
     <div class="col-md-8 ">
-        <form class="profile-container" action="actions/updateaction.php" method="post" target='kisablak' enctype="multipart/form-data" id="inputcontainer">
+        <form class="profile-container" action="actions/fiok_adat_valtoztatas.php" method="post" target='kisablak' enctype="multipart/form-data" id="inputcontainer">
             <div id='error-message' class='alert alert-danger' style='display: none;'></div>
             
             <div class="profile-header">

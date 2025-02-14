@@ -1,6 +1,6 @@
 <div id="fiokrow" class="row fiokrow">
     <div class="col">
-        <form id="jelszoform" class="form bg-transparentblack text-light fiok" action="actions/updatepassword.php" method="post" target='kisablak'>
+        <form id="jelszoform" class="form bg-transparentblack text-light fiok" action="actions/jelszo_valtoztatas.php" method="post" target='kisablak'>
             <div id='error-message' class='alert alert-danger' style='display: none;'></div>
             <div class="mb-3" id='password-container'>
                 <label for="InputPassword" class="form-label"><?= $languageContent["oldPw"]?></label>

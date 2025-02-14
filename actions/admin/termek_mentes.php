@@ -39,7 +39,7 @@ if (!is_dir($targetDir)) {
 
 foreach ($_FILES['teKepek']['tmp_name'] as $index => $tmpName) {
     $fileName = basename($_FILES['teKepek']['name'][$index]);
-    $targetFile = $targetDir . $fileName;
+    $targetFile = $targetDir . "main.png";
     move_uploaded_file($tmpName, $targetFile);
 }
 

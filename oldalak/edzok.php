@@ -179,7 +179,7 @@
 <?php if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
 <div class="rating-container ">
     <h2><?= $languageContent["ertekeld"] ?></h2>
-    <form id="rating-form" action="actions/star_submit.php" target="kisablak" method="POST">
+    <form id="rating-form" action="actions/edzo_ertekeles.php" target="kisablak" method="POST">
         <div class="stars ">
             <?php for ($i = 1; $i <= 5; $i++): ?>
                 <span class="star" data-value="<?php echo $i; ?>">&#9733;</span>
@@ -318,7 +318,7 @@
                 <div class="col-md-3"> <button id="szerkezdkomment_valtoztatas" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="button"><?php echo $languageContent['edit']; ?></button>
                 </div>
                 <div class="col-md-3">
-                    <button id="szerkezdkomment" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="submit" formaction="actions/komment_update.php" class="btn btn-danger"><?php echo $languageContent['send']; ?></button>
+                    <button id="szerkezdkomment" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="submit" formaction="actions/komment_valtoztatas.php" class="btn btn-danger"><?php echo $languageContent['send']; ?></button>
                     <script>
                         document.getElementById('szerkezdkomment_valtoztatas').addEventListener('click', function() {
                             const textarea = document.getElementById('textarea_komment');

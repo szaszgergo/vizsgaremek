@@ -102,7 +102,7 @@
                     <button id="prevWeek">Előző hét</button>
                     <span id="currentWeek" class="week-title"></span>
                     <button id="nextWeek">Következő hét</button>
-                    <form action="./actions/foglalas_save.php" target="kisablak" method="POST">
+                    <form action="./actions/foglalas_mentes.php" target="kisablak" method="POST">
                         <input type="hidden" name="weekKey" id="weekKey">
                         <div id="checkboxes-container"></div> <!-- Ide kerülnek a checkboxok -->
                         <input type="hidden" name="eid" value="<?php print_r($_GET['eid'])  ?>">
