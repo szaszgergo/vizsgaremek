@@ -47,8 +47,7 @@
     "hambiGaleria": "Gallery",
     "hambiFaqs": "Frequently Asked Questions",
     "hambiHazirend": "House Rules",
-    "hambiUzenofal": "Patch Notes",
-
+    "hambiUzenofal": "Message board",
 
 
     "comment2": "main.php",
@@ -80,7 +79,9 @@
     "lepjKapcsolatba": "For questions, feedback, or issues, please send us an email or write here. Don’t hesitate to get in touch!",
     "uzenetLabel": "Message:",
     "kuldes": "Send",
-
+    "termekeink": "Products",
+    "tobbTermek": "See more products",
+    "tovabb": "More",
 
 
 
@@ -216,5 +217,25 @@
     "comment10": "edzokall.php",
     "telefon": "phone number",
     "vegzettseg": "Qualifications",
-    "tobbInfo": "More information about the trainer"
+    "tobbInfo": "More information about the trainer",
+
+
+
+    "comment11": "webshop.php",
+    "kep": "Picture",
+    "nev": "Name",
+    "mennyiseg": "Amount",
+    "kosar": "Cart",
+    "pleaseLogIn": "Please log in to view the contents of your cart.",
+
+
+
+    "comment12": "pagination",
+    "first": "First",
+    "previous": "Previous",
+    "next": "Next",
+    "last": "Last",
+    "showing": "Showing",
+    "of": "of",
+    "pages": "pages"
 }

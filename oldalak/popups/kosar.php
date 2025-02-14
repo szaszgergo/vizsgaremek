@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content bg-dark text-light">
             <div class="modal-header">
-                <h5 class="modal-title" id="kosar">Kosár</h5>
+                <h5 class="modal-title" id="kosar"><?= $languageContent["kosar"] ?></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
@@ -31,10 +31,10 @@
                     ?>
 
                         <div class="row mb-2">
-                            <div class="col"><strong>Kép</strong></div>
-                            <div class="col"><strong>Név</strong></div>
-                            <div class="col"><strong>Darabszám</strong></div>
-                            <div class="col"><strong>Ár</strong></div>
+                            <div class="col"><strong><?= $languageContent["kep"] ?></strong></div>
+                            <div class="col"><strong><?= $languageContent["nev"] ?></strong></div>
+                            <div class="col"><strong><?= $languageContent["mennyiseg"] ?></strong></div>
+                            <div class="col"><strong><?= $languageContent["price"] ?></strong></div>
                             <div class="col"><strong></strong></div>
 
                         </div>
@@ -73,12 +73,12 @@
                 </div>
 
             <?php else: ?>
-                <h1 class="text">Kérjük, jelentkezzen be a vásárláshoz.</h1>
+                <h1 class="text"><?= $languageContent["pleseLogIn"] ?></h1>
             <?php endif; ?>
 
             <div class="modal-footer">
                 <?php echo "<p class='text-right '>" . number_format($osszar, 0, ',', ' ') . "Ft <p>"; ?>
-                <button type="submit" class="btn btn-primary">Vásárlás</button>
+                <button type="submit" class="btn btn-primary"><?= $languageContent["vasarlas"] ?></button>
             </div>
         </div>
     </div>

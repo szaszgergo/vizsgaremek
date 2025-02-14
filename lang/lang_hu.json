@@ -79,6 +79,9 @@
     "lepjKapcsolatba": "Kérdéseiddel, észrevételekkel és problémákkal kapcsolatban kérlek írj e-mailt vagy írj itt. Ne habozz lépj velünk kapcsolatba!",
     "uzenetLabel": "Üzenet:",
     "kuldes": "Küldés",
+    "termekeink": "Termékek",
+    "tobbTermek": "Nézz meg több terméket",
+    "tovabb": "Tovább",
 
 
     "comment3": "footer.php",
@@ -214,5 +217,24 @@
     "comment10": "edzokall.php",
     "telefon": "Telefonszám",
     "vegzettseg": "Végzettségek",
-    "tobbInfo": "További információk az edzőről"
+    "tobbInfo": "További információk az edzőről",
+
+
+    "comment11": "webshop.php",
+    "kep": "Kép",
+    "nev": "Név",
+    "mennyiseg": "Darabszám",
+    "kosar": "Kosár",
+    "pleaseLogIn": "Kérjük jelentkezz be a vásárláshoz!",
+
+
+
+    "comment12": "pagination",
+    "first": "Első",
+    "previous": "Előző",
+    "next": "Következő",
+    "last": "Utolsó",
+    "showing": "Megjelenítve",
+    "of": "az",
+    "pages": "oldalból"
 }

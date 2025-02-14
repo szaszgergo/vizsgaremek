@@ -22,8 +22,8 @@
                     <div class="card-body text-white bg-dark">
                         <h5 class="card-title"><?php echo htmlspecialchars($termek['teNev']); ?></h5>
                         <p class="card-text"><?php echo htmlspecialchars($termek['teLeiras']); ?></p>
-                        <p class="card-text"><strong>Price:</strong> <?php echo htmlspecialchars($termek['teAr']); ?> Ft</p>
-                        <a href="?o=termek&id=<?php echo $termek['teID']; ?>" class="btn btn-primary">Tovább</a>
+                        <p class="card-text"><strong><?= $languageContent["price"] ?>:</strong> <?php echo htmlspecialchars($termek['teAr']); ?> Ft</p>
+                        <a href="?o=termek&id=<?php echo $termek['teID']; ?>" class="btn btn-primary"><?= $languageContent["tovabb"] ?></a>
                     </div>
                 </div>
             </div>

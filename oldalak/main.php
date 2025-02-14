@@ -27,7 +27,7 @@
     <!-- Webshop Products Section -->
     <section class="m-5 p-5">
         <div class="row mb-5">
-            <h1 class="mb-4">Termékeink</h1>
+            <h1 class="mb-4"><?= $languageContent["termekeink"]; ?></h1>
             <?php
             $termekek = sqlcall("SELECT * FROM termekek ORDER BY teDatum DESC LIMIT 4");
             while ($termek = $termekek->fetch_assoc()):
@@ -48,13 +48,13 @@
                             <h5 class="card-title"><?= htmlspecialchars($termek['teNev']); ?></h5>
                             <p class="card-text"><?= htmlspecialchars($termek['teLeiras']); ?></p>
                             <p class="card-text"><strong>Price:</strong> <?= htmlspecialchars($termek['teAr']); ?> Ft</p>
-                            <a href="?o=termek&id=<?= $termek['teID']; ?>" class="btn btn-primary">Tovább</a>
+                            <a href="?o=termek&id=<?= $termek['teID']; ?>" class="btn btn-primary"><?= $languageContent['tovabb'] ?></a>
                         </div>
                     </div>
                 </div>
             <?php endwhile; ?>
         </div>
-        <a href="?o=shop" class="btn btn-primary">Tovább a termékeinkhez</a>
+        <a href="?o=shop" class="btn btn-primary"><?= $languageContent['tobbTermek'] ?></a>
     </section>
 
 
@@ -143,19 +143,23 @@
 
             <div class="row logos-slide edzo m-1">
                 <?php
-                $result = sqlcall("SELECT * FROM szemelyi_edzok");
+                if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"):
+                    $result = sqlcall("SELECT * FROM szemelyi_edzok");
+                else:
+                    $result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeVisibility = 1");
+                endif;
                 while ($row = $result->fetch_assoc()):
                     $szeKepek = json_decode($row['szeKepek'], true);
                     ?>
                     <div class="edzo-item">
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>">
-                            <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>"
+                            <img src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>"
                                 alt="Edző képe" />
                         </a>
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>"
                             class="edzo-nev"><?php echo htmlspecialchars($row['szeuFelhasznalonev']); ?><br>
                             <button type="button"
-                                class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb'] ?></button>
+                                class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb']; ?></button>
                         </a>
                     </div>
                 <?php endwhile; ?>
