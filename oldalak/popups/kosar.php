@@ -84,7 +84,9 @@
 
             <div class="modal-footer">
                 <p class="text-right"><?= number_format($osszar, 0, ',', ' ') ?> Ft</p>
+                <form action="actions/vasarlas.php" method="POST" target="kisablak">
                 <button type="submit" class="btn btn-primary">Vásárlás</button>
+                </form>
             </div>
         </div>
     </div>
