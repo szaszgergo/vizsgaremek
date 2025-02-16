@@ -12,11 +12,20 @@ function getUserInfo(){
 }
 function getUserJegyek(){
     include_once("sqlcall.php");
+    $sql = "SELECT * FROM jegyek WHERE juID = '$_SESSION[uid]' AND jStatus != 1 ORDER BY jStatus DESC";
+    $tabla = sqlcall($sql);
+    return $tabla;
+}
+function getUserJegy(){
+    include_once("sqlcall.php");
     $sql = "SELECT * FROM jegyek WHERE juID = '$_SESSION[uid]' AND jStatus = 1";
     $tabla = sqlcall($sql);
-    //csak 1 sornak kéne lennie ahhol a status 1 ha tobb van valamit elbasztunk szoval itt eleg a sort visszaküldeni
-    return $tabla->fetch_row();
+    return $tabla->fetch_assoc();
 }
+
+
+
+
 function getUserEdzok(){
     include_once("sqlcall.php");
     $sql = "SELECT * FROM szemelyi_edzok";
