@@ -1,0 +1,55 @@
+<div class="col-md-8">
+    <form class="profile-container" action="actions/fiok_adat_valtoztatas.php" method="post" target="kisablak"
+        enctype="multipart/form-data" id="inputcontainer">
+
+        <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+
+        <div class="profile-header">
+            <?php
+            $profilePic = empty($adatok['uProfilePic']) ? '../images/pic.png' : 'profile_pic/' . $adatok['uProfilePic'];
+            ?>
+            <img style="object-fit: cover;" src="<?= $profilePic ?>" alt="Profile Picture">
+            <div>
+                <h2><?= htmlspecialchars($adatok['uSzuleteskorinev']) ?></h2>
+                <p>@<?= htmlspecialchars($adatok['uFelhasznalonev']) ?></p>
+            </div>
+            <button type="button" class="edit-btn" id="edit-btn"><?= $languageContent["edit"] ?></button>
+        </div>
+
+        <div class="mb-3">
+            <label for="InputUsername" class="form-label"><?= $languageContent["usernameLabel"] ?></label>
+            <input value="<?= htmlspecialchars($adatok['uFelhasznalonev']) ?>" type="text"
+                class="form-control fiok-input" id="InputUsername" name="username" maxlength="100" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="InputRealName" class="form-label"><?= $languageContent["RealNameLabel"] ?></label>
+            <input value="<?= htmlspecialchars($adatok['uSzuleteskorinev']) ?>" type="text"
+                class="form-control fiok-input" id="InputRealName" name="realname" maxlength="100" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="InputEmail" class="form-label"><?= $languageContent["emailLabel"] ?></label>
+            <input value="<?= htmlspecialchars($adatok['uemail']) ?>" type="email" class="form-control fiok-input"
+                id="InputEmail" name="email" maxlength="256" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="InputDate" class="form-label"><?= $languageContent["birthdateLabel"] ?></label>
+            <input value="<?= htmlspecialchars($adatok['uSzuletesidatum']) ?>" type="date"
+                class="form-control fiok-input" id="InputDate" name="date" readonly>
+        </div>
+
+        <div class="mb-3">
+            <label for="InputPic" class="form-label"><?= $languageContent["newProfilePic"] ?></label>
+            <input type="file" class="form-control fiok-input" id="InputPic" name="upic" disabled>
+        </div>
+
+        <div class="mb-3">
+            <p><?= $languageContent["pwChange"] ?></p>
+        </div>
+
+        <button style="display: none;" type="submit" class="btn-save"
+            id="btn-save"><?= $languageContent["saveChanges"] ?></button>
+    </form>
+</div>
