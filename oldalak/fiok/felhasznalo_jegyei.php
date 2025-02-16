@@ -25,7 +25,7 @@
                         <td><?= htmlspecialchars($tipus[1]) ?></td>
                         <td><span class="badge bg-success">Aktív</span></td>
                         <td>
-                            <form method="post" action="../actions/jegy_lemondas.php" target="kisablak">
+                            <form method="post" action="../actions/jegy_deaktivalas.php" target="kisablak">
                                 <input type="hidden" name="jID" value="<?= $aktivjegy['jID'] ?>">
                                 <button type="submit" class="btn btn-danger">Lemondás</button>
                             </form>
