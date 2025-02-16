@@ -21,7 +21,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><?= htmlspecialchars($tipus[1]) ?></td>
+                    <td><?= htmlspecialchars($tipus["tpNev"]) ?></td>
                     <td><span class="badge bg-success">Aktív</span></td>
                     <td>
                         <form method="post" action="../actions/jegy_deaktivalas.php" target="kisablak">
