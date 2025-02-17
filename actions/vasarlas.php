@@ -1,5 +1,4 @@
 <?php
-
 require("sqlcall.php");
 require("kosar_tartalom.php");
 session_start();
@@ -8,13 +7,12 @@ $kosar = getKosarContent();
 // kosar = Array ( [0] => Array ( [type] => JEGY [details] =>
 // Array ( [tpID] => 2 [tpNev] => Napijegy [tpAr] => 3990 [tpHossz] => 1 [tpAlkalmak] => 1 ) [count] => 1 )
 // [1] => Array ( [type] => JEGY [details] => Array ( [tpID] => 3 [tpNev] => Három hónapos bérlet [tpAr] => 49900 [tpHossz] => 90 [tpAlkalmak] => ) [count] => 1 ) )
-
+$uid = $_SESSION["uid"];
 
 //put purchesed passes into jegyek table
 foreach ($kosar as $item) {
     if ($item['type'] === 'JEGY') {
         $tpID = $item['details']['tpID'];
-        $uid = $_SESSION["uid"];
         $tpAlkalmak = $item['details']['tpAlkalmak'];
         $alkalmak_ertek = is_null($tpAlkalmak) ? 'NULL' : $tpAlkalmak;
         $sql = "INSERT INTO jegyek (jUID, jtID, jKezdes, jLejarat, jStatus, jAlkalmak) VALUES ($uid, $tpID, NULL, NULL, 2, $alkalmak_ertek)";

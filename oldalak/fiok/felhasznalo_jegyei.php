@@ -1,4 +1,4 @@
-<div class="col-md-12 profile-container">
+<div class="profile-container">
     <h1>Jegyeid:</h1>
 
     <?php

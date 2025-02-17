@@ -12,6 +12,7 @@
     --error-red: #dc3545;
     --gold: #ffc107;
     --transparent-black: #000000dd;
+    --bs-dropdown-link-color: #fff;
 }
 
 .bg-transparentblack{
@@ -231,8 +232,6 @@ a {
         color: #fff;
         padding: 20px;
         border-radius: 10px;
-        margin: auto;
-        font-family: sans-serif;
     }
     
     .profile-header {
