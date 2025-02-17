@@ -24,6 +24,14 @@ function getUserJegy(){
 }
 
 
+function getUserKosarak(){
+    include_once("sqlcall.php");
+    $sql = "SELECT * FROM kosar WHERE koUID = '$_SESSION[uid]' AND koTranzakcioID IS NOT NULL ORDER BY koID DESC";
+    $tabla = sqlcall($sql);
+    return $tabla;
+}
+
+
 
 
 function getUserEdzok(){

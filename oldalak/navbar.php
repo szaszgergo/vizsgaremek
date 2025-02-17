@@ -88,6 +88,11 @@ $adatok = getUserInfo();
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hamburgerMenu">
                             <li><a class="dropdown-item" href="./?o=arak"><?= $languageContent['hambiArak'] ?></a></li>
                             <li><a class="dropdown-item" href="./?o=shop">Webshop</a></li>
+                            <?php if (isset($_SESSION["uid"])): ?>
+                                <li>
+                                    <a class="dropdown-item"  href="?o=felhasznalo_vasarlas">Vásárlások</a>
+                                </li>
+                            <?php endif; ?>
                             <li><a class="dropdown-item" href="./?o=galeria"><?= $languageContent['hambiGaleria'] ?></a>
                             </li>
                             <li><a class="dropdown-item" href="./?o=edzokall"><?= $languageContent['hambiEdzok'] ?></a>

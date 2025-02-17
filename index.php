@@ -20,6 +20,7 @@ $cimek = [
     "shop" => "Bolt | LiftZone",
     "uzenofal" => "Üzenőfal | LiftZone",
     "foglalas" => "Foglalás | LiftZone",
+    "felhasznalo_vasarlas" => "Vásárlásaid | LiftZone",
     "" => "Főoldal | LiftZone",
 ];
 
@@ -38,6 +39,7 @@ $belepettoldalak = [
     "termek" => "oldalak/termek.php",
     "uzenofal" => "oldalak/uzenofal.php",
     "foglalas" => "oldalak/foglalas.php",
+    "felhasznalo_vasarlas" => "oldalak/fiok/felhasznalo_vasarlas.php",
     "" => "oldalak/main.php",
 ];
 

@@ -8,7 +8,6 @@ $hasTicket = isset($jegy);
     <?php
     require("fiok/felhasznalo_aktiv_jegye.php");
     require("fiok/felhasznalo_adatok.php");
-    require("fiok/felhasznalo_kosarak.php");
     ?>
 </div>
 <div class="row fiokrow">

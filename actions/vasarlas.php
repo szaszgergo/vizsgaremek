@@ -4,9 +4,7 @@ require("kosar_tartalom.php");
 session_start();
 $kosar = getKosarContent();
 
-// kosar = Array ( [0] => Array ( [type] => JEGY [details] =>
-// Array ( [tpID] => 2 [tpNev] => Napijegy [tpAr] => 3990 [tpHossz] => 1 [tpAlkalmak] => 1 ) [count] => 1 )
-// [1] => Array ( [type] => JEGY [details] => Array ( [tpID] => 3 [tpNev] => Három hónapos bérlet [tpAr] => 49900 [tpHossz] => 90 [tpAlkalmak] => ) [count] => 1 ) )
+
 $uid = $_SESSION["uid"];
 
 //put purchesed passes into jegyek table
@@ -23,10 +21,16 @@ foreach ($kosar as $item) {
 
 //remove kosar content  by setting ktStatus to 0 and ktMennyiseg to 0 on all kosar_tetelek where ktkoID is kosarid
 $kosarid = sqlcall("SELECT koID FROM kosar WHERE koUID = $uid AND koTranzakcioID IS NULL")->fetch_assoc()["koID"];
-$sql = "UPDATE kosar_tetelek SET ktStatus = 0, ktMennyiseg = 0 WHERE ktkoID = $kosarid";
+$sqltermekek = "UPDATE kosar_tetelek SET ktStatus = 0 WHERE ktkoID = $kosarid";
+sqlcall($sqltermekek);
+
+
+//set tranzkaciID in kosar to 1
+$sql = "UPDATE kosar SET koTranzakcioID = 1 WHERE koUID = $uid AND koTranzakcioID IS NULL";
 sqlcall($sql);
 
 
+sqlsave("INSERT INTO kosar (koUID, koTranzakcioID) VALUES ($uid, NULL)");
 
 
 
