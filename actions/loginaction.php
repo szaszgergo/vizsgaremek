@@ -3,6 +3,7 @@
 session_start();
 require("sqlcall.php");
 require("formhandling.php");
+require("mail.php");
 
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
@@ -40,13 +41,13 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             $_SESSION['szerep'] = "edzo";
         }
         $email = $row['uemail'];
-        /* $sql_check_ip = "SELECT * FROM megbizhato WHERE megUID = '$uid' AND megStatus = '1'";
+        $sql_check_ip = "SELECT * FROM megbizhato WHERE megUID = '$uid' AND megStatus = '1'";
         $result_ip = sqlcall($sql_check_ip);
         if($result_ip->num_rows == 0) {
             sendMail($email, "bejelentkezesUj");
-        } else { */
-        sendMail($email, "bejelentkezes");
-        
+        } else {
+            sendMail($email, "bejelentkezes");
+        }
         formSuccess();
     } else{
         hibaUzenet("Helytelen belépési adatok!!");
