@@ -10,7 +10,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $password = $_POST["password"];
 
     //megnezzuk helyes fiokba akar e belepni?
-    $sqllekerdezes = "SELECT uID, uPassword, uSzerep FROM user WHERE uFelhasznalonev = '$name' OR uemail = '$name'";
+    $sqllekerdezes = "SELECT * FROM user WHERE uFelhasznalonev = '$name' OR uemail = '$name'";
     $tabla = sqlcall($sqllekerdezes);
     //ha helyes volt akkor az idjet es a hashelt jelszot megkapjuk
     $row = $tabla->fetch_assoc();
