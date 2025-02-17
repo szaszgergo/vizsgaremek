@@ -53,6 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     sqlsave($sql, 'ssssssss', [$uuid, $username, $email, $password, $date, $curdate, $ip, $sessionid]);
 
+    $sql_megbizhato = "INSERT INTO megbizhato (megUID, megIP, megStatus)
+                VALUES (?, ?, ?)";
+
+    sqlsave($sql_megbizhato, 'sss', [$uuid, $ip, '1']);
+
     sendMail($email, "regisztracio");
 
     echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";
