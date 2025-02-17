@@ -41,7 +41,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         }
         formSuccess();
         $sql_check_ip = "SELECT * FROM megbizhato WHERE megUID = '$uid' AND megStatus = '1'";
-        if($sql_check_ip->num_rows == 0) {
+        $result_ip = sqlcall($sql_check_ip);
+        if($result_ip->num_rows == 0) {
             sendMail($email, "bejelentkezes");
         }
     } else{
