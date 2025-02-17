@@ -40,8 +40,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             $_SESSION['szerep'] = "edzo";
         }
         formSuccess();
-        $sql_check_ip = "SELECT * FROM megbizhato WHERE megUID = '$uid' AND megStatus = '0'";
-        if($sql_check_ip->num_rows > 0) {
+        $sql_check_ip = "SELECT * FROM megbizhato WHERE megUID = '$uid' AND megStatus = '1'";
+        if($sql_check_ip->num_rows == 0) {
             sendMail($email, "bejelentkezes");
         }
     } else{
