@@ -3,7 +3,6 @@
 function sendMail($to, $tipus): bool{
     $mailPresets = [
         "regisztracio" => ["Sikeres regisztáció!", "Köszönjük hogy csatlakoztál a LiftZonehoz!"],
-        "asd" => "asd",
         "bejelentkezesUj" => ["Sikeres bejelentkezés!", "Új IP címről jelentkeztek be, ellenőrizze ön volt e!"],
         "bejelentkezes" => ["Sikeres bejelentkezés!", "Ön bejelentkezett az oldalra!"]
     ];
