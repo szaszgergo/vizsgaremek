@@ -3,6 +3,7 @@
 session_start();
 require("sqlcall.php");
 require("formhandling.php");
+require("mail.php");
 
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
@@ -10,7 +11,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $password = $_POST["password"];
 
     //megnezzuk helyes fiokba akar e belepni?
-    $sqllekerdezes = "SELECT uID, uPassword, uSzerep FROM user WHERE uFelhasznalonev = '$name' OR uemail = '$name'";
+    $sqllekerdezes = "SELECT * FROM user WHERE uFelhasznalonev = '$name' OR uemail = '$name'";
     $tabla = sqlcall($sqllekerdezes);
     //ha helyes volt akkor az idjet es a hashelt jelszot megkapjuk
     $row = $tabla->fetch_assoc();
@@ -39,9 +40,12 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         else if($row['uSzerep'] == "3"){
             $_SESSION['szerep'] = "edzo";
         }
+        $email = $row['uemail'];
         $sql_check_ip = "SELECT * FROM megbizhato WHERE megUID = '$uid' AND megStatus = '1'";
         $result_ip = sqlcall($sql_check_ip);
         if($result_ip->num_rows == 0) {
+            sendMail($email, "bejelentkezesUj");
+        } else {
             sendMail($email, "bejelentkezes");
         }
         formSuccess();
