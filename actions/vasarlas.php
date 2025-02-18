@@ -7,6 +7,17 @@ $kosar = getKosarContent();
 
 $uid = $_SESSION["uid"];
 
+
+//check of cart is empty
+if (empty($kosar)) {
+    echo "<script>alert('A kosár üres!');</script>";
+    echo "<script>if(window.parent){window.parent.location.reload();}</script>";
+    exit();
+}
+
+
+
+
 //put purchesed passes into jegyek table
 foreach ($kosar as $item) {
     if ($item['type'] === 'JEGY') {
