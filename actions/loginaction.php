@@ -51,7 +51,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
                                  VALUES ('$uid', '$ip', '$curdate', '0', '$token', '$email')";
             sqlsave($sql_insert_token);
 
-            $confirm_link = "https://liftzone.hu/actions/ip_megerosites&token=$token";
+            $confirm_link = "https://liftzone.hu/actions/ip_megerosites.php/?token=$token";
             sendMail($email, "bejelentkezesUj", $confirm_link);
         }
 

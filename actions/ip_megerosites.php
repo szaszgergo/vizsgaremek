@@ -1,5 +1,6 @@
 <?php
 require("sqlcall.php");
+require("formhandling.php");
 require("mail.php");
 
 if (isset($_GET['token'])) {
@@ -16,10 +17,9 @@ if (isset($_GET['token'])) {
         sqlsave($sql_update);
 
         sendMail($email, "sikeresToken");
+        formSuccess();
     } else {
         sendMail($email, "sikertelenToken");
+        header("Location: /");
     }
-
-    header("Location: " . $_SERVER['HTTP_REFERER']);
-    exit();
 }
