@@ -50,14 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $sql = "INSERT INTO user (uUID, uFelhasznalonev, uemail, uPassword, uSzuletesidatum, uRegisztracio, uIP, uSession, uStatus, uKomment, uSzerep)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'a', '.', 1)";
-
     sqlsave($sql, 'ssssssss', [$uuid, $username, $email, $password, $date, $curdate, $ip, $sessionid]);
 
-    $sql_megbizhato = "INSERT INTO megbizhato (megUID, megIP, megStatus)
-                VALUES (?, ?, ?)";
-
-    sqlsave($sql_megbizhato, 'sss', [$uuid, $ip, '1']);
-
+    $sql_megbizhato = "INSERT INTO megbizhato (megUID, megIP, megStatus, megEmail)
+                VALUES (?, ?, ?, ?)";
+    sqlsave($sql_megbizhato, 'ssss', [$uuid, $ip, '1', $email]);
+    
     sendMail($email, "regisztracio");
 
     echo "<script>window.top.postMessage({regSuccess: true}, '*');</script>";

@@ -1,10 +1,12 @@
 <?php
 
-function sendMail($to, $tipus): bool{
+function sendMail($to, $tipus, $extra = ''): bool{
     $mailPresets = [
         "regisztracio" => ["Sikeres regisztáció!", "Köszönjük hogy csatlakoztál a LiftZonehoz!"],
-        "bejelentkezesUj" => ["Sikeres bejelentkezés!", "Új IP címről jelentkeztek be, ellenőrizze ön volt e!"],
-        "bejelentkezes" => ["Sikeres bejelentkezés!", "Ön bejelentkezett az oldalra!"]
+        "bejelentkezesUj" => ["Új bejelentkezési kísérlet!", "Új IP címről jelentkeztek be. Ha ön volt, kattintson ide: $extra"],
+        "bejelentkezes" => ["Sikeres bejelentkezés!", "Ön bejelentkezett az oldalra!"],
+        "sikeresToken" => ["Sikeres IP cím megerősítés!", "Az IP címét megerősítettük!"],
+        "sikertelenToken" => ["Sikertelen IP cím megerősítés!", "Az IP címét nem sikerült megerősíteni!"],
     ];
 
     

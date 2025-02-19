@@ -16,10 +16,9 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     //ha helyes volt akkor az idjet es a hashelt jelszot megkapjuk
     $row = $tabla->fetch_assoc();
     $hashedpassword = $row['uPassword'];
-    print_r($row);
 
 
-    if(password_verify($password, $hashedpassword)){
+    if (password_verify($password, $hashedpassword)) {
         $uid = $row['uID'];
         //lementjuk a tovabbiakert
         $_SESSION["uid"] = $uid;
@@ -33,26 +32,32 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         sqlsave($sql);
         if ($row['uSzerep'] == "1") {
             $_SESSION['szerep'] = "user";
-        }
-        else if ($row['uSzerep'] == "2") {
+        } else if ($row['uSzerep'] == "2") {
             $_SESSION['szerep'] = "admin";
-        }
-        else if($row['uSzerep'] == "3"){
+        } else if ($row['uSzerep'] == "3") {
             $_SESSION['szerep'] = "edzo";
         }
+
         $email = $row['uemail'];
+
         $sql_check_ip = "SELECT * FROM megbizhato WHERE megUID = '$uid' AND megStatus = '1'";
         $result_ip = sqlcall($sql_check_ip);
-        if($result_ip->num_rows == 0) {
-            sendMail($email, "bejelentkezesUj");
+
+        if ($result_ip->num_rows == 0) {
+            $token = bin2hex(random_bytes(32));
+            $sql_insert_token = "INSERT INTO megbizhato (megUID, megIP, megDatum, megStatus, megToken, megEmail) 
+                                 VALUES ('$uid', '$ip', '$curdate', '0', '$token', '$email')";
+            sqlsave($sql_insert_token);
+
+            $confirm_link = "https://liftzone.com/actions/ip_megerosites&token=$token";
+            sendMail($email, "bejelentkezesUj", $confirm_link);
         } else {
             sendMail($email, "bejelentkezes");
         }
+
         formSuccess();
-    } else{
+    } else {
         hibaUzenet("Helytelen belépési adatok!!");
         exit();
     }
 }
-
-
