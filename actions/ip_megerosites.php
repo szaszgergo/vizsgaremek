@@ -14,9 +14,12 @@ if (isset($_GET['token'])) {
     if ($result->num_rows > 0) {
         $sql_update = "UPDATE megbizhato SET megStatus = '1' WHERE megToken = '$token'";
         sqlsave($sql_update);
-        
+
         sendMail($email, "sikeresToken");
     } else {
         sendMail($email, "sikertelenToken");
     }
+
+    header("Location: " . $_SERVER['HTTP_REFERER']);
+    exit();
 }
