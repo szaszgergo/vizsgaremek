@@ -39,9 +39,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         }
 
         $email = $row['uemail'];
-        $sign_up_ip = $row['uIP'];
 
-        $sql_check_ip = "SELECT * FROM megbizhato WHERE megIP = '$sign_up_ip' AND megStatus = '1'";
+        $sql_check_ip = "SELECT * FROM megbizhato WHERE megIP = '$ip' AND megStatus = '1'";
         $result_ip = sqlcall($sql_check_ip);
 
         if ($result_ip->num_rows > 0) {
