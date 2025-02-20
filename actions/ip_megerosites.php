@@ -17,7 +17,7 @@ if (isset($_GET['token'])) {
         sqlsave($sql_update);
 
         sendMail($email, "sikeresToken");
-        formSuccess();
+        echo "<script>window.location.href = './?o=fiok';</script>";
     } else {
         sendMail($email, "sikertelenToken");
         header("Location: /");
