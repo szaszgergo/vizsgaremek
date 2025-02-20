@@ -54,8 +54,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             $confirm_link = "https://liftzone.hu/actions/ip_megerosites.php/?token=$token";
             sendMail($email, "bejelentkezesUj", $confirm_link);
         }
+        echo "<script>window.location.href = './?o=fiok';</script>";
 
-        formSuccess();
     } else {
         hibaUzenet("Helytelen belépési adatok!!");
         exit();
