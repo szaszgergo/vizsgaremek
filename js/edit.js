@@ -12,7 +12,9 @@ editButtons.forEach(editButton => {
             
 
             input.removeAttribute('readonly');
-            input.removeAttribute('disabled');
+            if(input.type == 'file'){
+                input.removeAttribute('disabled');
+            }
             input.style.backgroundColor = '#fff';
             input.style.color = '#000';
         });
@@ -33,7 +35,9 @@ saveButtons.forEach(saveButton => {
             
 
             input.setAttribute('readonly', 'true');
-            input.setAttribute('disabled', 'true');
+            if(input.type == 'file'){
+                input.setAttribute('disabled', 'true');
+            }
             input.style.backgroundColor = "transparent";
             input.style.color = '#fff';
         });

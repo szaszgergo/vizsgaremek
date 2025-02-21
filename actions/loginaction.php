@@ -43,9 +43,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         $sql_check_ip = "SELECT * FROM megbizhato WHERE megIP = '$ip' AND megStatus = '1'";
         $result_ip = sqlcall($sql_check_ip);
 
-        if ($result_ip->num_rows > 0) {
-            sendMail($email, "bejelentkezes");
-        } else {
+        if ($result_ip->num_rows == 0) {
             $token = bin2hex(random_bytes(32));
             $sql_insert_token = "INSERT INTO megbizhato (megUID, megIP, megDatum, megStatus, megToken, megEmail) 
                                  VALUES ('$uid', '$ip', '$curdate', '0', '$token', '$email')";

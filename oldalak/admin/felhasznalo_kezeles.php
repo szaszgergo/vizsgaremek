@@ -21,7 +21,6 @@
     }
 
     $searchQuery = isset($_GET['search']) ? trim($_GET['search']) : '';
-
     $sql = "SELECT * FROM user WHERE uSzerep = 1 LIMIT $start, $rows_per_page";
 
     if ($searchQuery !== '') {
@@ -38,7 +37,7 @@
             $result = sqlcall($sql);
             $pages = ceil($number_of_rows / $rows_per_page);
         }
-    }
+    }   
     $result = sqlcall($sql);
     ?>
 

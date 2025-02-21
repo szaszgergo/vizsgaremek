@@ -22,11 +22,11 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["date"])
     $email = $_POST["email"];
     $date =  $_POST["date"];
     $realname =  $_POST["realname"];
-
+    $username =  $_POST["username"];
 
     checkEmail($email, true);
 
-    $sql = "UPDATE user SET uemail = '$email', uSzuletesidatum = '$date', uSzuleteskorinev = '$realname' ";
+    $sql = "UPDATE user SET uFelhasznalonev = '$username', uemail = '$email', uSzuletesidatum = '$date', uSzuleteskorinev = '$realname' ";
     if ($vankep) {
         $sql .= ", uProfilePic='$kepnev', uOriginPic='$og_pic' WHERE uid = $_SESSION[uid] ";
     } else{
