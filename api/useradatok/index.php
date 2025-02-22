@@ -40,8 +40,16 @@
         $jegyekarray[] = $row;
     }
 
+    $aktivjegysql = "SELECT * FROM jegyek WHERE juID = '$uid' AND jStatus = 1";
+    $aktivjegy = sqlcall($aktivjegysql)->fetch_assoc();
+    $aktivjegyneve = getJegyTipusAdatok($aktivjegy['jtID'])['tpNev'];
+
+
+
+
     $valasz = [
         'user' => $useradatok,
+        'aktivjegy' => [$aktivjegy, $aktivjegyneve],
         'jegyek' => $jegyekarray
     ];
 
