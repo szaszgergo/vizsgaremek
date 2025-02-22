@@ -4,6 +4,7 @@ require("sqlcall.php");
 require("formhandling.php");
 require("mail.php");
 
+
 $kepnev=$_SESSION['uid']."_".date("ymdHis")."_".uniqid('', true); //api kell majd
 $kepadat=$_FILES['upic'];
 $vankep = $_FILES['upic']['size'] > 0;

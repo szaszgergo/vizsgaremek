@@ -1,11 +1,6 @@
 <div class="col-md-8">
-    <form class="profile-container" action="actions/fiok_adat_valtoztatas.php" method="post" target="kisablak"
-        enctype="multipart/form-data" id="inputcontainer">
-        <input name="tabla" value="user" type="hidden">
-        <input name="primary_key" value="uID" type="hidden">
-        <input name="id" value="<?php echo htmlspecialchars($row['uID']); ?>" type="hidden">
-        <div id="error-message" class="alert alert-danger" style="display: none;"></div>
-
+    <form enctype="multipart/form-data" class="profile-container" action="actions/fiok_adat_valtoztatas.php" method="POST" target="kisablak"
+     id="inputcontainer">
         <div class="profile-header">
             <?php
             $profilePic = empty($adatok['uProfilePic']) ? '../images/pic.png' : 'profile_pic/' . $adatok['uProfilePic'];

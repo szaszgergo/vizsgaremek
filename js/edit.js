@@ -35,9 +35,6 @@ saveButtons.forEach(saveButton => {
             
 
             input.setAttribute('readonly', 'true');
-            if(input.type == 'file'){
-                input.setAttribute('disabled', 'true');
-            }
             input.style.backgroundColor = "transparent";
             input.style.color = '#fff';
         });
