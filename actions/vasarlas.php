@@ -2,6 +2,7 @@
 require("sqlcall.php");
 require("kosar_tartalom.php");
 require("mail.php");
+require("getuserinfo.php");
 session_start();
 $adatok = getUserInfo();
 $kosar = getKosarContent();
