@@ -1,5 +1,9 @@
 <?php
 require("../sqlcall.php");
+require("../mail.php");
+
+$adatok = getUserInfo();
+
 $uid = $_POST['uID'];
 
 $sql = "UPDATE `user` SET uSzerep = 3 WHERE uID = $uid";
@@ -11,8 +15,7 @@ $edzotablasql = "INSERT INTO szemelyi_edzok
 ($uid, '', '', '', '', 'a');";
 sqlsave($edzotablasql);
 
-
-
+sendMail($adatok['uemail'], "edzoPromotalas");
 echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 
 ?>

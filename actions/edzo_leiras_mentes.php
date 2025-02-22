@@ -1,6 +1,7 @@
 <?php
 session_start();
 require("sqlcall.php");
+require("mail.php");
 
 $leiras = trim($_POST["edzo_leirasa"]);
 $email = $_POST["mentes_email"];
@@ -42,6 +43,6 @@ if($vankep) {
 
     sqlcall($sql, "sssssi", [$leiras, $email, $telefon, $vegzettsegek, $nev, $eid]);
 }
-
+sendMail($email, "edzoAdatValtoztatas");
 echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 ?>

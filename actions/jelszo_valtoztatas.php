@@ -3,6 +3,7 @@ session_start();
 require("sqlcall.php");
 require("getuserinfo.php");
 require("formhandling.php");
+require("mail.php");
 
 $adatok = getUserInfo();
 
@@ -18,6 +19,7 @@ $newpw=password_hash($_POST['newpw'],PASSWORD_BCRYPT);
 $sql = "UPDATE user SET uPassword = '$newpw' WHERE uid = $_SESSION[uid] ";
 sqlcall($sql);
 
+sendMail($adatok['uemail'], "jelszoValtoztatas");
 //sikeres lefutás
 formSuccess();
 ?>

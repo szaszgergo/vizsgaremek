@@ -2,6 +2,7 @@
 session_start();
 require("sqlcall.php");
 require("formhandling.php");
+require("mail.php");
 
 $kepnev=$_SESSION['uid']."_".date("ymdHis")."_".uniqid('', true); //api kell majd
 $kepadat=$_FILES['upic'];
@@ -33,7 +34,7 @@ if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["date"])
         $sql .=  "WHERE uid = $_SESSION[uid] ";
     }
     sqlsave($sql);
+    sendMail($email, "fiokAdatValtoztatas");
     formSuccess();
-
     
 }

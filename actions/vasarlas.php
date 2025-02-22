@@ -1,7 +1,9 @@
 <?php
 require("sqlcall.php");
 require("kosar_tartalom.php");
+require("mail.php");
 session_start();
+$adatok = getUserInfo();
 $kosar = getKosarContent();
 
 
@@ -44,7 +46,7 @@ sqlcall($sql);
 sqlsave("INSERT INTO kosar (koUID, koTranzakcioID) VALUES ($uid, NULL)");
 
 
-
+sendMail($adatok['uemail'], "vasarlas");
 echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 
 ?>
