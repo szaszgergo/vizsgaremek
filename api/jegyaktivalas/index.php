@@ -24,6 +24,15 @@
     $uID = $input['uID'];
     $jID = $input['jID'];
 
+    $jegylekerdezes = "SELECT * FROM jegyek WHERE juID = '$uID' AND jStatus = 1";
+    $tabla = sqlcall($jegylekerdezes);
+    $jegy = $tabla->fetch_assoc();
+
+    if (isset($jegy)){
+        valaszKuldes(400, 'Van aktív jegyed!');
+    }
+
+
     $datum = date("Y-m-d H:i:s");
 
     $jtid = sqlcall("SELECT jtID FROM jegyek WHERE jID = $jID")->fetch_assoc()["jtID"];
