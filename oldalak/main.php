@@ -135,21 +135,23 @@
             </div>
         </div>
 
-
-
+        <?php
+        $visibility_result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeVisibility = 1");
+        if($visibility_result->num_rows > 0):
+        ?>
 
         <div class="logos">
             <h1><?= $languageContent['partnerek'] ?></h1>
 
             <div class="row logos-slide edzo m-1">
                 <?php
-                $result = sqlcall("SELECT * FROM szemelyi_edzok");
-                while ($row = $result->fetch_assoc()):
+                $visibility_result = sqlcall("SELECT * FROM szemelyi_edzok");
+                while ($row = $visibility_result->fetch_assoc()):
                     $szeKepek = json_decode($row['szeKepek'], true);
                     ?>
                     <div class="edzo-item">
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>">
-                            <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>"
+                            <img src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>"
                                 alt="Edző képe" />
                         </a>
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>"
@@ -161,6 +163,8 @@
                 <?php endwhile; ?>
             </div>
         </div>
+
+        <?php endif; ?>
 
     </section>
 

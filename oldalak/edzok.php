@@ -65,8 +65,22 @@
                     array_unshift($galeriakepek, $szeKepek['profilkep']);
                 }
             ?>
+            <?php
+            $eid = intval($_GET['eid']);
+            $check_status = sqlcall("SELECT szeVisibility FROM szemelyi_edzok WHERE szeID = $eid");
+            ?>
                 <div class="row-md-12 m-4 p-1">
-                    <h1><input class="leiras_textarea" name="mentes_nev" type="text" value="<?= $row['szeuFelhasznalonev']; ?>" placeholder="Teljes név..." readonly style="background: transparent; color: #fff;"></h1>
+                    <h1>
+                    <input class="leiras_textarea" name="mentes_nev" type="text" value="<?= $row['szeuFelhasznalonev']; ?>" placeholder="Teljes név..." readonly style="background: transparent; color: #fff;">
+                    &nbsp;Profil státusz: 
+                    <?php
+                    if($check_status->fetch_assoc()["szeVisibility"] == 1) {
+                        echo "Public";
+                    } else {
+                        echo "Private";
+                    }
+                    ?>
+                    </h1>
                     <h3><i class="fa-solid fa-location-dot" style="font-size:24px;"></i> Csepel</h3>
                     <hr class="text-warning">
                 </div>
