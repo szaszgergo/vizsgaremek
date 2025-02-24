@@ -21,37 +21,37 @@
     }
 
     $uid = $_GET['uid'];
-
     $userlekerdezes = "SELECT * FROM user WHERE uID = '$uid'";
     $user = sqlcall($userlekerdezes);
     $useradatok = $user->fetch_assoc();
 
-    //ha nincs találat küldés és kilépés
     if (!$useradatok) {
         valaszKuldes(404, 'A felhasználót nem találtuk!');
     }
-    $jegyeklekerdezes = "SELECT * FROM jegyek WHERE juID = '$uid'";
-    $jegyek = sqlcall($jegyeklekerdezes);
-    $jegyekarray = [];
 
-    //nevek hozzáadása a jegyekhez
-    while ($row = $jegyek->fetch_assoc()) {
-        $row['jNev'] = getJegyTipusAdatok($row['jtID'])['tpNev'];
-        $jegyekarray[] = $row;
+    function JegyLekerdezesStatusAlapjan($uid, $status){
+        $sql = "SELECT * FROM jegyek WHERE juID = ? AND jStatus = ?";
+        $jegyek = sqlcall($sql, "si", [$uid, $status]);
+        $jegyekarray = [];
+    
+        while ($row = $jegyek->fetch_assoc()) {
+            $row['jNev'] = getJegyTipusAdatok($row['jtID'])['tpNev'];
+            $jegyekarray[] = $row;
+        }
+    
+        return $jegyekarray;
     }
 
-    $aktivjegysql = "SELECT * FROM jegyek WHERE juID = '$uid' AND jStatus = 1";
-    $aktivjegy = sqlcall($aktivjegysql)->fetch_assoc();
-    
+    $jegyek = JegyLekerdezesStatusAlapjan($uid, 0);
+    $aktivjegy = JegyLekerdezesStatusAlapjan($uid, 1);
+    $aktivalhato_jegyek  = JegyLekerdezesStatusAlapjan($uid, 2);
+
     $valasz = [
         'user' => $useradatok,
-        'jegyek' => $jegyekarray
+        'jegyek' => $jegyek,
+        'aktivjegy' => $aktivjegy ? [$aktivjegy[0], $aktivjegy[0]['jNev']] : null,
+        'aktivalhato_jegyek' => $aktivalhato_jegyek
     ];
-    
-    if ($aktivjegy) {
-        $aktivjegyneve = getJegyTipusAdatok($aktivjegy['jtID'])['tpNev'];
-        $valasz['aktivjegy'] = [$aktivjegy, $aktivjegyneve];
-    }
 
     valaszKuldes(200, 'Sikeres lekérdezés', $valasz);
 
