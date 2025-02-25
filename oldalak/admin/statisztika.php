@@ -139,20 +139,20 @@ $tp = isset($_GET['tp']) ? $_GET['tp'] : 'napi';
             $page = $_GET['page-nr'];
         }
         ?>
-        Showing <?php echo $page; ?> of <?php echo $pages; ?> pages
+        Megjelenítve <b style="font-size: 1.2rem;"><?php echo $page; ?></b> a/az <b style="font-size: 1.2rem;"><?php echo $pages; ?></b> oldal közül
     </div>
 
     <div class="pagination" style="display: flex; justify-content: center;align-items: center;">
-        <a href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=1" class="pagination-btn">First</a>
+        <a href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=1" class="pagination-btn">Első</a>
 
         <?php
         if (isset($_GET['page-nr']) && $_GET['page-nr'] > 1) {
         ?>
-            <a href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=<?php echo $_GET['page-nr'] - 1; ?>" class="pagination-btn">Previous</a>
+            <a href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=<?php echo $_GET['page-nr'] - 1; ?>" class="pagination-btn">Előző</a>
         <?php
         } else {
         ?>
-            <a class="pagination-btn">Previous</a>
+            <a class="pagination-btn">Előző</a>
         <?php
         }
         ?>
@@ -179,22 +179,22 @@ $tp = isset($_GET['tp']) ? $_GET['tp'] : 'napi';
         <?php
         if (!isset($_GET['page-nr'])) {
         ?>
-            <a href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=2" class="pagination-btn">Next</a>
+            <a href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=2" class="pagination-btn">Következő</a>
             <?php
         } else {
             if ($_GET['page-nr'] >= $pages) {
             ?>
-                <a class="pagination-btn">Next</a>
+                <a class="pagination-btn">Következő</a>
             <?php
             } else {
             ?>
-                <a class="pagination-btn" href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=<?php echo $_GET['page-nr'] + 1; ?>">Next</a>
+                <a class="pagination-btn" href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=<?php echo $_GET['page-nr'] + 1; ?>">Következő</a>
         <?php
             }
         }
         ?>
 
-        <a href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=<?php echo $pages; ?>" class="pagination-btn">Last</a>
+        <a href="?o=admin&a=statisztika&tp=<?php echo $tp; ?>&page-nr=<?php echo $pages; ?>" class="pagination-btn">Utolsó</a>
     </div>
 
 <?php endif; ?>

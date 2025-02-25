@@ -79,6 +79,10 @@
     "lepjKapcsolatba": "Kérdéseiddel, észrevételekkel és problémákkal kapcsolatban kérlek írj e-mailt vagy írj itt. Ne habozz lépj velünk kapcsolatba!",
     "uzenetLabel": "Üzenet:",
     "kuldes": "Küldés",
+    "products": "Termékek",
+    "toProducts": "Tovább a termékekhez",
+    "readMore": "Tovább olvasom",
+    "noNews": "Nincsenek hírek",
 
 
     "comment3": "footer.php",
@@ -166,6 +170,20 @@
     "hasznalatok": "Használatok száma",
     "nincsJegy": "Nincs érvényes jegyed",
     "vasarlas": "Vásárlás",
+    "billing": "Számlázási adatok",
+    "myPasses": "Bérleteim",
+    "activePasses": "Aktív bérletek",
+    "active": "Aktív",
+    "inactive": "Inaktív",
+    "delete": "Törlés",
+    "activate": "Aktiválás",
+    "expired": "Lejárt",
+    "passType": "Bérlet típusa",
+    "status": "Státusz",
+    "action":"Művelet",
+    "availablePasses": "Elérhető bérletek",
+    "noAvailablePass": "Nincs elérhető inaktív vagy lejárt jegyed.",
+    "noActivePass": "Nincs aktív jegyed.",
 
 
 
@@ -214,5 +232,49 @@
     "comment10": "edzokall.php",
     "telefon": "Telefonszám",
     "vegzettseg": "Végzettségek",
-    "tobbInfo": "További információk az edzőről"
+    "tobbInfo": "További információk az edzőről",
+
+
+
+    "comment11": "webshop.php",
+    "passes": "Bérletek",
+    "more": "Tovább",
+
+
+
+    "comment12": "kosar.php",
+    "cart": "Kosár",
+    "productName": "Termék",
+    "amount": "Mennyiség",
+    "buy": "Vásárlás",
+
+
+
+    "comment13": "felhasznalo_vasarlas.php",
+    "purchases": "Vásárlások",
+    "purchaseID": "Vásárlás azonosító",
+    "totalAmount": "Teljes összeg",
+    "purchasedPasses": "Vásárolt bérletek",
+    "timeSpan": "Időtartam",
+    "day": "nap",
+
+
+
+    "comment14": "pagination",
+    "first": "Első",
+    "previous": "Előző",
+    "next": "Következő",
+    "last": "Utolsó",
+    "showing": "Megjelenítve",
+    "of": "a/az",
+    "pages": "oldal közül",
+
+
+
+    "comment15": "edzok.php",
+    "public": "Nyilvános",
+    "private": "Privát",
+    "profilStatus": "Profil állapota",
+    "uploadPic": "Kép feltöltése",
+    "TrainerReview": "Edző értékelése"
 }

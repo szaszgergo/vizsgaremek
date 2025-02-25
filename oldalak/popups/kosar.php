@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content bg-dark text-light">
             <div class="modal-header">
-                <h5 class="modal-title" id="kosar">Kosár</h5>
+                <h5 class="modal-title" id="kosar"><?= $languageContent["cart"] ?></h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -12,9 +12,9 @@
                 <?php if (isset($_SESSION['uid'])): ?>
                     <?php if (count($cartContent) > 0): ?>
                         <div class="row mb-2">
-                            <div class="col"><strong>Név</strong></div>
-                            <div class="col"><strong>Darabszám</strong></div>
-                            <div class="col"><strong>Ár</strong></div>
+                            <div class="col"><strong><?= $languageContent["productName"] ?></strong></div>
+                            <div class="col"><strong><?= $languageContent["amount"] ?></strong></div>
+                            <div class="col"><strong><?= $languageContent["price"] ?></strong></div>
                             <div class="col"><strong></strong></div>
                         </div>
 
@@ -85,7 +85,7 @@
             <div class="modal-footer">
                 <p class="text-right"><?= number_format($osszar, 0, ',', ' ') ?> Ft</p>
                 <form action="actions/vasarlas.php" method="POST" target="kisablak">
-                <button type="submit" class="btn btn-primary">Vásárlás</button>
+                <button type="submit" class="btn btn-primary"><?= $languageContent["buy"] ?></button>
                 </form>
             </div>
         </div>

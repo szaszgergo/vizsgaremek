@@ -73,7 +73,7 @@
                     <input name="primary_key" type="hidden" value="uID">
                     <input name="id" value="<?php echo htmlspecialchars($row['uID']); ?>" type="hidden">
 
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <?php if ($isDeleted): ?>
                             <span><?php echo htmlspecialchars($row['uStatus']); ?></span>
                         <?php else: ?>
@@ -117,12 +117,12 @@
                     </div>
 
                     <?php if (!$isDeleted): ?>
-                        <div class="col-md-1">
-                            <button type="button" class="btn btn-warning" id="edit-btn">Edit</button>
-                            <button type="submit" class="btn btn-success" id="btn-save">Save</button>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-warning" id="edit-btn">Szerkesztés</button>
+                            <button type="submit" class="btn btn-success" id="btn-save">Mentés</button>
                         </div>
                         <div class="col-md-1">
-                            <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Delete</button>
+                            <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Törlés</button>
                         </div>
                     <?php endif; ?>
                 </form>
@@ -138,20 +138,20 @@
             $page = $_GET['page-nr'];
         }
         ?>
-        Showing <?php echo $page; ?> of <?php echo $pages; ?> pages
+        Megjelenítve <b style="font-size: 1.2rem;"><?php echo $page; ?></b> a/az <b style="font-size: 1.2rem;"><?php echo $pages; ?></b> oldal közül
     </div>
 
     <div class="pagination" style="display: flex; justify-content: center;align-items: center;">
-        <a href="?o=admin&a=felhasznalo_kezeles&page-nr=1&search=<?php echo $_GET['search']; ?>" class="pagination-btn">First</a>
+        <a href="?o=admin&a=felhasznalo_kezeles&page-nr=1&search=<?php echo $_GET['search']; ?>" class="pagination-btn">Első</a>
 
         <?php
         if (isset($_GET['page-nr']) && $_GET['page-nr'] > 1) {
         ?>
-            <a href="?o=admin&a=felhasznalo_kezeles&page-nr=<?php echo $_GET['page-nr'] - 1; ?>&search=<?php echo $_GET['search'] ?>" class="pagination-btn">Previous</a>
+            <a href="?o=admin&a=felhasznalo_kezeles&page-nr=<?php echo $_GET['page-nr'] - 1; ?>&search=<?php echo $_GET['search'] ?>" class="pagination-btn">Előző</a>
         <?php
         } else {
         ?>
-            <a class="pagination-btn">Previous</a>
+            <a class="pagination-btn">Előző</a>
         <?php
         }
         ?>
@@ -179,22 +179,22 @@
         <?php
         if (!isset($_GET['page-nr'])) {
         ?>
-            <a href="?o=admin&a=felhasznalo_kezeles&page-nr=2&search=<?php echo $_GET['search']; ?>" class="pagination-btn">Next</a>
+            <a href="?o=admin&a=felhasznalo_kezeles&page-nr=2&search=<?php echo $_GET['search']; ?>" class="pagination-btn">Következő</a>
             <?php
         } else {
             if ($_GET['page-nr'] >= $pages) {
             ?>
-                <a class="pagination-btn">Next</a>
+                <a class="pagination-btn">Következő</a>
             <?php
             } else {
             ?>
-                <a class="pagination-btn" href="?o=admin&a=felhasznalo_kezeles&page-nr=<?php echo $_GET['page-nr'] + 1; ?>&search=<?php echo $_GET['search']; ?>">Next</a>
+                <a class="pagination-btn" href="?o=admin&a=felhasznalo_kezeles&page-nr=<?php echo $_GET['page-nr'] + 1; ?>&search=<?php echo $_GET['search']; ?>">Következő</a>
         <?php
             }
         }
         ?>
 
-        <a href="?o=admin&a=felhasznalo_kezeles&page-nr=<?php echo $pages; ?>&search=<?php echo $_GET['search']; ?>" class="pagination-btn">Last</a>
+        <a href="?o=admin&a=felhasznalo_kezeles&page-nr=<?php echo $pages; ?>&search=<?php echo $_GET['search']; ?>" class="pagination-btn">Utolsó</a>
     </div>
 
     <h3 class="mt-5">Admin felhasználók</h3>

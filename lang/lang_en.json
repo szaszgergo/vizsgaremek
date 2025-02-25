@@ -47,7 +47,7 @@
     "hambiGaleria": "Gallery",
     "hambiFaqs": "Frequently Asked Questions",
     "hambiHazirend": "House Rules",
-    "hambiUzenofal": "Patch Notes",
+    "hambiUzenofal": "Message board",
 
 
 
@@ -80,6 +80,10 @@
     "lepjKapcsolatba": "For questions, feedback, or issues, please send us an email or write here. Don’t hesitate to get in touch!",
     "uzenetLabel": "Message:",
     "kuldes": "Send",
+    "products": "Products",
+    "toProducts": "Go to the Products",
+    "readMore": "Read More",
+    "noNews": "No news available at the moment.",
 
 
 
@@ -169,6 +173,20 @@
     "hasznalatok": "Number of Uses",
     "nincsJegy": "You have no valid ticket",
     "vasarlas": "Buy",
+    "billing": "Billing Information",
+    "myPasses": "My passes",
+    "activePasses": "Active Passes",
+    "active": "Active",
+    "inactive": "Inactive",
+    "delete": "Delete",
+    "activate": "Activate",
+    "expired": "Expired",
+    "passType": "Pass Type",
+    "status": "Status",
+    "action": "Action",
+    "availablePasses": "Available Passes",
+    "noAvailablePass": "You have no available passes",
+    "noActivePass": "You have no active passes",
 
     
 
@@ -216,5 +234,48 @@
     "comment10": "edzokall.php",
     "telefon": "phone number",
     "vegzettseg": "Qualifications",
-    "tobbInfo": "More information about the trainer"
+    "tobbInfo": "More information about the trainer",
+
+    "comment11": "webshop.php",
+    "passes": "Passes",
+    "more": "More",
+
+
+
+    "comment12": "kosar.php",
+    "cart": "Cart",
+    "productName": "Product",
+    "amount": "Amount",
+    "buy": "Buy",
+
+
+
+
+    "comment13": "felhasznalo_vasarlas.php",
+    "purchases": "Purchases",
+    "purchaseID": "Purchase ID",
+    "totalAmount": "Total Amount",
+    "purchasedPasses": "Purchased Passes",
+    "timeSpan": "Time Span",
+    "day": "day",
+
+
+
+    "comment14": "pagination",
+    "first": "First",
+    "previous": "Previous",
+    "next": "Next",
+    "last": "Last",
+    "showing": "Showing",
+    "of": "of",
+    "pages": "pages",
+
+
+
+    "comment15": "edzok.php",
+    "public": "Public",
+    "private": "Private",
+    "profilStatus": "Profil status",
+    "uploadPic": "Upload picture",
+    "TrainerReview": "Trainer Review"
 }
