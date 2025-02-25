@@ -72,12 +72,12 @@
                 <div class="row-md-12 m-4 p-1">
                     <h1>
                     <input class="leiras_textarea" name="mentes_nev" type="text" value="<?= $row['szeuFelhasznalonev']; ?>" placeholder="Teljes név..." readonly style="background: transparent; color: #fff;">
-                    &nbsp;Profil státusz: 
+                    &nbsp;<?= $languageContent["profilStatus"] ?>: 
                     <?php
                     if($check_status->fetch_assoc()["szeVisibility"] == 1) {
-                        echo "Public";
+                        echo $languageContent["public"];
                     } else {
-                        echo "Private";
+                        echo $languageContent["private"];
                     }
                     ?>
                     </h1>
@@ -93,7 +93,7 @@
                                 <p><input class="leiras_textarea" name="mentes_email" type="text" value="<?= $row['szeEmail']; ?>" placeholder="Email cím..." readonly style="background: transparent; color: #fff;">&nbsp;<i class="fa fa-envelope" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i></p>
                                 <p><input class="leiras_textarea" name="mentes_telefon" type="text" value="<?= $row['szeTelefon']; ?>" placeholder="Telefonszám..." readonly style="background: transparent; color: #fff;">&nbsp;<i class="fa fa-phone p-1" aria-hidden="true" style="font-size: 24px; margin-right:10px;"></i></p>
                                 <p>
-                                    Végzettségek: <br> <textarea class="leiras_textarea" name="mentes_vegzettseg" readonly style="background: transparent; color: #fff; resize: none;"><?= $row['szeVegzetseg']; ?></textarea>
+                                    <span class="mt-1"><?= $languageContent["vegzettseg"] ?>:</span> <br> <textarea class="leiras_textarea" name="mentes_vegzettseg" readonly style="background: transparent; color: #fff; resize: none;"><?= $row['szeVegzetseg']; ?></textarea>
                                 </p>
                             </div>
                             <div class="col mt-3">
@@ -138,7 +138,7 @@
                                     echo "</div>";
                                 }
                                 ?>
-                                <h3 class='mt-1'>Kép feltöltése</h3>
+                                <h3 class='mt-1'><?= $languageContent["uploadPic"] ?></h3>
                                 <?php if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
                                 <input id="kep_feltoltes" name="mentes_kep" type="file" disabled>
                                 <?php else: ?>
@@ -176,8 +176,8 @@
                             <div class="btn btn-warning" style="font-size: 1.2rem;" id="edit_leiras">Szerkesztés</div>
                             <button class="btn btn-warning" style="font-size: 1.2rem;">Mentés</button>
 
-                            <a href="?o=edzok&eid=10&visibility=public"><div class="btn btn-success" style="font-size: 1.2rem; float: right; margin-left: 5px; color: #ddd;" id="edit_leiras">Public</div></a>
-                            <a href="?o=edzok&eid=10&visibility=private"><div class="btn btn-danger" style="font-size: 1.2rem; float: right; color: #ddd;" id="edit_leiras">Private</div></a>
+                            <a href="?o=edzok&eid=<?= $eid ?>&visibility=public"><div class="btn btn-success" style="font-size: 1.2rem; float: right; margin-left: 5px; color: #ddd;" id="edit_leiras">Public</div></a>
+                            <a href="?o=edzok&eid=<?= $eid ?>&visibility=private"><div class="btn btn-danger" style="font-size: 1.2rem; float: right; color: #ddd;" id="edit_leiras">Private</div></a>
                         <?php endif; ?>
                         <?php
                         if (isset($_GET['visibility']) && $_GET['visibility'] == 'public') {
@@ -298,7 +298,7 @@
 
     <div class="komment">
         <?php if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
-        <h2 style="margin:15px;">Írj értékelést az edzőnkről</h2>
+        <h2 style="margin:15px;"><?= $languageContent["TrainerReview"] ?></h2>
         <?php
                 $existing_comment = "";
 
@@ -325,7 +325,7 @@
 
             <button id="elkuldkomment" type="submit" class="btn btn-warning" style="font-size:20px; margin:15px;"
                 <?php if (!empty($existing_comment)) echo 'style="display:none;"'; ?>>
-                Elküldés
+                <?= $languageContent["kuldes"] ?>
             </button>
             <?php endif;?>
             <div class="row">

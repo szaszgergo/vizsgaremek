@@ -31,5 +31,5 @@
     <?php endif; ?>
 
     <button class="btn btn-warning btn-new" data-bs-toggle="modal"
-        data-bs-target="#vasarlasielozmenypopup">Számlázás</button>
+        data-bs-target="#vasarlasielozmenypopup"><?= $languageContent["billing"] ?></button>
 </div>

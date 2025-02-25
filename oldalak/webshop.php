@@ -19,8 +19,8 @@ $jegyek = sqlcall("SELECT * FROM tipusok");
 
 <div class="container webshop bg-transparentblack">
     <div class="toggle-buttons text-center mb-4">
-        <a href="<?php echo htmlspecialchars($productsUrl); ?>" class="btn <?php echo $view === 'products' ? 'btn-primary' : 'btn-secondary'; ?>">Termékek</a>
-        <a href="<?php echo htmlspecialchars($passesUrl); ?>" class="btn <?php echo $view === 'passes' ? 'btn-primary' : 'btn-secondary'; ?>">Bérletek</a>
+        <a href="<?php echo htmlspecialchars($productsUrl); ?>" class="btn <?php echo $view === 'products' ? 'btn-primary' : 'btn-secondary'; ?>"><?= $languageContent["products"] ?></a>
+        <a href="<?php echo htmlspecialchars($passesUrl); ?>" class="btn <?php echo $view === 'passes' ? 'btn-primary' : 'btn-secondary'; ?>"><?= $languageContent["passes"] ?></a>
     </div>
 
     <!-- Webshop Section -->
@@ -47,9 +47,9 @@ $jegyek = sqlcall("SELECT * FROM tipusok");
                                 <div class="product-info">
                                     <h5><?php echo htmlspecialchars($termek['teNev']); ?></h5>
                                     <p><?php echo htmlspecialchars($termek['teLeiras']); ?></p>
-                                    <p><strong>Price:</strong> <?php echo htmlspecialchars($termek['teAr']); ?> Ft</p>
+                                    <p><strong><?= $languageContent["price"] ?></strong> <?php echo htmlspecialchars($termek['teAr']); ?> Ft</p>
                                     <div class="row">
-                                        <a href="?o=termek&id=<?php echo $termek['teID']; ?>" class="btn btn-primary col-md-3">Tovább</a>
+                                        <a href="?o=termek&id=<?php echo $termek['teID']; ?>" class="btn btn-primary col-md-3"><?= $languageContent["more"] ?></a>
                                         <div class="col-md-6"></div>
                                         <form class="col-md-3" action="actions/kosar_termek_hozzaadas.php" method="POST" target="kisablak">
                                             <input type="hidden" name="teID" value="<?php echo $termek['teID']; ?>">

@@ -1,6 +1,6 @@
 <?php
 $start = 0;
-$rows_per_page = 10;
+$rows_per_page = 4;
 $records = sqlcall("SELECT * FROM termekek");
 
 $number_of_rows = $records->num_rows;
@@ -39,18 +39,18 @@ $oldalak = sqlcall("SELECT * FROM termekek LIMIT $start, $rows_per_page");
                 <input name="id" value="<?php echo htmlspecialchars($row['teID']); ?>" type="hidden">
                 <div class="col-md-2"><img src="images/termekek/<?php echo $row['teID']; ?>/main.png" class="profile-image img-fluid" style="border-radius: 0; scale: 2;"></div>
                 <div class="col-md-3"><input type="text" value="<?php echo $row['teNev']; ?>" name="teNev" class="form-control" readonly></div>
-                <div class="col-md-2"><input type="text" value="<?php echo $row['teAr']; ?>" name="teAr" class="form-control" readonly></div>
+                <div class="col-md-1"><input type="text" value="<?php echo $row['teAr']; ?>" name="teAr" class="form-control" readonly></div>
                 <div class="col-md-3"><input type="text" value="<?php echo $row['teLeiras']; ?>" name="teLeiras" class="form-control" readonly></div>
-                <div class="col-md-1">
-                    <button type="button" class="btn btn-warning" id="edit-btn">Edit</button>
-                    <button type="submit" class="btn btn-success" id="btn-save">Save</button>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-warning" id="edit-btn">Szerkesztés</button>
+                    <button type="submit" class="btn btn-success" id="btn-save">Mentés</button>
                 </div>
                 <div class="col-md-1">
                     <input name="status" value="teStatus" type="hidden">
                     <?php if ($row['teStatus'] == 0): ?>
                         <button type="submit" formaction="actions/admin/readd.php" class="btn btn-info">Re-add</button>
                     <?php else: ?>
-                        <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Delete</button>
+                        <button type="submit" formaction="actions/admin/delete.php" class="btn btn-danger">Törlés</button>
                     <?php endif; ?>
                 </div>
             </div>
@@ -67,20 +67,20 @@ $oldalak = sqlcall("SELECT * FROM termekek LIMIT $start, $rows_per_page");
         $page = $_GET['page-nr'];
     }
     ?>
-    Showing <?php echo $page; ?> of <?php echo $pages; ?> pages
+    Megjelenítve <b style="font-size: 1.2rem;"><?php echo $page; ?></b> a/az <b style="font-size: 1.2rem;"><?php echo $pages; ?></b> oldal közül
 </div>
 
 <div class="pagination" style="display: flex; justify-content: center;align-items: center;">
-    <a href="?o=admin&a=termek_kezeles&page-nr=1" class="pagination-btn">First</a>
+    <a href="?o=admin&a=termek_kezeles&page-nr=1" class="pagination-btn">Első</a>
 
     <?php
     if (isset($_GET['page-nr']) && $_GET['page-nr'] > 1) {
     ?>
-        <a href="?o=admin&a=termek_kezeles&page-nr=<?php echo $_GET['page-nr'] - 1; ?>" class="pagination-btn">Previous</a>
+        <a href="?o=admin&a=termek_kezeles&page-nr=<?php echo $_GET['page-nr'] - 1; ?>" class="pagination-btn">Előző</a>
     <?php
     } else {
     ?>
-        <a class="pagination-btn">Previous</a>  
+        <a class="pagination-btn">Előző</a>  
     <?php
     }
     ?>
@@ -107,20 +107,20 @@ $oldalak = sqlcall("SELECT * FROM termekek LIMIT $start, $rows_per_page");
     <?php
     if (!isset($_GET['page-nr'])) {
     ?>
-        <a href="?o=admin&a=termek_kezeles&page-nr=2" class="pagination-btn">Next</a>
+        <a href="?o=admin&a=termek_kezeles&page-nr=2" class="pagination-btn">Következő</a>
         <?php
     } else {
         if ($_GET['page-nr'] >= $pages) {
         ?>
-            <a class="pagination-btn">Next</a>
+            <a class="pagination-btn">Következő</a>
         <?php
         } else {
         ?>
-            <a class="pagination-btn" href="?o=admin&a=termek_kezeles&page-nr=<?php echo $_GET['page-nr'] + 1; ?>">Next</a>
+            <a class="pagination-btn" href="?o=admin&a=termek_kezeles&page-nr=<?php echo $_GET['page-nr'] + 1; ?>">Következő</a>
     <?php
         }
     }
     ?>
 
-    <a href="?o=admin&a=termek_kezeles&page-nr=<?php echo $pages; ?>" class="pagination-btn">Last</a>
+    <a href="?o=admin&a=termek_kezeles&page-nr=<?php echo $pages; ?>" class="pagination-btn">Utolsó</a>
 </div>

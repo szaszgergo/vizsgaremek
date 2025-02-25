@@ -1,5 +1,5 @@
 <div class="profile-container">
-    <h1>Jegyeid:</h1>
+    <h1><?= $languageContent["myPasses"] ?>:</h1>
 
     <?php
     $jegyek = getUserJegyek();
@@ -10,40 +10,40 @@
         <?php
         $tipus = getJegyTipusAdatok($aktivjegy['jtID']);
         ?>
-        <h2>Aktív jegyed:</h2>
+        <h2><?= $languageContent["activePasses"] ?>:</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Jegy Típusa</th>
-                    <th>Állapot</th>
-                    <th>Művelet</th>
+                    <th><?= $languageContent["passType"] ?></th>
+                    <th><?= $languageContent["status"] ?></th>
+                    <th><?= $languageContent["action"] ?></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><?= htmlspecialchars($tipus["tpNev"]) ?></td>
-                    <td><span class="badge bg-success">Aktív</span></td>
+                    <td><span class="badge bg-success"><?= $languageContent["active"] ?></span></td>
                     <td>
                         <form method="post" action="../actions/jegy_deaktivalas.php" target="kisablak">
                             <input type="hidden" name="jID" value="<?= $aktivjegy['jID'] ?>">
-                            <button type="submit" class="btn btn-danger">Lemondás</button>
+                            <button type="submit" class="btn btn-danger"><?= $languageContent["delete"] ?></button>
                         </form>
                     </td>
                 </tr>
             </tbody>
         </table>
     <?php else: ?>
-        <p>Nincs aktív jegyed.</p>
+        <p><?= $languageContent["noActivePass"] ?></p>
     <?php endif; ?>
 
     <?php if ($jegyek->num_rows > 0): ?>
-        <h2>Elérhető jegyeid:</h2>
+        <h2><?= $languageContent["availablePasses"] ?>:</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Jegy Típusa</th>
-                    <th>Állapot</th>
-                    <th>Művelet</th>
+                    <th><?= $languageContent["passType"] ?></th>
+                    <th><?= $languageContent["status"] ?></th>
+                    <th><?= $languageContent["action"] ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -56,16 +56,16 @@
                         <td><?= htmlspecialchars($tipus["tpNev"]) ?></td>
                         <td>
                             <?php if ($status == 2): ?>
-                                <span class="badge bg-secondary">Inaktív</span>
+                                <span class="badge bg-secondary"><?= $languageContent["inactive"] ?></span>
                             <?php else: ?>
-                                <span class="badge bg-danger">Lejárt</span>
+                                <span class="badge bg-danger"><?= $languageContent["expired"] ?></span>
                             <?php endif; ?>
                         </td>
                         <td>
                             <?php if ($status == 2): ?>
                                 <form method="post" action="../actions/jegy_aktivalas.php" target="kisablak">
                                     <input type="hidden" name="jID" value="<?= $pass['jID'] ?>">
-                                    <button type="submit" class="btn btn-primary">Aktiválás</button>
+                                    <button type="submit" class="btn btn-primary"><?= $languageContent["activate"] ?></button>
                                 </form>
                             <?php endif; ?>
                         </td>
@@ -74,7 +74,7 @@
             </tbody>
         </table>
     <?php else: ?>
-        <p>Nincs elérhető inaktív vagy lejárt jegyed.</p>
+        <p><?= $languageContent["noAvailablePasses"] ?></p>
     <?php endif; ?>
 
 </div>

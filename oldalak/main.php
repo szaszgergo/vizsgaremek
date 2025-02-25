@@ -27,7 +27,7 @@
     <!-- Webshop Products Section -->
     <section class="m-5">
         <div class="row mb-5">
-            <h1 class="mb-4">Termékeink</h1>
+            <h1 class="mb-4"><?= $languageContent['products'] ?></h1>
             <?php
             $termekek = sqlcall("SELECT * FROM termekek ORDER BY teDatum DESC LIMIT 4");
             while ($termek = $termekek->fetch_assoc()):
@@ -54,7 +54,7 @@
                 </div>
             <?php endwhile; ?>
         </div>
-        <a href="?o=shop" class="btn btn-primary">Tovább a termékeinkhez</a>
+        <a href="?o=shop" class="btn btn-primary"><?= $languageContent['toProducts'] ?></a>
     </section>
 
 
@@ -107,12 +107,12 @@
                                 <img src="images/uzenofal/<?= htmlspecialchars($legujjabbhir['uzenoKep']); ?>"
                                     class="card-img-top uzenofalKep" alt="News Image"><br>
                             <?php endif; ?>
-                            <a href="?o=uzenofal" class="btn btn-primary">Read more</a>
+                            <a href="?o=uzenofal" class="btn btn-primary"><?= $languageContent['readMore'] ?></a>
                         </div>
                     </div>
                 </div>
             <?php else: ?>
-                <p>Nincsenek híreink</p>
+                <p><?= $languageContent['noNews'] ?></p>
             <?php endif; ?>
         </div>
     </section>
