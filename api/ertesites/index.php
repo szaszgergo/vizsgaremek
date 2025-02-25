@@ -25,7 +25,7 @@
     $datum = $input['ertDatum'];
     $tipus = $input['ertTipus'];
 
-    $sql  = "INSERT INTO `ertesites` ( ertuID, ertDatum, ertTipus, ertStatus`) VALUES (?,?,?,?)";
+    $sql  = "INSERT INTO `ertesites` ( ertuID, ertDatum, ertTipus, ertStatus) VALUES (?,?,?,?)";
     $result = sqlsave($sql, "issi", array($uid, $datum, $tipus, 0));
 
     if (!$result) {
