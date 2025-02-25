@@ -26,7 +26,7 @@
     $tipus = $input['ertTipus'];
 
     $sql  = "INSERT INTO `ertesites` ( ertuID, ertDatum, ertTipus, ertStatus) VALUES (?,?,?,?)";
-    $result = sqlsave($sql, "issi", array($uid, $datum, $tipus, 0));
+    $result = sqlsave($sql, "issi", array($uid, $datum, $tipus, 1));
 
     if (!$result) {
         valaszKuldes(404, 'Hiba történt a mentés közben!');
