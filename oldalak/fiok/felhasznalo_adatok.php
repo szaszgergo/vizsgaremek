@@ -46,12 +46,14 @@
             <p><?= $languageContent["pwChange"] ?></p>
             
         </div>
-        <form action="actions/enable_2fa.php" method="POST">
-            <button type="submit" class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</button>
-        </form>
+
 
 
         <button style="display: none;" type="submit" class="btn-save"
             id="btn-save"><?= $languageContent["saveChanges"] ?></button>
     </form>
 </div>
+
+<form action="actions/enable_2fa.php" method="POST" target="kisablak">
+    <button type="submit" class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</button>
+</form>
