@@ -1,11 +1,10 @@
 <?php
 session_start();
+var_dump($_POST);
 require("sqlcall.php");
 require("mail.php");
 
-if (!isset($_SESSION["uid"])) {
-    die("Nincs bejelentkezve!");
-}
+
 
 $uid = $_SESSION["uid"];
 $code = rand(100000, 999999);
@@ -18,7 +17,7 @@ $result = sqlcall("SELECT uemail FROM user WHERE uID='$uid'");
 $user = $result->fetch_assoc();
 $email = $user['uemail'];
 
-sendMail($email, "2FA", "Az Ön 2FA kódja: $code");
+sendMail($email, "2FA", $code);
 
 header("Location: https://liftzone.hu/?o=2fa");
 exit();

@@ -54,6 +54,6 @@
     </form>
 </div>
 
-<form action="actions/enable_2fa.php" method="POST" target="kisablak">
+<form action="actions/enable_2fa.php" method="POST">
     <button type="submit" class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</button>
 </form>
