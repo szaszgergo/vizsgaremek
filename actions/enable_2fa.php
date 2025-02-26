@@ -17,7 +17,7 @@ $result = sqlcall("SELECT uemail FROM user WHERE uID='$uid'");
 $user = $result->fetch_assoc();
 $email = $user['uemail'];
 
-sendMail($email, "2FA", $code);
+sendMail($email, "2fa", $code);
 
 header("Location: /?o=2fa");
 exit();
