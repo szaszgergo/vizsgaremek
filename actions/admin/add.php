@@ -16,7 +16,7 @@ $edzotablasql = "INSERT INTO szemelyi_edzok
 ($uid, '', '', '', '', 'a');";
 sqlsave($edzotablasql);
 
-/* sendMail($adatok['uemail'], "edzoPromotalas"); */
+sendMail($adatok['uemail'], "edzoPromotalas");
 echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 
 ?>

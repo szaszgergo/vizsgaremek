@@ -12,6 +12,8 @@ function sendMail($to, $tipus, $extra = ''): bool{
         "edzoAdatValtoztatas" => ["Edző adat változtatás!", "Sikeresen megváltoztatta az edzőadatait!"],
         "vasarlas" => ["Vásárlás megerősítése!", "Sikeresen vásárolt!"],
         "edzoPromotalas" => ["Edzővé válás megerősítése!", "Sikeresen edzővé vált!"],
+        "2fa" => ["Kétlépcsős azonosítás", "$extra"],
+        "ertesites" => ["Értesítés", "Sikeresen értesítettük!"]
     ];
 
     

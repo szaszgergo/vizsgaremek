@@ -21,6 +21,7 @@ $cimek = [
     "uzenofal" => "Üzenőfal | LiftZone",
     "foglalas" => "Foglalás | LiftZone",
     "felhasznalo_vasarlas" => "Vásárlásaid | LiftZone",
+    "2fa" => "Kétlépcsős azonosítás | LiftZone",
     "" => "Főoldal | LiftZone",
 ];
 
@@ -40,6 +41,7 @@ $belepettoldalak = [
     "uzenofal" => "oldalak/uzenofal.php",
     "foglalas" => "oldalak/foglalas.php",
     "felhasznalo_vasarlas" => "oldalak/fiok/felhasznalo_vasarlas.php",
+    "2fa" => "oldalak/2fa.php",
     "" => "oldalak/main.php",
 ];
 
@@ -57,6 +59,7 @@ $oldalak = [
     "shop" => "oldalak/webshop.php",
     "termek" => "oldalak/termek.php",
     "uzenofal" => "oldalak/uzenofal.php",
+    "2fa" => "oldalak/2fa.php",
     "" => "oldalak/main.php",
 ];
 

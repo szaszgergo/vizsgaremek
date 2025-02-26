@@ -44,7 +44,9 @@
 
         <div class="mb-3">
             <p><?= $languageContent["pwChange"] ?></p>
+            
         </div>
+        <a href="?o=2fa"><span class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</span></a>
 
         <button style="display: none;" type="submit" class="btn-save"
             id="btn-save"><?= $languageContent["saveChanges"] ?></button>

@@ -20,6 +20,14 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
     if (password_verify($password, $hashedpassword)) {
         $uid = $row['uID'];
+
+        // Ellenőrizzük, hogy szükséges-e 2FA
+        if (!empty($row['u2FACode']) && strtotime($row['u2FAExpiry']) > time()) {
+            $_SESSION['2fa_uid'] = $uid;
+            header("Location: ./?o=2fa");
+            exit();
+        }
+
         //lementjuk a tovabbiakert
         $_SESSION["uid"] = $uid;
         //login tábla kitöltése
