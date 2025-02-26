@@ -20,6 +20,6 @@ $email = $user['uemail'];
 
 sendMail($email, "2FA", "Az Ön 2FA kódja: $code");
 
-header("Location: https://liftzone.hu/oldalak/2fa.php");
+header("Location: https://liftzone.hu/?o=2fa");
 exit();
 ?>  
