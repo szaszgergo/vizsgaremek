@@ -20,5 +20,6 @@ $email = $user['uemail'];
 
 sendMail($email, "2FA", "Az Ön 2FA kódja: $code");
 
-echo "<script>alert(A 2FA kódot elküldtük az email címére!)</script>";
+header("Location: ../?o=2fa");
+exit();
 ?>  

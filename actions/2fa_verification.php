@@ -1,6 +1,7 @@
 <?php
 session_start();
 require("../sqlcall.php");
+require("../mail.php");
 
 if (!isset($_SESSION["2fa_uid"])) {
     die("Nincs folyamatban lévő 2FA hitelesítés.");

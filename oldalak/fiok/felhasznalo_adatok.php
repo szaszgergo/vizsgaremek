@@ -46,7 +46,10 @@
             <p><?= $languageContent["pwChange"] ?></p>
             
         </div>
-        <a href="?o=2fa"><span class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</span></a>
+        <form action="actions/enable_2fa.php" method="POST">
+            <button type="submit" class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</button>
+        </form>
+
 
         <button style="display: none;" type="submit" class="btn-save"
             id="btn-save"><?= $languageContent["saveChanges"] ?></button>
