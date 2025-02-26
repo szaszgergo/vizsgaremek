@@ -1,7 +1,7 @@
 <?php
 session_start();
-require("../sqlcall.php");
-require("../mail.php");
+require("sqlcall.php");
+require("mail.php");
 
 if (!isset($_SESSION["uid"])) {
     die("Nincs bejelentkezve!");
@@ -20,6 +20,6 @@ $email = $user['uemail'];
 
 sendMail($email, "2FA", "Az Ön 2FA kódja: $code");
 
-header("Location: ../?o=2fa");
+header("Location: https://liftzone.hu/oldalak/2fa.php");
 exit();
 ?>  
