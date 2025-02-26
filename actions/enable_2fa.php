@@ -19,6 +19,6 @@ $email = $user['uemail'];
 
 sendMail($email, "2FA", $code);
 
-header("Location: https://liftzone.hu/?o=2fa");
+header("Location: /?o=2fa");
 exit();
 ?>  
