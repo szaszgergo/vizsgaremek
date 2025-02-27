@@ -18,7 +18,7 @@
     $id = intval($_POST['id']);
     
     $adatok = $_POST;
-    unset($adatok['tabla'], $adatok['primary_key'], $adatok['id']);
+    unset($adatok['tabla'], $adatok['primary_key'], $adatok['id'], $adatok['status']);
     
     $sql = dinamikusSQLGenerátor_inátor($tabla, $adatok, $primaryKey, $id);
     sqlsave($sql);
