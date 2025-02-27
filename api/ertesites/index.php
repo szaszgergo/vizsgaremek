@@ -17,16 +17,25 @@
     $input = json_decode($inputJSON, true);
 
 
-    if (!isset($input['uID']) || !isset($input['ertTipus']) || !isset($input['ertDatum'])) {
-        valaszKuldes(400, 'Hiányzó paraméter: uID, ertTipus, ertDatum');
+    if (!isset($input['uID']) || !isset($input['jID']) || !isset($input['ertNappalElotte'])) {
+        valaszKuldes(400, 'Hiányzó paraméter: uID, jID, ertNappalElotte');
     }
 
     $uid = $input['uID'];
-    $datum = $input['ertDatum'];
-    $tipus = $input['ertTipus'];
+    $datum = $input['ertNappalElotte']; // 7
+    $jegy = $input['jID'];
 
-    $sql  = "INSERT INTO `ertesites` ( ertuID, ertDatum, ertTipus, ertStatus) VALUES (?,?,?,?)";
-    $result = sqlsave($sql, "issi", array($uid, $datum, $tipus, 1));
+    $jegylejarat = sqlcall("SELECT * FROM jegy WHERE jID = '$jegy' AND jStatus = 1");
+    if ($jegylejarat->num_rows == 0) {
+        valaszKuldes(404, 'A jegy nem létezik vagy lejárt!');
+    }
+    $lejarat = $jegylejarat->fetch_assoc()["jLejarat"];
+
+    //lejarat - datum
+    $ertesitesi_Datum = date('Y-m-d', strtotime($datum . ' - ' . $lejarat . ' days'));
+
+    $sql  = "INSERT INTO `ertesites` ( ertuID, ertDatum, ertjID, ertStatus) VALUES (?,?,?,?)";
+    $result = sqlsave($sql, "isii", array($uid, $datum, $jegy, 1));
 
     if (!$result) {
         valaszKuldes(404, 'Hiba történt a mentés közben!');

@@ -13,7 +13,9 @@ function sendMail($to, $tipus, $extra = ''): bool{
         "vasarlas" => ["Vásárlás megerősítése!", "Sikeresen vásárolt!"],
         "edzoPromotalas" => ["Edzővé válás megerősítése!", "Sikeresen edzővé vált!"],
         "2fa" => ["Kétlépcsős azonosítás", "Az Ön 2FA kódja: $extra"],
-        "ertesites" => ["Értesítés", "Sikeresen értesítettük!"]
+        "ertesitesma" => ["Értesítés", "A jegye ma lejár!!"],
+        "ertesitesholnap" => ["Értesítés", "A jegye holnap lejár!"],
+        "ertesitesxnap" => ["Értesítés", "A jegye " . $extra . " nap múlva lejár!"]
     ];
 
     
