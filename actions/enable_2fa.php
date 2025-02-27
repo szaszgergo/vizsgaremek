@@ -1,10 +1,7 @@
 <?php
 session_start();
-var_dump($_POST);
 require("sqlcall.php");
 require("mail.php");
-
-
 
 $uid = $_SESSION["uid"];
 $code = rand(100000, 999999);
@@ -19,6 +16,6 @@ $email = $user['uemail'];
 
 sendMail($email, "2fa", $code);
 
-header("Location: https://liftzone.hu/?o=2fa");
-exit();
-?>  
+echo "<script>window.location.href = 'https://liftzone.hu/?o=2fa';</script>";
+exit;
+?>

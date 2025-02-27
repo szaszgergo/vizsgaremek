@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('Europe/Budapest');
 require('actions/naplozas.php');
 require('actions/api_hivas.php');
 require('actions/getuserinfo.php');
