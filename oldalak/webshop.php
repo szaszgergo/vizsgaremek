@@ -46,7 +46,6 @@ $jegyek = sqlcall("SELECT * FROM tipusok");
                                     alt="<?php echo htmlspecialchars($termek['teNev']); ?>">
                                 <div class="product-info">
                                     <h5><?php echo htmlspecialchars($termek['teNev']); ?></h5>
-                                    <p><?php echo htmlspecialchars($termek['teLeiras']); ?></p>
                                     <p><strong><?= $languageContent["price"] ?></strong> <?php echo htmlspecialchars($termek['teAr']); ?> Ft</p>
                                     <div class="row">
                                         <a href="?o=termek&id=<?php echo $termek['teID']; ?>" class="btn btn-primary col-md-3"><?= $languageContent["more"] ?></a>
