@@ -26,9 +26,9 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         //     header("Location: http://liftzone.hu/?o=2fa");
         //     exit;
         // }
-        if ($row['u2FAStatus'] == 1) {
+        if ($row['u2FAStatus'] == true) {
             $_SESSION['2fa_uid'] = $uid;
-            echo "<script>window.parent.location.href = 'https://liftzone.hu/?o=2fa';</script>";
+            echo "<script>window.parent.location.href = 'https://liftzone.hu/actions/enable_2fa.php';</script>";
         }        
 
         //lementjuk a tovabbiakert
