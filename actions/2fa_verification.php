@@ -3,15 +3,6 @@ session_start();
 require("sqlcall.php");
 require("mail.php");
 
-// if(isset($_SESSION["uid"])) {
-//     $_SESSION["2fa_uid"] = $_SESSION["uid"];
-//     $uid = $_SESSION["2fa_uid"];
-// }
-
-// if (!isset($_SESSION["2fa_uid"])) {
-//     die("Nincs folyamatban lévő 2FA hitelesítés.");
-// }
-
 if (!isset($_SESSION["uid"]) && isset($_SESSION["2fa_uid"])) {
     $_SESSION["uid"] = $_SESSION["2fa_uid"];
 }
@@ -29,9 +20,9 @@ $row = $result->fetch_assoc();
 
 if ($row['u2FACode'] == $code && strtotime($row['u2FAExpiry']) > time()) {
     $_SESSION["uid"] = $uid;
-
+    $email = $row['uemail'];
     sqlsave("UPDATE user SET u2FACode=NULL, u2FAExpiry=NULL, u2FAStatus=1 WHERE uID='$uid'");
-    sendMail($row['uemail'], "2fa_enable");
+    sendMail($email, "2fa_enable");
     echo "<script>window.parent.location.href = 'https://liftzone.hu/?o=fiok';</script>";
 } else {
     echo "Hibás vagy lejárt kód!";

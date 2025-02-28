@@ -20,12 +20,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
     if (password_verify($password, $hashedpassword)) {
         $uid = $row['uID'];
-        // Ellenőrizzük, hogy szükséges-e 2FA
-        // if (!empty($row['u2FACode']) && strtotime($row['u2FAExpiry']) > time()) {
-        //     $_SESSION['2fa_uid'] = $uid;
-        //     header("Location: http://liftzone.hu/?o=2fa");
-        //     exit;
-        // }
         if ($row['u2FAStatus'] === 1) {
             $_SESSION['2fa_uid'] = $uid;
             echo "<script>window.parent.location.href = 'https://liftzone.hu/actions/enable_2fa.php';</script>";
@@ -52,6 +46,12 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
         $email = $row['uemail'];
 
+        $isBanned = "SELECT * FROM megbizhato WHERE megUID = '$uid' AND megIP = '$ip' AND megBan = '1'";
+        if (sqlcall($isBanned)->num_rows > 0) {
+            hibaUzenet("A fiókodat letiltották!");
+            exit();
+        }
+
         $sql_check_ip = "SELECT * FROM megbizhato WHERE megIP = '$ip' AND megStatus = '1'";
         $result_ip = sqlcall($sql_check_ip);
 
@@ -62,7 +62,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
             sqlsave($sql_insert_token);
 
             $confirm_link = "https://liftzone.hu/actions/ip_megerosites.php/?token=$token";
-            sendMail($email, "bejelentkezesUj", $confirm_link);
+            $ban_ip = "https://liftzone.hu/actions/ip_megerosites.php/?ip=$ip&uid=$uid";
+            sendMail($email, "bejelentkezesUj", $confirm_link, $ban_ip);
         }
         formSuccess();
 
