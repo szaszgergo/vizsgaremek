@@ -26,7 +26,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         //     header("Location: http://liftzone.hu/?o=2fa");
         //     exit;
         // }
-        if ($row['u2FAStatus'] == 0) {
+        if ($row['u2FAStatus'] == 1) {
             $_SESSION['2fa_uid'] = $uid;
             echo "<script>window.parent.location.href = 'https://liftzone.hu/?o=2fa';</script>";
         }        
