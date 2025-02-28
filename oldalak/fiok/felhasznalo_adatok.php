@@ -68,6 +68,8 @@ $sql = "SELECT * FROM user WHERE uID='$uid' AND u2FAStatus=1";
 $result = sqlcall($sql);
 if ($result->num_rows > 0) {
     $on = true;
+} else {
+    $on = false;
 }
 ?>
 
