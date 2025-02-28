@@ -32,7 +32,7 @@ if ($row['u2FACode'] == $code && strtotime($row['u2FAExpiry']) > time()) {
 
     sqlsave("UPDATE user SET u2FACode=NULL, u2FAExpiry=NULL, u2FAStatus=1 WHERE uID='$uid'");
 
-    echo "<script>window.location.href = 'https://liftzone.hu/?o=fiok';</script>";
+    echo "<script>window.parent.location.href = 'https://liftzone.hu/?o=fiok';</script>";
 } else {
     echo "Hibás vagy lejárt kód!";
 }

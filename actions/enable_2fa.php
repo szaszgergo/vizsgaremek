@@ -19,6 +19,6 @@ $email = $user['uemail'];
 
 sendMail($email, "2fa", $code);
 
-echo "<script>window.location.href = 'https://liftzone.hu/?o=2fa';</script>";
+echo "<script>window.parent.location.href = 'https://liftzone.hu/?o=2fa';</script>";
 exit;
 ?>
