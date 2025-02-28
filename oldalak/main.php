@@ -46,7 +46,6 @@
                             alt="<?= htmlspecialchars($termek['teNev']); ?>">
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($termek['teNev']); ?></h5>
-                            <p class="card-text"><?= htmlspecialchars($termek['teLeiras']); ?></p>
                             <p class="card-text"><strong>Price:</strong> <?= htmlspecialchars($termek['teAr']); ?> Ft</p>
                             <a href="?o=termek&id=<?= $termek['teID']; ?>" class="btn btn-primary">Tovább</a>
                         </div>
