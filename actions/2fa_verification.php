@@ -3,12 +3,21 @@ session_start();
 require("sqlcall.php");
 require("mail.php");
 
-if(isset($_SESSION["uid"])) {
-    $_SESSION["2fa_uid"] = $_SESSION["uid"];
-    $uid = $_SESSION["2fa_uid"];
-}
+// if(isset($_SESSION["uid"])) {
+//     $_SESSION["2fa_uid"] = $_SESSION["uid"];
+//     $uid = $_SESSION["2fa_uid"];
+// }
 
-if (!isset($_SESSION["2fa_uid"])) {
+// if (!isset($_SESSION["2fa_uid"])) {
+//     die("Nincs folyamatban lévő 2FA hitelesítés.");
+// }
+
+if (!isset($_SESSION["uid"]) && isset($_SESSION["2fa_uid"])) {
+    $_SESSION["uid"] = $_SESSION["2fa_uid"];
+}
+$uid = $_SESSION["uid"] ?? null;
+
+if (!$uid) {
     die("Nincs folyamatban lévő 2FA hitelesítés.");
 }
 

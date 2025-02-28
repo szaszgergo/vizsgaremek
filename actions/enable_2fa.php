@@ -3,9 +3,12 @@ session_start();
 require("sqlcall.php");
 require("mail.php");
 
-$uid = $_SESSION["uid"];
+$uid = $_SESSION["uid"] ?? $_SESSION["2fa_uid"];
+if (!$uid) {
+    die("Hiba: nincs bejelentkezett felhasználó.");
+}
 $code = rand(100000, 999999);
-$expiry = date('Y-m-d H:i:s', time() + 300); // 5 percig érvényes
+$expiry = date('Y-m-d H:i:s', time() + 300);
 
 $sql = "UPDATE user SET u2FACode='$code', u2FAExpiry='$expiry' WHERE uID='$uid'";
 sqlsave($sql);

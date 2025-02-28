@@ -28,9 +28,9 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         // }
         if ($row['u2FAStatus'] == 0) {
             $_SESSION['2fa_uid'] = $uid;
-            echo "<script>window.location.href = 'https://liftzone.hu/actions/enable_2fa.php';</script>";
+            header("Location: https://liftzone.hu/actions/enable_2fa.php");
             exit;
-        }
+        }        
 
         //lementjuk a tovabbiakert
         $_SESSION["uid"] = $uid;
