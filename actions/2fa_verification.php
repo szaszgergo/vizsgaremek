@@ -31,7 +31,7 @@ if ($row['u2FACode'] == $code && strtotime($row['u2FAExpiry']) > time()) {
     $_SESSION["uid"] = $uid;
 
     sqlsave("UPDATE user SET u2FACode=NULL, u2FAExpiry=NULL, u2FAStatus=1 WHERE uID='$uid'");
-
+    sendMail($row['uemail'], "2fa_enable");
     echo "<script>window.parent.location.href = 'https://liftzone.hu/?o=fiok';</script>";
 } else {
     echo "Hibás vagy lejárt kód!";

@@ -64,3 +64,7 @@ if (isset($_SESSION["2fa_uid"])) {
 <form action="actions/enable_2fa.php" method="POST">
     <button type="submit" class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</button>
 </form>
+
+<form action="actions/disable_2fa.php" method="POST">
+    <button type="submit" class="btn btn-danger">Kétlépcsős azonosítás kikapcsolása</button>
+</form>
