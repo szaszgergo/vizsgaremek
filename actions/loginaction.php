@@ -21,9 +21,14 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     if (password_verify($password, $hashedpassword)) {
         $uid = $row['uID'];
         // Ellenőrizzük, hogy szükséges-e 2FA
-        if (!empty($row['u2FACode']) && strtotime($row['u2FAExpiry']) > time()) {
+        // if (!empty($row['u2FACode']) && strtotime($row['u2FAExpiry']) > time()) {
+        //     $_SESSION['2fa_uid'] = $uid;
+        //     header("Location: http://liftzone.hu/?o=2fa");
+        //     exit;
+        // }
+        if ($row['u2FAStatus'] == 0) {
             $_SESSION['2fa_uid'] = $uid;
-            header("Location: http://liftzone.hu/?o=2fa");
+            header("Location: http://liftzone.hu/enable_2fa.php");
             exit;
         }
 
@@ -53,7 +58,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         if ($result_ip->num_rows == 0) {
             $token = bin2hex(random_bytes(32));
             $sql_insert_token = "INSERT INTO megbizhato (megUID, megIP, megDatum, megStatus, megToken, megEmail) 
-                                 VALUES ('$uid', '$ip', '$curdate', '0', '$token', '$email')";
+                                 VALUES ('$uid', '$ip', '$curdate', '$curdate', '$token', '$email')";
             sqlsave($sql_insert_token);
 
             $confirm_link = "https://liftzone.hu/actions/ip_megerosites.php/?token=$token";
