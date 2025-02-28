@@ -1,6 +1,13 @@
+<?php
+session_start();
+if (isset($_SESSION["2fa_uid"])) {
+    unset($_SESSION["2fa_uid"]);
+}
+?>
+
 <div class="col-md-8">
     <form enctype="multipart/form-data" class="profile-container" action="actions/fiok_adat_valtoztatas.php" method="POST" target="kisablak"
-     id="inputcontainer">
+        id="inputcontainer">
         <div class="profile-header">
             <?php
             $profilePic = empty($adatok['uProfilePic']) ? '../images/pic.png' : 'profile_pic/' . $adatok['uProfilePic'];
@@ -44,7 +51,7 @@
 
         <div class="mb-3">
             <p><?= $languageContent["pwChange"] ?></p>
-            
+
         </div>
 
 

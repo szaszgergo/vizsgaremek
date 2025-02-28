@@ -1,6 +1,9 @@
+<?php
+session_start();
+?>
 <div id="fiokrow" class="row fiokrow">
     <div class="col">
-        <form id="jelszoform" class="form bg-transparentblack text-light fiok" action="actions/2fa_verification.php" method="post" target='kisablak'>
+        <form id="jelszoform" class="form bg-transparentblack text-light fiok" action="actions/2fa_verification.php" method="post">
             <div id='error-message' class='alert alert-danger' style='display: none;'></div>
             <div class="mb-3" id='password-container'>
                 <label for="InputPassword" class="form-label">Emailben küldött kód</label>
