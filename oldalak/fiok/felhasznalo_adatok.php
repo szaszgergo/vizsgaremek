@@ -1,6 +1,5 @@
 <?php
 session_start();
-require("sqlcall.php");
 
 var_dump($_SESSION["uid"], $_SESSION["2fa_uid"]);
 
