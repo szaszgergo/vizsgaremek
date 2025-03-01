@@ -18,6 +18,7 @@ Edzőterem weboldal + mobil alkalmazás
 |--|--|--|
 | PHP, MySQL | HTML JavaScript, CSS | React native |
 
+# Commitok a dev ágon láthatóak
 
 # Vizsgaremek indoklása:
 
