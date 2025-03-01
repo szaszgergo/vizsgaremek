@@ -1,8 +1,21 @@
 <?php
 session_start();
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
+require("sqlcall.php");
+
+var_dump($_SESSION["uid"], $_SESSION["2fa_uid"]);
+
+$uid = $_SESSION["uid"] ?? $_SESSION["2fa_uid"];
+$sql = "SELECT * FROM user WHERE uID='$uid' AND u2FAStatus=1";
+
+$result = sqlcall($sql);
+if ($result->num_rows > 0) {
+    $on = true;
+} else {
+    $on = false;
+}
+
+var_dump($on);
+
 if (isset($_SESSION["2fa_uid"])) {
     unset($_SESSION["2fa_uid"]);
 }
@@ -63,26 +76,12 @@ if (isset($_SESSION["2fa_uid"])) {
             id="btn-save"><?= $languageContent["saveChanges"] ?></button>
     </form>
 
-    <?php
-    require("sqlcall.php");
-    var_dump($_SESSION["uid"], $_SESSION["2fa_uid"]);
-    $uid = $_SESSION["uid"] ?? $_SESSION["2fa_uid"];
-    $sql = "SELECT * FROM user WHERE uID='$uid' AND u2FAStatus=1";
-    $result = sqlcall($sql);
-    if ($result->num_rows > 0) {
-        $on = true;
-    } else {
-        $on = false;
-    }
-    var_dump($on);
-    ?>
-
-    <form action="actions/enable_2fa.php" method="POST">
-        <button type="submit" class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</button>
-    </form>
-
-    <form action="actions/disable_2fa.php" method="POST">
-        <button type="submit" class="btn btn-danger">Kétlépcsős azonosítás kikapcsolása</button>
-    </form>
-
 </div>
+
+<form action="actions/enable_2fa.php" method="POST">
+    <button type="submit" class="btn btn-success">Kétlépcsős azonosítás bekapcsolása</button>
+</form>
+
+<form action="actions/disable_2fa.php" method="POST">
+    <button type="submit" class="btn btn-danger">Kétlépcsős azonosítás kikapcsolása</button>
+</form>
