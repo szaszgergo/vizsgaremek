@@ -38,6 +38,21 @@ $adatok = getUserInfo();
                         <a class="btn btn-danger m-2" href="?o=admin&a=felhasznalo_kezeles&search=">Admin</a>
                     </div>
                 <?php endif; ?>
+                <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"): ?>
+                    <?php
+                    $edzoid_sql = "SELECT szeID  FROM szemelyi_edzok WHERE szeUID = ?";
+                    $edzoid_result = sqlcall($edzoid_sql, 'i', [$_SESSION['uid']]);
+                    $edzoid = null;
+                    while ($row2 = $edzoid_result->fetch_assoc()) {
+                        $edzoid = $row2['szeID'];
+                        echo $edzoid;
+                    }
+                    ?>
+                    <!-- leolvasuk a user id es abbol megszerezuk a eid-t a href-hez -->
+                    <div class="col-auto">
+                        <a class="btn btn-danger m-2" href="?o=edzok&eid=<?php echo $edzoid ?>">Edzoi oldal</a>
+                    </div>
+                <?php endif; ?>
                 <!-- Cart Icon -->
                 <div class="col-auto">
                     <div class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#kosarpopup">
