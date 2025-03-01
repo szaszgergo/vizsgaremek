@@ -73,9 +73,9 @@ if (isset($_SESSION["2fa_uid"])) {
 </div>
 
 <form action="actions/enable_2fa.php" method="POST" target="kisablak">
-    <button type="submit" class="btn btn-success" <?= ($on===true) ? "disabled" : "" ?>>Kétlépcsős azonosítás bekapcsolása</button>
+    <button type="submit" class="btn btn-success" <?= ($on===true) ? "disabled" : "" ?>><?= $languageContent["2FATurnOn"] ?></button>
 </form>
  <div>
-    <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#login2fa" <?= ($on===false) ? "disabled" : "" ?>>Kétlépcsős azonosítás kikapcsolása</button>
+    <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#login2fa" <?= ($on===false) ? "disabled" : "" ?>><?= $languageContent["2FATurnOff"] ?></button>
  </div>
   

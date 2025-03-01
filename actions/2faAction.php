@@ -2,13 +2,10 @@
 session_start();
 require("sqlcall.php");
 require("formhandling.php");
-var_dump($_POST);
 
 if (isset($_POST["felhasznalonev"]) && isset($_POST["jelszo"])) {
     $name = $_POST["felhasznalonev"];
     $password = $_POST["jelszo"];
-
-    var_dump($uid);
 
     $sqllekerdezes = "SELECT * FROM user WHERE uFelhasznalonev = '$name' OR uemail = '$name'";
     $tabla = sqlcall($sqllekerdezes);

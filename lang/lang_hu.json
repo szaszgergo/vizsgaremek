@@ -184,6 +184,8 @@
     "availablePasses": "Elérhető bérletek",
     "noAvailablePasses": "Nincs elérhető inaktív vagy lejárt jegyed.",
     "noActivePass": "Nincs aktív jegyed.",
+    "2FATurnOn": "Kétlépcsős azonosítás bekapcsolása",
+    "2FATurnOff": "Kétlépcsős azonosítás kikapcsolása",
 
 
 
