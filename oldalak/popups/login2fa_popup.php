@@ -15,7 +15,7 @@
                     </div>
                     <div class='mb-3' id='password-container'>
                         <label for='InputPassword' class='form-label'><?= $languageContent["pw"] ?></label>
-                        <input type='password' class='form-control form-control-dark' name='jelszo'>
+                        <input type='password' class='form-control form-control-dark' name='jelszo' id="InputPassword">
                         <img style='margin-top:17px;' src='images/hidden.png' id='eyeIcon' class='eye-icon' alt='Show/Hide Password'>
                     </div>
             </div>

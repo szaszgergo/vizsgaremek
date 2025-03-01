@@ -187,6 +187,8 @@
     "availablePasses": "Available Passes",
     "noAvailablePasses": "You have no available passes",
     "noActivePass": "You have no active passes",
+    "2FATurnOn": "Turn on two-step identification",
+    "2FATurnOff": "Turn off two-step identification",
 
     
 
