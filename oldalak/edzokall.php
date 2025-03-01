@@ -78,7 +78,7 @@
 
     <div class="row edzo m-1">
         <?php
-        if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"):
+        if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"):
             $result = sqlcall("SELECT * FROM szemelyi_edzok");
         else:
             $result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeVisibility = 1");
@@ -89,14 +89,15 @@
             <div class="col-md-3">
                 <div class="edzo-item">
                     <div class="thefront">
-                        <img src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>" alt="Edző képe" />
+                        <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>" alt="Edző képe" />
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>" class="edzo-nev"><?php echo htmlspecialchars($row['szeuFelhasznalonev']); ?></a>
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>">
-                            <button type="button" class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb'] ?></button>    
+                            <button type="button" class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb'] ?></button>
                         </a>
                     </div>
+
                     <div class="theback">
-                    <h4><i class="fa-solid fa-location-dot" style="font-size:24px;"></i> Csepel</h4><br>
+                        <h4><i class="fa-solid fa-location-dot" style="font-size:24px;"></i> Csepel</h4><br>
                         <h5><?= $languageContent['tobbInfo'] ?></h5>
                         <div class="row">
                             <div class="col-md-4 p-2 m-2">
@@ -108,9 +109,9 @@
                                 <p><?php echo $row['szeTelefon'] ?></p>
                                 <p><?php echo $row['szeEmail'] ?></p>
                                 <p>
-                                <?php
+                                    <?php
                                     echo htmlspecialchars($row['szeVegzetseg']);
-                                ?>
+                                    ?>
                                 </p>
                             </div>
                         </div>

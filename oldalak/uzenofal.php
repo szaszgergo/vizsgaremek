@@ -13,7 +13,8 @@ if (isset($_GET['page-nr'])) {
     $start = $page * $rows_per_page;
 }
 
-$adatok = sqlcall("SELECT * FROM uzenofal LIMIT $start, $rows_per_page");
+$adatok = sqlcall("SELECT * FROM uzenofal ORDER BY uzenoDatum DESC LIMIT $start, $rows_per_page");
+
 ?>
 
 <h1 id="uzenoCim"><?= $languageContent["hambiUzenofal"] ?></h1>

@@ -103,6 +103,11 @@
     input[type="checkbox"] {
         display: none;
     }
+    input,textarea{
+        border: none !important;
+
+    }
+
 
     .week-controls {
         text-align: center;
