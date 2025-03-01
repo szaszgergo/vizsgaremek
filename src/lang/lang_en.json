@@ -1,0 +1,289 @@
+{
+    "title": "Frequently Asked Questions",
+
+    "fiok?": "Why do I need to create an account?",
+    "szolgaltasok": "You can use the services of LiftZone clubs if you have a personal online account, which you can create by clicking the link below. If you are unable to create your profile, we can assist you in creating your account in person at any of our clubs! Once logged into your account, you can see your current balance, check your membership expiration date, and update your personal information.",
+    "fiokKlubb?": "Which LiftZone club is my created account linked to?",
+    "regisztralas": "You only need to register once on this platform, and your registration will be valid in all LiftZone clubs. Please specify which LiftZone club you visit regularly when you register. When booking online, please ensure that you book services at the correct club!",
+    "idkJelszo?": "What happens if I forget my password?",
+    "megvaltoztatas": "If you forget your password, you’ll find a 'Forgot Password' button at the bottom of the page. Click it, enter your email address, and we’ll send you an email with a link to reset your password.",
+    "oraDb?": "How can I book a class?",
+    "foglalas": "If you already have an online account, click on the tabs above to access services! Once you select the class you want, click on it, and your booking is done! You can read more about group class booking details in the Class Booking Policy. Policies may vary by club. You can view your booking by logging into your profile. If you are unable to book, please try on liftzone.hu.",
+    "lemondas?": "How can I cancel a class?",
+    "lemondItt": "You can cancel a spot at least 60 minutes before the class starts HERE.",
+
+
+
+    "title2": "House Rules",
+
+    "uzemelteto:": "The operator of the LiftZone clubs is",
+    "cegAdatok": "LiftZone Hungary Ltd <br> Company Registration Number: 01 09 376249 <br> Tax Number: 12459872-2-41 <br> Bank Account Number: 12010501-01370929-00100006 <br> Headquarters: 1134 Budapest, Váci út 29-31 <br> Mailing Address: 1082 Budapest, Futó u. 48-50. <br>",
+    "hazirendCelja": "<spam class='text-warning'>The purpose of the House Rules,</spam> is to define the behavior expected between guests and other individuals in LiftZone clubs and to establish the fundamental rules essential for providing high-quality service. Additionally, it prescribes requirements not covered by other rules, ensuring the proper use, maintenance, and safe operation of LiftZone clubs.",
+    "14evAlatt": "<spam class='text-warning'>In the case of minors under the age of 14,</spam> only their legal representative/parent may register on their behalf.",
+    "1416evKozott": "<spam class='text-warning'>For minors aged 14-16,</spam> valid registration and the use of club services require the consent of their legal representative/parent, which can be found HERE. For online registration, consent is given by filling out the downloadable form from the website and submitting it either in person during the minor's first visit to the club or by returning it via post.",
+    "felhivas": "We would like to remind our guests that minors may  <spam class='text-danger'>only use our services with the permission and continuous supervision (!) of a trainer</spam>. Further details are available in the specific club's house rules:",
+    "link1": "LiftZone Corvin – House Rules",
+    "link2": "LiftZone Etele – House Rules",
+    "link3": "LiftZone Nyugati – House Rules",
+    "link4": "LiftZone Springday – House Rules",
+    "link5": "LiftZone Váci 35 – House Rules",
+    "link6": "LiftZone Flórián – House Rules",
+    "link7": "LiftZone – Class Booking Policy",
+
+
+
+
+    "comment": "navbar.php",
+
+    "utca": "4222 Budapest, Utca St. 117",
+    "nyitvatartas": "6:00 AM - 11:00 PM",
+    "loginBtn": "Login",
+    "signupBtn": "Sign Up",
+    "logoutBtn": "Logout",
+    "hu": "Hungarian",
+    "en": "English",
+    "hambiArak": "Our Prices",
+    "hambiEdzok": "Trainers",
+    "hambiGaleria": "Gallery",
+    "hambiFaqs": "Frequently Asked Questions",
+    "hambiHazirend": "House Rules",
+    "hambiUzenofal": "Message board",
+
+
+
+    "comment2": "main.php",
+
+    "udv": "Welcome to LiftZone Gym!",
+    "hypeSzoveg": "Achieve your fitness goals with us. Join a community of motivated individuals and transform your body and mind.",
+    "csatlakozz": "Join",
+    "miertNalunk": "Why Train with Us?",
+    "csoportosOrak": "GROUP CLASSES",
+    "proHozzaferes": "Professional trainers Access all classes with a single pass",
+    "edzes": "INDIVIDUAL, PRIVATE, SMALL GROUP TRAINING",
+    "tanacsadas": "Diet and lifestyle counseling Functional and CrossFit classes",
+    "gyere": "Visit our gym!",
+    "cimunk": "Budapest, King Jimmy St. 1, 1112",
+    "email": "info@liftzone.hu",
+    "tel": "+36 50 121 73 04",
+    "nyitva": "We’re open 24/7, and our group classes follow the schedule available on the website! We hope to welcome you as a member soon!",
+    "terkep": "Map",
+    "modernGepek": "Modern <br> <span>Equipment</span>",
+    "modernGepekSzovege": "At LiftZone Fitness, you'll find the latest equipment. These are the same machines found in the best gyms worldwide, as well as in the newly opening gyms of ARNOLD and MADONNA.",
+    "ar": "Our Prices",
+    "fitnessCardio": "Fitness <br> <span>& Cardio</span>",
+    "fitnessCardioSzovege": "If your goal is weight loss or improving endurance, we have great news. Alongside hardcore training, our gym also offers excellent opportunities for fitness, cardio, and aerobic workouts.",
+    "info": "More Information",
+    "szponzorok": "Sponsors",
+    "partnerek": "Personal Trainers",
+    "tovabbgomb": "More info",
+    "irjNekunk": "Write to us",
+    "lepjKapcsolatba": "For questions, feedback, or issues, please send us an email or write here. Don’t hesitate to get in touch!",
+    "uzenetLabel": "Message:",
+    "kuldes": "Send",
+    "products": "Products",
+    "toProducts": "Go to the Products",
+    "readMore": "Read More",
+    "noNews": "No news available at the moment.",
+
+
+
+
+    "comment3": "footer.php",
+
+    "adatvedelmi": "Privacy Policy",
+    "copyright": "Copyright © 2024 LiftZone Gym. All rights reserved.",
+
+
+
+    "comment4": "adatvedelem.php",
+    
+    "adatkezelo": "The Data Controller",
+    "adatkezeloNeve": "Data Controller Name: LiftZone",
+    "szekhely": "Headquarters: Budapest, King Jimmy St. 18, 1212",
+    "emailCim": "Email Address: <a class='text-warning' href='mailto:info@liftzone.hu'>info@liftzone.hu</a>",
+    "telefonszam": "Phone Number: +36 50 121 73 04",
+    "adatkezeles": "The Data We Process",
+    "adatokTipusai": "The types of data we process are as follows:",
+    "elsoTipus": "User account information: user password (encoded), username, phone number, email address.",
+    "masodikTipus": "Browser size: the height and width of the user’s browser display.",
+    "adatGyujtesCelja": "Purpose of Data Collection",
+    "felhasznalasa": "The data we collect is used for the following purposes:",
+    "elsoCel": "User account: Data is used for identification and authentication of the user account.",
+    "masodikCel": "Browser size: Data is used to improve the user experience on our website.",
+    "adatfeldolgozok": "Data Processors",
+    "altalunkHasznaltak": "The data processors we use are as follows:",
+    "szolgaltatok": "Service Providers: We collaborate with organizations providing services to fulfill the services we offer.",
+    "idotartam": "Data Storage Duration",
+    "tarolas": "The data we process is stored indefinitely.",
+    "jogaiCim": "Rights of Data Subjects",
+    "jogaiLeiras": "Data subjects have the right to amend their provided data. Rights include access, rectification, deletion, restriction, and data portability.",
+    "panaszCim": "Complaints",
+    "panaszLeiras": "If you have any questions about data protection or wish to file a complaint, please contact us at the following:",
+    "mail": "Email Address: <a class='text-warning' href='mailto:info@liftzone.hu'>info@liftzone.hu</a>",
+    "number": "Phone Number: +36 50 121 73 04",
+    "panaszTeves": "Furthermore, if you feel that your data protection rights have been violated, you have the right to file a complaint with the relevant authority.",
+    "frissitesCim": "Updates to the Privacy Policy",
+    "frissitesLeiras": "The privacy policy is regularly updated to comply with legislative changes and modifications to our services. The latest update of the privacy policy: 2024.10.22.",
+    "tudomasulVetel": "By using LiftZone services, you acknowledge that the data we collect is used for the data processing purposes above, and you accept the terms in the privacy policy.",
+    "eszrevetel": "If you have further questions or comments regarding data processing, please contact us via our contact information. Thank you for your trust, and we hope our services help you achieve your fitness goals and maintain your health!",
+    "sutiCim": "Cookies Used on the Site",
+    "sutiLeiras": "Please note that since the purpose of cookies is to facilitate or enable the usability and processes of our website, blocking or deleting cookies may prevent you from fully using our website’s features, and the website may not function as intended in your browser. For information on cookie settings for the most popular browsers, see the following links:",
+    "Google Chrome": "Google Chrome",
+    "Firefox": "Firefox",
+    "Microsoft Internet Explorer 11": "Microsoft Internet Explorer 11",
+    "Microsoft Internet Explorer 10": "Microsoft Internet Explorer 10",
+    "Microsoft Internet Explorer 9": "Microsoft Internet Explorer 9",
+    "Microsoft Internet Explorer 8": "Microsoft Internet Explorer 8",
+    "Microsoft Edge": "Microsoft Edge",
+    "Safari": "Safari",
+
+
+
+    "comment5": "loginform.php",
+
+    "nameOrEmail": "Username/email",
+    "pw": "Password",
+    "login": "Log In",
+
+
+
+    "comment6": "registerform.php",
+
+    "signup": "Sign Up",
+    "usernameLabel": "Username",
+    "emailLabel": "Email Address",
+    "pwLabel": "Password",
+    "pwLeiras": "64 characters long, special characters",
+    "birthdateLabel": "Date of Birth",
+    "captchaLabel": "Calculate the result:",
+    "elfogadomLabel": "I accept the terms <a href='' class='text-warning'>adawfawfafwfaw</a>",
+
+
+
+    "comment7": "fiok.php",
+
+    "name": "Real Name",
+    "RealNameLabel":"Birth Name",
+    "edit": "Edit",
+    "newProfilePic": "New Profile Picture",
+    "pwChange": "If you want to change your password, you can do it <a id='jelszomodositas' href='?o=jelszomodositasform'>here</a>.",
+    "saveChanges": "Save Changes",
+    "ervenyes": "VALID:",
+    "nap": "DAY",
+    "hasznalatok": "Number of Uses",
+    "nincsJegy": "You have no valid ticket",
+    "vasarlas": "Buy",
+    "billing": "Billing Information",
+    "myPasses": "My passes",
+    "activePasses": "Active Passes",
+    "active": "Active",
+    "inactive": "Inactive",
+    "delete": "Delete",
+    "activate": "Activate",
+    "expired": "Expired",
+    "passType": "Pass Type",
+    "status": "Status",
+    "action": "Action",
+    "availablePasses": "Available Passes",
+    "noAvailablePasses": "You have no available passes",
+    "noActivePass": "You have no active passes",
+    "2FATurnOn": "Turn on two-step identification",
+    "2FATurnOff": "Turn off two-step identification",
+
+    
+
+    "berletarak": "Membership Prices",
+    "felnottek": "Adult",
+    "diak_nyugdijas": "Student / Senior",
+    "tipus": "Type",
+    "price": "Price",
+    "berletek": [
+        { "tipus": "Monthly Pass", "felnottek_ar": "19 900 Ft", "diak_nyugdijas_ar": "17 900 Ft" },
+        { "tipus": "Day Pass", "felnottek_ar": "2 990 Ft", "diak_nyugdijas_ar": "2 490 Ft" },
+        { "tipus": "Three-Month Pass", "felnottek_ar": "49 900 Ft", "diak_nyugdijas_ar": "45 900 Ft" },
+        { "tipus": "Six-Month Pass", "felnottek_ar": "99 900 Ft", "diak_nyugdijas_ar": "89 900 Ft" },
+        { "tipus": "Annual Pass", "felnottek_ar": "199 900 Ft", "diak_nyugdijas_ar": "176 900 Ft" },
+        { "tipus": "One-Week Pass", "felnottek_ar": "12 900 Ft", "diak_nyugdijas_ar": "11 900 Ft" },
+        { "tipus": "Ten-Use Pass", "felnottek_ar": "17 900 Ft", "diak_nyugdijas_ar": "15 900 Ft" },
+        { "tipus": "Morning Pass", "felnottek_ar": "16 900 Ft", "diak_nyugdijas_ar": "15 900 Ft" },
+        { "tipus": "Weekend Pass", "felnottek_ar": "12 900 Ft", "diak_nyugdijas_ar": "11 900 Ft" },
+        { "tipus": "Towel Use (Small)", "felnottek_ar": "350 Ft", "diak_nyugdijas_ar": "350 Ft" },
+        { "tipus": "Towel Use (Large)", "felnottek_ar": "450 Ft", "diak_nyugdijas_ar": "450 Ft" }
+    ],
+    "megjegyzes": "*Passes with limited uses are valid for 60 days from the date of purchase.",
+
+
+
+    "comment8": "jelszomodositasform",
+    "oldPw": "Old password",
+    "newPw": "New password",
+    "save": "Save",
+
+
+
+    "comment9": "edzok.php",
+    "elerhetosegek": "Contact Information",
+    "ertekeles": "Rating",
+    "ertekelt": "This user has already rated",
+    "ertekeld": "Rate the trainer:",
+    "ertekelesBekuldes": "Submit Rating",
+    "jelentkezzItt": "If I’ve piqued your interest and you’d like to work with me, sign up here.",
+    "jelentkezes": "Application",
+    "irjEmail": "or send me an email here.",
+    "send": "Send",
+
+
+    "comment10": "edzokall.php",
+    "telefon": "phone number",
+    "vegzettseg": "Qualifications",
+    "tobbInfo": "More information about the trainer",
+
+    "comment11": "webshop.php",
+    "passes": "Passes",
+    "more": "More",
+
+
+
+    "comment12": "kosar.php",
+    "cart": "Cart",
+    "productName": "Product",
+    "amount": "Amount",
+    "buy": "Buy",
+
+
+
+
+    "comment13": "felhasznalo_vasarlas.php",
+    "purchases": "Purchases",
+    "purchaseID": "Purchase ID",
+    "totalAmount": "Total Amount",
+    "purchasedPasses": "Purchased Passes",
+    "timeSpan": "Time Span",
+    "day": "day",
+
+
+
+    "comment14": "pagination",
+    "first": "First",
+    "previous": "Previous",
+    "next": "Next",
+    "last": "Last",
+    "showing": "Showing",
+    "of": "of",
+    "pages": "pages",
+
+
+
+    "comment15": "edzok.php",
+    "public": "Public",
+    "private": "Private",
+    "profilStatus": "Profil status",
+    "uploadPic": "Upload picture",
+    "TrainerReview": "Trainer Review",
+
+
+
+    "comment16": "login2fa_popup.php",
+    "confirmYourPassword": "Please confirm your password",
+    "confirm": "Confirm"
+}
