@@ -1,5 +1,4 @@
 <?php
-//ezis megvan apiba majd torolni
 session_start();
 require("sqlcall.php");
 require("formhandling.php");
