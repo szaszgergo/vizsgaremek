@@ -14,7 +14,7 @@ if (!$uid) {
 
 $code = $_POST["code"];
 
-$sql = "SELECT u2FACode, u2FAExpiry FROM user WHERE uID='$uid'";
+$sql = "SELECT * FROM user WHERE uID='$uid'";
 $result = sqlcall($sql);
 $row = $result->fetch_assoc();
 
