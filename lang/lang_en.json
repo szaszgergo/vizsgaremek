@@ -185,7 +185,7 @@
     "status": "Status",
     "action": "Action",
     "availablePasses": "Available Passes",
-    "noAvailablePass": "You have no available passes",
+    "noAvailablePasses": "You have no available passes",
     "noActivePass": "You have no active passes",
 
     
@@ -277,5 +277,11 @@
     "private": "Private",
     "profilStatus": "Profil status",
     "uploadPic": "Upload picture",
-    "TrainerReview": "Trainer Review"
+    "TrainerReview": "Trainer Review",
+
+
+
+    "comment16": "login2fa_popup.php",
+    "confirmYourPassword": "Please confirm your password",
+    "confirm": "Confirm"
 }

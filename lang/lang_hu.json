@@ -182,7 +182,7 @@
     "status": "Státusz",
     "action":"Művelet",
     "availablePasses": "Elérhető bérletek",
-    "noAvailablePass": "Nincs elérhető inaktív vagy lejárt jegyed.",
+    "noAvailablePasses": "Nincs elérhető inaktív vagy lejárt jegyed.",
     "noActivePass": "Nincs aktív jegyed.",
 
 
@@ -276,5 +276,11 @@
     "private": "Privát",
     "profilStatus": "Profil állapota",
     "uploadPic": "Kép feltöltése",
-    "TrainerReview": "Edző értékelése"
+    "TrainerReview": "Edző értékelése",
+
+
+
+    "comment16": "login2fa_popup.php",
+    "confirmYourPassword": "Kérjük erősítse meg jelszavát",
+    "confirm": "Megerősítés"
 }

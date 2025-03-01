@@ -17,6 +17,6 @@ $email = $user['uemail'];
 
 sendMail($email, "2fa_disable");
 
-echo "<script>window.parent.location.href = 'https://liftzone.hu/actions/kijelentkezes.php';</script>";
+echo "<script>window.parent.location.href = '/actions/kijelentkezes.php';</script>";
 exit;
 ?>
