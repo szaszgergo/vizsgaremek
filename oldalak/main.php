@@ -144,7 +144,7 @@
 
                 <div class="row logos-slide edzo m-1">
                     <?php
-                    $visibility_result = sqlcall("SELECT * FROM szemelyi_edzok");
+                    $visibility_result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeVisibility = 1");
                     while ($row = $visibility_result->fetch_assoc()):
                         $szeKepek = json_decode($row['szeKepek'], true);
                     ?>
