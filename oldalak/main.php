@@ -150,7 +150,7 @@
                     ?>
                         <div class="edzo-item">
                             <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>">
-                                <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>"
+                                <img src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>"
                                     alt="Edző képe" />
 
                             </a>
