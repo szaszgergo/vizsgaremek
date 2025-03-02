@@ -39,7 +39,7 @@
                         $coverImage = $images[0];
                     }
                 }
-                ?>
+            ?>
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card" style="margin: 1rem;">
                         <img src="<?= htmlspecialchars($coverImage); ?>" class="card-img-top"
@@ -94,7 +94,7 @@
             if ($news->num_rows > 0):
                 $legujjabbhir = $news->fetch_assoc();
                 $truncatedText = implode(' ', array_slice(explode(' ', $legujjabbhir['uzenoSzoveg']), 0, 20)) . '...';
-                ?>
+            ?>
                 <div class="col-md-12">
                     <div class="blokk">
                         <div class="card-body">
@@ -136,32 +136,33 @@
 
         <?php
         $visibility_result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeVisibility = 1");
-        if($visibility_result->num_rows > 0):
+        if ($visibility_result->num_rows > 0):
         ?>
 
-        <div class="logos">
-            <h1><?= $languageContent['partnerek'] ?></h1>
+            <div class="logos">
+                <h1><?= $languageContent['partnerek'] ?></h1>
 
-            <div class="row logos-slide edzo m-1">
-                <?php
-                $visibility_result = sqlcall("SELECT * FROM szemelyi_edzok");
-                while ($row = $visibility_result->fetch_assoc()):
-                    $szeKepek = json_decode($row['szeKepek'], true);
+                <div class="row logos-slide edzo m-1">
+                    <?php
+                    $visibility_result = sqlcall("SELECT * FROM szemelyi_edzok");
+                    while ($row = $visibility_result->fetch_assoc()):
+                        $szeKepek = json_decode($row['szeKepek'], true);
                     ?>
-                    <div class="edzo-item">
-                        <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>">
-                            <img src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>"
-                                alt="Edző képe" />
-                        </a>
-                        <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>"
-                            class="edzo-nev"><?php echo htmlspecialchars($row['szeuFelhasznalonev']); ?><br>
-                            <button type="button"
-                                class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb'] ?></button>
-                        </a>
-                    </div>
-                <?php endwhile; ?>
+                        <div class="edzo-item">
+                            <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>">
+                                <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>"
+                                    alt="Edző képe" />
+
+                            </a>
+                            <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>"
+                                class="edzo-nev"><?php echo htmlspecialchars($row['szeuFelhasznalonev']); ?><br>
+                                <button type="button"
+                                    class="btn btn-warning tovabb-gomb"><?= $languageContent['tovabbgomb'] ?></button>
+                            </a>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
             </div>
-        </div>
 
         <?php endif; ?>
 
