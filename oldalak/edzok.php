@@ -914,8 +914,8 @@ require_once 'dialog.php';
             }
         </script>
     <?php endif; ?>
+    <?php endif; ?>
 
     </div>
     </div>
-    <?php endif; ?>
 </div>
