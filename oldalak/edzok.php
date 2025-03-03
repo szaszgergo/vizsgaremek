@@ -569,6 +569,7 @@ require_once 'dialog.php';
 
     <?php endwhile; ?>
     <?php
+    if (isset($_SESSION['uid'])):
     $uid = isset($_SESSION['uid']) ? $_SESSION['uid'] : "";
     $eid = $_GET['eid'];
     $sql = "SELECT * FROM szemelyi_edzok WHERE szeUID = $uid AND szeID = $eid";
@@ -914,6 +915,7 @@ require_once 'dialog.php';
                     .catch(error => console.error('Hiba történt az edző beosztás betöltésekor:', error));
             }
         </script>
+    <?php endif; ?>
     <?php endif; ?>
     </div>
     </div>
