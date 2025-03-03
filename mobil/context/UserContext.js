@@ -14,9 +14,9 @@ export const UserProvider = ({ children }) => {
             const response = await fetch(`http://liftzone.hu/api/useradatok/?uid=${uID}`);
             const result = await response.json();
             setUserData(result.data);
-            console.log("User data fetched", result.data);
+            console.log("Felhasználó adatai megkapva", result.data);
         } catch (error) {
-            console.error("Failed to fetch user data", error);
+            console.error("Nem sikerült lekérni az adatokat", error);
         } finally {
             setLoading(false);
         }
