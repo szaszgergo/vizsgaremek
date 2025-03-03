@@ -306,18 +306,20 @@ require_once 'dialog.php';
                             </p>
 
                             <?php
-                            $uid = isset($_SESSION['uid']) ? $_SESSION['uid'] : "";
-                            $eid = $_GET['eid'];
-                            $sql = "SELECT * FROM szemelyi_edzok WHERE szeUID = $uid AND szeID = $eid";
-                            $result = sqlcall($sql);
-                            $number_of_rows = $result->num_rows;
-                            if ($number_of_rows > 0):
-                            ?>
-                                <div class="btn btn-warning" style="font-size: 1.2rem;" id="edit_leiras">Szerkesztés</div>
-                                <button class="btn btn-warning" style="font-size: 1.2rem;">Mentés</button>
+                            if (isset($_SESSION['uid'])):
+                                $uid = isset($_SESSION['uid']) ? $_SESSION['uid'] : "";
+                                $eid = $_GET['eid'];
+                                $sql = "SELECT * FROM szemelyi_edzok WHERE szeUID = $uid AND szeID = $eid";
+                                $result = sqlcall($sql);
+                                $number_of_rows = $result->num_rows;
+                                if ($number_of_rows > 0):
+                                ?>
+                                    <div class="btn btn-warning" style="font-size: 1.2rem;" id="edit_leiras">Szerkesztés</div>
+                                    <button class="btn btn-warning" style="font-size: 1.2rem;">Mentés</button>
 
-                                <a href="?o=edzok&eid=<?= $eid ?>&visibility=public"><div class="btn btn-success" style="font-size: 1.2rem; float: right; margin-left: 5px; color: #ddd;" id="edit_leiras">Public</div></a>
-                                <a href="?o=edzok&eid=<?= $eid ?>&visibility=private"><div class="btn btn-danger" style="font-size: 1.2rem; float: right; color: #ddd;" id="edit_leiras">Private</div></a>
+                                    <a href="?o=edzok&eid=<?= $eid ?>&visibility=public"><div class="btn btn-success" style="font-size: 1.2rem; float: right; margin-left: 5px; color: #ddd;" id="edit_leiras">Public</div></a>
+                                    <a href="?o=edzok&eid=<?= $eid ?>&visibility=private"><div class="btn btn-danger" style="font-size: 1.2rem; float: right; color: #ddd;" id="edit_leiras">Private</div></a>
+                                <?php endif; ?>
                             <?php endif; ?>
                             <?php
                             if (isset($_GET['visibility']) && $_GET['visibility'] == 'public') {
@@ -566,7 +568,6 @@ require_once 'dialog.php';
 
 
     <?php endwhile; ?>
-    <?php if (isset($_SESSION['uid'])): ?>
     <?php
     $uid = isset($_SESSION['uid']) ? $_SESSION['uid'] : "";
     $eid = $_GET['eid'];
@@ -914,8 +915,6 @@ require_once 'dialog.php';
             }
         </script>
     <?php endif; ?>
-    <?php endif; ?>
-
     </div>
     </div>
 </div>
