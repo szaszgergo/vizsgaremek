@@ -566,6 +566,7 @@ require_once 'dialog.php';
 
 
     <?php endwhile; ?>
+    <?php if (isset($_SESSION['uid'])): ?>
     <?php
     $uid = isset($_SESSION['uid']) ? $_SESSION['uid'] : "";
     $eid = $_GET['eid'];
@@ -916,4 +917,5 @@ require_once 'dialog.php';
 
     </div>
     </div>
+    <?php endif; ?>
 </div>
