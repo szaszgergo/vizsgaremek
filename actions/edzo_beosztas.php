@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $query = "SELECT COUNT(*) AS count FROM edzo_beosztas WHERE ebEID = ? AND eb_idopont = ?";
-        $result = sqlcall($query, [$eid, $idopont]);
+        $result = sqlcall($query, "is", [$eid, $idopont]);
 
         $resultArray = $result->fetch_assoc();
         if ($resultArray && $resultArray['count'] > 0) {
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($newTimes)) {
         foreach ($newTimes as $idopont) {
             $insertQuery = "INSERT INTO edzo_beosztas (ebEID, ebUID, eb_datum, eb_idopont, eb_Status) VALUES (?, ?, ?, ?, ?)";
-            $insertSuccess = sqlsave($insertQuery, [$eid, $_SESSION['uid'], $curdate, $idopont, 0]);
+            $insertSuccess = sqlsave($insertQuery, "iissi", [$eid, $_SESSION['uid'], $curdate, $idopont, 0]);
 
             if (!$insertSuccess) {
                 echo "<script>window.top.postMessage({loginError: 'Hiba történt a foglalás mentése során!'}, '*');</script>";
