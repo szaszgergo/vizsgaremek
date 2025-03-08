@@ -1029,3 +1029,19 @@ h1 {
     background-color: #dc3545;
 }
 /*  */
+
+
+@media (max-width: 500px) {
+    .p-5{
+        padding: 1rem !important;
+    }
+    .m-5{
+        margin: 1rem !important;
+    }
+    .p-3{
+        padding: 0.5rem !important;
+    }
+    .uzenofalKep {
+        height: 200pt;
+    }
+  }
