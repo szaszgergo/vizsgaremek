@@ -1,5 +1,4 @@
-<div class="row">
-    <div class="bg-transparentblack m-4">
+<div class="row profile-container">
         <?php
         if (isset($_SESSION["szerep"])):
             if ($_SESSION["szerep"] == "user"):
@@ -56,5 +55,4 @@
                 <p>Nincs találat az első lekérdezéshez.</p>
             <?php endif; ?>
         <?php endif; ?>
-    </div>
 </div>
