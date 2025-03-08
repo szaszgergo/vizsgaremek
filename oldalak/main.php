@@ -24,6 +24,24 @@
         </div>
     </section>
 
+    <section class="m-5 text-center app-promo">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <h1 class="app-title"><?=$languageContent["liftzoneapp"]?></h1>
+                    <p class="app-subtitle"><?=$languageContent["mobilappleiras"]?></p>
+                    <a href="./downloads/LiftZone.apk" class="btn btn-success btn-lg mt-3" download>
+                        <i class="fa fa-download"></i> <?=$languageContent["appletoltes"]?>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <img src="./images/Mobile.png" class="img-fluid app-image" alt="LiftZone App Preview">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- Webshop Products Section -->
     <section class="m-5">
         <div class="row mb-5">
@@ -115,6 +133,7 @@
             <?php endif; ?>
         </div>
     </section>
+
 
 
     <section class="sliders">
