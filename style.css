@@ -1072,6 +1072,12 @@ h1 {
     .m-5{
         margin: 1rem !important;
     }
+    .p-4{
+        padding: 0.5rem !important;
+    }
+    .m-4{
+        margin: 0.5rem !important;
+    }
     .p-3{
         padding: 0.5rem !important;
     }
