@@ -444,6 +444,9 @@ a {
     .container-fluid{
         justify-content: space-between;
     }
+    .row{
+        justify-content: center;
+    }
     @media (max-width: 860px) {
         .container-fluid {
           justify-content: space-around;
