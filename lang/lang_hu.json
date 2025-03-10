@@ -40,7 +40,7 @@
     "signupBtn": "Regisztráció",
     "logoutBtn": "Kijelentkezés",
     "hu": "Magyar",
-    "en": "Angol",
+    "en": "English",
     "hambiArak": "Áraink",
     "hambiEdzok": "Edzők",
     "hambiGaleria": "Galéria",
@@ -153,7 +153,7 @@
     "pwLeiras": "64 hossz, specialis karakterek",
     "birthdateLabel": "Születési dátum",
     "captchaLabel": "Számítsa ki az eredményt:",
-    "elfogadomLabel": "Elfogadom a cuccokat <a href='' class='text-warning'>adawfawfafwfaw",
+    "elfogadomLabel": "Elolvastam és elfogadom az <a href='?o=adatvedelem' class='text-warning'>Adatkezelési Tájékoztatót</a>",
 
 
 
@@ -249,6 +249,13 @@
     "productName": "Termék",
     "amount": "Mennyiség",
     "buy": "Vásárlás",
+
+    "kosarba": "Kosárba",
+
+
+    "liftzoneapp": "Töltsd le a LiftZone mobilalkalmazást",
+    "mobilappleiras": "Kezeld a bérleteidet egyszerűen",
+    "appletoltes": "APK letöltése",
 
 
 

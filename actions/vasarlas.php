@@ -51,3 +51,5 @@ sendMail($adatok['uemail'], "vasarlas");
 echo "<script>if(window.parent){window.parent.location.reload();}</script>";
 
 ?>
+
+
