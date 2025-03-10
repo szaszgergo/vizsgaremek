@@ -40,7 +40,7 @@
     "loginBtn": "Login",
     "signupBtn": "Sign Up",
     "logoutBtn": "Logout",
-    "hu": "Hungarian",
+    "hu": "Magyar",
     "en": "English",
     "hambiArak": "Our Prices",
     "hambiEdzok": "Trainers",
@@ -156,7 +156,7 @@
     "pwLeiras": "64 characters long, special characters",
     "birthdateLabel": "Date of Birth",
     "captchaLabel": "Calculate the result:",
-    "elfogadomLabel": "I accept the terms <a href='' class='text-warning'>adawfawfafwfaw</a>",
+    "elfogadomLabel": "I read and accept the <a href='?o=adatvedelem' class='text-warning'>terms of condition</a>",
 
 
 
@@ -250,7 +250,12 @@
     "amount": "Amount",
     "buy": "Buy",
 
+    "kosarba": "Add to cart",
 
+
+    "liftzoneapp": "Get the LiftZone Mobile App",
+    "mobilappleiras": "Handle your passes with ease",
+    "appletoltes": "Download APK",
 
 
     "comment13": "felhasznalo_vasarlas.php",

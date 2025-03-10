@@ -5,7 +5,7 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $eid = $_POST['eid'] ?? null;
     $curdate = date('Y-m-d H:i:s');
-    $currentDate = date('Y-m-d'); // Az aktuális dátum idő nélkül
+    $currentDate = date('Y-m-d'); // Current date without time
     $checkboxval = $_POST['checkboxval'];
 
     var_dump($eid);
@@ -28,65 +28,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $existingTimes = [];
     $newTimes = [];
 
-    // Adatbázis kapcsolat
-    $db = new mysqli('localhost', 'root', '', 'regisztraciofitness');
-    if ($db->connect_error) {
-        die("Adatbázis kapcsolódási hiba: " . $db->connect_error);
-    }
-
     foreach ($checkboxes as $idopont) {
-        // Múltbeli dátum ellenőrzése
+        // Prevent booking past dates
         if (strtotime($idopont) < strtotime($currentDate)) {
             echo "<script>window.top.postMessage({loginError: 'Nem lehet múltbeli időpontot lefoglalni!'}, '*');</script>";
             exit;
         }
 
-        $stmt = $db->prepare("SELECT COUNT(*) AS count FROM edzo_beosztas WHERE ebEID = ? AND eb_idopont = ?");
-        $stmt->bind_param('is', $eid, $idopont);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
+        $query = "SELECT COUNT(*) AS count FROM edzo_beosztas WHERE ebEID = ? AND eb_idopont = ?";
+        $result = sqlcall($query, "is", [$eid, $idopont]);
 
-        if ($row['count'] > 0) {
+        $resultArray = $result->fetch_assoc();
+        if ($resultArray && $resultArray['count'] > 0) {
             $existingTimes[] = $idopont;
         } else {
             $newTimes[] = $idopont;
         }
-
-        $stmt->close();
     }
 
     if (!empty($newTimes)) {
-        $placeholders = [];
-        $params = [];
-        $types = '';
-
         foreach ($newTimes as $idopont) {
-            $placeholders[] = "(?, ?, ?, ?, ?)";
-            $params[] = $eid;
-            $params[] = $_SESSION['uid'];
-            $params[] = $curdate;
-            $params[] = $idopont;
-            $params[] = 0;
-            $types .= 'iissi';
+            $insertQuery = "INSERT INTO edzo_beosztas (ebEID, ebUID, eb_datum, eb_idopont, eb_Status) VALUES (?, ?, ?, ?, ?)";
+            $insertSuccess = sqlsave($insertQuery, "iissi", [$eid, $_SESSION['uid'], $curdate, $idopont, 0]);
+
+            if (!$insertSuccess) {
+                echo "<script>window.top.postMessage({loginError: 'Hiba történt a foglalás mentése során!'}, '*');</script>";
+                exit;
+            }
         }
-
-        $sql = "INSERT INTO edzo_beosztas (ebEID, ebUID, eb_datum, eb_idopont, eb_Status) VALUES " . implode(", ", $placeholders);
-        $stmt = $db->prepare($sql);
-        $stmt->bind_param($types, ...$params);
-
-        if (!$stmt->execute()) {
-            echo "<script>window.top.postMessage({loginError: 'Hiba történt a foglalás mentése során: {$stmt->error}'}, '*');</script>";
-            exit;
-        }
-
-        $stmt->close();
     }
-
-    $db->close();
 
     if (!empty($newTimes)) {
         echo "<script>window.top.postMessage({success: 'Foglalás sikeresen mentve!'}, '*');</script>";
     }
 }
-?>

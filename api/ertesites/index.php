@@ -35,7 +35,7 @@
     $ertesitesi_Datum = date('Y-m-d', strtotime($datum . ' - ' . $lejarat . ' days'));
 
     $sql  = "INSERT INTO `ertesites` ( ertuID, ertDatum, ertjID, ertStatus) VALUES (?,?,?,?)";
-    $result = sqlsave($sql, "isii", array($uid, $datum, $jegy, 1));
+    $result = sqlsave($sql, "isii", array($uid, $ertesitesi_Datum, $jegy, 1));
 
     if (!$result) {
         valaszKuldes(404, 'Hiba történt a mentés közben!');

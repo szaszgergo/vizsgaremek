@@ -51,7 +51,7 @@ if (isset($_GET['id'])):
                     <p><?php echo nl2br(htmlspecialchars($termek['teLeiras'])); ?></p>
                     <form action="actions/kosar_termek_hozzaadas.php" method="POST" target="kisablak">
                     <input type="hidden" name="teID" value="<?php echo htmlspecialchars($id);?>">
-                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    <button type="submit" class="btn btn-primary"><?= $languageContent["kosarba"]?></button>
                     </form>
                 </div>
             </div>

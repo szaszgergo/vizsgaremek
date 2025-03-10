@@ -20,10 +20,14 @@ $result = sqlcall($sql);
 $row = $result->fetch_assoc();
 $email = $row['uemail'];
 
+$ifAlreadyEnabled = $row['u2FAStatus'] == 1;
+
 if ($row['u2FACode'] == $code && strtotime($row['u2FAExpiry']) > time()) {
     $_SESSION["uid"] = $uid;
     sqlsave("UPDATE user SET u2FACode=NULL, u2FAExpiry=NULL, u2FAStatus=1 WHERE uID='$uid'");
-    sendMail($email, "2fa_enable");
+    if(!$ifAlreadyEnabled) {
+        sendMail($email, "2fa_enable");
+    }
     echo "<script>window.parent.location.href = 'https://liftzone.hu/?o=fiok';</script>";
     exit();
 } else {

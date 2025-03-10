@@ -21,7 +21,7 @@ $adatok = getUserInfo();
                     <!-- Felhasználói profil információ -->
                     <div class="col-auto">
                         <span class="navbar-text">
-                            <a href="./?o=fiok" id="felhasznalo_nev" class="d-flex align-items-center">
+                            <a href="./?o=fiok" id="felhasznalo_nev" class="align-items-center">
                                 <?= $adatok['uFelhasznalonev'] ?>
                                 <img alt="Profile Image" class="profile-image"
                                     src="profile_pic/<?= empty($adatok['uProfilePic']) ? '../images/pic.png' : $adatok['uProfilePic'] ?>" />
