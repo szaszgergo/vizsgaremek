@@ -5,7 +5,9 @@ require('actions/api_hivas.php');
 require('actions/getuserinfo.php');
 require('actions/jegy_tipusok.php');
 
-$cimek = [
+if (isset($_SESSION["lang"])) {
+
+$_SESSION["lang"] == "hu" ? $cimek = [
     "arak" => "Áraink | LiftZone",
     "fiok" => "Fiókod | LiftZone",
     "jelszomodositasform" => "Jelszó módosítása | LiftZone",
@@ -22,9 +24,29 @@ $cimek = [
     "foglalas" => "Foglalás | LiftZone",
     "felhasznalo_vasarlas" => "Vásárlásaid | LiftZone",
     "2fa" => "Kétlépcsős azonosítás | LiftZone",
+    "edzokall" => "Személyi Edzőink | LiftZone",
     "" => "Főoldal | LiftZone",
+] : $cimek = [
+    "arak" => "Our Prices | LiftZone",
+    "fiok" => "Your Account | LiftZone",
+    "jelszomodositasform" => "Change Password | LiftZone",
+    "loginform" => "Login | LiftZone",
+    "registerform" => "Registration | LiftZone",
+    "adatvedelem" => "Privacy Policy | LiftZone",
+    "faqs" => "Frequently Asked Questions | LiftZone",
+    "hazirend" => "House Rules | LiftZone",
+    "edzok" => "Our Personal Trainers | LiftZone",
+    "galeria" => "Gallery | LiftZone",
+    "admin" => "Admin Interface | LiftZone",
+    "shop" => "Shop | LiftZone",
+    "uzenofal" => "Message Board | LiftZone",
+    "foglalas" => "Booking | LiftZone",
+    "felhasznalo_vasarlas" => "Your Purchases | LiftZone",
+    "2fa" => "Two-Factor Authentication | LiftZone",
+    "edzokall" => "Our Personal Trainers | LiftZone",   
+    "" => "Homepage | LiftZone",
 ];
-
+};
 $belepettoldalak = [
     "arak" => "oldalak/arak.php",
     "fiok" => "oldalak/fiok.php",
