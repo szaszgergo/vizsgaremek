@@ -5,6 +5,10 @@ require('actions/api_hivas.php');
 require('actions/getuserinfo.php');
 require('actions/jegy_tipusok.php');
 
+if (!isset($_SESSION["lang"])) {
+    $_SESSION["lang"] = "hu";
+}
+
 if (isset($_SESSION["lang"])) {
 
 $_SESSION["lang"] == "hu" ? $cimek = [
