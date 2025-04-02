@@ -1,7 +1,15 @@
-const faqs = document.querySelectorAll(".faqs");
+const questions = document.querySelectorAll(".question");
 
-faqs.forEach(faq => {
-  faq.addEventListener("click", () => {
-    faq.classList.toggle("active");
-  })
-})
+questions.forEach((question) => {
+    question.addEventListener("click", function () {
+        const answer = this.nextElementSibling;
+
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            this.classList.remove("open");
+        } else {
+            answer.style.display = "block";
+            this.classList.add("open");
+        }
+    });
+});
