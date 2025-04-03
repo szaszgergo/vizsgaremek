@@ -45,6 +45,12 @@
         justify-content: space-between;
     }
 
+    @media screen and (max-width: 768px) {
+        .row.edzo {
+            flex-direction: column;
+        }
+    }
+
     .col-md-3 {
         flex: 0 0 25%;
         margin-bottom: 15px;
@@ -89,7 +95,7 @@
             <div class="col-md-3">
                 <div class="edzo-item">
                     <div class="thefront">
-                        <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>" alt="Edző képe" />
+                    <img style="margin-top: 1rem;" src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>" alt="Edző képe" />
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>" class="edzo-nev">
                             <?php echo htmlspecialchars($row['szeuFelhasznalonev']); ?>
                         </a>
