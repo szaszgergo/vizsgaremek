@@ -968,7 +968,7 @@ h1 {
     padding: 15px; 
 }
 .uzenofalKep {
-    height: 400px;
+    height: 400px;  
     object-fit: cover;
     border: 5px solid #999;
 }
@@ -992,7 +992,7 @@ h1 {
     color: #bbb;
 }
 .belsoSzoveg {
-    width: 600px;
+    width: 100%;
     margin: auto;
 }
 /* admin üzenőfal */
@@ -1001,7 +1001,7 @@ h1 {
 }
 
 .form-textarea {
-    width: 500px;
+    width: 80%;    
     height: 40px;
     resize: none;
 }
@@ -1011,12 +1011,18 @@ h1 {
 }
 
 .form-file {
-    width: 500px;
+    width: 80%;
 }
 
 .form-button {
-    width: 500px;
+    width: 80%;
     height: 40px;
+}
+@media screen and (max-width: 768px) {
+    .form-textarea, .form-file, .form-button {
+        width: 100%;
+    }
+    
 }
 /* --- */
 
@@ -1035,6 +1041,16 @@ h1 {
 }
 .pagination-btn.active {
     background-color: #dc3545;
+}
+@media screen and (max-width: 768px) {
+    .pagination-btn {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+    .uzenofalKep {
+        height: 200pt;
+        width: 100%;
+    }
 }
 /*  */
 
@@ -1088,9 +1104,6 @@ h1 {
     }
     .p-3{
         padding: 0.5rem !important;
-    }
-    .uzenofalKep {
-        height: 200pt;
     }
     .form{
         width: 90%;
