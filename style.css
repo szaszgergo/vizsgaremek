@@ -760,7 +760,19 @@ h1 {
 
 /* -sponsor-slider- */
 /* edzok oldal*/
+@media screen and (max-width: 768px) {
+    .edzok {
+        width: 100%;
+    }
+    
+    .edzoPage {
+        flex-direction: column;
+    }
+}
 .edzok{
+    .komment {
+        margin-top: 2rem;
+    }
     hr {
         border: none; /* Eltávolítja az alapértelmezett szegélyt */
         height: 3px; /* Beállítja a vastagságot */
@@ -843,8 +855,7 @@ h1 {
 
     /* style.css */
     .rating-container {
-        text-align: center;
-        margin-top: 50px;
+        margin-top: 2rem;
     }
 
     .stars {
