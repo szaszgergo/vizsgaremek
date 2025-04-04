@@ -75,8 +75,6 @@
     }
 
     .fotablazat {
-        margin: 100px;
-        margin-left: 120px;
         padding: 10px;
         text-align: center;
     }
@@ -189,6 +187,22 @@
         pointer-events: none;
         /* Letiltjuk a kattintási eseményeket */
     }
+
+    @media screen and (max-width: 768px) {
+         .fotablazat th, td, tr {     
+         padding: 0 !important;
+         margin: 0 !important;
+         font-size: 0.7rem;
+         }
+         .row {
+            width: 100% !important;
+            margin: auto !important;
+            padding: 0 !important;
+        }  
+         .container-fluid {
+            padding: 0 !important;
+        }
+     }
 </style>
 
 <?php
