@@ -188,6 +188,12 @@
         /* Letiltjuk a kattintási eseményeket */
     }
 
+    .fotablazat {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
     @media screen and (max-width: 768px) {
          .fotablazat th, td, tr {     
          padding: 0 !important;
