@@ -208,6 +208,13 @@
          .container-fluid {
             padding: 0 !important;
         }
+        .week-controls button {
+            padding: 5px !important;
+            margin: 0 !important;
+        }
+        .week-controls {
+            margin-bottom: 10px !important;
+        }
      }
 </style>
 
