@@ -8,10 +8,58 @@
     }
 
     #prof_pic {
-        width: 90%;
-        height: 700px;
-        border-radius: 20%;
+        width: 80%;
+        height: 400pt;
+        border-radius: 5%;
+        margin: auto;
+    }
 
+    @media screen and (max-width: 768px) {
+        #prof_pic {
+            width: 100%;
+            height: 200pt;
+            margin: 2rem 0;
+
+        }
+
+        .edzoImgContainer {
+            margin-left: 0 !important;
+
+        }
+
+        .submitGomb {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .komment {
+            width: 100% !important;
+            text-align: center;
+            margin: auto !important;
+        }
+        .row {
+            width: 100% !important;
+            margin: auto !important;
+            padding: 0 !important;
+        }
+        .container-fluid {
+            padding: 0 !important;
+        }
+        .kisSunyi, .edzoPage, .ertekelesTextarea {
+            margin: auto !important;
+        }
+        .week-controls button {
+            padding: 5px !important;
+            margin: 0 !important;
+        }
+        .week-controls {
+            margin-bottom: 10px !important;
+        }
+
+    }
+
+    .ertekelesTextarea {
+        background-color: #eee;
     }
 
     #gombok {
@@ -43,7 +91,8 @@
     .komment {
         border: solid #ffcc00 3px;
         border-radius: 5px;
-        width: 88%;
+        margin: auto;
+        width: 80%;
     }
 
     .comment-image {
@@ -75,10 +124,17 @@
     }
 
     .fotablazat {
-        margin: 100px;
-        margin-left: 120px;
-        padding: 10px;
-        text-align: center;
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        .fotablazat th, td, tr {
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 0.7rem;
+    }
     }
 
     .checkbox-cell {
@@ -103,7 +159,9 @@
     input[type="checkbox"] {
         display: none;
     }
-    input,textarea{
+
+    input,
+    textarea {
         border: none !important;
 
     }
@@ -133,6 +191,7 @@
         font-weight: bold;
         margin: 0px;
     }
+
     .popup-overlay {
         position: fixed;
         top: 0;
@@ -198,6 +257,7 @@ require_once 'dialog.php';
                 <?php
                 $result = sqlcall("SELECT * FROM szemelyi_edzok WHERE szeID = " . intval($_GET['eid']));
                 while ($row = $result->fetch_assoc()):
+                    $szeEmail = isset($row['szeEmail']) ? $row['szeEmail'] : "";
                     $szeKepek = json_decode($row['szeKepek'], true);
                     $szeSocialMedia = json_decode($row['szeElerhetoseg'], true);
                     $galeriakepek = isset($szeKepek['galeriakepeim']) ? $szeKepek['galeriakepeim'] : [];
@@ -205,27 +265,28 @@ require_once 'dialog.php';
                         array_unshift($galeriakepek, $szeKepek['profilkep']);
                     }
                 ?>
-                <?php
-                $eid = intval($_GET['eid']);
-                $check_status = sqlcall("SELECT szeVisibility FROM szemelyi_edzok WHERE szeID = $eid");
-                ?>
-                    <div class="row-md-12 m-4 p-1">
+                    <?php
+                    $eid = intval($_GET['eid']);
+                    $check_status = sqlcall("SELECT szeVisibility FROM szemelyi_edzok WHERE szeID = $eid");
+                    ?>
+                    <div class="row-md-12 m-4 p-1 kisSunyi">
                         <h1>
-                        <input class="leiras_textarea" name="mentes_nev" type="text" value="<?= $row['szeuFelhasznalonev']; ?>" placeholder="Teljes név..." readonly style="background: transparent; color: #fff;">
-                        &nbsp;<?= $languageContent["profilStatus"] ?>: 
-                        <?php
-                        if($check_status->fetch_assoc()["szeVisibility"] == 1) {
-                            echo $languageContent["public"];
-                        } else {
-                            echo $languageContent["private"];
-                        }
-                        ?>
+                            <input class="leiras_textarea" name="mentes_nev" type="text" value="<?= $row['szeuFelhasznalonev']; ?>" readonly placeholder="Teljes név..." style="color: #ffc107; background: transparent;">
+                            <p style="color: #ffc107; margin: 0 !important;"><?= $languageContent["profilStatus"] ?>:
+                            <?php
+                            if ($check_status->fetch_assoc()["szeVisibility"] == 1) {
+                                echo $languageContent["public"];
+                            } else {
+                                echo $languageContent["private"];
+                            }
+                            ?>
+                            </p>
                         </h1>
                         <h3><i class="fa-solid fa-location-dot" style="font-size:24px;"></i> Csepel</h3>
                         <hr class="text-warning">
                     </div>
                     <!-- ide -->
-                    <div class="d-flex bg-transparentblack m-3 p-5">
+                    <div class="d-flex bg-transparentblack m-3 p-5 edzoPage">
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col">
@@ -278,9 +339,9 @@ require_once 'dialog.php';
                                         echo "</div>";
                                     }
                                     ?>
-                                    <?php if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"): ?>
-                                    <h3 class='mt-1'><?= $languageContent["uploadPic"] ?></h3>
-                                    <input id="kep_feltoltes" name="mentes_kep" type="file" >
+                                    <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] == "edzo"): ?>
+                                        <h3 class='mt-1'><?= $languageContent["uploadPic"] ?></h3>
+                                        <input id="kep_feltoltes" name="mentes_kep" type="file" style="max-width: 100%;">
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -300,7 +361,7 @@ require_once 'dialog.php';
                             <hr class="text-warning">
                             <!-- innen -->
                             <p class="motivational-text">
-                                <textarea style="background: transparent; color: #fff; resize: none; width: 100%; min-height: 400px;" readonly class="leiras_textarea" name="edzo_leirasa"> <?= $row['szeLeiras']; ?> </textarea>
+                                <textarea style="background: #fff; color: #000; resize: none; width: 100%; min-height: 400px;" readonly class="leiras_textarea" name="edzo_leirasa"> <?= $row['szeLeiras']; ?> </textarea>
                             </p>
 
                             <?php
@@ -311,12 +372,16 @@ require_once 'dialog.php';
                                 $result = sqlcall($sql);
                                 $number_of_rows = $result->num_rows;
                                 if ($number_of_rows > 0):
-                                ?>
+                            ?>
                                     <div class="btn btn-warning" style="font-size: 1.2rem;" id="edit_leiras">Szerkesztés</div>
                                     <button class="btn btn-warning" style="font-size: 1.2rem;">Mentés</button>
 
-                                    <a href="?o=edzok&eid=<?= $eid ?>&visibility=public"><div class="btn btn-success" style="font-size: 1.2rem; float: right; margin-left: 5px; color: #ddd;" id="edit_leiras">Public</div></a>
-                                    <a href="?o=edzok&eid=<?= $eid ?>&visibility=private"><div class="btn btn-danger" style="font-size: 1.2rem; float: right; color: #ddd;" id="edit_leiras">Private</div></a>
+                                    <a href="?o=edzok&eid=<?= $eid ?>&visibility=public">
+                                        <div class="btn btn-success" style="font-size: 1.2rem; float: right; margin-left: 5px; color: #ddd;" id="edit_leiras">Public</div>
+                                    </a>
+                                    <a href="?o=edzok&eid=<?= $eid ?>&visibility=private">
+                                        <div class="btn btn-danger" style="font-size: 1.2rem; float: right; color: #ddd;" id="edit_leiras">Private</div>
+                                    </a>
                                 <?php endif; ?>
                             <?php endif; ?>
                             <?php
@@ -328,211 +393,218 @@ require_once 'dialog.php';
                                 sqlcall($sql);
                             }
                             ?>
-                        </form>
-                        <!-- Csillagos értékelés és forma -->
-                        <?php if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
-                        <div class="rating-container ">
-                            <h2><?= $languageContent["ertekeld"] ?></h2>
-                            <form id="rating-form" action="actions/edzo_ertekeles.php" target="kisablak" method="POST">
-                                <div class="stars ">
-                                    <?php for ($i = 1; $i <= 5; $i++): ?>
-                                        <span class="star" data-value="<?php echo $i; ?>">&#9733;</span>
-                                    <?php endfor; ?>
-                                </div>
-                                <input type="hidden" id="star-value" name="star_value" value="0">
-                                <input name="eid" value="<?php echo htmlspecialchars($_GET['eid']); ?>" type="hidden">
-                                <button type="submit" class="btn btn-warning " style="font-size:20px; margin-left:20px;"><?= $languageContent["ertekelesBekuldes"] ?></button>
-                            </form>
-                            <p id="error" style="color:red;"></p>
+    </form>
+
+    <div class="row">
+
+        <div class="p-3" style="text-align: center;">
+            <!-- Csillagos értékelés és forma -->
+            <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
+                <div class="rating-container" style="margin: auto !important;">
+                    <h2><?= $languageContent["ertekeld"] ?></h2>
+                    <form id="rating-form" action="actions/edzo_ertekeles.php" target="kisablak" method="POST">
+                        <div class="stars ">
+                            <?php for ($i = 1; $i <= 5; $i++): ?>
+                                <span class="star" data-value="<?php echo $i; ?>">&#9733;</span>
+                            <?php endfor; ?>
                         </div>
-                        <?php endif; ?>
+                        <input type="hidden" id="star-value" name="star_value" value="0">
+                        <input name="eid" value="<?php echo htmlspecialchars($_GET['eid']); ?>" type="hidden">
+                        <button type="submit" class="btn btn-warning submitGomb"><?= $languageContent["ertekelesBekuldes"] ?></button>
+                    </form>
+                    <p id="error" style="color:red;"></p>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
 
-                        <script>
-                            // Csillag értékelési script
-                            document.querySelectorAll('.star').forEach(star => {
-                                star.addEventListener('click', function() {
-                                    const starValue = this.getAttribute('data-value');
-                                    document.getElementById('star-value').value = starValue;
-                                    document.querySelectorAll('.star').forEach(s => {
-                                        s.style.color = (parseInt(s.getAttribute('data-value')) <= starValue) ? 'gold' : 'gray';
-                                    });
-                                });
-                            });
+    <script>
+        // Csillag értékelési script
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function() {
+                const starValue = this.getAttribute('data-value');
+                document.getElementById('star-value').value = starValue;
+                document.querySelectorAll('.star').forEach(s => {
+                    s.style.color = (parseInt(s.getAttribute('data-value')) <= starValue) ? 'gold' : 'gray';
+                });
+            });
+        });
 
-                            document.getElementById('rating-form').addEventListener('submit', function(event) {
-                                if (document.getElementById('star-value').value === "0") {
-                                    event.preventDefault();
-                                    alert("Kérlek válassz egy csillagot!");
-                                }
-                            });
-                        </script>
-                            <div class="row">
-                                <div class="col-md-6 p-3">
-                                    <p><?= $languageContent["jelentkezzItt"] ?></p>
-                                    <p><?= $languageContent["irjEmail"] ?> <br> <i class="fa fa-envelope m-1" aria-hidden="true" style="font-size: 24px;"></i>
-                                        <?php print "<span class='text-warning'> " . $row["szeEmail"] . " </span>" ?>
-                                    </p>
-                                </div>
-                                <div class="col-md-6 p-3">
-                                    <?php if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
-                                    <h1>Időpont foglalás:</h1>
-                                    <button id="booking-button" type="button" class="btn btn-warning" style="font-size:20px;">
-                                        <?= $languageContent["jelentkezes"] ?>
-                                    </button>
-                                    <script>
-                                        document.getElementById('booking-button').addEventListener('click', function() {
-                                            <?php if (!isset($_SESSION['uid'])): ?>
-                                                document.getElementById('error-message').style.display = 'block';
-                                            <?php else: ?>
-                                                window.top.location.href = '/foglalas/?eid=<?php echo $row['szeID']; ?>';
-                                            <?php endif; ?>
-                                        });
-                                    </script>
-                                    <div id="error-message" class="alert alert-danger mt-3 p-1" style="display: none; width:88%;">Nem vagy bejelentkezve!</div>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
+        document.getElementById('rating-form').addEventListener('submit', function(event) {
+            if (document.getElementById('star-value').value === "0") {
+                event.preventDefault();
+                alert("Kérlek válassz egy csillagot!");
+            }
+        });
+    </script>
 
-                        </div>
-                        <div class="col-md-6" style="margin-left: 50px;">
-                            <!-- pfp -->
-                            <?php if (count($galeriakepek) > 1): ?>
-                                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                        <?php foreach ($galeriakepek as $index => $kep): ?>
-                                            <li id="gombok" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $index; ?>" class="<?php echo $index === 0 ? 'active' : ''; ?>"></li>
-                                        <?php endforeach; ?>
-                                    </ol>
+</div>
+<div class="col-md-6 edzoImgContainer" style="margin-left: 50px;">
+    <!-- pfp -->
+    <?php if (count($galeriakepek) > 1): ?>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <?php foreach ($galeriakepek as $index => $kep): ?>
+                    <li id="gombok" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $index; ?>" class="<?php echo $index === 0 ? 'active' : ''; ?>"></li>
+                <?php endforeach; ?>
+            </ol>
 
-                                    <div class="carousel-inner">
-                                        <?php foreach ($galeriakepek as $index => $kep): ?>
-                                            <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                                                <img id="prof_pic" class="d-block" src="<?php echo $kep; ?>" alt="Slide <?php echo $index + 1; ?>">
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
+            <div class="carousel-inner">
+                <?php foreach ($galeriakepek as $index => $kep): ?>
+                    <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                        <img id="prof_pic" class="d-block" src="<?php echo $kep; ?>" alt="Slide <?php echo $index + 1; ?>">
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                            <?php else: ?>
-                                <img id="prof_pic" class="d-block" src="<?php echo $row['szeKepek']; ?>" alt="Profilkép">
-                                <style>
-                                    #carouselExampleIndicators .carousel-control-prev,
-                                    #carouselExampleIndicators .carousel-control-next,
-                                    #carouselExampleIndicators .carousel-indicators li {
-                                        display: none;
-                                    }
-                                </style>
-                            <?php endif; ?>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    <?php else: ?>
+        <img id="prof_pic" class="d-block" src="<?php echo $row['szeKepek']; ?>" alt="Profilkép">
+        <style>
+            #carouselExampleIndicators .carousel-control-prev,
+            #carouselExampleIndicators .carousel-control-next,
+            #carouselExampleIndicators .carousel-indicators li {
+                display: none;
+            }
+        </style>
+    <?php endif; ?>
 
-                            <!-- PFP VÉGE -->
+    <!-- PFP VÉGE -->
 
-                            <div class="komment">
-                                <?php if(isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
-                                <h2 style="margin:15px;"><?= $languageContent["TrainerReview"] ?></h2>
-                                <?php
-                                        $existing_comment = "";
+    <div class="komment" style="background-color: #fff; color: #000;">
+        <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
+            <h2 style="margin:15px;"><?= $languageContent["TrainerReview"] ?></h2>
+            <?php
+                        $existing_comment = "";
 
-                                        if (isset($_SESSION['uid'])) {
-                                            $faszom = "SELECT ekKomment FROM edzok_kommentek WHERE ekUserID=? AND ekSzeID=?";
-                                            $result_faszom = sqlcall($faszom, 'ii', [$_SESSION['uid'], $eid]);
+                        if (isset($_SESSION['uid'])) {
+                            $faszom = "SELECT ekKomment FROM edzok_kommentek WHERE ekUserID=? AND ekSzeID=?";
+                            $result_faszom = sqlcall($faszom, 'ii', [$_SESSION['uid'], $eid]);
 
-                                            if ($result_faszom->num_rows > 0) {
-                                                $row = $result_faszom->fetch_assoc();
-                                                $existing_comment = trim($row['ekKomment']);
-                                            }
-                                        }
-                                ?>
+                            if ($result_faszom->num_rows > 0) {
+                                $row = $result_faszom->fetch_assoc();
+                                $existing_comment = trim($row['ekKomment']);
+                            }
+                        }
+            ?>
 
-                                <form action="actions/komment_ir.php" target="kisablak" method="post">
-                                    <input type="hidden" name="eid" value="<?php echo $_GET['eid']; ?>">
+            <form action="actions/komment_ir.php" target="kisablak" method="post">
+                <input type="hidden" name="eid" value="<?php echo $_GET['eid']; ?>">
 
-                                    <textarea style="width: 95%; height: 150px; margin-left:15px; border-radius:5px; resize: none; text-align: left; padding: 0; border: 1px solid #ccc;"
-                                        placeholder="Üzenet" name="textarea_komment" id="textarea_komment" maxlength="300"
-                                        <?php if (!empty($existing_comment)) echo 'readonly'; ?>>
+                <textarea style="width: 100%; height: 150px; border-radius:5px; resize: none; text-align: left; padding: 0; border: 1px solid #ccc;"
+                    placeholder="Üzenet" name="textarea_komment" id="textarea_komment" maxlength="300" class="ertekelesTextarea"
+                    <?php if (!empty($existing_comment)) echo 'readonly'; ?>>
                             <?php echo htmlspecialchars($existing_comment); ?>
                         </textarea>
 
 
-                                    <button id="elkuldkomment" type="submit" class="btn btn-warning" style="font-size:20px; margin:15px;"
-                                        <?php if (!empty($existing_comment)) echo 'style="display:none;"'; ?>>
-                                        <?= $languageContent["kuldes"] ?>
-                                    </button>
-                                    <?php endif;?>
-                                    <div class="row">
-                                        <div class="col-md-3"> <button id="szerkezdkomment_valtoztatas" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="button"><?php echo $languageContent['edit']; ?></button>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <button id="szerkezdkomment" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="submit" formaction="actions/komment_valtoztatas.php" class="btn btn-danger"><?php echo $languageContent['send']; ?></button>
-                                            <script>
-                                                document.getElementById('szerkezdkomment_valtoztatas').addEventListener('click', function() {
-                                                    const textarea = document.getElementById('textarea_komment');
-
-                                                    if (textarea.hasAttribute('readonly')) {
-                                                        textarea.removeAttribute('readonly');
-
-                                                    } else {
-                                                        textarea.setAttribute('readonly', 'true');
-                                                        textarea.style.backgroundColor = '';
-                                                        textarea.style.borderColor = '';
-                                                    }
-                                                });
-
-                                                const editBtn = document.getElementById('edit_leiras')
-                                                let leiras = document.querySelectorAll('.leiras_textarea')
-                                                let kep = document.getElementById('kep_feltoltes')
-
-                                                editBtn.onclick = function() {
-                                                    leiras.forEach(element => {
-                                                        if (element.hasAttribute('readonly')) {
-                                                            element.removeAttribute('readonly')
-                                                            element.style.backgroundColor = "#fff"
-                                                            element.style.color = "black"
-                                                        } else {
-                                                            element.setAttribute('readonly', 'true')
-                                                            element.style.backgroundColor = "transparent"
-                                                            element.style.color = "#fff"
-                                                        }
-                                                    });
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-
-                                    <?php
-                                        if (isset($_SESSION['uid'])) {
-                                            $sql_ertekelte = "SELECT ekUserID FROM edzok_kommentek WHERE ekUserID=? AND ekSzeID=?";
-                                            $result_felhasznalok = sqlcall($sql_ertekelte, 'ii', [$_SESSION['uid'], $eid]);
-
-                                            if ($result_felhasznalok->num_rows > 0) {
-
-                                                echo "<script>document.getElementById('szerkezdkomment_valtoztatas'). = 'block';</script>";
-                                                echo "<script>document.getElementById('szerkezdkomment').style.display = 'block';</script>";
-                                                echo "<script>document.getElementById('szerkezdkomment_valtoztatas').style.display = 'block';</script>";
-                                                echo "<script>document.getElementById('elkuldkomment').style.display = 'none';</script>";
-                                            }
-                                        }
-                                    ?>
-                                </form>
-                            </div>
-
-                            <div id='error-message' class='alert alert-danger mt-3 p-1' style='display: none; width:88%;'></div>
-                            <div id="success-message" class="mt-3 p-1" style="display: none; width:88%; background-color:#28a745; color: #fff; border-radius: 5px;">
-                            </div>
-                        </div>
-
+                <button id="elkuldkomment" type="submit" class="btn btn-warning" style="font-size:20px; margin:15px;"
+                    <?php if (!empty($existing_comment)) echo 'style="display:none;"'; ?>>
+                    <?= $languageContent["kuldes"] ?>
+                </button>
+            <?php endif; ?>
+            <div class="row">
+                <div class="col-md-3"> <button id="szerkezdkomment_valtoztatas" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="button"><?php echo $languageContent['edit']; ?></button>
                 </div>
-    <div class="row">
-        <div class="kommentek_kiiratas">
+                <div class="col-md-3">
+                    <button id="szerkezdkomment" class="btn btn-warning" style="font-size:20px; margin:15px; display:none;" type="submit" formaction="actions/komment_valtoztatas.php" class="btn btn-danger"><?php echo $languageContent['send']; ?></button>
+                    <script>
+                        document.getElementById('szerkezdkomment_valtoztatas').addEventListener('click', function() {
+                            const textarea = document.getElementById('textarea_komment');
+
+                            if (textarea.hasAttribute('readonly')) {
+                                textarea.removeAttribute('readonly');
+
+                            } else {
+                                textarea.setAttribute('readonly', 'true');
+                                textarea.style.backgroundColor = '';
+                                textarea.style.borderColor = '';
+                            }
+                        });
+
+                        const editBtn = document.getElementById('edit_leiras')
+                        let leiras = document.querySelectorAll('.leiras_textarea')
+                        let kep = document.getElementById('kep_feltoltes')
+
+                        editBtn.onclick = function() {
+                            leiras.forEach(element => {
+                                if (element.hasAttribute('readonly')) {
+                                    element.removeAttribute('readonly')
+                                    element.style.backgroundColor = "#fff"
+                                    element.style.color = "black"
+                                } else {
+                                    element.setAttribute('readonly', 'true')
+                                    element.style.backgroundColor = "transparent"
+                                    element.style.color = "#fff"
+                                }
+                            });
+                        }
+                    </script>
+                </div>
+            </div>
+
             <?php
-            $result = sqlcall("SELECT uFelhasznalonev, ekKomment, ekDatum, uProfilePic FROM user, edzok_kommentek WHERE ekUserID = uID AND ekSzeID=$eid AND ek_Status=1 ORDER BY ekDatum DESC");
+                    if (isset($_SESSION['uid'])) {
+                        $sql_ertekelte = "SELECT ekUserID FROM edzok_kommentek WHERE ekUserID=? AND ekSzeID=?";
+                        $result_felhasznalok = sqlcall($sql_ertekelte, 'ii', [$_SESSION['uid'], $eid]);
+
+                        if ($result_felhasznalok->num_rows > 0) {
+
+                            echo "<script>document.getElementById('szerkezdkomment_valtoztatas'). = 'block';</script>";
+                            echo "<script>document.getElementById('szerkezdkomment').style.display = 'block';</script>";
+                            echo "<script>document.getElementById('szerkezdkomment_valtoztatas').style.display = 'block';</script>";
+                            echo "<script>document.getElementById('elkuldkomment').style.display = 'none';</script>";
+                        }
+                    }
+            ?>
+            </form>
+    </div>
+
+    <div id='error-message' class='alert alert-danger mt-3 p-1' style='display: none; width:88%;'></div>
+    <div id="success-message" class="mt-3 p-1" style="display: none; width:88%; background-color:#28a745; color: #fff; border-radius: 5px;">
+    </div>
+
+    <div style="width: 80%; margin: auto; margin-top: 2rem;">
+        <p><?= $languageContent["jelentkezzItt"] ?></p>
+        <p><?= $languageContent["irjEmail"] ?> <br> <i class="fa fa-envelope m-1" aria-hidden="true" style="font-size: 24px;"></i>
+            <?php print "<span class='text-warning'> " . $szeEmail . " </span>" ?>
+        </p>
+    </div>
+
+    <div style="width: 80%; margin: auto;">
+        <?php if (isset($_SESSION["szerep"]) && $_SESSION["szerep"] != "edzo"): ?>
+            <h1>Időpont foglalás:</h1>
+            <button id="booking-button" type="button" class="btn btn-warning" style="font-size:20px;">
+                <?= $languageContent["jelentkezes"] ?>
+            </button>
+            <script>
+                document.getElementById('booking-button').addEventListener('click', function() {
+                    <?php if (!isset($_SESSION['uid'])): ?>
+                        document.getElementById('error-message').style.display = 'block';
+                    <?php else: ?>
+                        window.top.location.href = '/foglalas/?eid=<?php echo $row['szeID']; ?>';
+                    <?php endif; ?>
+                });
+            </script>
+            <div id="error-message" class="alert alert-danger mt-3 p-1" style="display: none; width:88%;">Nem vagy bejelentkezve!</div>
+        <?php endif; ?>
+    </div>
+
+</div>
+
+</div>
+<div class="row" style="margin: auto;">
+    <div class="kommentek_kiiratas">
+        <?php
+                    $result = sqlcall("SELECT uFelhasznalonev, ekKomment, ekDatum, uProfilePic FROM user, edzok_kommentek WHERE ekUserID = uID AND ekSzeID=$eid AND ek_Status=1 ORDER BY ekDatum DESC");
 
                     if ($result->num_rows > 0) {
                         echo "<h2 class='m-3'>Vélemények:</h2>";
@@ -559,15 +631,15 @@ require_once 'dialog.php';
                     } else {
                         echo "Nincs találat.";
                     }
-            ?>
-        </div>
+        ?>
     </div>
+</div>
 
 
 
-    <?php endwhile; ?>
-    <?php
-    if (isset($_SESSION['uid'])):
+<?php endwhile; ?>
+<?php
+if (isset($_SESSION['uid'])):
     $uid = isset($_SESSION['uid']) ? $_SESSION['uid'] : "";
     $eid = $_GET['eid'];
     $sql = "SELECT * FROM szemelyi_edzok WHERE szeUID = $uid AND szeID = $eid";
@@ -577,7 +649,7 @@ require_once 'dialog.php';
         <div class="row">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12 bg-transparentblack">
+                    <div class=" bg-transparentblack">
                         <h2>Időpont megadás</h2>
                         <h5>GMT+01:00</h5>
                         <div class="week-controls">
@@ -588,7 +660,7 @@ require_once 'dialog.php';
                                 <div id="checkboxes-container"></div> <!-- Ide kerülnek a checkboxok -->
                                 <input type="hidden" name="eid" value="<?php print_r($_GET['eid']) ?>">
                                 <button id="idomentes">Mentés</button>
-    
+
                             </form>
                         </div>
                         <div class="fotablazat">
@@ -730,11 +802,11 @@ require_once 'dialog.php';
                 const dateStr = `${currentYear}-${(dayDate.getMonth() + 1).toString().padStart(2, '0')}-${dayDate.getDate().toString().padStart(2, '0')}`;
                 const timeRange = Adatok[rowIndex].ido;
                 checkbox.value = `${dateStr} ${timeRange}`; // Checkbox érték beállítása
-                td.addEventListener("click", function () {
+                td.addEventListener("click", function() {
                     showPopup(td, td);
                 });
 
-                td.addEventListener("click", function () {
+                td.addEventListener("click", function() {
                     if (!td.classList.contains("loaded")) { // Csak ha nem betöltött cella
                         checkbox.checked = !checkbox.checked;
                         td.classList.toggle("checked", checkbox.checked);
@@ -768,12 +840,12 @@ require_once 'dialog.php';
 
                     // AJAX kérés az adatok lekérésére
                     fetch("./actions/get_user_data.php", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded"
-                        },
-                        body: `timerange=${encodeURIComponent(timerange)}`
-                    })
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/x-www-form-urlencoded"
+                            },
+                            body: `timerange=${encodeURIComponent(timerange)}`
+                        })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
@@ -914,7 +986,7 @@ require_once 'dialog.php';
             }
         </script>
     <?php endif; ?>
-    <?php endif; ?>
-    </div>
-    </div>
+<?php endif; ?>
+</div>
+</div>
 </div>

@@ -19,7 +19,7 @@ $adatok = getUserInfo();
                     </div>
                 <?php else: ?>
                     <!-- Felhasználói profil információ -->
-                    <div class="col-auto">
+                    <div class="col-sm-12 col-md-auto col-lg-auto text-center">
                         <span class="navbar-text">
                             <a href="./?o=fiok" id="felhasznalo_nev" class="align-items-center">
                                 <?= $adatok['uFelhasznalonev'] ?>

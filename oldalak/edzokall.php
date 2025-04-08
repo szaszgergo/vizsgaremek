@@ -2,9 +2,10 @@
     .edzo-item {
         position: relative;
         width: 100%;
+        max-width: 400px;
+        min-width: 300px;
         height: 400px;
         text-align: center;
-        margin: 10px;
         background-color: black;
         border-radius: 15px;
         padding: 10px;
@@ -18,16 +19,15 @@
     }
 
     .edzo-item img {
-        width: 100%;
-        max-width: 300px;
-        height: 300px;
-        border-radius: 10px;
+        width: 90%;
+        height: 70%;
+        object-fit: cover;
+        border: 2px solid #ff9900;
         transition: transform 0.5s ease;
     }
 
     .edzo-nev {
         display: block;
-        margin-top: 10px;
         font-size: 18px;
         font-weight: bold;
         color: white;
@@ -46,9 +46,11 @@
     }
 
     .col-md-3 {
-        flex: 0 0 25%;
+        flex: 1 1 400px;
         margin-bottom: 15px;
         padding: 10px;
+        display: flex;
+        justify-content: center;
     }
 
     .thefront,
@@ -89,7 +91,7 @@
             <div class="col-md-3">
                 <div class="edzo-item">
                     <div class="thefront">
-                        <img src="./<?php echo isset($szeKepek['profilkep']) ? $szeKepek['profilkep'] : 'images/default.jpg'; ?>" alt="Edző képe" />
+                        <img style="margin-top: 1rem;" src="./<?php echo isset($row['szeKepek']) ? $row['szeKepek'] : 'images/default.jpg'; ?>" alt="Edző képe" />
                         <a href="./?o=edzok&eid=<?php echo $row['szeID']; ?>" class="edzo-nev">
                             <?php echo htmlspecialchars($row['szeuFelhasznalonev']); ?>
                         </a>

@@ -63,7 +63,7 @@
         </svg>
         </div>
         <div class="answer">
-        <p><?= $languageContent['lemondItt']?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <p><?= $languageContent['lemondItt']?></p>
         </div>
     </div>
     </section>

@@ -170,7 +170,6 @@ a {
         }
         
         .edzo-nev {
-        margin-top: 10px;
         color: white;
         font-size: 24px;
         margin-left: 25px;
@@ -444,6 +443,9 @@ a {
     .container-fluid{
         justify-content: space-between;
     }
+    .row{
+        justify-content: center;
+    }
     @media (max-width: 860px) {
         .container-fluid {
           justify-content: space-around;
@@ -548,70 +550,75 @@ h1 {
 }
 
 /* faqs.php */
-.faqs_section
-{
-  min-height: 100vh;
-  width: 60%;
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--transparent-black);
-  border-radius: 2rem;
+.faqs_section {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
 }
 
-.title
-{
-  font-size: 3rem;
-  margin: 2rem 0;
+.faqs_section .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-.faqs
-{
-  max-width: 700px;
-  margin-top: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #fff;
-  cursor: pointer;
+.faqs {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
 }
 
-.question
-{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.question h3
-{
-  font-size: 1.8rem;
+.question:hover {
+    background-color: #e1e1e1;
 }
 
-.answer
-{
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 1s ease-in-out;
+.question svg {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
 }
 
-.answer p
-{
-  padding-top: 1rem;
-  line-height: 1.6;
-  font-size: 1.4rem;
+.answer {
+    display: none;
+    padding: 15px;
+    font-size: 16px;
+    color: #666;
+    background-color: #fff;
 }
 
-.faqs.active .answer
-{
-  max-height: 300px;
-}
+@media screen and (max-width: 600px) {
+    .faqs_section {
+        width: 90%;
+        padding: 15px;
+    }
 
-.faqs.active svg {
-    transform: rotate(180deg);
-}
+    .question {
+        font-size: 16px;
+        padding: 12px;
+    }
 
-.faqs_svg {
-    transition: transform 0.5s ease-in;
+    .answer {
+        font-size: 14px;
+        padding: 10px;
+    }
 }
 
 .flag-icon {
@@ -622,7 +629,7 @@ h1 {
 
 .dropdown-item .flag-icon {
     margin-right: 8px;
-}
+} 
 /* --- */
 
 /* hazirend.php */
@@ -752,7 +759,19 @@ h1 {
 
 /* -sponsor-slider- */
 /* edzok oldal*/
+@media screen and (max-width: 768px) {
+    .edzok {
+        width: 100%;
+    }
+    
+    .edzoPage {
+        flex-direction: column;
+    }
+}
 .edzok{
+    .komment {
+        margin-top: 2rem;
+    }
     hr {
         border: none; /* Eltávolítja az alapértelmezett szegélyt */
         height: 3px; /* Beállítja a vastagságot */
@@ -835,8 +854,7 @@ h1 {
 
     /* style.css */
     .rating-container {
-        text-align: center;
-        margin-top: 50px;
+        margin-top: 2rem;
     }
 
     .stars {
@@ -960,7 +978,7 @@ h1 {
     padding: 15px; 
 }
 .uzenofalKep {
-    height: 400px;
+    height: 400px;  
     object-fit: cover;
     border: 5px solid #999;
 }
@@ -984,16 +1002,17 @@ h1 {
     color: #bbb;
 }
 .belsoSzoveg {
-    width: 600px;
+    width: 100%;
     margin: auto;
 }
 /* admin üzenőfal */
 .form-container {
-    text-align: center;
+    max-width: 600px;
+    margin: auto;
 }
 
 .form-textarea {
-    width: 500px;
+    width: 100%;    
     height: 40px;
     resize: none;
 }
@@ -1003,12 +1022,20 @@ h1 {
 }
 
 .form-file {
-    width: 500px;
+    width: 100%;
 }
 
 .form-button {
-    width: 500px;
+    width: 100%;
     height: 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+     .form-container {
+        width: 80%;
+    }
+    
 }
 /* --- */
 
@@ -1027,6 +1054,16 @@ h1 {
 }
 .pagination-btn.active {
     background-color: #dc3545;
+}
+@media screen and (max-width: 768px) {
+    .pagination-btn {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+    .uzenofalKep {
+        height: 200pt;
+        width: 100%;
+    }
 }
 /*  */
 
@@ -1072,10 +1109,16 @@ h1 {
     .m-5{
         margin: 1rem !important;
     }
+    .p-4{
+        padding: 0.5rem !important;
+    }
+    .m-4{
+        margin: 0.5rem !important;
+    }
     .p-3{
         padding: 0.5rem !important;
     }
-    .uzenofalKep {
-        height: 200pt;
+    .form{
+        width: 90%;
     }
   }
